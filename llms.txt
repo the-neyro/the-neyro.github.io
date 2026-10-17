@@ -16,6 +16,7 @@ Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf d
 ## Blog
 
 - [Wirkung statt Scheinpunkte | Nextfix-Blog](https://the-neyro.github.io/blog/wirkung-statt-punkte/): Aufgaben in Nextfix zeigen jetzt „Wirkung hoch, mittel oder gering“ statt „+4,2 Punkte“. Warum eine genaue Zahl hier täuscht.
+- [Vier Aufgaben später: von 49 auf 82 | Nextfix-Blog](https://the-neyro.github.io/blog/vier-aufgaben-spaeter/): Wir haben an der Demo-Website die ersten vier Aufgaben aus „Was jetzt tun“ wirklich erledigt und neu geprüft. Was sich geändert hat und was nicht.
 - [Die Website hat ein neues Gesicht | Nextfix-Blog](https://the-neyro.github.io/blog/neue-website/): Sieben Prüfer haben die Nextfix-Website zerlegt. Was sie gefunden haben, was wir geändert haben und was noch kommt.
 - [Websites, die erst im Browser entstehen | Nextfix-Blog](https://the-neyro.github.io/blog/javascript-websites/): Manche Websites schicken fast leeres HTML und bauen den Inhalt per JavaScript. Nextfix erkennt das jetzt und kann solche Seiten auch richtig prüfen.
 - [Domain-Stärke ohne Abo | Nextfix-Blog](https://the-neyro.github.io/blog/domain-staerke-ohne-abo/): Nextfix zeigt jetzt, wie stark deine Domain im Vergleich zur Konkurrenz ist, mit den kostenlosen Daten von Open PageRank.

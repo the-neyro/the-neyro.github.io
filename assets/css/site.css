@@ -438,31 +438,54 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .page-head .shot--task + .statement { margin-top: 3rem; }
 
 
-/* ---------- Sortier-Szene: 43 Fundstellen → Aufgaben ---------- */
-.sort { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; padding-block: calc(var(--section) / 2); }
-.sort__replay { margin-top: 1.5rem; }
-.sort__stage { position: relative; min-height: 30rem; background: var(--code-bg); color: #e9e8ee; border-radius: 10px; overflow: clip; padding: 1rem;
-  box-shadow: 0 24px 48px -28px rgb(28 27 34 / 0.45); } /* taste-skill-ignore: dunkle Bühne für die Szene */
-.sort__count { font-size: 0.8125rem; color: #a9a6b4; padding: 0.25rem 0.25rem 0.6rem; font-family: var(--font-code); }
-.sort__count strong { color: #fff; font-weight: 600; }
-.sort__list { columns: 2 16rem; column-gap: 1rem; font-size: 0.75rem; line-height: 1.35; }
-.fund { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); column-gap: 0.4rem; padding: 0.22rem 0.25rem; break-inside: avoid; border-radius: 3px; }
-.fund__art { font-family: var(--font-code); font-size: 0.6875rem; }
-.fund--error .fund__art { color: #ff8a80; } .fund--warning .fund__art { color: #ffc46b; } .fund--notice .fund__art { color: #9fb4ff; }
-.fund__name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.fund__pfad { grid-column: 2; color: #8d8a98; font-family: var(--font-code); font-size: 0.6875rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sort__tasks { position: absolute; inset: auto 1rem 1rem 1rem; display: grid; gap: 0.5rem; }
-.sort__task { display: flex; gap: 0.75rem; align-items: flex-start; background: #fff; color: #1B1F2A; border-radius: 6px; padding: 0.8rem 1rem;
-  box-shadow: 0 10px 24px -12px rgb(0 0 0 / 0.5); font-size: 1rem; line-height: 1.3; } /* taste-skill-ignore: Aufgabenkarte */
-.sort__task strong { font-weight: 600; display: block; }
-.sort__nr { flex: none; min-width: 1.6rem; height: 1.6rem; display: grid; place-items: center; border-radius: 50%; background: var(--accent); color: #fff; font-size: 0.8125rem; font-weight: 600; }
-.sort__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.3rem; font-size: 0.8125rem; color: #596070; }
-.sort__task--more { background: #f4f4f6; color: #596070; }
-.sort__task--more .sort__nr { background: #c9cbd2; color: #1B1F2A; }
-/* Ohne JS/reduziert: Endzustand – Liste gedimmt, Aufgaben stehen */
-.sort__wall { transition: opacity 600ms ease, filter 600ms ease; }
-.sort.is-sorted .sort__wall, html:not(.js) .sort__wall { opacity: 0.28; filter: saturate(0.4); }
-@media (max-width: 56em) { .sort { grid-template-columns: minmax(0, 1fr); } .sort__stage { min-height: 34rem; } }
+/* ---------- Szene „Rauschen → Fokus“: aus der Wolke der Fundstellen schält sich die nächste Aufgabe ---------- */
+.fokus { position: relative; margin: 2rem 0 0; aspect-ratio: 16 / 9; min-height: 22rem; max-height: 46rem; border-radius: 14px; overflow: clip; background: #121117;
+  box-shadow: 0 30px 60px -30px rgb(18 17 23 / 0.6); isolation: isolate; } /* taste-skill-ignore: Bühne der Szene */
+.fokus canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.fokus__hud { position: absolute; left: 1.1rem; top: 0.9rem; right: 1.1rem; display: flex; justify-content: space-between; gap: 1rem;
+  font: 500 0.75rem/1.3 var(--font-code); color: #9f9bb0; letter-spacing: 0.02em; pointer-events: none; }
+.fokus__hud b { color: #fff; font-weight: 600; }
+.fokus__frame { position: absolute; left: 50%; top: 50%; width: min(30rem, 80%); transform: translate(-50%, -50%); padding: 1.1rem 1.3rem; color: #fff;
+  pointer-events: none; opacity: 0; transition: opacity 400ms ease; }
+.fokus.is-focus .fokus__frame, html:not(.js) .fokus__frame { opacity: 1; }
+.fokus__frame::before { content: ""; position: absolute; inset: 0; border: 1.5px solid rgb(255 255 255 / 0.9); border-radius: 4px; background: rgb(18 17 23 / 0.78);
+  clip-path: inset(0 100% 0 0); transition: clip-path 700ms var(--ease-out); }
+.fokus.is-focus .fokus__frame::before, html:not(.js) .fokus__frame::before { clip-path: inset(0 0 0 0); box-shadow: 0 0 0 1px rgb(199 185 255 / 0.25), 0 0 40px rgb(140 115 255 / 0.35); }
+.fokus__label { position: relative; display: block; font: 500 0.6875rem/1 var(--font-code); color: #c7b9ff; letter-spacing: 0.08em; text-transform: uppercase; }
+.fokus__task { position: relative; display: block; margin-top: 0.6rem; font: 600 clamp(1.05rem, 0.8rem + 1vw, 1.5rem)/1.25 var(--font-text); min-height: 2.5em; }
+.fokus__meta { position: relative; display: block; margin-top: 0.5rem; font-size: 0.875rem; line-height: 1.3; color: #c9c6d6; min-height: 1.3em; }
+.fokus__meta .hoch { color: #7fe0a6; font-weight: 600; }
+.fokus .scr { color: #8f86c9; }
+.fokus__ctrl { position: absolute; right: 0.9rem; bottom: 0.8rem; font-size: 0.8125rem; font-weight: 500; color: #fff; background: rgb(255 255 255 / 0.1);
+  border: 1px solid rgb(255 255 255 / 0.22); border-radius: 6px; padding: 0.4rem 0.7rem; }
+.fokus__ctrl:focus-visible { outline-color: #c7b9ff; }
+.fokus__liste { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1rem; font-size: 0.9375rem; color: var(--muted); }
+.fokus__liste li { display: inline-flex; align-items: center; gap: 0.5rem; }
+.fokus__liste .tag { font-size: 0.75rem; }
+.fokus__nr { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 600; }
+@media (max-width: 40em) { .fokus { aspect-ratio: 4 / 5; min-height: 0; } .fokus__frame { width: 88%; } .fokus__hud > span:last-child { display: none; } }
+
+/* ---------- Vorher / Nachher ---------- */
+.vn__grid { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--gutter); align-items: stretch; margin-top: 2.5rem; }
+.vn__col { padding: clamp(1.25rem, 3vw, 2rem); border-radius: 12px; background: var(--surface); display: grid; align-content: start; gap: 0.25rem; }
+.vn__col--nach { background: var(--field); color: var(--field-ink); }
+.vn__label { font: 500 0.8125rem/1 var(--font-code); text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.vn__col--nach .vn__label, .vn__col--nach .vn__von { color: var(--field-dim); }
+.vn__zahl { font-family: var(--font-display); font-weight: 500; font-size: clamp(4rem, 2rem + 6vw, 8rem); line-height: 0.95; letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.vn__von { color: var(--muted); }
+.vn__col ul { margin-top: 1rem; padding-left: 1.1rem; display: grid; gap: 0.35rem; font-size: 1rem; }
+.vn__pfeil { align-self: center; font-family: var(--font-display); font-size: clamp(2rem, 1rem + 3vw, 4rem); color: var(--accent); }
+.vn__erledigt { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+.vn__erledigt li { padding: 0.35rem 0.75rem 0.35rem 2rem; border-radius: 999px; background: var(--surface); font-size: 0.9375rem; text-decoration: line-through; text-decoration-color: var(--muted);
+  position: relative; }
+.vn__erledigt li::before { content: ""; position: absolute; left: 0.6rem; top: 50%; width: 0.9rem; height: 0.9rem; margin-top: -0.45rem; border-radius: 50%;
+  background: var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M3 7.4l2.6 2.6L11 4.4' fill='none' stroke='%23fff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 0.7rem no-repeat; }
+.vn__quelle { margin-top: 1rem; font-size: var(--step-small); color: var(--muted); }
+@media (max-width: 40em) { .vn__grid { grid-template-columns: minmax(0, 1fr); } .vn__pfeil { transform: rotate(90deg); justify-self: center; } }
+.tile { position: relative; }
+.tile__note { position: absolute; right: 1rem; bottom: 1rem; font-size: 0.75rem; font-weight: 600; color: var(--muted); background: rgb(255 255 255 / 0.9); border-radius: 4px; padding: 0.1rem 0.45rem; }
+.video__bar .chip { min-height: 2.1rem; font-size: 0.8125rem; font-variant-numeric: tabular-nums; }
+.video__bar { justify-content: flex-start; }
 
 /* ---------- Zahlenband ---------- */
 .facts { border-block: 1px solid var(--surface-2); background: var(--surface); }
@@ -648,12 +671,6 @@ thead .cmp__us { color: var(--accent); }
   .js .hero [data-mask] > span { display: inline-block; transform: translateY(115%);
     animation: mask-rise 900ms var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 110ms + 100ms); }
 
-  /* Sortier-Szene: Fundstellen treten zurück, Aufgaben steigen auf */
-  .js .sort__task { opacity: 0; transform: translateY(24px) scale(0.98); transition: opacity 420ms ease, transform 700ms var(--ease-out);
-    transition-delay: calc(var(--n) * 140ms + 250ms); }
-  .js .sort.is-sorted .sort__task { opacity: 1; transform: none; }
-  .js .fund { transition: opacity 500ms ease, transform 600ms var(--ease-out); transition-delay: calc(var(--n) * 9ms); }
-  .js .sort.is-sorted .fund { transform: translateX(-6px); }
 
   /* „Was jetzt tun“: Haken springt auf, Strich wischt, Zeile geht, die anderen rücken nach */
   .js .row { transition: transform 560ms var(--ease-out), opacity 280ms var(--ease-in); }
@@ -682,7 +699,6 @@ thead .cmp__us { color: var(--accent); }
 @media (prefers-reduced-motion: reduce) {
   .js .row { transition: opacity 220ms ease; }
   .js .row.is-leaving { opacity: 0; }
-  .js .sort__task { transition: opacity 300ms ease; }
   .js .row.is-entering { opacity: 0; transition: none; }
 }
 @keyframes rise { to { opacity: 1; transform: none; } }
