@@ -25,7 +25,7 @@ REPO_URL = "https://github.com/the-neyro/nextfix"
 NAME = "Nextfix"
 OG_BILD = "assets/img/og.png"
 OG_BILD_ALT = "Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“"
-SCREENSHOT = "assets/img/uebersicht.webp"
+SCREENSHOT = "assets/img/shot-uebersicht-breit-1200.webp"
 
 WURZEL = Path(__file__).resolve().parent.parent
 
