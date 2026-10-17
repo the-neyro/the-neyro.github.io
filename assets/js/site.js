@@ -124,7 +124,7 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
     fertig.classList.remove('is-active');
     fertig.classList.add('is-done');                      // Haken springt auf, Strich wischt, Zeile wird blass
     erledigt += 1; zaehlen();
-    await warte(1300);                                      // der Moment, den man sehen soll
+    await warte(850);                                       // der Moment, den man sehen soll
     fertig.classList.add('is-leaving'); await warte(150);
     rows.shift();
     rows.forEach((r, i) => {
@@ -136,6 +136,8 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
     await warte(650);
     fertig.remove();
     rows.forEach((r) => { r.style.transitionDelay = ''; });
+    // „Erneut prüfen“ sagt, wann es dran ist
+    rows.forEach((r, i) => { if (istSchluss(r)) r.querySelector('p').textContent = i === 0 ? 'Alles erledigt? Dann prüf noch mal.' : 'Danach: erneut prüfen.'; });
     aktiv(0);
     beschaeftigt = false;
   }
@@ -170,10 +172,10 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
     let erster = true;
     const takt = async () => {
       if (laeuft && !schwebt && !fokus && sichtbar && !document.hidden) await schritt();
-      setTimeout(takt, erster ? 1800 : 3200);
+      setTimeout(takt, erster ? 900 : 1100);
       erster = false;
     };
-    setTimeout(takt, 1800);
+    setTimeout(takt, 900);
   }
 })();
 
@@ -292,11 +294,15 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   const beispiele = [...box.querySelectorAll('[data-example]')];
   const beschreibung = box.querySelector('#desc-input');
   const serp = { title: box.querySelector('[data-serp="title"]'), desc: box.querySelector('[data-serp="desc"]') };
+  const serpName = box.querySelector('[data-serp="name"]'), serpUrl = box.querySelector('[data-serp="url"]');
   // Google kürzt nach Pixelbreite (~600 px Titel, ~920 px Beschreibung); grob über Zeichen angenähert
   const kuerzen = (text, max) => ([...text].length > max ? `${[...text].slice(0, max - 1).join('').replace(/\s+\S*$/, '')} …` : text);
   const vorschau = () => {
     if (!serp.title) return;
     serp.title.textContent = kuerzen(title.value.replace(/\s*\n\s*/g, ' ').trim() || 'Ohne Titel', 60);
+    const eigen = !beispiele.some((b) => b.dataset.title === title.value);
+    serpName.textContent = eigen ? 'deine-website.de' : 'radhaus-elbe.de';
+    serpUrl.textContent = eigen ? 'https://deine-website.de' : 'https://radhaus-elbe.de';
     serp.desc.textContent = beschreibung ? kuerzen(beschreibung.value.trim(), 158) : '';
   };
   let eigenerTitel = null;
