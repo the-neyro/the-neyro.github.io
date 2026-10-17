@@ -25,12 +25,12 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preload" href="assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt</a>
 
-<header class="site-head site-head--over">
+<header class="site-head">
     <a class="wordmark" href="./" aria-label="Nextfix, Startseite">Nextfix</a>
     <nav class="site-nav" aria-label="Hauptmenü">
       <a href="funktionen/">Funktionen</a>
@@ -41,81 +41,79 @@
 </header>
 
 <main id="inhalt">
-<div class="hero">
-  <div class="hero__stage">
-    <h1 class="hero__line">
-      <span class="hero__half hero__half--a" data-mask style="--i:0"><span>Repariere das</span></span>
-      <span class="hero__half hero__half--b" data-mask style="--i:2"><span>als Nächstes.</span></span>
-    </h1>
-    <div class="reel" data-reel data-rise style="--i:1" role="group" aria-label="Die ersten vier Aufgaben aus „Was jetzt tun“ für die Demo-Website Radhaus Elbe">
-      <button class="reel__button" type="button">Nächste Aufgabe zeigen</button>
-      <ol class="reel__list">
-      <li class="reel__item" data-pos="0">
-        <div class="task" data-ui>
-          <p class="task__head"><span class="task__nr">1</span><span class="task__title"><span>Bau 9 Seiten mit wenig Text aus oder nimm sie aus dem Index</span></span></p>
-          <p class="task__why">Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben.</p>
-          <p class="task__tags"><span class="tag tag--wichtig">Wichtig</span><span class="tag">Text schreiben</span><span class="tag">machst du selbst</span></p>
-          <p class="task__effect task__effect--hoch">Wirkung hoch</p>
-        </div>
-      </li>
-      <li class="reel__item" data-pos="1">
-        <div class="task" data-ui>
-          <p class="task__head"><span class="task__nr">2</span><span class="task__title"><span>Gib 4 Seiten eigene Beschreibungen</span></span></p>
-          <p class="task__why">Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</p>
-          <p class="task__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
-          <p class="task__effect task__effect--hoch">Wirkung hoch</p>
-        </div>
-      </li>
-      <li class="reel__item" data-pos="2">
-        <div class="task" data-ui>
-          <p class="task__head"><span class="task__nr">3</span><span class="task__title"><span>Entferne fehlerhafte Adressen aus der Sitemap</span></span></p>
-          <p class="task__why">Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten.</p>
-          <p class="task__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">einmal einstellen</span><span class="tag">für deine Technik</span></p>
-          <p class="task__effect task__effect--mittel">Wirkung mittel</p>
-        </div>
-      </li>
-      <li class="reel__item" data-pos="-1">
-        <div class="task" data-ui>
-          <p class="task__head"><span class="task__nr">4</span><span class="task__title"><span>Behebe 1 Seite mit „nicht gefunden“ (404)</span></span></p>
-          <p class="task__why">Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.</p>
-          <p class="task__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
-          <p class="task__effect task__effect--mittel">Wirkung mittel</p>
-        </div>
-      </li>
-      </ol>
-      <p class="reel__caption">Aus „Was jetzt tun“ für die Demo-Website</p>
-    </div>
+<div class="hero wrap">
+  <div class="hero__text">
+    <h1 class="hero__title" data-mask><span>Was deine Website als Nächstes braucht.</span></h1>
+    <p class="hero__lead" data-rise style="--i:1"><strong>Nextfix prüft deine Website und macht daraus eine kurze Liste:</strong> was zuerst dran ist, warum und wie. Ein kostenloses Open-Source-SEO-Tool für deinen Mac.</p>
+    <p class="hero__actions" data-rise style="--i:2"><a class="button" href="installation/">Kostenlos installieren</a><a class="button button--ghost" href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a></p>
+    <p class="hero__meta" data-rise style="--i:3">Getestet auf dem Mac, Windows und Linux noch ungetestet · ohne Konto, ohne Abo · MIT-Lizenz</p>
   </div>
-  <p class="hero__note" data-rise style="--i:3"><strong>Nextfix prüft deine Website und sagt dir, was du als Nächstes reparierst.</strong> Ein SEO-Tool für deinen eigenen Rechner, kostenlos und quelloffen. <a class="link" href="installation/">So installierst du es</a></p>
+  <figure class="reel" data-reel data-rise style="--i:2" role="group" aria-labelledby="reel-cap">
+    <div class="reel__window">
+      <ol class="reel__list" aria-label="Die ersten vier Aufgaben aus „Was jetzt tun“ für die Demo-Website Radhaus Elbe">
+        <li class="reel__item" data-pos="0">
+          <div class="task" data-ui>
+            <p class="task__head"><span class="task__nr">1</span><span class="task__title"><span>Bau 9 Seiten mit wenig Text aus oder nimm sie aus dem Index</span></span></p>
+            <p class="task__why">Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben.</p>
+            <p class="task__tags"><span class="tag tag--wichtig">Wichtig</span><span class="tag">Text schreiben</span><span class="tag">machst du selbst</span></p>
+            <p class="task__effect task__effect--hoch">Wirkung hoch</p>
+          </div>
+        </li>
+        <li class="reel__item" data-pos="1">
+          <div class="task" data-ui>
+            <p class="task__head"><span class="task__nr">2</span><span class="task__title"><span>Gib 4 Seiten eigene Beschreibungen</span></span></p>
+            <p class="task__why">Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</p>
+            <p class="task__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
+            <p class="task__effect task__effect--hoch">Wirkung hoch</p>
+          </div>
+        </li>
+        <li class="reel__item" data-pos="2">
+          <div class="task" data-ui>
+            <p class="task__head"><span class="task__nr">3</span><span class="task__title"><span>Entferne fehlerhafte Adressen aus der Sitemap</span></span></p>
+            <p class="task__why">Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten.</p>
+            <p class="task__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">einmal einstellen</span><span class="tag">für deine Technik</span></p>
+            <p class="task__effect task__effect--mittel">Wirkung mittel</p>
+          </div>
+        </li>
+        <li class="reel__item" data-pos="2">
+          <div class="task" data-ui>
+            <p class="task__head"><span class="task__nr">4</span><span class="task__title"><span>Behebe 1 Seite mit „nicht gefunden“ (404)</span></span></p>
+            <p class="task__why">Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.</p>
+            <p class="task__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
+            <p class="task__effect task__effect--mittel">Wirkung mittel</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <figcaption class="reel__caption" id="reel-cap">Beispiel aus „Was jetzt tun“ für eine erfundene Demo-Website, sortiert nach Wirkung. Was erledigt ist, wird durchgestrichen.</figcaption>
+    <p class="reel__controls" hidden><button class="chip" type="button" data-reel-pause aria-pressed="false">Anhalten</button><button class="chip" type="button" data-reel-next>Nächste Aufgabe</button></p>
+  </figure>
 </div>
 
-<section class="section section--first wrap" aria-label="Was Nextfix anders macht">
-  <div class="story">
-    <div class="story__text">
-      <p class="statement" data-reveal>Andere SEO-Tools zeigen dir Hunderte Warnungen. Nextfix sagt dir, was zuerst dran ist, warum, wie, und wer es erledigt.</p>
-    </div>
-    <div class="story__pics">
-      <figure class="shot" data-reveal>
-        <img src="assets/img/uebersicht.webp" width="1600" height="1000" loading="lazy"
-             alt="Übersicht einer geprüften Website mit Website-Zustand 49, Teilnoten und der Liste „Was jetzt tun“">
-        <figcaption>Die Übersicht: eine Zahl für den Zustand, darunter die Aufgaben in der Reihenfolge, in der sie am meisten bringen.</figcaption>
-      </figure>
-      <figure class="shot" data-reveal>
-        <img src="assets/img/problem.webp" width="1600" height="899" loading="lazy"
-             alt="Detailseite zu einem Problem mit Erklärung, Anleitung und betroffenen Seiten">
-        <figcaption>Jede Aufgabe erklärt sich selbst: warum sie zählt, wie du sie behebst, welche Seiten betroffen sind.</figcaption>
-      </figure>
-      <figure class="shot" data-reveal>
-        <img src="assets/img/seite-optimieren.webp" width="1600" height="1000" loading="lazy"
-             alt="Seite optimieren für den Suchbegriff fahrradwerkstatt hamburg mit Vorschlag für einen neuen Seitentitel">
-        <figcaption>Für eine einzelne Seite gibt es den Vorschlag gleich zum Kopieren.</figcaption>
-      </figure>
-    </div>
+<section class="section wrap" aria-labelledby="anders-h">
+  <h2 id="anders-h" class="h2" data-reveal>Große SEO-Tools zeigen dir Hunderte Warnungen. Nextfix sagt dir, was zuerst dran ist.</h2>
+  <p class="lead-after" data-reveal>Jede Aufgabe erklärt, warum sie zählt, wie du sie behebst und ob du das selbst im CMS erledigst oder dein Webbetreuer ran muss.</p>
+  <figure class="shot shot--big" data-reveal>
+    <img src="assets/img/uebersicht.webp" width="1600" height="1000" loading="lazy"
+         alt="Übersicht einer geprüften Website mit Website-Zustand 49, Teilnoten und der Liste „Was jetzt tun“">
+    <figcaption>Die Übersicht: eine Zahl für den Zustand, darunter die Aufgaben in der Reihenfolge, in der sie am meisten bringen.</figcaption>
+  </figure>
+  <div class="shot-pair">
+    <figure class="shot" data-reveal>
+      <img src="assets/img/problem.webp" width="1600" height="899" loading="lazy"
+           alt="Detailseite zu einem Problem mit Erklärung, Anleitung und betroffenen Seiten">
+      <figcaption>Zu jeder Aufgabe: warum, wie, und welche Seiten betroffen sind.</figcaption>
+    </figure>
+    <figure class="shot" data-reveal style="--i:1">
+      <img src="assets/img/seite-optimieren.webp" width="1600" height="1000" loading="lazy"
+           alt="Seite optimieren für den Suchbegriff fahrradwerkstatt hamburg mit Vorschlag für einen neuen Seitentitel">
+      <figcaption>Für eine einzelne Seite gibt es Vorschläge gleich zum Kopieren.</figcaption>
+    </figure>
   </div>
 </section>
 
 <section class="section wrap typer" data-typer aria-labelledby="typer-h">
-  <h2 id="typer-h" class="typer__head statement">Prüf deinen Seitentitel, jetzt gleich.</h2>
+  <h2 id="typer-h" class="typer__head h2" data-reveal>Prüf deinen Seitentitel, jetzt gleich.</h2>
   <label class="typer__label" for="title-input">Tipp hier den Seitentitel einer deiner Seiten ein (das, was im Browser-Tab steht):</label>
   <div class="typer__line" data-ui>
     <textarea class="typer__input" id="title-input" rows="1" spellcheck="false" autocomplete="off">Fahrradreparatur und Inspektion in Hamburg | Radhaus Elbe</textarea>
@@ -123,10 +121,10 @@
   <div class="typer__answer" data-ui>
     <div class="check check--kw">
       <label class="check__name" for="keyword-input">Suchbegriff</label>
-      <span><input id="keyword-input" type="text" spellcheck="false" autocomplete="off" value="fahrradwerkstatt hamburg" aria-describedby="keyword-hint">
+      <span><input id="keyword-input" type="text" spellcheck="false" autocomplete="off" value="Fahrradwerkstatt Hamburg" aria-describedby="keyword-hint">
         <span class="check__hint" id="keyword-hint">Wie würde dich ein Kunde bei Google suchen?</span></span>
     </div>
-    <div class="typer__results" aria-live="polite">
+    <div class="typer__results">
     <div class="check">
       <span class="check__name">Länge</span>
       <span class="check__verdict" data-out="laenge"><strong>Passt:</strong> 57 von 70 Zeichen.</span>
@@ -142,70 +140,69 @@
     </div>
     </div>
   </div>
-  <div class="typer__foot">
-    <span>Andere Beispiele</span>
+  <div class="typer__foot" role="group" aria-labelledby="beispiele-h">
+    <span id="beispiele-h">Andere Beispiele</span>
     <button class="example example--own" type="button" data-own hidden>Dein Titel</button>
-    <button class="example" type="button" data-example data-title="Fahrradreparatur und Inspektion in Hamburg | Radhaus Elbe" data-keyword="fahrradwerkstatt hamburg">Fahrradwerkstatt</button>
-    <button class="example" type="button" data-example data-title="Startseite" data-keyword="physiotherapie eimsbüttel">Physiotherapie</button>
-    <button class="example" type="button" data-example data-title="Willkommen bei Tischlerei Brandt – Möbel nach Maß, Küchen und Innenausbau aus Meisterhand in Hamburg-Altona seit 1987" data-keyword="tischlerei altona">Tischlerei</button>
-    <button class="example" type="button" data-example data-title="Steuerberatung für Freiberufler und kleine Firmen | Kanzlei Okafor" data-keyword="steuerberater freiberufler">Steuerberatung</button>
+    <button class="example" type="button" data-example data-title="Fahrradreparatur und Inspektion in Hamburg | Radhaus Elbe" data-keyword="Fahrradwerkstatt Hamburg">Fahrradwerkstatt</button>
+    <button class="example" type="button" data-example data-title="Startseite" data-keyword="Physiotherapie Eimsbüttel">Physiotherapie</button>
+    <button class="example" type="button" data-example data-title="Willkommen bei Tischlerei Brandt – Möbel nach Maß, Küchen und Innenausbau aus Meisterhand in Hamburg-Altona seit 1987" data-keyword="Tischlerei Altona">Tischlerei</button>
+    <button class="example" type="button" data-example data-title="Steuerberatung für Freiberufler und kleine Firmen | Kanzlei Okafor" data-keyword="Steuerberater Freiberufler">Steuerberatung</button>
   </div>
   <noscript><p class="typer__privacy">Ohne JavaScript zeigt die Prüfung nur das Beispiel oben.</p></noscript>
-  <p class="typer__privacy">Das sind drei der 20 Regeln aus „Seite optimieren“, hier in deinem Browser gerechnet. Was du eintippst, verlässt deinen Rechner nicht. Beispiele erfunden.</p>
+  <p class="typer__privacy">Zwei der 20 Regeln aus „Seite optimieren“ plus Vorschlag, hier in deinem Browser gerechnet. Was du eintippst, verlässt deinen Rechner nicht. Beispiele erfunden.</p>
+  <p class="sr-only" role="status" data-typer-status></p>
+  <p class="typer__cta"><a class="button" href="installation/">Das für jede Seite deiner Website: Nextfix installieren</a></p>
 </section>
 
 <section class="section wrap" aria-labelledby="ablauf-h">
-  <h2 id="ablauf-h" class="display bar-head" data-reveal>So läuft eine Runde</h2>
+  <h2 id="ablauf-h" class="h2 bar-head" data-reveal>So läuft eine Runde</h2>
+  <p class="bar-legend" data-reveal>Violett: das machst du. Grau: das macht Nextfix.</p>
   <ol class="bar" data-ui>
     <li class="bar__seg" style="--grow:1">
-      <div class="bar__block" data-reveal style="--i:0">Zehn Minuten, einmal</div>
-      <p class="bar__clause">Zuerst installierst du Nextfix einmal im Terminal, oder lässt es deinen Webbetreuer machen.</p>
+      <div class="bar__block" data-reveal style="--i:0"><span class="bar__step">Installieren</span><span class="bar__time">10 bis 20 Minuten, einmal</span></div>
+      <p class="bar__clause">Du installierst Nextfix einmal im Terminal, oder dein Webbetreuer macht das.</p>
     </li>
     <li class="bar__seg" style="--grow:1">
-      <div class="bar__block" data-reveal style="--i:1">Ein paar Minuten</div>
-      <p class="bar__clause">Dann prüft es deine Website, Seite für Seite.</p>
+      <div class="bar__block" data-reveal style="--i:1"><span class="bar__step">Prüfen</span><span class="bar__time">ein paar Minuten</span></div>
+      <p class="bar__clause">Nextfix prüft deine Website, Seite für Seite.</p>
     </li>
-    <li class="bar__seg" style="--grow:5; --grow-phone:2.4">
-      <div class="bar__block" data-reveal style="--i:2">Tage bis Wochen, in deinem Tempo</div>
-      <p class="bar__clause">Danach arbeitest du die Liste von oben ab, selbst im CMS oder mit deinem Entwickler.</p>
+    <li class="bar__seg" style="--grow:3; --grow-phone:1.6">
+      <div class="bar__block" data-reveal style="--i:2"><span class="bar__step">Reparieren</span><span class="bar__time">Tage bis Wochen, in deinem Tempo</span></div>
+      <p class="bar__clause">Du arbeitest die Liste von oben ab, selbst im CMS oder mit deinem Webbetreuer.</p>
     </li>
     <li class="bar__seg" style="--grow:1">
-      <div class="bar__block" data-reveal style="--i:3">Ein paar Minuten</div>
-      <p class="bar__clause">Zum Schluss prüfst du erneut und siehst im Verlauf, was besser wurde.</p>
+      <div class="bar__block" data-reveal style="--i:3"><span class="bar__step">Nachprüfen</span><span class="bar__time">ein paar Minuten</span></div>
+      <p class="bar__clause">Du prüfst erneut und siehst im Verlauf, was besser wurde.</p>
     </li>
   </ol>
 </section>
 
 <section class="section wrap" aria-labelledby="kann-h">
-  <h2 id="kann-h" class="sr-only">Was Nextfix kann</h2>
-  <div class="grid">
-    <p class="picture-words" data-reveal>Nextfix prüft Technik und Inhalt deiner Website<span class="pw"><img src="assets/img/wort-zustand.webp" width="240" height="126" loading="lazy" alt=""></span>
-      und misst, wie schnell sie auf dem Handy lädt<span class="pw"><img src="assets/img/wort-ladezeit.webp" width="240" height="126" loading="lazy" alt=""></span>.
-      Es holt deine Positionen aus der Search Console<span class="pw"><img src="assets/img/wort-positionen.webp" width="240" height="126" loading="lazy" alt=""></span>
-      und sagt dir für jede Seite, was du am Text ändern sollst<span class="pw"><img src="assets/img/wort-score.webp" width="240" height="126" loading="lazy" alt=""></span>.</p>
-    <div class="picture-words__after" data-reveal>
-      <p>Dazu: Suchbegriffe finden, die Stärke deiner Domain mit der Konkurrenz vergleichen, Berichte als PDF und CSV, und 50 Werkzeuge, mit denen Claude Nextfix für dich bedient.</p>
-      <a class="link" href="funktionen/">Alle Funktionen ansehen</a>
-    </div>
-  </div>
+  <h2 id="kann-h" class="h2" data-reveal>Was Nextfix kann</h2>
+  <ul class="modules" data-reveal>
+    <li><strong>Website-Check.</strong> 106 Prüfungen zu Technik und Inhalt, eine Zahl für den Zustand und die Liste „Was jetzt tun“.</li>
+    <li><strong>Ladezeit.</strong> Wie schnell deine Seiten auf einem simulierten Handy laden, gemessen auf deinem Rechner.</li>
+    <li><strong>Google-Positionen.</strong> Deine Plätze und Klicks aus der Search Console und von Bing, sobald du sie einrichtest.</li>
+    <li><strong>Suchbegriffe finden.</strong> Ideen, wonach deine Kunden suchen, aus den Vorschlägen beim Tippen.</li>
+    <li><strong>Seite optimieren.</strong> Für eine Seite und einen Suchbegriff: was du an Titel und Text änderst.</li>
+    <li><strong>KI-Suche.</strong> Ob ChatGPT, Claude und Co. deine Seite lesen und verstehen können.</li>
+  </ul>
+  <p class="modules__more" data-reveal>Dazu Berichte als PDF und CSV, ein Vergleich deiner Domain mit der Konkurrenz und 50 Werkzeuge, mit denen Claude Nextfix für dich bedient. <a class="link" href="funktionen/">Alle Funktionen ansehen</a></p>
 </section>
 
 <section class="field-red" aria-labelledby="pruef-h">
-    <h2 id="pruef-h" class="sr-only">Was Nextfix prüft</h2>
-    <p class="checks-sentence" data-lit><span class="lead-in">106 Prüfungen in acht Bereichen, darunter</span>
-      <span class="c">kaputte Seiten</span>, <span class="c">Weiterleitungsketten</span>,
-      <span class="c">eine fehlende robots.txt</span>, <span class="c">eine fehlende Sitemap</span>, <span class="c">Seiten mehr als drei Klicks tief</span>, <span class="c">Inhalt, der erst per JavaScript entsteht</span>,
-      <span class="c">fehlende und doppelte Seitentitel</span>, <span class="c">zu lange Seitentitel</span>, <span class="c">fehlende H1</span>, <span class="c">Seiten mit wenig Text</span>, <span class="c">Bilder ohne Alternativtext</span>,
-      <span class="c">doppelter Inhalt</span>, <span class="c">kein HTTPS</span>, <span class="c">ablaufende Zertifikate</span>,
-      <span class="c">träger Seitenaufbau</span>, <span class="c">springendes Layout</span>, <span class="c">defekte Links</span>,
-      <span class="c">verwaiste Seiten</span>, <span class="c">eine fehlende llms.txt</span>, <span class="c">gesperrte KI-Crawler</span>, <span class="c">Fragen ohne FAQ-Markup</span>
-      und <span class="c">Artikel ohne Autor und Datum</span>.</p>
-    <p class="checks-more">Alle Prüfungen und wie Nextfix sie gewichtet: <a href="funktionen/#website-check">Website-Check</a></p>
+  <h2 id="pruef-h" class="h2">106 Prüfungen, zum Beispiel</h2>
+  <ul class="checks-list">
+    <li>kaputte Seiten und Links</li><li>fehlende oder doppelte Seitentitel</li><li>Seiten mit wenig Text</li><li>Bilder ohne Beschreibung</li>
+    <li>zu langsam auf dem Handy</li><li>springendes Layout beim Laden</li><li>kein HTTPS oder ablaufende Zertifikate</li><li>fehlende Sitemap</li>
+    <li>Seiten, die niemand verlinkt</li><li>gesperrte KI-Suchdienste</li>
+  </ul>
+  <p class="checks-more">Alle Prüfungen und wie Nextfix sie gewichtet: <a href="funktionen/#website-check">Website-Check</a></p>
 </section>
 
 <section class="section section--first wrap" aria-labelledby="faq-h">
   <div class="grid">
-    <h2 id="faq-h" class="display faq-head" data-reveal>Bevor du anfängst</h2>
+    <h2 id="faq-h" class="h2 faq-head" data-reveal>Bevor du anfängst</h2>
     <div class="faq-list">
       <details class="qa" data-reveal style="--i:0">
         <summary>Kostet Nextfix wirklich nichts?</summary>
@@ -213,7 +210,7 @@
       </details>
       <details class="qa" data-reveal style="--i:1">
         <summary>Muss ich programmieren können?</summary>
-        <div class="qa__a"><p>Nein. Du öffnest einmal das Terminal und fügst ein paar Befehle ein, oder lässt das deinen Webbetreuer machen. Die Anleitung erklärt jeden Schritt. Danach läuft alles im Browser.</p></div>
+        <div class="qa__a"><p>Nein. Zum Installieren fügst du ein paar Befehle ins Terminal ein, oder dein Webbetreuer macht das. Zum Starten tippst du danach jedes Mal einen Befehl ein, bedient wird Nextfix dann im Browser. Die Anleitung erklärt jeden Schritt.</p></div>
       </details>
       <details class="qa" data-reveal style="--i:2">
         <summary>Läuft das auch unter Windows?</summary>
@@ -221,7 +218,7 @@
       </details>
       <details class="qa" data-reveal style="--i:3">
         <summary>Wohin gehen meine Daten?</summary>
-        <div class="qa__a"><p>Nirgendwohin. Ergebnisse liegen in einer Datei auf deinem Rechner. Nextfix ruft deine Website ab und, wenn du es einrichtest, Search Console, Bing und Open PageRank. Kein Konto, kein Tracking.</p></div>
+        <div class="qa__a"><p>Deine Ergebnisse bleiben auf deinem Rechner, in einer einzigen Datei. Nach außen geht nur, was für eine Abfrage nötig ist: Nextfix ruft deine Website ab, holt Vorschläge bei Google und, wenn du es einrichtest, Daten von Search Console, Bing und Open PageRank. Kein Konto bei Nextfix, kein Tracking.</p></div>
       </details>
       <details class="qa" data-reveal style="--i:4">
         <summary>Was kann Nextfix nicht?</summary>
@@ -229,7 +226,7 @@
       </details>
       <details class="qa" data-reveal style="--i:5">
         <summary>Ersetzt Nextfix eine Agentur?</summary>
-        <div class="qa__a"><p>Nein. Es sagt dir, was zu tun ist, und bei jeder Aufgabe, ob du sie selbst im CMS erledigst oder deine Technik ran muss. Machen musst du oder dein Entwickler es trotzdem.</p></div>
+        <div class="qa__a"><p>Nein. Nextfix sagt dir, was zu tun ist und ob du es selbst im CMS erledigen kannst oder dein Webbetreuer ran muss. Die Arbeit selbst bleibt bei euch. Dafür weißt du genau, was du beauftragst.</p></div>
       </details>
     </div>
     <p class="faq-more"><a class="link" href="faq/">Alle Fragen und Antworten</a></p>
@@ -251,7 +248,7 @@
     </nav>
   </div>
   <div class="foot-legal">
-    <span>Kostenlos und quelloffen, MIT-Lizenz. Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</span>
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</span>
     <a href="datenschutz/">Datenschutz</a>
   </div>
   <p class="foot-name" aria-hidden="true">Nextfix</p>

@@ -1,6 +1,7 @@
 // Nextfix-Website: das bisschen Skript, das die Seite braucht.
 // Ohne JavaScript bleibt alles lesbar; jede Funktion prüft, ob ihr Element existiert.
 
+window.nextfixOk = true; // Gegenstück zum Sicherheitsnetz im <head>
 const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Lesetexte: Absätze, Überschriften und Fragen einzeln einblenden
@@ -27,37 +28,44 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
   }, 2000));
 })();
 
-// Held: Filmstreifen mit vier echten Ansichten, wechselt alle paar Sekunden, Klick schaltet weiter
+// Held: Filmstreifen mit vier echten Aufgaben. Erledigte wandert nach oben und wird durchgestrichen,
+// die nächste rückt nach. Sichtbare Knöpfe: Anhalten/Abspielen und Nächste (WCAG 2.2.2).
 (() => {
   const reel = document.querySelector('[data-reel]');
   if (!reel) return;
+  const fenster = reel.querySelector('.reel__window');
   const items = [...reel.querySelectorAll('.reel__item')];
+  const pauseKnopf = reel.querySelector('[data-reel-pause]');
+  const naechsteKnopf = reel.querySelector('[data-reel-next]');
   const n = items.length;
   let aktuell = 0;
-  let pause = false;
+  let angehalten = ruhig;   // bei reduzierter Bewegung startet nichts von selbst
+  let schwebt = false;
   let sichtbar = true;
   const setzen = () => {
     items.forEach((el, i) => {
-      let pos = (i - aktuell + n) % n;      // 0 = Mitte, 1 = unten, n-1 = oben
-      if (pos === n - 1) pos = -1;
-      else if (pos > 1) pos = 2;
-      el.dataset.pos = String(pos);
-      el.setAttribute('aria-hidden', pos === 0 ? 'false' : 'true');
+      const d = i - aktuell;      // 0 = Mitte, -1 = erledigt (oben), 1 = als Nächstes (unten)
+      el.dataset.pos = String(d < -1 ? -2 : d > 1 ? 2 : d);
+      el.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
     });
   };
   const weiter = () => { aktuell = (aktuell + 1) % n; setzen(); };
+  const pauseZeigen = () => {
+    pauseKnopf.textContent = angehalten ? 'Abspielen' : 'Anhalten';
+    pauseKnopf.setAttribute('aria-pressed', String(angehalten));
+  };
   setzen();
-  // Wer selbst klickt, bekommt keinen Automatik-Wechsel mehr (WCAG 2.2.2)
-  let gestoppt = false;
-  reel.addEventListener('click', () => { gestoppt = true; weiter(); });
-  reel.addEventListener('pointerenter', () => { pause = true; });
-  reel.addEventListener('pointerleave', () => { pause = false; });
-  reel.addEventListener('focusin', () => { pause = true; });
-  reel.addEventListener('focusout', () => { pause = false; });
+  reel.querySelector('.reel__controls').hidden = false;
+  pauseZeigen();
+  pauseKnopf.addEventListener('click', () => { angehalten = !angehalten; pauseZeigen(); });
+  naechsteKnopf.addEventListener('click', () => { angehalten = true; pauseZeigen(); weiter(); });
+  fenster.addEventListener('click', () => { angehalten = true; pauseZeigen(); weiter(); });
+  fenster.addEventListener('pointerenter', () => { schwebt = true; });
+  fenster.addEventListener('pointerleave', () => { schwebt = false; });
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; }).observe(reel);
   }
-  if (!ruhig) setInterval(() => { if (!gestoppt && !pause && sichtbar && !document.hidden) weiter(); }, 4200);
+  setInterval(() => { if (!angehalten && !schwebt && sichtbar && !document.hidden) weiter(); }, 4200);
 })();
 
 // Seitentitel prüfen: Regeln aus „Seite optimieren“ (app/onpage/abgleich.py), hier im Browser gerechnet
@@ -81,21 +89,60 @@ function woerterIn(keyword, text) {
   const tokens = norm(text).split(' ');
   return kern(keyword).every((w) => tokens.some((t) => t === w || (w.length >= 4 && t.startsWith(w))));
 }
-function gross(text) {
-  const satz = text.trim().split(/\s+/).map((w) => (AKRONYME.has(w.toLowerCase()) ? w.toUpperCase() : w)).join(' ');
-  return satz.charAt(0).toUpperCase() + satz.slice(1);
+const FUELL = new Set(['startseite', 'home', 'homepage', 'willkommen', 'index', 'unbenannt']);
+// Suchbegriff für den Titel: Schreibweise aus dem Titel übernehmen, sonst Wörter großschreiben (deutsche Begriffe sind meist Nomen)
+function gross(keyword, title) {
+  const imTitel = new Map((title || '').split(/[\s,:|–—-]+/).filter(Boolean).map((w) => [norm(w), w]));
+  return keyword.trim().split(/\s+/).map((w, i) => {
+    const n = norm(w);
+    if (AKRONYME.has(n)) return w.toUpperCase();
+    if (imTitel.has(n)) return imTitel.get(n);
+    if (i > 0 && STOP.has(n)) return w.toLowerCase();
+    return w.charAt(0).toUpperCase() + w.slice(1);
+  }).join(' ');
 }
-function stutzen(s) { return s.replace(/^[ :|]+|[ :|]+$/g, ''); }
-function titleVorschlag(keyword, title) {
-  const teile = (title || '').split(/\s[|–—-]\s/).map((t) => t.trim()).filter(Boolean);
-  const marke = teile.length > 1 ? teile.reduce((a, b) => (b.length < a.length ? b : a)) : '';
-  const rest = teile.find((t) => t !== marke) || '';
-  const kw = gross(keyword);
-  for (const k of [`${kw}: ${rest} | ${marke}`, `${kw}: ${rest}`, `${kw} | ${marke}`, kw]) {
-    const kandidat = stutzen(k);
-    if (kandidat.length <= TITLE_MAX) return kandidat;
+function stutzen(s) { return s.replace(/^[ :|,–—-]+|[ :|,–—-]+$/g, '').replace(/\s{2,}/g, ' '); }
+// Titelteil ohne die Wörter des Suchbegriffs und ohne übrig gebliebene Verhältniswörter am Ende („… in“)
+function ohneStopEnde(woerter) {
+  while (woerter.length && STOP.has(norm(woerter[woerter.length - 1]))) woerter.pop();
+  return stutzen(woerter.join(' '));
+}
+function ohneBegriff(teil, keyword) {
+  const kw = [...new Set(kern(keyword))];
+  const treffer = (w) => kw.includes(norm(w)) || (norm(w).length >= 4 && kw.some((k) => norm(w).startsWith(k)));
+  const woerter = [];
+  for (const w of teil.split(/\s+/).filter(Boolean)) {
+    if (treffer(w)) { if (woerter.length && STOP.has(norm(woerter[woerter.length - 1]))) woerter.pop(); continue; } // „in Hamburg“, „für Freiberufler“ ganz weg
+    woerter.push(w);
   }
-  return kw;
+  return ohneStopEnde(woerter);
+}
+function kurz(teil) { return ohneStopEnde(teil.split(/,|\s(?:und|mit|seit)\s/)[0].split(/\s+/)); }
+function titleVorschlag(keyword, title) {
+  // Füllteile („Home“, „Startseite“) fliegen raus; der kürzeste übrige Teil gilt als Name der Firma
+  const teile = (title || '').split(/\s[|–—-]\s/).map((t) => t.trim()).filter((t) => t && !FUELL.has(norm(t)));
+  let kuerzester = teile.length ? teile.reduce((a, b) => (b.length < a.length ? b : a)) : '';
+  // Enthält der kürzeste Teil den Suchbegriff („Friseur in Kiel“), ist eher ein anderer kurzer Teil der Name („Salon Haarscharf“)
+  const mitBegriff = (t) => keyword.trim() && woerterIn(keyword, t);
+  const andererName = teile.find((t) => t !== kuerzester && !mitBegriff(t) && t.split(/\s+/).length <= 4);
+  if (teile.length > 2 && mitBegriff(kuerzester) && andererName) kuerzester = andererName;
+  const nurName = teile.length === 1 && kuerzester.split(/\s+/).length <= 3; // „Bäckerei Sommer“ allein ist ein Name, keine Beschreibung
+  let marke = teile.length > 1 || nurName ? kuerzester : '';
+  marke = stutzen(marke.replace(/^(willkommen (bei|im|in der|in)|herzlich willkommen( bei)?)\s+/i, ''));
+  const rest = nurName ? '' : (teile.find((t) => t !== kuerzester) || teile[0] || '');
+  const kw = keyword.trim() ? gross(keyword, title) : '';
+  const r = kw ? ohneBegriff(rest, keyword) : rest;
+  const rk = kurz(r);
+  // Leere Teile weglassen, damit nie „Begriff: | Name“ entsteht
+  const bau = (vorn, mitte, name) => [vorn && mitte ? `${vorn}: ${mitte}` : vorn || mitte, name].filter(Boolean).join(' | ');
+  const kandidaten = kw
+    ? [bau(kw, r, marke), bau(kw, rk, marke), bau(kw, '', marke), bau(kw, r, ''), bau(kw, rk, ''), kw]
+    : [bau('', r, marke), bau('', rk, marke), rk, marke];
+  for (const k of kandidaten) {
+    const kandidat = stutzen(k);
+    if (kandidat && [...kandidat].length <= TITLE_MAX) return kandidat;
+  }
+  return stutzen(kw || rk).slice(0, TITLE_MAX);
 }
 function pruefeTitle(title, keyword) {
   const n = [...title].length;
@@ -107,7 +154,7 @@ function pruefeTitle(title, keyword) {
 
   let begriff; let vorschlag = '';
   const kw = keyword.trim();
-  if (!kw) begriff = 'Trag oben einen Suchbegriff ein.';
+  if (!kw) begriff = 'Trag einen Suchbegriff ein: Wie würde dich ein Kunde bei Google suchen?';
   else {
     const drin = phraseIn(kw, title) || woerterIn(kw, title);
     const nt = norm(title);
@@ -117,6 +164,8 @@ function pruefeTitle(title, keyword) {
     else begriff = '<strong>Passt:</strong> steht drin, und zwar vorn.';
     if (!drin || !vorn) vorschlag = titleVorschlag(kw, title);
   }
+  // Zu lang ist ein Problem für sich: dann gibt es immer einen gekürzten Vorschlag
+  if (!vorschlag && n > TITLE_MAX) vorschlag = titleVorschlag(kw, title);
   return { laenge, begriff, vorschlag };
 }
 function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
@@ -133,7 +182,19 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   const eigen = box.querySelector('[data-own]');
   const beispiele = [...box.querySelectorAll('[data-example]')];
   let eigenerTitel = null;
+  let beispielBegriff = keyword.value;   // Suchbegriff des gerade gezeigten Beispiels
   const linie = box.querySelector('.typer__line');
+  const status = box.querySelector('[data-typer-status]');
+  let ansage = '';
+  let ansageTimer;
+  // Screenreader: kurze Zusammenfassung, erst wenn das Tippen ruht und sich ein Urteil geändert hat
+  const ansagen = () => {
+    clearTimeout(ansageTimer);
+    ansageTimer = setTimeout(() => {
+      const neu = `Länge: ${laenge.querySelector('strong')?.textContent || ''} Suchbegriff: ${begriff.querySelector('strong')?.textContent || 'fehlt'}`;
+      if (neu !== ansage) { ansage = neu; status.textContent = neu; }
+    }, 700);
+  };
   // Feld wächst mit dem Text, statt ihn abzuschneiden; Zeilenumbrüche gibt es in Titeln nicht
   const hoehe = () => { title.style.height = 'auto'; title.style.height = `${title.scrollHeight}px`; };
   // Ändert sich das Urteil (z. B. „Fehlt.“ → „Passt:“), leuchtet die Zeile kurz auf; Tippen im selben Urteil bleibt ruhig
@@ -159,16 +220,24 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
     kopieren.hidden = !r.vorschlag;
     kopieren.textContent = 'Vorschlag kopieren';
     hoehe();
+    ansagen();
   };
   const istBeispiel = () => beispiele.some((b) => b.dataset.title === title.value && b.dataset.keyword === keyword.value);
   title.addEventListener('keydown', (e) => { if (e.key === 'Enter') e.preventDefault(); });
-  title.addEventListener('input', zeigen);
+  // Wer seinen eigenen Titel tippt, braucht auch seinen eigenen Suchbegriff: den des Beispiels einmal leeren
+  title.addEventListener('input', () => {
+    if (beispielBegriff !== null && keyword.value === beispielBegriff && !istBeispiel()) { keyword.value = ''; beispielBegriff = null; }
+    zeigen();
+  });
+  // Erster Klick ins Beispiel markiert alles, damit Tippen es ersetzt (am Handy kein langes Löschen)
+  title.addEventListener('focus', () => { if (istBeispiel()) requestAnimationFrame(() => title.select()); });
   keyword.addEventListener('input', zeigen);
   window.addEventListener('resize', hoehe);
   beispiele.forEach((b) => b.addEventListener('click', () => {
     if (!istBeispiel()) { eigenerTitel = { t: title.value, k: keyword.value }; eigen.hidden = false; }
     title.value = b.dataset.title;
     keyword.value = b.dataset.keyword;
+    beispielBegriff = keyword.value;
     zeigen();
   }));
   eigen.addEventListener('click', () => {
@@ -184,35 +253,20 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   zeigen();
 })();
 
-// 106 Prüfungen: ein Name nach dem anderen leuchtet auf
-(() => {
-  const satz = document.querySelector('[data-lit]');
-  if (!satz) return;
-  const namen = [...satz.querySelectorAll('.c')];
-  let i = 0; let sichtbar = false; let pause = false;
-  namen[0].classList.add('is-lit');
-  if (ruhig || !('IntersectionObserver' in window)) return;
-  new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; }).observe(satz);
-  satz.addEventListener('pointerenter', () => { pause = true; });
-  satz.addEventListener('pointerleave', () => { pause = false; });
-  // Ein Durchlauf durch die Liste, dann bleibt es stehen
-  const takt = setInterval(() => {
-    if (!sichtbar || pause || document.hidden) return;
-    namen[i].classList.remove('is-lit');
-    i += 1;
-    if (i >= namen.length) { clearInterval(takt); namen[0].classList.add('is-lit'); return; }
-    namen[i].classList.add('is-lit');
-  }, 2000);
-})();
-
 // Codeblöcke: Kopierknopf
+const kopierStatus = document.createElement('p');
+kopierStatus.className = 'sr-only';
+kopierStatus.setAttribute('role', 'status');
+document.body.append(kopierStatus);
 document.querySelectorAll('.code').forEach((block) => {
   const knopf = block.querySelector('.code__copy');
   const code = block.querySelector('code');
   if (!knopf || !code) return;
   knopf.hidden = false;
+  // Eindeutiger Name je Knopf, sonst hört man achtmal nur „Kopieren“
+  knopf.setAttribute('aria-label', `Befehl kopieren: ${code.textContent.trim().split('\n')[0]}`);
   knopf.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(code.textContent.trim()); knopf.textContent = 'Kopiert'; } catch { knopf.textContent = 'Markieren und kopieren'; }
+    try { await navigator.clipboard.writeText(code.textContent.trim()); knopf.textContent = 'Kopiert'; kopierStatus.textContent = 'Befehl kopiert'; } catch { knopf.textContent = 'Markieren und kopieren'; kopierStatus.textContent = 'Kopieren ging nicht, bitte markieren und kopieren'; }
     setTimeout(() => { knopf.textContent = 'Kopieren'; }, 2000);
   });
 });
