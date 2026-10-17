@@ -202,7 +202,7 @@ def llms() -> str:
         "macht daraus die Liste „Was jetzt tun“: Aufgaben in der Reihenfolge ihrer Wirkung, mit Begründung, Anleitung "
         "und dem Hinweis, wer sie erledigt. Dazu Ladezeit (Core Web Vitals im Labor), Positionen aus Google Search Console "
         "und Bing, Suchbegriffe, Seite optimieren und KI-Sichtbarkeit. Keine bezahlten Schnittstellen, kein Konto, "
-        "kein Tracking. Claude kann Nextfix über 50 MCP-Werkzeuge bedienen. Die Website ist auf Deutsch.\n",
+        "kein Tracking. Claude kann Nextfix über 51 MCP-Werkzeuge bedienen. Die Website ist auf Deutsch.\n",
         "## Seiten\n",
     ]
     for s in FESTE_SEITEN:

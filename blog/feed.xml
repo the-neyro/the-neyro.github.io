@@ -5,10 +5,29 @@
   <link href="https://the-neyro.github.io/blog/"/>
   <link rel="self" href="https://the-neyro.github.io/blog/feed.xml"/>
   <id>https://the-neyro.github.io/blog/</id>
-  <updated>2026-10-17T20:00:00Z</updated>
+  <updated>2026-10-17T21:00:00Z</updated>
   <author><name>Nextfix</name></author>
   <entry>
-    <title>Vier Aufgaben später: von 49 auf 82</title>
+    <title>Nextfix 0.1.0: Installation in einer Zeile</title>
+    <link href="https://the-neyro.github.io/blog/version-0-1-0/"/>
+    <id>https://the-neyro.github.io/blog/version-0-1-0/</id>
+    <updated>2026-10-17T21:00:00Z</updated>
+    <summary>Die erste Version mit Nummer: Installation in einer Zeile, Start per Doppelklick auf dem Mac, „Was jetzt tun“ für Claude und bessere Titel-Vorschläge.</summary>
+    <content type="html">&lt;p&gt;Nextfix hat jetzt eine Versionsnummer. 0.1.0 heißt: Es läuft im Alltag, aber es ist noch früh. Das ist neu.&lt;/p&gt;
+&lt;h2&gt;Installieren in einer Zeile&lt;/h2&gt;
+&lt;p&gt;Bisher waren es vier Befehle. Jetzt reicht einer, für Mac und Linux:&lt;/p&gt;
+&lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code&gt;curl -fsSL https://raw.githubusercontent.com/the-neyro/nextfix/main/scripts/install.sh | bash&lt;/code&gt;&lt;/pre&gt;&lt;button class=&quot;code__copy&quot; type=&quot;button&quot; hidden&gt;Kopieren&lt;/button&gt;&lt;/div&gt;
+&lt;p&gt;Die Zeile prüft, ob Python 3.12 da ist, legt Nextfix in den Ordner &lt;code&gt;nextfix&lt;/code&gt; in deinem Benutzerordner, richtet alles ein und fragt, ob es gleich mit der Demo-Website starten soll. Für Windows gibt es eine eigene Zeile für die PowerShell, mehr dazu unten.&lt;/p&gt;
+&lt;h2&gt;Starten per Doppelklick&lt;/h2&gt;
+&lt;p&gt;Auf dem Mac liegt im Ordner jetzt &lt;strong&gt;„Nextfix starten.command“&lt;/strong&gt;. Doppelklick, und der Browser öffnet Nextfix. Fenster zu, Nextfix aus. Kein Terminal mehr bei jedem Start.&lt;/p&gt;
+&lt;h2&gt;Neu in Nextfix&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Claude kennt „Was jetzt tun“.&lt;/strong&gt; Das neue Werkzeug &lt;code&gt;was_jetzt_tun&lt;/code&gt; gibt Claude die Aufgabenliste direkt, mit Wirkung, Aufwand und wer es erledigt. Jetzt sind es 51 Werkzeuge.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Bessere Titel-Vorschläge.&lt;/strong&gt; Sie übernehmen die Schreibweise deines Suchbegriffs, lassen „Home“ und „Startseite“ weg und behalten deinen Firmennamen. Dieselbe Logik steckt im Titel-Check auf dieser Website.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Seiten auf noindex zählen nicht mehr als „wenig Text“.&lt;/strong&gt; So wie es die Aufgabe selbst vorschlägt.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Ein Vorher-Nachher-Skript&lt;/strong&gt; prüft die Demo-Website in zwei Fassungen. Ergebnis: &lt;a href=&quot;../vier-aufgaben-spaeter/&quot;&gt;von 49 auf 91&lt;/a&gt;.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Ehrlich zu Windows&lt;/h2&gt;
+&lt;p&gt;Die Installation läuft unter Windows automatisch geprüft durch. Von den automatischen Tests scheitert dort aber noch einer, und alles läuft deutlich langsamer als auf Mac und Linux. Bis das geklärt ist, unterstützen wir Windows nicht offiziell.&lt;/p&gt;
+&lt;p&gt;Alle Änderungen stehen im &lt;a href=&quot;https://github.com/the-neyro/nextfix/releases/tag/v0.1.0&quot;&gt;Changelog auf GitHub&lt;/a&gt;. Es laufen 273 automatische Tests.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Vier Aufgaben später: von 49 auf 91</title>
     <link href="https://the-neyro.github.io/blog/vier-aufgaben-spaeter/"/>
     <id>https://the-neyro.github.io/blog/vier-aufgaben-spaeter/</id>
     <updated>2026-10-17T20:00:00Z</updated>
@@ -19,11 +38,12 @@
 &lt;ol&gt;&lt;li&gt;&lt;strong&gt;Seiten mit wenig Text:&lt;/strong&gt; sieben Seiten ausgebaut, Impressum und Datenschutz auf „noindex“ gesetzt.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Eigene Beschreibungen&lt;/strong&gt; für vier Seiten, die sich vorher eine geteilt haben.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Sitemap bereinigt:&lt;/strong&gt; keine Weiterleitung und keine gesperrten Seiten mehr drin.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Seite „nicht gefunden“ behoben:&lt;/strong&gt; der Link auf eine alte Aktion zeigt jetzt auf die Preisseite.&lt;/li&gt;&lt;/ol&gt;
 &lt;p&gt;Bildbeschreibungen, zu lange Titel und eine fehlende Beschreibung haben wir absichtlich offen gelassen.&lt;/p&gt;
 &lt;h2&gt;Das Ergebnis&lt;/h2&gt;
-&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Website-Zustand:&lt;/strong&gt; 48,7 vorher, 82,1 nachher.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Technik:&lt;/strong&gt; 79 → 100. &lt;strong&gt;Inhalt:&lt;/strong&gt; 61 → 82. &lt;strong&gt;KI-Suche:&lt;/strong&gt; fast gleich, 82,6 → 82,0, weil sich die Anteile verschieben.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Aufgaben:&lt;/strong&gt; 8 vorher, 4 nachher, alle mit geringer oder mittlerer Wirkung.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Geprüfte Seiten:&lt;/strong&gt; 17 → 15. Die Seite „nicht gefunden“ und die Weiterleitung tauchen nicht mehr auf, weil nichts mehr auf sie zeigt.&lt;/li&gt;&lt;/ul&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Website-Zustand:&lt;/strong&gt; 48,7 vorher, 90,6 nachher.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Technik:&lt;/strong&gt; 79 → 100. &lt;strong&gt;Inhalt:&lt;/strong&gt; 61 → 91. &lt;strong&gt;KI-Suche:&lt;/strong&gt; fast gleich, 82,6 → 82,0, weil sich die Anteile verschieben.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Aufgaben:&lt;/strong&gt; 8 vorher, 3 nachher, alle mit geringer Wirkung: Bildbeschreibungen, zu lange Titel, eine fehlende Beschreibung.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Geprüfte Seiten:&lt;/strong&gt; 17 → 15. Die Seite „nicht gefunden“ und die Weiterleitung tauchen nicht mehr auf, weil nichts mehr auf sie zeigt.&lt;/li&gt;&lt;/ul&gt;
 &lt;h2&gt;Was das nicht heißt&lt;/h2&gt;
 &lt;p&gt;Der Website-Zustand misst, wie gepflegt eine Website ist. Wie sie danach bei Google steht, kann niemand versprechen. Saubere Technik und eigene Beschreibungen sind aber die Grundlage dafür, dass Google deine Seiten richtig versteht.&lt;/p&gt;
 &lt;h2&gt;Ein Fehler, den wir dabei gefunden haben&lt;/h2&gt;
-&lt;p&gt;Die Aufgabe sagt „Bau die Seiten aus &lt;strong&gt;oder nimm sie aus dem Index&lt;/strong&gt;“. Nextfix hat Seiten auf „noindex“ aber trotzdem weiter als „wenig Text“ gezählt. Deshalb standen Impressum und Datenschutz nachher noch auf der Liste. Das wird gerade behoben. Sobald es drin ist, messen wir neu und tragen die Zahlen hier nach.&lt;/p&gt;</content>
+&lt;p&gt;Die Aufgabe sagt „Bau die Seiten aus &lt;strong&gt;oder nimm sie aus dem Index&lt;/strong&gt;“. Nextfix hat Seiten auf „noindex“ aber trotzdem weiter als „wenig Text“ gezählt. Im ersten Lauf standen Impressum und Datenschutz deshalb nachher noch auf der Liste, und der Zustand lag bei 82,1.&lt;/p&gt;
+&lt;p&gt;Das ist jetzt behoben und seit Version 0.1.0 drin. Mit dem Fix haben wir beide Fassungen noch einmal geprüft: 48,7 vorher, &lt;strong&gt;90,6 nachher&lt;/strong&gt;. Die Zahlen oben sind die aus diesem zweiten Lauf.&lt;/p&gt;</content>
   </entry>
   <entry>
     <title>Die Website hat ein neues Gesicht</title>

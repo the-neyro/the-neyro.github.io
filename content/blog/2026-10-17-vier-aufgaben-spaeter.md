@@ -1,4 +1,4 @@
-titel: Vier Aufgaben später: von 49 auf 82
+titel: Vier Aufgaben später: von 49 auf 91
 beschreibung: Wir haben an der Demo-Website die ersten vier Aufgaben aus „Was jetzt tun“ wirklich erledigt und neu geprüft. Was sich geändert hat und was nicht.
 uhrzeit: 20:00
 
@@ -17,9 +17,9 @@ Bildbeschreibungen, zu lange Titel und eine fehlende Beschreibung haben wir absi
 
 ## Das Ergebnis
 
-- **Website-Zustand:** 48,7 vorher, 82,1 nachher.
-- **Technik:** 79 → 100. **Inhalt:** 61 → 82. **KI-Suche:** fast gleich, 82,6 → 82,0, weil sich die Anteile verschieben.
-- **Aufgaben:** 8 vorher, 4 nachher, alle mit geringer oder mittlerer Wirkung.
+- **Website-Zustand:** 48,7 vorher, 90,6 nachher.
+- **Technik:** 79 → 100. **Inhalt:** 61 → 91. **KI-Suche:** fast gleich, 82,6 → 82,0, weil sich die Anteile verschieben.
+- **Aufgaben:** 8 vorher, 3 nachher, alle mit geringer Wirkung: Bildbeschreibungen, zu lange Titel, eine fehlende Beschreibung.
 - **Geprüfte Seiten:** 17 → 15. Die Seite „nicht gefunden“ und die Weiterleitung tauchen nicht mehr auf, weil nichts mehr auf sie zeigt.
 
 ## Was das nicht heißt
@@ -28,4 +28,6 @@ Der Website-Zustand misst, wie gepflegt eine Website ist. Wie sie danach bei Goo
 
 ## Ein Fehler, den wir dabei gefunden haben
 
-Die Aufgabe sagt „Bau die Seiten aus **oder nimm sie aus dem Index**“. Nextfix hat Seiten auf „noindex“ aber trotzdem weiter als „wenig Text“ gezählt. Deshalb standen Impressum und Datenschutz nachher noch auf der Liste. Das wird gerade behoben. Sobald es drin ist, messen wir neu und tragen die Zahlen hier nach.
+Die Aufgabe sagt „Bau die Seiten aus **oder nimm sie aus dem Index**“. Nextfix hat Seiten auf „noindex“ aber trotzdem weiter als „wenig Text“ gezählt. Im ersten Lauf standen Impressum und Datenschutz deshalb nachher noch auf der Liste, und der Zustand lag bei 82,1.
+
+Das ist jetzt behoben und seit Version 0.1.0 drin. Mit dem Fix haben wir beide Fassungen noch einmal geprüft: 48,7 vorher, **90,6 nachher**. Die Zahlen oben sind die aus diesem zweiten Lauf.

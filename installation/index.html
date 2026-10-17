@@ -49,7 +49,7 @@
     </div>
     <aside class="page-head__side" data-reveal style="--i:2" aria-label="Auf einen Blick">
       <dl class="facts-card">
-        <div><dt>Du brauchst</dt><dd>einen Mac (getestet) oder Linux, Python 3.12 und einmal das Terminal. Windows ist in Arbeit.</dd></div>
+        <div><dt>Du brauchst</dt><dd>einen Mac oder Linux (automatisch getestet), Python 3.12 und einmal das Terminal. Unter Windows klappt die Installation, offiziell unterstützt ist es noch nicht.</dd></div>
         <div><dt>Dauer</dt><dd>einmal 10 bis 20 Minuten</dd></div>
         <div><dt>Danach</dt><dd>starten, Adresse eintragen, prüfen</dd></div>
         <div><dt>Entfernen</dt><dd>Ordner löschen, fertig</dd></div>
@@ -60,7 +60,17 @@
   </div>
 
   <div class="prose">
-    <p><strong>Kein Terminal-Mensch?</strong> Schick den Link zu dieser Seite deinem Webbetreuer oder einer technikfesten Bekannten. Für sie sind das zehn Minuten. Danach bedienst du Nextfix im Browser; zum Starten tippst du jeweils einen Befehl ins Terminal. Keine Sorge: Alles bleibt in einem Ordner, und zum Entfernen löschst du ihn einfach.</p>
+    <p><strong>Kein Terminal-Mensch?</strong> Schick den Link zu dieser Seite deinem Webbetreuer oder einer technikfesten Bekannten. Für sie sind das zehn Minuten. Danach bedienst du Nextfix im Browser und startest es auf dem Mac per Doppelklick. Keine Sorge: Alles bleibt in einem Ordner, und zum Entfernen löschst du ihn einfach.</p>
+    <h2 id="schnell">Der schnelle Weg: eine Zeile</h2>
+    <p>Öffne das Terminal (⌘ + Leertaste, „Terminal“ tippen, Enter), füge diese Zeile ein und drück Enter. Sie prüft, ob Python 3.12 da ist, lädt Nextfix in den Ordner <code>nextfix</code> in deinem Benutzerordner, richtet alles ein und fragt am Ende, ob Nextfix gleich mit der Demo-Website starten soll.</p>
+    <div class="os"><p>Mac und Linux</p>
+    <div class="code"><pre><code>curl -fsSL https://raw.githubusercontent.com/the-neyro/nextfix/main/scripts/install.sh | bash</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
+    <div class="os"><p>Windows (PowerShell; die Installation ist geprüft, offiziell unterstützt ist Windows noch nicht)</p>
+    <div class="code"><pre><code>irm https://raw.githubusercontent.com/the-neyro/nextfix/main/scripts/install.ps1 | iex</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
+    <p><strong>Danach starten:</strong> Auf dem Mac doppelklickst du im Ordner <code>nextfix</code> auf <strong>„Nextfix starten.command“</strong>. Der Browser öffnet sich mit <strong>http://localhost:8000</strong>, Fenster schließen beendet Nextfix. Blockiert macOS die Datei, klick sie mit der rechten Maustaste an, wähle „Öffnen“ und bestätige einmal. Unter Linux startest du mit <code>cd ~/nextfix &amp;&amp; .venv/bin/uvicorn app.web:app</code>.</p>
+    <p>Fehlt Python oder git, sagt dir die Zeile, was zu tun ist. Lieber jeden Schritt selbst sehen? Dann geht es hier weiter.</p>
+
+    <h2 id="schritte">Schritt für Schritt</h2>
     <ol class="steps">
       <li data-reveal>
         <h2>1. Python prüfen</h2>
@@ -84,7 +94,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
         <div class="code"><pre><code>python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/playwright install chromium</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
-        <div class="os"><p>Windows (Eingabeaufforderung; Windows ist noch in Arbeit, siehe <a href="../faq/">FAQ</a>)</p>
+        <div class="os"><p>Windows (Eingabeaufforderung; noch nicht offiziell unterstützt, siehe <a href="../faq/">FAQ</a>)</p>
         <div class="code"><pre><code>py -3.12 -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
 .venv\Scripts\playwright install chromium</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
@@ -95,10 +105,10 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
         <h2>4. Starten</h2>
         <div class="os"><p>Mac und Linux</p>
         <div class="code"><pre><code>.venv/bin/uvicorn app.web:app</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
-        <div class="os"><p>Windows (in Arbeit)</p>
+        <div class="os"><p>Windows (noch nicht offiziell unterstützt)</p>
         <div class="code"><pre><code>.venv\Scripts\uvicorn app.web:app</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
         <p>Dann öffnest du im Browser <strong>http://localhost:8000</strong>. Beenden: im Terminal <code>Ctrl</code> und <code>C</code> drücken.</p>
-        <p><strong>Zum Merken:</strong> Für jeden weiteren Start öffnest du das Terminal, wechselst mit <code>cd</code> in den Ordner von Nextfix und gibst denselben Befehl ein.</p>
+        <p><strong>Zum Merken:</strong> Auf dem Mac startest du künftig per Doppelklick auf „Nextfix starten.command“ im Ordner von Nextfix. Sonst öffnest du das Terminal, wechselst mit <code>cd</code> in den Ordner und gibst denselben Befehl ein.</p>
         <figure class="shot" data-reveal>
           <picture>
             <source media="(max-width: 40em)" srcset="../assets/img/shot-projekte-schmal-760.webp 760w, ../assets/img/shot-projekte-schmal-1140.webp 1140w"
@@ -171,7 +181,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
     <p>Für die Domain-Autorität holst du dir einen kostenlosen Schlüssel bei <a href="https://openpagerank.keywordseverywhere.com/dashboard">Open PageRank</a> und speicherst ihn als <code>~/.config/seo-tool/openpagerank-api-key.txt</code>.</p>
 
     <h2 id="claude">Optional: mit Claude bedienen</h2>
-    <p>Nextfix bringt einen MCP-Server mit 50 Werkzeugen mit. Für Claude Code kopierst du <code>.mcp.json.example</code> nach <code>.mcp.json</code> und trägst den Pfad zu deinem Nextfix-Ordner ein. Danach kannst du Claude etwa bitten, deine Website zu prüfen und die drei wichtigsten Aufgaben zu erklären.</p>
+    <p>Nextfix bringt einen MCP-Server mit 51 Werkzeugen mit. Für Claude Code kopierst du <code>.mcp.json.example</code> nach <code>.mcp.json</code> und trägst den Pfad zu deinem Nextfix-Ordner ein. Danach kannst du Claude etwa bitten, deine Website zu prüfen und die drei wichtigsten Aufgaben zu erklären.</p>
 
     <h2>Aktualisieren und entfernen</h2>
     <p>Neue Version holen (mit Git):</p>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nextfix 0.1.0: Installation in einer Zeile | Nextfix-Blog</title>
+<meta name="description" content="Die erste Version mit Nummer: Installation in einer Zeile, Start per Doppelklick auf dem Mac, „Was jetzt tun“ für Claude und bessere Titel-Vorschläge.">
+<!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
+<link rel="canonical" href="https://the-neyro.github.io/blog/version-0-1-0/">
+<meta name="theme-color" content="#f7f6f3">
+<link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nextfix">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Nextfix 0.1.0: Installation in einer Zeile | Nextfix-Blog">
+<meta property="og:description" content="Die erste Version mit Nummer: Installation in einer Zeile, Start per Doppelklick auf dem Mac, „Was jetzt tun“ für Claude und bessere Titel-Vorschläge.">
+<meta property="og:url" content="https://the-neyro.github.io/blog/version-0-1-0/">
+<meta property="og:image" content="https://the-neyro.github.io/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Nextfix","item":"https://the-neyro.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://the-neyro.github.io/blog/"},{"@type":"ListItem","position":3,"name":"Nextfix 0.1.0: Installation in einer Zeile","item":"https://the-neyro.github.io/blog/version-0-1-0/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Nextfix 0.1.0: Installation in einer Zeile","description":"Die erste Version mit Nummer: Installation in einer Zeile, Start per Doppelklick auf dem Mac, „Was jetzt tun“ für Claude und bessere Titel-Vorschläge.","datePublished":"2026-10-17","dateModified":"2026-10-17","inLanguage":"de","mainEntityOfPage":"https://the-neyro.github.io/blog/version-0-1-0/","image":"https://the-neyro.github.io/assets/img/og.png","author":{"@type":"Organization","name":"Nextfix","url":"https://the-neyro.github.io/"},"publisher":{"@type":"Organization","name":"Nextfix","url":"https://the-neyro.github.io/"}}</script>
+<!-- seo:ende -->
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../../blog/feed.xml">
+<link rel="preload" href="../../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="site-head">
+  <a class="wordmark" href="../../" aria-label="Nextfix, Startseite">Nextfix</a>
+  <nav class="site-nav" aria-label="Hauptmenü">
+    <a href="../../funktionen/">Funktionen</a>
+    <a href="../../faq/">FAQ</a>
+    <a class="nav-wide" href="../../blog/" aria-current="page">Blog</a>
+    <a class="nav-wide" href="https://github.com/the-neyro/nextfix">GitHub</a>
+    <a class="button button--small" href="../../installation/">Installieren</a>
+  </nav>
+</header>
+
+<main id="inhalt">
+  <article class="post">
+    <header class="page-head post__head">
+      <p class="post__date"><a class="link" href="../">Blog</a> · <time datetime="2026-10-17">17. Oktober 2026</time></p>
+      <h1>Nextfix 0.1.0: Installation in einer Zeile</h1>
+      <p class="statement">Die erste Version mit Nummer: Installation in einer Zeile, Start per Doppelklick auf dem Mac, „Was jetzt tun“ für Claude und bessere Titel-Vorschläge.</p>
+    </header>
+    <div class="prose post__body">
+<p>Nextfix hat jetzt eine Versionsnummer. 0.1.0 heißt: Es läuft im Alltag, aber es ist noch früh. Das ist neu.</p>
+<h2>Installieren in einer Zeile</h2>
+<p>Bisher waren es vier Befehle. Jetzt reicht einer, für Mac und Linux:</p>
+<div class="code"><pre><code>curl -fsSL https://raw.githubusercontent.com/the-neyro/nextfix/main/scripts/install.sh | bash</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div>
+<p>Die Zeile prüft, ob Python 3.12 da ist, legt Nextfix in den Ordner <code>nextfix</code> in deinem Benutzerordner, richtet alles ein und fragt, ob es gleich mit der Demo-Website starten soll. Für Windows gibt es eine eigene Zeile für die PowerShell, mehr dazu unten.</p>
+<h2>Starten per Doppelklick</h2>
+<p>Auf dem Mac liegt im Ordner jetzt <strong>„Nextfix starten.command“</strong>. Doppelklick, und der Browser öffnet Nextfix. Fenster zu, Nextfix aus. Kein Terminal mehr bei jedem Start.</p>
+<h2>Neu in Nextfix</h2>
+<ul><li><strong>Claude kennt „Was jetzt tun“.</strong> Das neue Werkzeug <code>was_jetzt_tun</code> gibt Claude die Aufgabenliste direkt, mit Wirkung, Aufwand und wer es erledigt. Jetzt sind es 51 Werkzeuge.</li><li><strong>Bessere Titel-Vorschläge.</strong> Sie übernehmen die Schreibweise deines Suchbegriffs, lassen „Home“ und „Startseite“ weg und behalten deinen Firmennamen. Dieselbe Logik steckt im Titel-Check auf dieser Website.</li><li><strong>Seiten auf noindex zählen nicht mehr als „wenig Text“.</strong> So wie es die Aufgabe selbst vorschlägt.</li><li><strong>Ein Vorher-Nachher-Skript</strong> prüft die Demo-Website in zwei Fassungen. Ergebnis: <a href="../vier-aufgaben-spaeter/">von 49 auf 91</a>.</li></ul>
+<h2>Ehrlich zu Windows</h2>
+<p>Die Installation läuft unter Windows automatisch geprüft durch. Von den automatischen Tests scheitert dort aber noch einer, und alles läuft deutlich langsamer als auf Mac und Linux. Bis das geklärt ist, unterstützen wir Windows nicht offiziell.</p>
+<p>Alle Änderungen stehen im <a href="https://github.com/the-neyro/nextfix/releases/tag/v0.1.0">Changelog auf GitHub</a>. Es laufen 273 automatische Tests.</p>
+    </div>
+    <nav class="prose post__nav" aria-label="Weitere Beiträge"><a class="link" href="../vier-aufgaben-spaeter/">← Vier Aufgaben später: von 49 auf 91</a></nav>
+  </article>
+</main>
+
+<footer class="site-foot site-foot--short">
+  <div class="foot-top">
+    <div class="foot-invite">
+      <h2>Fang mit der ersten Aufgabe an.</h2>
+      <a class="button button--light" href="../../installation/">Installieren</a>
+    </div>
+    <nav class="foot-links" aria-label="Fußmenü">
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+      <a href="../../funktionen/">Funktionen</a>
+      <a href="../../pruefungen/">Alle Prüfungen</a>
+      <a href="../../installation/">Installation</a>
+      <a href="../../faq/">FAQ</a>
+      <a href="../../blog/">Blog</a>
+    </nav>
+  </div>
+  <div class="foot-legal">
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</span>
+    <a href="../../datenschutz/">Datenschutz</a>
+  </div>
+  <p class="foot-name" aria-hidden="true">Nextfix</p>
+</footer>
+
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
