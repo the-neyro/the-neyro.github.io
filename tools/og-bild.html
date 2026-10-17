@@ -1,0 +1,40 @@
+<!doctype html>
+<!-- Vorlage für das Vorschaubild beim Teilen (1200 × 630). Erzeugen: tools/og_bild.py -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Fira Sans Condensed"; font-weight: 500; src: url("../assets/fonts/fira-sans-condensed-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Fira Sans"; font-weight: 400; src: url("../assets/fonts/fira-sans-latin-400-normal.woff2") format("woff2"); }
+  @font-face { font-family: "Fira Sans"; font-weight: 600; src: url("../assets/fonts/fira-sans-latin-600-normal.woff2") format("woff2"); }
+  html, body { margin: 0; }
+  body { width: 1200px; height: 630px; background: #e2e2e2; color: #7d0c14; font-family: "Fira Sans", sans-serif;
+    display: grid; grid-template-rows: auto 1fr auto; padding: 44px 56px; box-sizing: border-box; overflow: hidden; }
+  .kopf { display: flex; justify-content: space-between; align-items: baseline; font-size: 26px; }
+  .marke { font-family: "Fira Sans Condensed"; font-weight: 500; font-size: 40px; letter-spacing: -0.01em; }
+  .satz { align-self: center; display: grid; grid-template-columns: auto 1fr; column-gap: 34px; row-gap: 18px; align-items: center; }
+  .wort { font-family: "Fira Sans Condensed"; font-weight: 500; font-size: 104px; line-height: 0.95; letter-spacing: -0.025em; white-space: nowrap; }
+  .karte { background: #fff; color: #1B1F2A; border-radius: 6px; padding: 26px 30px; display: grid; gap: 12px; }
+  .karte b { font-size: 30px; line-height: 1.2; font-weight: 600; }
+  .tags { display: flex; gap: 8px; font-size: 19px; color: #596070; }
+  .tag { border: 1px solid #DCDFE4; border-radius: 4px; padding: 2px 9px; }
+  .tag--d { background: #FBEAE8; color: #C0261A; border-color: #FBEAE8; }
+  .wirkung { color: #1D7544; font-weight: 600; font-size: 21px; }
+  .zwei { grid-column: 1 / -1; justify-self: end; }
+  .fuss { font-size: 24px; color: #7a4a4e; }
+</style>
+</head>
+<body>
+  <div class="kopf"><span class="marke">Nextfix</span><span>kostenloses SEO-Tool</span></div>
+  <div class="satz">
+    <span class="wort">Repariere das</span>
+    <div class="karte">
+      <b>Gib 4 Seiten eigene Beschreibungen</b>
+      <div class="tags"><span class="tag tag--d">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></div>
+      <span class="wirkung">Wirkung hoch</span>
+    </div>
+    <span class="wort zwei">als Nächstes.</span>
+  </div>
+  <div class="fuss">Prüft deine Website, sagt dir, was zuerst dran ist. Läuft auf deinem Rechner, quelloffen.</div>
+</body>
+</html>

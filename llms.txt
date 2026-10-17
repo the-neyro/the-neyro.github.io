@@ -1,0 +1,20 @@
+# Nextfix
+
+> Nextfix prüft deine Website und macht aus hunderten Warnungen eine kurze Liste: was zuerst dran ist, warum und wie. Kostenlos, quelloffen, läuft lokal.
+
+Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf dem eigenen Rechner läuft. Es crawlt eine Website, bewertet 106 Prüfungen in acht Bereichen zu einem Website-Zustand von 0 bis 100 und macht daraus die Liste „Was jetzt tun“: Aufgaben in der Reihenfolge ihrer Wirkung, mit Begründung, Anleitung und dem Hinweis, wer sie erledigt. Dazu Ladezeit (Core Web Vitals im Labor), Positionen aus Google Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Sichtbarkeit. Keine bezahlten Schnittstellen, kein Konto, kein Tracking. Claude kann Nextfix über 50 MCP-Werkzeuge bedienen. Die Website ist auf Deutsch.
+
+## Seiten
+
+- [Kostenloses SEO-Tool: Nextfix sagt, was du als Nächstes reparierst](https://the-neyro.github.io/): Nextfix prüft deine Website und macht aus hunderten Warnungen eine kurze Liste: was zuerst dran ist, warum und wie. Kostenlos, quelloffen, läuft lokal.
+- [Funktionen: Website-Check, Ladezeit, Positionen und mehr | Nextfix](https://the-neyro.github.io/funktionen/): Was Nextfix prüft und misst: 106 Prüfungen, Website-Zustand, Ladezeit, Positionen aus Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Suche.
+- [Nextfix installieren: Schritt für Schritt auf dem Mac | Nextfix](https://the-neyro.github.io/installation/): So installierst du das kostenlose SEO-Tool Nextfix auf deinem Rechner: Python prüfen, herunterladen, einrichten, starten und die erste Website prüfen.
+- [Häufige Fragen zu Nextfix: Kosten, Installation, Daten | Nextfix](https://the-neyro.github.io/faq/): Antworten zu Nextfix: Was es kostet, was du zum Installieren brauchst, wohin deine Daten gehen, was der Website-Zustand bedeutet und was das Tool nicht kann.
+
+## Quellcode
+
+- [Nextfix auf GitHub](https://github.com/the-neyro/nextfix): Quellcode, README und Lizenz
+
+## Optional
+
+- [Datenschutzerklärung](https://the-neyro.github.io/datenschutz/)

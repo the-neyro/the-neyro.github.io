@@ -1,0 +1,8 @@
+# GitHub Pages (Jekyll): HTML wird unverändert ausgeliefert.
+# Arbeitsnotizen und Werkzeuge gehören nicht auf die Website.
+exclude:
+  - PRODUCT.md
+  - DESIGN.md
+  - STAND.md
+  - Projektplan.md
+  - tools/

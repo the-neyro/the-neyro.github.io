@@ -1,0 +1,7 @@
+STAND.md
+Projektplan.md
+.DS_Store
+# Design-Skills (Drittanbieter, lokal installiert) und ihre Arbeitsordner
+.claude/skills/
+.taste-skill/
+.claude/launch.json
