@@ -3,6 +3,9 @@
 
 window.nextfixOk = true; // Gegenstück zum Sicherheitsnetz im <head>
 const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Symbole für Anhalten/Abspielen (Held-Panel und Video)
+const ICON_PAUSE = '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" fill="currentColor"/></svg>';
+const ICON_PLAY = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>';
 
 // Lesetexte: Absätze, Überschriften und Fragen einzeln einblenden
 document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .code, .faq-list .qa, .steps > li > *').forEach((el) => {
@@ -38,8 +41,6 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
   const knopf = fig.querySelector('.wjt__toggle');
   const zaehler = fig.querySelector('.wjt__done');
   const vorlagen = [...liste.children].map((li) => li.cloneNode(true));
-  const ICON_PAUSE = '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" fill="currentColor"/></svg>';
-  const ICON_PLAY = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>';
   const warte = (ms) => new Promise((ok) => setTimeout(ok, ms));
   const istSchluss = (r) => r.classList.contains('row--recheck');
   let rows = [];
@@ -576,14 +577,40 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   else rafId = requestAnimationFrame(schleife);
 })();
 
-// Durchlauf-Video: läuft stumm, sobald es im Bild ist (bei reduzierter Bewegung nur auf Klick); Kapitel springen an die Stelle
+// Durchlauf-Video: läuft stumm in Schleife, sobald es im Bild ist (bei reduzierter Bewegung nur auf Klick).
+// Eigener Knopf statt Browser-Steuerung; Kapitel springen an die Stelle und zeigen, wo das Video gerade ist.
 (() => {
   const v = document.querySelector('[data-video]');
-  if (!v) return;
-  document.querySelectorAll('[data-zeit]').forEach((k) => k.addEventListener('click', () => { v.currentTime = Number(k.dataset.zeit); v.play(); }));
-  if (ruhig || !('IntersectionObserver' in window)) return;
+  const knopf = document.querySelector('[data-video-ctrl]');
+  if (!v || !knopf) return;
+  const kapitel = [...document.querySelectorAll('[data-zeit]')];
+  v.controls = false;
   v.loop = true;
-  new IntersectionObserver(([e]) => { if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else v.pause(); }, { threshold: 0.5 }).observe(v);
+  knopf.hidden = false;
+  let vonHand = false; // Wer selbst anhält, dem startet das Scrollen nichts neu
+  const zeigen = () => {
+    const pausiert = v.paused;
+    knopf.innerHTML = pausiert ? `${ICON_PLAY}Abspielen` : `${ICON_PAUSE}Anhalten`;
+    knopf.setAttribute('aria-label', pausiert ? 'Video abspielen' : 'Video anhalten');
+  };
+  const abspielen = () => { v.preload = 'auto'; v.play().catch(() => {}); };
+  v.addEventListener('play', zeigen);
+  v.addEventListener('pause', zeigen);
+  v.addEventListener('timeupdate', () => {
+    let aktiv = kapitel[0];
+    kapitel.forEach((k) => { if (v.currentTime >= Number(k.dataset.zeit)) aktiv = k; });
+    kapitel.forEach((k) => k.toggleAttribute('aria-current', k === aktiv && v.currentTime > 0));
+  });
+  knopf.addEventListener('click', () => {
+    if (v.paused) { vonHand = false; abspielen(); } else { vonHand = true; v.pause(); }
+  });
+  v.addEventListener('click', () => knopf.click());
+  kapitel.forEach((k) => k.addEventListener('click', () => { v.currentTime = Number(k.dataset.zeit); vonHand = false; abspielen(); }));
+  zeigen();
+  if (ruhig || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { if (!vonHand) abspielen(); } else if (!v.paused) v.pause();
+  }, { threshold: 0.5 }).observe(v);
 })();
 
 // E-Mail an den Webbetreuer: Text auch zum Kopieren (falls kein Mailprogramm eingerichtet ist)

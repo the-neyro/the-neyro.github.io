@@ -141,10 +141,11 @@
   <p class="lead-after" data-reveal>Ein echter Durchlauf mit der Demo-Website, 42 Sekunden ohne Ton: prüfen, Aufgabe öffnen, Vorschlag kopieren. Selbst durchklicken kannst du in der <a class="link" href="demo/">Demo</a>.</p>
   <div class="durchlauf" data-durchlauf>
     <figure class="video">
-      <video controls muted playsinline preload="none" poster="assets/img/durchlauf-poster.webp" width="1280" height="800" data-video>
+      <video controls muted aria-label="Durchlauf mit der Demo-Website, 42 Sekunden ohne Ton" playsinline preload="none" poster="assets/img/durchlauf-poster.webp" width="1280" height="800" data-video>
         <source src="assets/video/durchlauf.webm" type="video/webm">
         <source src="assets/video/durchlauf.mp4" type="video/mp4">
       </video>
+      <button class="video__ctrl" type="button" data-video-ctrl hidden>Abspielen</button>
     </figure>
     <div class="video__bar"><span>Kapitel:</span> <button class="chip" type="button" data-zeit="0">00 s · Projekte</button><button class="chip" type="button" data-zeit="5">05 s · Prüfung läuft</button><button class="chip" type="button" data-zeit="9">09 s · Übersicht</button><button class="chip" type="button" data-zeit="14">14 s · Was jetzt tun</button><button class="chip" type="button" data-zeit="19">19 s · Aufgabe öffnen</button><button class="chip" type="button" data-zeit="26">26 s · Seite optimieren</button><button class="chip" type="button" data-zeit="32">32 s · Vorschlag kopieren</button></div>
   </div>
