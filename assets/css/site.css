@@ -795,3 +795,5 @@ thead .cmp__us { color: var(--accent); }
 .chat { grid-template-columns: minmax(0, 1fr); }
 .chat__tool code { overflow-wrap: anywhere; }
 .page-head h1 { hyphens: auto; overflow-wrap: break-word; }
+.weiter__liste li.ist-fertig::before { content: "✓"; }
+.weiter__status { display: inline-block; margin-left: 0.35rem; padding: 0.05rem 0.45rem; border-radius: 4px; font: 500 0.75rem/1.5 var(--font-code); color: var(--accent); background: var(--surface); white-space: nowrap; }

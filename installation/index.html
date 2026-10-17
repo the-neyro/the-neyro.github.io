@@ -70,10 +70,10 @@
     <div class="zeile-info">
       <p class="zeile-info__h">Was diese Zeile macht</p>
       <ul>
-        <li>Sie lädt Nextfix mit git von GitHub in den Ordner <code>nextfix</code> in deinem Benutzerordner. Gibt es den Ordner schon, wird er aktualisiert.</li>
+        <li>Sie lädt die neueste veröffentlichte Version von Nextfix mit git von GitHub in den Ordner <code>nextfix</code> in deinem Benutzerordner. Gibt es den Ordner schon, bringt sie ihn auf die neueste Version; deine Ergebnisse bleiben.</li>
         <li>Darin legt sie eine eigene Python-Umgebung an und installiert die Pakete aus <code>requirements.txt</code>. Dazu kommt Chromium für Ladezeit, PDF und JavaScript-Seiten; das legt Playwright in seinen eigenen Cache-Ordner.</li>
         <li>Sie braucht keine Admin-Rechte und kein <code>sudo</code>. Fehlt Python 3.12 oder git, bricht sie ab und sagt dir, was zu tun ist.</li>
-        <li>Sie schickt nichts über dich irgendwohin und richtet nichts ein, das von selbst startet.</li>
+        <li>Sie schickt nichts über dich irgendwohin und richtet nichts ein, das von selbst startet. Am Ende zeigt sie den fertigen Befehl, mit dem du Nextfix mit Claude Code verbindest.</li>
         <li>Entfernen: Ordner <code>nextfix</code> löschen. Chromium liegt unter <code>~/Library/Caches/ms-playwright</code> (Mac) bzw. <code>~/.cache/ms-playwright</code> (Linux).</li>
       </ul>
       <p>In unseren automatischen Tests auf Mac und Linux dauert die Zeile unter einer Minute, zu Hause je nach Internet ein paar Minuten. <a class="link" href="https://github.com/the-neyro/nextfix/blob/main/scripts/install.sh">Skript auf GitHub nachlesen</a></p>
@@ -192,10 +192,12 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
     <p>Für die Domain-Autorität holst du dir einen kostenlosen Schlüssel bei <a href="https://openpagerank.keywordseverywhere.com/dashboard">Open PageRank</a> und speicherst ihn als <code>~/.config/seo-tool/openpagerank-api-key.txt</code>.</p>
 
     <h2 id="claude">Optional: mit Claude bedienen</h2>
-    <p>Nextfix bringt einen MCP-Server mit 51 Werkzeugen mit. Für Claude Code kopierst du <code>.mcp.json.example</code> nach <code>.mcp.json</code> und trägst den Pfad zu deinem Nextfix-Ordner ein. Danach kannst du Claude etwa bitten, deine Website zu prüfen und die drei wichtigsten Aufgaben zu erklären.</p>
+    <p>Nextfix bringt einen MCP-Server mit 51 Werkzeugen mit. Den Befehl, mit dem du ihn in Claude Code einträgst, zeigt die Installationszeile am Ende mit deinem echten Pfad an. Im Standardordner sieht er so aus:</p>
+    <div class="code"><pre><code>claude mcp add --scope user seo-tool -e PYTHONPATH="$HOME/nextfix" -- "$HOME/nextfix/.venv/bin/python" -m app.mcp_server</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div>
+    <p>Einmal ausführen, dann kennt Claude die Nextfix-Werkzeuge in jedem Ordner. Danach kannst du Claude etwa bitten, deine Website zu prüfen und die drei wichtigsten Aufgaben zu erklären.</p>
 
     <h2>Aktualisieren und entfernen</h2>
-    <p>Neue Version holen (mit Git):</p>
+    <p>Neue Version holen: Führ die Zeile von oben einfach noch einmal aus. Sie bringt den Ordner auf die neueste Version, deine Ergebnisse bleiben. Hast du Nextfix von Hand mit Git geladen, geht es auch so:</p>
     <div class="code"><pre><code>git pull
 .venv/bin/pip install -r requirements.txt</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div>
     <p>Entfernen: den Ordner von Nextfix löschen. Deine Ergebnisse stecken in <code>data/seo.db</code> in diesem Ordner, Zugangsdaten in <code>~/.config/seo-tool/</code>.</p>
