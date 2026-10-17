@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nextfix installieren: Schritt für Schritt auf dem Mac | Nextfix</title>
-<meta name="description" content="So installierst du das kostenlose SEO-Tool Nextfix auf deinem Rechner: Python prüfen, herunterladen, einrichten, starten und die erste Website prüfen.">
+<title>SEO-Tool installieren: Nextfix Schritt für Schritt auf dem Mac</title>
+<meta name="description" content="So installierst du das kostenlose SEO-Tool Nextfix auf dem Mac: Python prüfen, herunterladen, einrichten, starten. Dauert einmalig 10 bis 20 Minuten.">
 <!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
 <link rel="canonical" href="https://the-neyro.github.io/installation/">
 <meta name="theme-color" content="#e2e2e2">
@@ -12,13 +12,13 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nextfix">
 <meta property="og:locale" content="de_DE">
-<meta property="og:title" content="Nextfix installieren: Schritt für Schritt auf dem Mac | Nextfix">
-<meta property="og:description" content="So installierst du das kostenlose SEO-Tool Nextfix auf deinem Rechner: Python prüfen, herunterladen, einrichten, starten und die erste Website prüfen.">
+<meta property="og:title" content="SEO-Tool installieren: Nextfix Schritt für Schritt auf dem Mac">
+<meta property="og:description" content="So installierst du das kostenlose SEO-Tool Nextfix auf dem Mac: Python prüfen, herunterladen, einrichten, starten. Dauert einmalig 10 bis 20 Minuten.">
 <meta property="og:url" content="https://the-neyro.github.io/installation/">
 <meta property="og:image" content="https://the-neyro.github.io/assets/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Nextfix: „Repariere das als Nächstes.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“">
+<meta property="og:image:alt" content="Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Nextfix","item":"https://the-neyro.github.io/"},{"@type":"ListItem","position":2,"name":"Installation","item":"https://the-neyro.github.io/installation/"}]}</script>
 <!-- seo:ende -->
@@ -42,21 +42,21 @@
 <main id="inhalt">
   <div class="page-head">
     <h1 data-reveal>Nextfix installieren</h1>
-    <p class="statement" data-reveal style="--i:1">Etwa zehn Minuten, einmal. Du brauchst Python 3.12 und das Terminal. Jeden Befehl kannst du kopieren.</p>
+    <p class="statement" data-reveal style="--i:1">Einmal 10 bis 20 Minuten, getestet auf dem Mac. Du brauchst Python 3.12 und das Terminal. Jeden Befehl kannst du kopieren.</p>
   </div>
 
   <div class="prose">
-    <p><strong>Kein Terminal-Mensch?</strong> Schick den Link zu dieser Seite deinem Webbetreuer oder einer technikfesten Bekannten. Für sie sind das zehn Minuten. Danach bedienst du Nextfix ganz normal im Browser.</p>
+    <p><strong>Kein Terminal-Mensch?</strong> Schick den Link zu dieser Seite deinem Webbetreuer oder einer technikfesten Bekannten. Für sie sind das zehn Minuten. Danach bedienst du Nextfix im Browser; zum Starten tippst du jeweils einen Befehl ins Terminal. Keine Sorge: Alles bleibt in einem Ordner, und zum Entfernen löschst du ihn einfach.</p>
     <ol class="steps">
       <li data-reveal>
-        <h2>Python prüfen</h2>
-        <p>Öffne das Programm <strong>Terminal</strong> (Mac: Programme, Dienstprogramme) und gib ein:</p>
+        <h2>1. Python prüfen</h2>
+        <p>Öffne das Programm <strong>Terminal</strong>: Drück ⌘ + Leertaste, tippe „Terminal“ und drück Enter. Dann gib ein:</p>
         <div class="code"><pre><code>python3 --version</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div>
         <p>Steht dort 3.12 oder höher, geht es weiter. Sonst lädst du Python von <a href="https://www.python.org/downloads/">python.org</a> herunter und installierst es wie jedes andere Programm.</p>
       </li>
 
       <li data-reveal>
-        <h2>Nextfix herunterladen</h2>
+        <h2>2. Nextfix herunterladen</h2>
         <p>Mit Git:</p>
         <div class="code"><pre><code>git clone https://github.com/the-neyro/nextfix.git
 cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div>
@@ -64,7 +64,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
       </li>
 
       <li data-reveal>
-        <h2>Einrichten</h2>
+        <h2>3. Einrichten</h2>
         <p>Diese drei Befehle legen eine eigene Python-Umgebung an, installieren, was Nextfix braucht, und laden einen Chromium-Browser für Ladezeit-Messung und PDF-Berichte:</p>
         <div class="os"><p>Mac und Linux</p>
         <div class="code"><pre><code>python3 -m venv .venv
@@ -78,7 +78,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
       </li>
 
       <li data-reveal id="starten">
-        <h2>Starten</h2>
+        <h2>4. Starten</h2>
         <div class="os"><p>Mac und Linux</p>
         <div class="code"><pre><code>.venv/bin/uvicorn app.web:app</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
         <div class="os"><p>Windows (noch nicht getestet)</p>
@@ -92,7 +92,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
       </li>
 
       <li data-reveal>
-        <h2>Die erste Website prüfen</h2>
+        <h2>5. Die erste Website prüfen</h2>
         <p>Leg ein Projekt mit der Adresse deiner Website an und klick auf <strong>„Website prüfen“</strong>. Bei einer kleinen Website dauert das ein paar Minuten. Danach siehst du den Website-Zustand und die Liste „Was jetzt tun“.</p>
         <figure class="shot" data-reveal>
           <img src="../assets/img/uebersicht.webp" width="1600" height="1000" loading="lazy" alt="Übersicht nach der ersten Prüfung mit Website-Zustand und Aufgabenliste">
@@ -107,22 +107,24 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
       </li>
     </ol>
 
+    <p class="done"><strong>Geschafft.</strong> Nextfix läuft, solange das Terminalfenster offen ist. Alles Weitere auf dieser Seite ist Hilfe und Zusatz.</p>
+
     <h2 id="hilfe">Hakt’s? Die häufigsten Stolpersteine</h2>
-    <h3>„command not found: python3“ oder eine Version unter 3.12</h3>
+    <h3><span lang="en">„command not found: python3“</span> oder eine Version unter 3.12</h3>
     <p>Python fehlt oder ist zu alt. Installier die aktuelle Version von <a href="https://www.python.org/downloads/">python.org</a>, schließ das Terminal und öffne es neu.</p>
     <h3>Der Mac will „Befehlszeilenentwickler-Tools“ installieren</h3>
-    <p>Das passiert beim ersten <code>git</code>. Klick auf „Installieren“ und warte, oder nimm den Weg ohne Git über „Download ZIP“.</p>
-    <h3>„No module named …“ oder „No such file or directory: .venv/bin/…“</h3>
-    <p>Du bist nicht im Ordner von Nextfix, oder Schritt 3 ist nicht durchgelaufen. Wechsel mit <code>cd</code> in den Ordner und wiederhole Schritt 3.</p>
-    <h3>„Address already in use“ beim Start</h3>
+    <p>Auf einem frischen Mac passiert das schon beim ersten <code>python3</code> oder <code>git</code>. Klick auf „Installieren“ und warte; das ist ein großer Download und kann über zehn Minuten dauern. Danach den Befehl einfach noch einmal eingeben.</p>
+    <h3><span lang="en">„No module named …“</span> oder <span lang="en">„No such file or directory: .venv/bin/…“</span></h3>
+    <p>Du bist nicht im Ordner von Nextfix, oder Schritt 3 ist nicht durchgelaufen. Wechsle mit <code>cd</code> in den Ordner und wiederhole Schritt 3.</p>
+    <h3><span lang="en">„Address already in use“</span> beim Start</h3>
     <p>Ein anderes Programm nutzt schon Port 8000. Hänge <code>--port 8001</code> an den Startbefehl an und öffne dann <strong>http://localhost:8001</strong>.</p>
-    <p>Nichts davon passt? Schreib ein Issue auf <a href="https://github.com/the-neyro/nextfix/issues">GitHub</a> und kopier die Fehlermeldung aus dem Terminal hinein. Oder gib diese Seite deinem Webbetreuer.</p>
+    <p>Nichts davon passt? Melde das Problem auf <a href="https://github.com/the-neyro/nextfix/issues">GitHub</a> (kostenloses Konto nötig) und kopier die Fehlermeldung aus dem Terminal hinein. Oder gib diese Seite deinem Webbetreuer.</p>
 
     <h2>Optional: Search Console, Bing und Open PageRank</h2>
     <p>Für Positionen verbindest du die Google Search Console oder die Bing Webmaster Tools. Die Anleitungen liegen im Repository: <a href="https://github.com/the-neyro/nextfix/blob/main/docs/anleitung-gsc.md">Search Console einrichten</a> und <a href="https://github.com/the-neyro/nextfix/blob/main/docs/anleitung-bing.md">Bing einrichten</a>. Zugangsdaten liegen außerhalb des Projekts in <code>~/.config/seo-tool/</code>.</p>
     <figure class="shot" data-reveal>
       <img src="../assets/img/positionen-ganz.webp" width="1600" height="1000" loading="lazy" alt="Positionen mit Sichtbarkeit, Klicks und Aufsteigern, mit Testdaten">
-      <figcaption>Positionen mit Testdaten. Bis du die Search Console verbindest, kannst du das Modul so ausprobieren.</figcaption>
+      <figcaption>Positionen mit Testdaten. Bis die Search Console eingerichtet ist, kannst du das Modul so ausprobieren.</figcaption>
     </figure>
     <p>Für die Domain-Autorität holst du dir einen kostenlosen Schlüssel bei <a href="https://openpagerank.keywordseverywhere.com/dashboard">Open PageRank</a> und speicherst ihn als <code>~/.config/seo-tool/openpagerank-api-key.txt</code>.</p>
 
@@ -134,7 +136,6 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
     <div class="code"><pre><code>git pull
 .venv/bin/pip install -r requirements.txt</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div>
     <p>Entfernen: den Ordner von Nextfix löschen. Deine Ergebnisse stecken in <code>data/seo.db</code> in diesem Ordner, Zugangsdaten in <code>~/.config/seo-tool/</code>.</p>
-    <p>Hakt etwas? Schau in die <a href="../faq/">häufigen Fragen</a> oder schreib ein Issue auf <a href="https://github.com/the-neyro/nextfix/issues">GitHub</a>.</p>
   </div>
 </main>
 
@@ -153,7 +154,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
     </nav>
   </div>
   <div class="foot-legal">
-    <span>Kostenlos und quelloffen, MIT-Lizenz. Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</span>
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</span>
     <a href="../datenschutz/">Datenschutz</a>
   </div>
   <p class="foot-name" aria-hidden="true">Nextfix</p>

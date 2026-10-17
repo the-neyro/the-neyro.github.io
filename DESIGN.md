@@ -1,5 +1,13 @@
 # Gestaltung der Nextfix-Website
 
+> **Fassung 2 (2026-10-17, nach Review mit 7 Prüfern, siehe `.review/ZUSAMMENFASSUNG.md`):**
+> - Farbe: Graphit-Text (#1c1b22) auf hellem Papier (#f7f6f3), **Markenviolett #5B3FBF als einziger Akzent**, tiefes Violett (#2a1f5c) für Prüfungen und Fuß. Oxblood ist raus: wirkte wie Mahnung/„Dringend“ und brach mit dem Produkt.
+> - Logo-Zeichen (violettes Quadrat) vor der Wortmarke. Radius 6 px wie im Produkt.
+> - Held: Aussage links („Was deine Website als Nächstes braucht.“) mit Unterzeile, zwei Knöpfen und Mac-Hinweis; rechts der Filmstreifen in eigener Spalte mit sichtbarem Anhalten/Nächste.
+> - Eine H2-Stufe für alle Abschnitte. Code in Systemschrift mit fester Breite auf Graphit.
+> - Gestrichen: Bildwörter, Fuß-Scroll-Animation, leuchtende Prüfungsliste. Hausregeln „kein Violett“, „keine 01/02/03“ (Installationsschritte) und „keine Schatten“ (Produktkarten) bewusst aufgehoben.
+> Der Text unten beschreibt Fassung 1 und bleibt als Begründungsgeschichte stehen.
+
 Stand: 2026-10-17. Gebaut mit Taste-Skill v2 (Richtung gezogen), geprüft mit Impeccable 4.6.0.
 
 ## Richtung

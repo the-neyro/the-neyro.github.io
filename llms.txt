@@ -1,15 +1,15 @@
 # Nextfix
 
-> Nextfix prüft deine Website und macht aus hunderten Warnungen eine kurze Liste: was zuerst dran ist, warum und wie. Kostenlos, quelloffen, läuft lokal.
+> Kostenloses Open-Source-SEO-Tool für den Mac: prüft deine Website und sagt dir, was du zuerst verbesserst, warum und wie. Ohne Abo, ohne Konto.
 
 Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf dem eigenen Rechner läuft. Es crawlt eine Website, bewertet 106 Prüfungen in acht Bereichen zu einem Website-Zustand von 0 bis 100 und macht daraus die Liste „Was jetzt tun“: Aufgaben in der Reihenfolge ihrer Wirkung, mit Begründung, Anleitung und dem Hinweis, wer sie erledigt. Dazu Ladezeit (Core Web Vitals im Labor), Positionen aus Google Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Sichtbarkeit. Keine bezahlten Schnittstellen, kein Konto, kein Tracking. Claude kann Nextfix über 50 MCP-Werkzeuge bedienen. Die Website ist auf Deutsch.
 
 ## Seiten
 
-- [Kostenloses SEO-Tool: Nextfix sagt, was du als Nächstes reparierst](https://the-neyro.github.io/): Nextfix prüft deine Website und macht aus hunderten Warnungen eine kurze Liste: was zuerst dran ist, warum und wie. Kostenlos, quelloffen, läuft lokal.
+- [Kostenloses SEO-Tool: Website prüfen und wissen, was zuerst kommt](https://the-neyro.github.io/): Kostenloses Open-Source-SEO-Tool für den Mac: prüft deine Website und sagt dir, was du zuerst verbesserst, warum und wie. Ohne Abo, ohne Konto.
 - [Funktionen: Website-Check, Ladezeit, Positionen und mehr | Nextfix](https://the-neyro.github.io/funktionen/): Was Nextfix prüft und misst: 106 Prüfungen, Website-Zustand, Ladezeit, Positionen aus Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Suche.
-- [Nextfix installieren: Schritt für Schritt auf dem Mac | Nextfix](https://the-neyro.github.io/installation/): So installierst du das kostenlose SEO-Tool Nextfix auf deinem Rechner: Python prüfen, herunterladen, einrichten, starten und die erste Website prüfen.
-- [Häufige Fragen zu Nextfix: Kosten, Installation, Daten | Nextfix](https://the-neyro.github.io/faq/): Antworten zu Nextfix: Was es kostet, was du zum Installieren brauchst, wohin deine Daten gehen, was der Website-Zustand bedeutet und was das Tool nicht kann.
+- [SEO-Tool installieren: Nextfix Schritt für Schritt auf dem Mac](https://the-neyro.github.io/installation/): So installierst du das kostenlose SEO-Tool Nextfix auf dem Mac: Python prüfen, herunterladen, einrichten, starten. Dauert einmalig 10 bis 20 Minuten.
+- [Fragen zu Nextfix: Kosten, Installation, Datenschutz, Grenzen](https://the-neyro.github.io/faq/): Antworten zu Nextfix: was es kostet, was du zum Installieren brauchst, wohin deine Daten gehen, was der Website-Zustand bedeutet und was das Tool nicht kann.
 
 ## Quellcode
 
