@@ -451,7 +451,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .fokus__hud { position: absolute; left: 1.1rem; top: 0.9rem; right: 1.1rem; display: flex; justify-content: space-between; gap: 1rem;
   font: 500 0.75rem/1.3 var(--font-code); color: #9f9bb0; letter-spacing: 0.02em; pointer-events: none; }
 .fokus__hud b { color: #fff; font-weight: 600; }
-.fokus__frame { position: absolute; left: 50%; top: 50%; width: min(30rem, 80%); transform: translate(-50%, -50%); padding: 1.1rem 1.3rem; color: #fff;
+.fokus__frame { position: absolute; left: 50%; top: 34%; width: min(30rem, 80%); transform: translate(-50%, -50%); padding: 1.1rem 1.3rem; color: #fff;
   pointer-events: none; opacity: 0; transition: opacity 400ms ease; }
 .fokus.is-focus .fokus__frame, html:not(.js) .fokus__frame { opacity: 1; }
 .fokus__frame::before { content: ""; position: absolute; inset: 0; border: 1.5px solid rgb(255 255 255 / 0.9); border-radius: 4px; background: rgb(18 17 23 / 0.78);
@@ -465,11 +465,13 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .fokus__ctrl { position: absolute; right: 0.9rem; bottom: 0.8rem; font-size: 0.8125rem; font-weight: 500; color: #fff; background: rgb(255 255 255 / 0.1);
   border: 1px solid rgb(255 255 255 / 0.22); border-radius: 6px; padding: 0.4rem 0.7rem; }
 .fokus__ctrl:focus-visible { outline-color: #c7b9ff; }
+.fokus__ctrl { display: inline-flex; align-items: center; gap: 0.45rem; }
+.fokus__ctrl svg { width: 0.7rem; height: 0.7rem; }
 .fokus__liste { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; margin-top: 1rem; font-size: 0.9375rem; color: var(--muted); }
 .fokus__liste li { display: inline-flex; align-items: center; gap: 0.5rem; }
 .fokus__liste .tag { font-size: 0.75rem; }
 .fokus__nr { display: inline-grid; place-items: center; width: 1.4rem; height: 1.4rem; border-radius: 50%; background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 600; }
-@media (max-width: 40em) { .fokus { aspect-ratio: 4 / 5; min-height: 0; } .fokus__frame { width: 88%; } .fokus__hud > span:last-child { display: none; } }
+@media (max-width: 40em) { .fokus { aspect-ratio: 4 / 5; min-height: 0; } .fokus__frame { width: 88%; top: 31%; } .fokus__hud > span:last-child { display: none; } }
 
 /* ---------- Vorher / Nachher ---------- */
 .vn__grid { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: var(--gutter); align-items: stretch; margin-top: 2.5rem; }

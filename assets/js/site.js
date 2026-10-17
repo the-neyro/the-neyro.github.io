@@ -382,8 +382,9 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   zeigen();
 })();
 
-// Szene „Rauschen → Fokus“: eine Wolke aus Partikeln, aus der sich die nächste Aufgabe herausschält.
-// Canvas 2D ohne Bibliothek; pausiert außerhalb des Bildes, drosselt sich auf schwachen Geräten, reduziert = Standbild.
+// Szene „43 Fundstellen → 8 Aufgaben“: die echten Fundstellen der Demo-Prüfung als Punkte.
+// Sie liegen erst verstreut, sortieren sich dann in 8 Aufgaben (plus Feinschliff), und eine Aufgabe nach der anderen wird zur Karte.
+// Canvas 2D ohne Bibliothek; pausiert außerhalb des Bildes, reduzierte Bewegung = Standbild.
 (() => {
   const buehne = document.querySelector('[data-fokus]');
   if (!buehne) return;
@@ -395,53 +396,82 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   const hudL = buehne.querySelector('[data-hud-l]');
   const knopf = buehne.querySelector('[data-fokus-ctrl]');
 
-  // Die echten ersten Aufgaben der Demo-Prüfung (aus „Was jetzt tun“)
+  // Fundstellen je Prüfung, wie Nextfix sie für „Radhaus Elbe“ gefunden hat (content/demo-fundstellen.json)
+  const FUNDE = {
+    wenig_text: ["/angebote", "/blog", "/blog/winter-check", "/datenschutz", "/faq", "/impressum", "/kontakt", "/preise", "/ueber-uns"],
+    meta_desc_doppelt: ["/blog", "/blog/winter-check", "/preise", "/ueber-uns"],
+    sitemap_falsche_seiten: ["/fahrradleasing"],
+    status_4xx: ["/fruehjahrsaktion-2025"],
+    interne_links_defekt: ["/angebote"],
+    bilder_ohne_alt: ["/", "/e-bikes", "/ueber-uns"],
+    title_zu_lang: ["/blog/reifendruck", "/leihraeder"],
+    meta_desc_fehlt: ["/kontakt"],
+    meta_desc_zu_kurz: ["/angebote", "/blog", "/blog/kette-oelen", "/blog/winter-check", "/datenschutz", "/faq", "/impressum", "/preise", "/ueber-uns"],
+    ki_fragen_ohne_faq: ["/blog/kette-oelen", "/faq", "/werkstatt"],
+    nur_ein_eingehender_link: ["/blog/kette-oelen", "/blog/reifendruck", "/blog/winter-check"],
+    orphan_sitemap: ["/angebote", "/ueber-uns"],
+    perm_redirect: ["/fahrradleasing"],
+    ki_artikel_ohne_autor_datum: ["/blog/reifendruck"],
+    ohne_last_modified: ["(ganze Website)"],
+    llms_fehlt: ["(ganze Website)"],
+  };
+  // Die 8 Aufgaben aus „Was jetzt tun“ in ihrer Reihenfolge; alles andere ist Feinschliff
   const AUFGABEN = [
-    { t: 'Bau 9 Seiten mit wenig Text aus', m: 'Wichtig · <span class="hoch">Wirkung hoch</span> · machst du selbst' },
-    { t: 'Gib 4 Seiten eigene Beschreibungen', m: 'Dringend · <span class="hoch">Wirkung hoch</span> · kurz je Seite' },
-    { t: 'Entferne fehlerhafte Adressen aus der Sitemap', m: 'Dringend · Wirkung mittel · für deine Technik' },
+    { check: 'wenig_text', kurz: 'wenig Text', t: 'Bau 9 Seiten mit wenig Text aus', m: 'Wichtig · <span class="hoch">Wirkung hoch</span> · machst du selbst' },
+    { check: 'meta_desc_doppelt', kurz: 'Beschreibung doppelt', t: 'Gib 4 Seiten eigene Beschreibungen', m: 'Dringend · <span class="hoch">Wirkung hoch</span> · kurz je Seite' },
+    { check: 'sitemap_falsche_seiten', kurz: 'falsch in der Sitemap', t: 'Entferne fehlerhafte Adressen aus der Sitemap', m: 'Dringend · Wirkung mittel · für deine Technik' },
+    { check: 'status_4xx', kurz: 'nicht gefunden (404)', t: 'Behebe 1 Seite mit „nicht gefunden“ (404)', m: 'Dringend · Wirkung mittel · kurz je Seite' },
+    { check: 'interne_links_defekt', kurz: 'defekter Link', t: 'Repariere defekte interne Links auf 1 Seite', m: 'Dringend · Wirkung mittel · kurz je Seite' },
+    { check: 'bilder_ohne_alt', kurz: 'Bild ohne alt-Text', t: 'Ergänze Bildbeschreibungen (alt) auf 3 Seiten', m: 'Wichtig · Wirkung gering · kurz je Seite' },
+    { check: 'title_zu_lang', kurz: 'Titel zu lang', t: 'Kürze den Seitentitel von 2 Seiten auf 70 Zeichen', m: 'Wichtig · Wirkung gering · kurz je Seite' },
+    { check: 'meta_desc_fehlt', kurz: 'Beschreibung fehlt', t: 'Schreib eine Beschreibung für 1 Seite', m: 'Wichtig · Wirkung gering · kurz je Seite' },
   ];
+  const FEIN = { meta_desc_zu_kurz: 'Beschreibung kurz', ki_fragen_ohne_faq: 'Fragen ohne FAQ', nur_ein_eingehender_link: 'nur ein Link hierher',
+    orphan_sitemap: 'nur in der Sitemap', perm_redirect: 'Link auf alte Adresse', ki_artikel_ohne_autor_datum: 'ohne Autor/Datum',
+    ohne_last_modified: 'kein Last-Modified', llms_fehlt: 'llms.txt fehlt' };
   const ZEICHEN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜabcdefghijklmnopqrstuvwxyz0123456789#%&/<>{}[]';
+  const MONO = '"Fira Mono", ui-monospace, monospace';
 
-  let W = 0, H = 0, dpr = 1, punkte = [], maus = { x: -9999, y: -9999 }, sichtbar = true, laeuft = !ruhig;
-  let phase = 'rauschen', phaseStart = 0, aufgabe = 0, fokus = 0;  // fokus 0..1 = wie stark die Wolke zur Mitte zieht
+  // Ein Punkt je Fundstelle: g = Aufgabe 0–7 oder 8 = Feinschliff
+  const punkte = [];
+  AUFGABEN.forEach((a, g) => FUNDE[a.check].forEach((pfad, i) => punkte.push({ g, i, text: `${pfad} · ${a.kurz}` })));
+  let fi = 0;
+  for (const [check, kurz] of Object.entries(FEIN)) FUNDE[check].forEach((pfad) => punkte.push({ g: 8, i: fi++, text: `${pfad} · ${kurz} · Feinschliff` }));
+  const staub = [];
 
-  // Farben: Markenviolett, helles Violett, Weiß – additiv gemischt ergibt das den Schein
-  const FARBEN = ['#5B3FBF', '#9D8CF0', '#C7B9FF', '#FFFFFF'];
-  let gruppen = [];  // gleiche Farbe + Grundhelligkeit = ein fillStyle je Gruppe (schnell)
+  let W = 0, H = 0, dpr = 1, schmal = false, maus = { x: -9999, y: -9999 }, sichtbar = true, laeuft = !ruhig;
+  let phase = 'streuen', phaseStart = 0, aufgabe = 0, mitten = [];
 
-  function zufallNormal() { let u = 0, v = 0; while (!u) u = Math.random(); while (!v) v = Math.random(); return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+  // Ziele: verstreut (zufällig, ohne Kopfzeile) oder sortiert (8 Häufchen in einer Reihe bzw. 2 × 4, Feinschliff als Zeile unten)
+  function streuziele() {
+    for (const q of punkte) { q.sx = W * (0.06 + Math.random() * 0.88); q.sy = H * (0.15 + Math.random() * 0.72); q.p = Math.random() * 6.3; q.verz = Math.random() * 500; }
+  }
+  function sortierziele() {
+    mitten = AUFGABEN.map((_, g) => schmal
+      ? { x: W * (0.14 + (g % 4) * 0.24), y: H * (g < 4 ? 0.6 : 0.75) }
+      : { x: W * (0.07 + g * (0.86 / 7)), y: H * 0.68 });
+    const abst = schmal ? 7 : 12;
+    for (const q of punkte) {
+      if (q.g < 8) {
+        // Sonnenblumen-Anordnung: dicht und rund, egal wie viele Punkte
+        const r = abst * 0.62 * Math.sqrt(q.i + (q.i ? 0.5 : 0)), w = q.i * 2.39996;
+        q.tx = mitten[q.g].x + Math.cos(w) * r; q.ty = mitten[q.g].y + Math.sin(w) * r;
+      } else {
+        q.tx = W * (schmal ? 0.07 : 0.5) + (schmal ? q.i * abst : (q.i - 10) * abst); q.ty = H * (schmal ? 0.92 : 0.9);
+      }
+    }
+  }
 
   function aufbauen() {
     const r = buehne.getBoundingClientRect();
-    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
-    W = Math.round(r.width); H = Math.round(r.height);
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = Math.round(r.width); H = Math.round(r.height); schmal = W < 640;
     canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const anzahl = Math.round(Math.min(11000, Math.max(3500, W * H / 65)) * (matchMedia('(pointer: coarse)').matches ? 0.45 : 1));
-    glanzBauen();
-    // Nebel aus mehreren Wolken: dicht in der Mitte, ausfransend nach außen
-    const wolken = [[0.5, 0.5, 0.26, 0.5], [0.32, 0.42, 0.16, 0.18], [0.7, 0.58, 0.18, 0.18], [0.45, 0.68, 0.14, 0.14]];
-    punkte = Array.from({ length: anzahl }, () => {
-      let w = wolken[0], z = Math.random(), s = 0;
-      for (const k of wolken) { s += k[3]; if (z <= s) { w = k; break; } }
-      const hx = (w[0] + zufallNormal() * w[2]) * W, hy = (w[1] + zufallNormal() * w[2] * 0.62) * H;
-      const hell = Math.random();
-      return { hx, hy, x: hx, y: hy, vx: 0, vy: 0, p: Math.random() * Math.PI * 2, f: 0.25 + Math.random() * 0.9, r: 6 + Math.random() * 22,
-        g: Math.random() < 0.06 ? 2.4 : 1 + Math.random() * 0.9, c: hell < 0.42 ? 0 : hell < 0.74 ? 1 : hell < 0.92 ? 2 : 3, a: Math.floor(Math.random() * 4) };
-    });
-    gruppen = [];
-    for (let c = 0; c < 4; c++) for (let a = 0; a < 4; a++) gruppen.push({ farbe: FARBEN[c], hell: 0.2 + a * 0.15, p: Math.random() * 6.3, f: 0.6 + Math.random() * 1.2, liste: punkte.filter((q) => q.c === c && q.a === a) });
-  }
-
-  // Weicher Nebel: wenige große, unscharfe Lichtflecken (einmal gerendert, dann nur verschoben)
-  let fleck = null, flecken = [];
-  function glanzBauen() {
-    fleck = document.createElement('canvas'); fleck.width = fleck.height = 256;
-    const g = fleck.getContext('2d'), v = g.createRadialGradient(128, 128, 0, 128, 128, 128);
-    v.addColorStop(0, 'rgba(170,150,255,0.55)'); v.addColorStop(0.35, 'rgba(110,80,220,0.22)'); v.addColorStop(1, 'rgba(91,63,191,0)');
-    g.fillStyle = v; g.fillRect(0, 0, 256, 256);
-    flecken = Array.from({ length: 26 }, (_, i) => ({ x: 0.5 + zufallNormal() * 0.2, y: 0.5 + zufallNormal() * 0.16, s: 0.25 + Math.random() * 0.45, p: Math.random() * 6.3, f: 0.08 + Math.random() * 0.18, w: i < 4 ? 1 : 0.55 }));
+    staub.length = 0;
+    for (let i = 0; i < Math.round(W * H / 3200); i++) staub.push({ x: Math.random() * W, y: Math.random() * H, a: 0.08 + Math.random() * 0.2, p: Math.random() * 6.3, f: 0.1 + Math.random() * 0.3 });
+    streuziele(); sortierziele();
+    for (const q of punkte) if (q.x === undefined) { q.x = q.sx; q.y = q.sy; q.vx = q.vy = 0; q.hell = 0.75; }
   }
 
   // Text „entschlüsseln“: jedes Zeichen rauscht, bis es an der Reihe ist
@@ -463,118 +493,132 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   }
   function zeigeAufgabe(i, sofort) {
     const a = AUFGABEN[i];
-    elLabel.textContent = `Als Nächstes · ${i + 1} von 8`;
+    elLabel.textContent = i === 0 ? 'Als Nächstes · 1 von 8' : `Danach · ${i + 1} von 8`;
     if (sofort) { elTask.textContent = a.t; elMeta.innerHTML = a.m; return; }
-    entschluesseln(elTask, a.t, 950);
-    setTimeout(() => entschluesseln(elMeta, a.m, 600), 380);
+    entschluesseln(elTask, a.t, 700);
+    setTimeout(() => entschluesseln(elMeta, a.m, 450), 250);
   }
 
-  // Scanlinien: eine wandernde, ab und zu kurze Störstreifen
-  let scanY = -1, stoer = [];
   function zeichnen(now) {
-    const t = now / 1000;
-    ctx.globalCompositeOperation = 'source-over';
-    ctx.fillStyle = 'rgba(18,17,23,0.38)';           // Nachleuchten statt hartem Löschen
-    ctx.fillRect(0, 0, W, H);
-    ctx.globalCompositeOperation = 'lighter';
-    const cx = W / 2, cy = H / 2, zug = fokus;
-    // Nebel atmet; im Fokus wird der Kern um den Rahmen heller
-    for (const f of flecken) {
-      const s = f.s * Math.max(W, H) * (1 + 0.08 * Math.sin(t * f.f * 3 + f.p)), x = (f.x + Math.cos(t * f.f + f.p) * 0.03) * W, y = (f.y + Math.sin(t * f.f * 0.9 + f.p) * 0.03) * H;
-      ctx.globalAlpha = 0.16 * f.w * (1 + zug * 0.9);
-      ctx.drawImage(fleck, x - s / 2, y - s / 2, s, s);
+    const t = now / 1000, sortiert = phase !== 'streuen', dt = now - phaseStart;
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#121117'; ctx.fillRect(0, 0, W, H);
+    // Staub: leiser Hintergrund, damit die Bühne nicht leer wirkt
+    ctx.fillStyle = '#8f86c9';
+    for (const s of staub) { ctx.globalAlpha = s.a * (0.7 + 0.3 * Math.sin(t * s.f + s.p)); ctx.fillRect(s.x, s.y, 1, 1); }
+    // Verbindung von der aktiven Gruppe zur Karte
+    const zeigt = phase === 'zeigen';
+    if (zeigt && mitten[aufgabe]) {
+      const m = mitten[aufgabe], kante = buehne.querySelector('.fokus__frame').getBoundingClientRect(), b = buehne.getBoundingClientRect();
+      const kx = Math.min(Math.max(m.x, kante.left - b.left + 16), kante.right - b.left - 16), ky = kante.bottom - b.top + 6, a = Math.min(1, dt / 400);
+      ctx.globalAlpha = 0.35 * a; ctx.strokeStyle = '#c7b9ff'; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+      ctx.beginPath(); ctx.moveTo(m.x, m.y - (schmal ? 20 : 30)); ctx.lineTo(kx, ky); ctx.stroke(); ctx.setLineDash([]);
+    }
+    // Punkte: federn zu ihrem Ziel; die aktive Aufgabe leuchtet weiß und hebt sich leicht
+    let nah = null, nahD = 196;
+    for (const q of punkte) {
+      // Beim Sortieren fliegen die Punkte leicht versetzt los, danach bleiben sie an ihrem Platz
+      const amZiel = sortiert && (phase !== 'sortieren' || dt > q.verz);
+      let zx = amZiel ? q.tx : q.sx, zy = amZiel ? q.ty : q.sy;
+      if (!sortiert) { zx += Math.cos(t * 0.5 + q.p) * 6; zy += Math.sin(t * 0.4 + q.p) * 5; }
+      const aktiv = zeigt && q.g === aufgabe;
+      if (aktiv) zy -= 6;
+      q.vx = (q.vx + (zx - q.x) * 0.05) * 0.8; q.vy = (q.vy + (zy - q.y) * 0.05) * 0.8;
+      q.x += q.vx; q.y += q.vy;
+      const ziel = !sortiert ? 0.85 : q.g === 8 ? 0.4 : !zeigt ? 0.8 : aktiv ? 1 : 0.45;
+      q.hell += (ziel - q.hell) * 0.08;
+      const d2 = (q.x - maus.x) ** 2 + (q.y - maus.y) ** 2;
+      if (d2 < nahD) { nahD = d2; nah = q; }
+    }
+    for (const q of punkte) {
+      const aktiv = zeigt && q.g === aufgabe, r = (schmal ? 2.6 : 4) * (aktiv ? 1.25 : 1) * (q === nah ? 1.4 : 1);
+      ctx.globalAlpha = q.hell;
+      if (aktiv) { ctx.fillStyle = 'rgba(199,185,255,0.14)'; ctx.beginPath(); ctx.arc(q.x, q.y, r * 2.2, 0, 6.29); ctx.fill(); }
+      ctx.fillStyle = q.g === 8 ? '#9f9bb0' : aktiv || !sortiert ? '#ffffff' : '#c7b9ff';
+      ctx.beginPath(); ctx.arc(q.x, q.y, r, 0, 6.29); ctx.fill();
+    }
+    // Beschriftung: Nummer unter jeder Aufgabe, „Feinschliff“ an der Zeile
+    if (sortiert) {
+      const a = Math.min(1, dt / 700);
+      ctx.font = `500 ${schmal ? 10 : 11}px ${MONO}`; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      const mitNamen = W >= 1150, anzahl = (g) => FUNDE[AUFGABEN[g].check].length;
+      mitten.forEach((m, g) => {
+        const an = zeigt && g === aufgabe, y = m.y + (schmal ? 20 : 34);
+        ctx.globalAlpha = a * (an ? 1 : 0.75); ctx.fillStyle = an ? '#ffffff' : '#9f9bb0';
+        ctx.fillText(mitNamen ? `${g + 1} · ${anzahl(g)}×` : String(g + 1), m.x, y);
+        if (mitNamen) ctx.fillText(AUFGABEN[g].kurz, m.x, y + 17);
+      });
+      ctx.globalAlpha = a * 0.8; ctx.fillStyle = '#9f9bb0'; ctx.textBaseline = 'bottom';
+      const fein = punkte.find((q) => q.g === 8 && q.i === 0);
+      ctx.textAlign = 'left';
+      ctx.fillText('Feinschliff · zählt nicht in den Zustand', fein.tx - 4, fein.ty - 9);
+    }
+    // Maus über einem Punkt: welche Seite, welches Problem
+    if (nah) {
+      ctx.font = `500 12px ${MONO}`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      const w = ctx.measureText(nah.text).width + 16, x = Math.min(Math.max(8, nah.x - w / 2), W - w - 8), y = nah.y - 30 < 40 ? nah.y + 16 : nah.y - 34;
+      ctx.globalAlpha = 0.94; ctx.fillStyle = '#26242f'; ctx.fillRect(x, y, w, 22);
+      ctx.globalAlpha = 1; ctx.fillStyle = '#ffffff'; ctx.fillText(nah.text, x + 8, y + 11.5);
     }
     ctx.globalAlpha = 1;
-    const rand = [];
-    for (const gr of gruppen) {
-      ctx.fillStyle = gr.farbe;
-      ctx.globalAlpha = Math.min(1, gr.hell * (0.7 + 0.3 * Math.sin(t * gr.f + gr.p)) * (1 + zug * 0.2));
-      for (const q of gr.liste) {
-        // Atmen: jede Partikel kreist langsam um ihren Platz; im Fokus zieht die Wolke zur Mitte und lässt den Rahmen frei
-        let zx = q.hx + Math.cos(t * q.f + q.p) * q.r, zy = q.hy + Math.sin(t * q.f * 0.8 + q.p) * q.r * 0.7;
-        if (zug > 0.01) {
-          zx += (cx - zx) * zug * 0.18; zy += (cy - zy) * zug * 0.18;
-          const fx = Math.abs(zx - cx) / (W * 0.24), fy = Math.abs(zy - cy) / (H * 0.2), m = fx > fy ? fx : fy;
-          if (m < 1) { const k = zug * 34 * (1 - m); zx += (zx < cx ? -1.6 : 1.6) * k; zy += (zy < cy ? -1 : 1) * k; }
-          else if (m < 1.35) rand.push(q);
-        }
-        const dx = q.x - maus.x, dy = q.y - maus.y, d2 = dx * dx + dy * dy;
-        if (d2 < 14400) { const d = Math.sqrt(d2) || 1, s = (120 - d) / 120 * 2.4; q.vx += dx / d * s; q.vy += dy / d * s; }
-        q.vx = (q.vx + (zx - q.x) * 0.045) * 0.86; q.vy = (q.vy + (zy - q.y) * 0.045) * 0.86;
-        q.x += q.vx; q.y += q.vy;
-        ctx.fillRect(q.x, q.y, q.g, q.g);
-      }
-    }
-    // Lichtsaum um den Rahmen: die Partikel direkt außen herum leuchten weiß nach
-    if (rand.length) { ctx.fillStyle = '#FFFFFF'; ctx.globalAlpha = 0.45 * zug; for (const q of rand) ctx.fillRect(q.x, q.y, q.g, q.g); }
-    ctx.globalAlpha = 1;
-    ctx.globalCompositeOperation = 'source-over';
-    if (scanY >= 0) {
-      ctx.fillStyle = 'rgba(199,185,255,0.55)'; ctx.fillRect(0, scanY, W, 1);
-      ctx.fillStyle = 'rgba(199,185,255,0.08)'; ctx.fillRect(0, scanY - 14, W, 14);
-      scanY += H / 55; if (scanY > H) scanY = -1;
-    }
-    if (Math.random() < 0.03) stoer.push({ y: Math.random() * H, w: 0.3 + Math.random() * 0.7, bis: now + 60 + Math.random() * 90 });
-    stoer = stoer.filter((s) => s.bis > now);
-    for (const s of stoer) { ctx.fillStyle = 'rgba(255,255,255,0.35)'; ctx.fillRect(W * (1 - s.w) * Math.random(), s.y, W * s.w, 1); }
   }
 
-  // Ablauf: Rauschen → Fokus (Rahmen, Scan, Text) → Halten → Lösen → nächste Aufgabe
-  const DAUER = { rauschen: 2600, fokus: 900, halten: 2600, loesen: 900 };
+  // Ablauf: verstreut → sortieren → Aufgabe 1 bis 8 als Karte → lösen → von vorn
+  const DAUER = { streuen: 2600, sortieren: 1500, zeigen: 2700, loesen: 900 };
   function takt(now) {
     const dt = now - phaseStart;
-    if (phase === 'rauschen' && dt > DAUER.rauschen) {
-      phase = 'fokus'; phaseStart = now; buehne.classList.add('is-focus'); scanY = 0;
-      hudL.innerHTML = '<b>43</b> Fundstellen → <b>8</b> Aufgaben'; zeigeAufgabe(aufgabe);
-    } else if (phase === 'fokus' && dt > DAUER.fokus) { phase = 'halten'; phaseStart = now; }
-    else if (phase === 'halten' && dt > DAUER.halten) { phase = 'loesen'; phaseStart = now; buehne.classList.remove('is-focus'); }
-    else if (phase === 'loesen' && dt > DAUER.loesen) {
-      phase = 'rauschen'; phaseStart = now; aufgabe = (aufgabe + 1) % AUFGABEN.length;
+    if (phase === 'streuen' && dt > DAUER.streuen) {
+      phase = 'sortieren'; phaseStart = now; sortierziele();
+      hudL.innerHTML = '<b>43</b> Fundstellen → <b>8</b> Aufgaben + Feinschliff';
+    } else if (phase === 'sortieren' && dt > DAUER.sortieren) {
+      phase = 'zeigen'; phaseStart = now; aufgabe = 0; buehne.classList.add('is-focus'); zeigeAufgabe(0);
+    } else if (phase === 'zeigen' && dt > DAUER.zeigen * (aufgabe === 0 ? 1.4 : 1)) {
+      if (aufgabe < AUFGABEN.length - 1) { aufgabe++; phaseStart = now; zeigeAufgabe(aufgabe); }
+      else { phase = 'loesen'; phaseStart = now; buehne.classList.remove('is-focus'); }
+    } else if (phase === 'loesen' && dt > DAUER.loesen) {
+      phase = 'streuen'; phaseStart = now; streuziele();
       hudL.innerHTML = '<b>43</b> Fundstellen · 16 Prüfungen · 17 Seiten';
     }
-    const ziel = phase === 'fokus' || phase === 'halten' ? 1 : 0;
-    fokus += (ziel - fokus) * 0.06;
   }
 
-  let rafId = 0, zuletzt = 0, proben = [], gedrosselt = false;
-  // Schwaches Gerät? Nach 40 Bildern messen und bei Bedarf jede zweite Partikel weglassen
-  function drosseln() {
-    gedrosselt = true;
-    for (const gr of gruppen) gr.liste = gr.liste.filter((_, i) => i % 2 === 0);
-  }
+  let rafId = 0, pauseAb = 0;
   function schleife(now) {
     rafId = 0;
-    if (!laeuft || !sichtbar || document.hidden) { zuletzt = 0; return; }
+    if (!laeuft || !sichtbar || document.hidden) { if (!pauseAb) pauseAb = now; return; }
     if (!phaseStart) phaseStart = now;
-    if (zuletzt && !gedrosselt) { proben.push(now - zuletzt); if (proben.length === 40) { proben.sort((x, y) => x - y); if (proben[20] > 24) drosseln(); else gedrosselt = true; } }
-    zuletzt = now;
+    if (pauseAb) { phaseStart += now - pauseAb; pauseAb = 0; } // nach einer Pause dort weiter, wo es war
     takt(now); zeichnen(now);
     rafId = requestAnimationFrame(schleife);
   }
-  const weiter = () => { if (!rafId && laeuft && sichtbar && !document.hidden) { phaseStart = performance.now() - (performance.now() - phaseStart); rafId = requestAnimationFrame(schleife); } };
+  const weiter = () => { if (!rafId && laeuft && sichtbar && !document.hidden) rafId = requestAnimationFrame(schleife); };
 
-  // Standbild: Wolke im Fokus, erste Aufgabe lesbar
+  // Standbild: sortiert, erste Aufgabe als Karte
   function standbild() {
-    fokus = 1; buehne.classList.add('is-focus'); zeigeAufgabe(0, true);
-    hudL.innerHTML = '<b>43</b> Fundstellen → <b>8</b> Aufgaben';
-    ctx.fillStyle = '#121117'; ctx.fillRect(0, 0, W, H);
-    for (let i = 0; i < 60; i++) zeichnen(i * 16);
+    phase = 'zeigen'; aufgabe = Math.min(aufgabe, AUFGABEN.length - 1); phaseStart = performance.now() - 1000;
+    buehne.classList.add('is-focus'); zeigeAufgabe(aufgabe, true); sortierziele();
+    hudL.innerHTML = '<b>43</b> Fundstellen → <b>8</b> Aufgaben + Feinschliff';
+    for (const q of punkte) { q.x = q.tx; q.y = q.ty; q.vx = q.vy = 0; q.hell = q.g === 8 ? 0.4 : q.g === aufgabe ? 1 : 0.45; q.verz = 0; }
+    zeichnen(phaseStart + 1000);
   }
+  const ruhend = () => !laeuft || ruhig;
 
   aufbauen();
   ctx.fillStyle = '#121117'; ctx.fillRect(0, 0, W, H);
-  new ResizeObserver(() => { aufbauen(); if (!laeuft) standbild(); }).observe(buehne);
+  new ResizeObserver(() => { aufbauen(); if (ruhend()) standbild(); }).observe(buehne);
   new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; weiter(); }).observe(buehne);
   document.addEventListener('visibilitychange', weiter);
-  buehne.addEventListener('pointermove', (e) => { const r = buehne.getBoundingClientRect(); maus.x = e.clientX - r.left; maus.y = e.clientY - r.top; });
-  buehne.addEventListener('pointerleave', () => { maus.x = maus.y = -9999; });
-  knopf.addEventListener('click', () => {
-    laeuft = !laeuft; knopf.textContent = laeuft ? 'Anhalten' : 'Abspielen';
-    knopf.setAttribute('aria-pressed', String(!laeuft)); if (laeuft) weiter();
+  buehne.addEventListener('pointermove', (e) => {
+    const r = buehne.getBoundingClientRect(); maus.x = e.clientX - r.left; maus.y = e.clientY - r.top;
+    if (ruhend()) zeichnen(performance.now());
   });
+  buehne.addEventListener('pointerleave', () => { maus.x = maus.y = -9999; if (ruhend()) zeichnen(performance.now()); });
+  const knopfZeigen = () => { knopf.innerHTML = laeuft ? `${ICON_PAUSE}Anhalten` : `${ICON_PLAY}Abspielen`; knopf.setAttribute('aria-pressed', String(!laeuft)); };
+  knopf.addEventListener('click', () => { laeuft = !laeuft; knopfZeigen(); if (laeuft) weiter(); });
   knopf.hidden = false;
-  if (ruhig) { knopf.textContent = 'Abspielen'; knopf.setAttribute('aria-pressed', 'true'); standbild(); }
+  knopfZeigen();
+  if (ruhig) standbild();
   else rafId = requestAnimationFrame(schleife);
+  if (document.fonts) document.fonts.load(`500 11px ${MONO}`).then(() => { if (ruhend()) standbild(); });
 })();
 
 // Durchlauf-Video: läuft stumm in Schleife, sobald es im Bild ist (bei reduzierter Bewegung nur auf Klick).
