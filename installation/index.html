@@ -49,7 +49,7 @@
     </div>
     <aside class="page-head__side" data-reveal style="--i:2" aria-label="Auf einen Blick">
       <dl class="facts-card">
-        <div><dt>Du brauchst</dt><dd>einen Mac (getestet), Python 3.12 und einmal das Terminal</dd></div>
+        <div><dt>Du brauchst</dt><dd>einen Mac (getestet) oder Linux, Python 3.12 und einmal das Terminal. Windows ist in Arbeit.</dd></div>
         <div><dt>Dauer</dt><dd>einmal 10 bis 20 Minuten</dd></div>
         <div><dt>Danach</dt><dd>starten, Adresse eintragen, prüfen</dd></div>
         <div><dt>Entfernen</dt><dd>Ordner löschen, fertig</dd></div>
@@ -84,7 +84,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
         <div class="code"><pre><code>python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
 .venv/bin/playwright install chromium</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
-        <div class="os"><p>Windows (Eingabeaufforderung, noch nicht getestet)</p>
+        <div class="os"><p>Windows (Eingabeaufforderung; Windows ist noch in Arbeit, siehe <a href="../faq/">FAQ</a>)</p>
         <div class="code"><pre><code>py -3.12 -m venv .venv
 .venv\Scripts\pip install -r requirements.txt
 .venv\Scripts\playwright install chromium</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
@@ -95,7 +95,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
         <h2>4. Starten</h2>
         <div class="os"><p>Mac und Linux</p>
         <div class="code"><pre><code>.venv/bin/uvicorn app.web:app</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
-        <div class="os"><p>Windows (noch nicht getestet)</p>
+        <div class="os"><p>Windows (in Arbeit)</p>
         <div class="code"><pre><code>.venv\Scripts\uvicorn app.web:app</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
         <p>Dann öffnest du im Browser <strong>http://localhost:8000</strong>. Beenden: im Terminal <code>Ctrl</code> und <code>C</code> drücken.</p>
         <p><strong>Zum Merken:</strong> Für jeden weiteren Start öffnest du das Terminal, wechselst mit <code>cd</code> in den Ordner von Nextfix und gibst denselben Befehl ein.</p>

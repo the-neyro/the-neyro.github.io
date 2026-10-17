@@ -625,6 +625,14 @@ thead .cmp__us { color: var(--accent); }
 .page-head__shot img { width: 100%; border-radius: 8px; box-shadow: 0 1px 2px rgb(28 27 34 / 0.06), 0 24px 48px -24px rgb(28 27 34 / 0.35); background: #fff; } /* taste-skill-ignore: App-Ausschnitt */
 @media (max-width: 56em) { .page-head--split { grid-template-columns: minmax(0, 1fr); align-items: start; } }
 
+/* Glossar in der FAQ */
+.glossar { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem var(--gutter); margin: 0; }
+.glossar div { padding: 1rem 1.1rem; border-radius: 8px; background: var(--surface); }
+.glossar dt { font-weight: 600; }
+.glossar dd { margin: 0.3rem 0 0; font-size: 1rem; line-height: 1.5; color: var(--muted); }
+.faq-side__text { margin-top: 1rem; color: var(--muted); }
+@media (max-width: 40em) { .glossar { grid-template-columns: minmax(0, 1fr); } }
+
 /* Blog-Beitrag */
 .post__head { padding-bottom: clamp(2rem, 4vw, 3rem); }
 .post__date { font-size: var(--step-small); color: var(--muted); margin-bottom: 1.25rem; }
