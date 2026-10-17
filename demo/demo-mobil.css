@@ -10,3 +10,4 @@
   .demo-gesperrt, .knopf { max-width: 100%; white-space: normal; }
 }
 @media (max-width: 48em) { .zeile { flex-wrap: wrap; } .demo-hinweis { max-width: 100%; white-space: normal; } }
+@media (max-width: 48em) { body * { min-width: 0; } } /* Grid/Flex-Kinder dürfen schrumpfen, sonst drückt die Tabelle die Seite breit */
