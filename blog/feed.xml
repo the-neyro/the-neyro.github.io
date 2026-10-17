@@ -1,12 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>Nextfix-Blog</title>
-  <subtitle>Neues aus der Entwicklung von Nextfix, dem kostenlosen SEO-Tool für deinen Rechner.</subtitle>
+  <subtitle>Ratgeber für deine Website und Neues von Nextfix, dem kostenlosen SEO-Tool für deinen Rechner.</subtitle>
   <link href="https://the-neyro.github.io/blog/"/>
   <link rel="self" href="https://the-neyro.github.io/blog/feed.xml"/>
   <id>https://the-neyro.github.io/blog/</id>
-  <updated>2026-10-17T21:00:00Z</updated>
+  <updated>2026-10-17T21:30:00Z</updated>
   <author><name>Nextfix</name></author>
+  <entry>
+    <title>Warum findet Google meine Website nicht?</title>
+    <link href="https://the-neyro.github.io/blog/google-findet-meine-website-nicht/"/>
+    <id>https://the-neyro.github.io/blog/google-findet-meine-website-nicht/</id>
+    <updated>2026-10-17T21:30:00Z</updated>
+    <summary>Sechs häufige Gründe, warum deine Website bei Google fehlt oder weit hinten steht, und wie du jeden davon selbst prüfst. Ohne Fachchinesisch.</summary>
+    <content type="html">&lt;p&gt;Du suchst deinen Betrieb bei Google und findest: nichts. Oder nur dein Branchenbuch-Eintrag steht da, nicht deine Website. Das hat fast immer einen von wenigen Gründen, und die meisten kannst du selbst prüfen.&lt;/p&gt;
+&lt;h2&gt;Zuerst: Kennt Google deine Website überhaupt?&lt;/h2&gt;
+&lt;p&gt;Gib bei Google &lt;code&gt;site:deine-domain.de&lt;/code&gt; ein, mit deiner eigenen Adresse statt &lt;code&gt;deine-domain.de&lt;/code&gt;. Google zeigt dann alle Seiten, die es von deiner Website kennt.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Es kommt gar nichts:&lt;/strong&gt; Google kennt die Website nicht oder darf sie nicht aufnehmen. Lies Grund 1 bis 3.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Deine Seiten erscheinen, aber nicht bei deinem Suchbegriff:&lt;/strong&gt; Google kennt dich, hält andere aber für passender. Lies Grund 4 bis 6.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;1. Die Website ist neu&lt;/h2&gt;
+&lt;p&gt;Google findet neue Websites von selbst, aber das kann Tage bis Wochen dauern. Schneller geht es, wenn du Google Bescheid sagst: mit der kostenlosen Search Console und einer Sitemap. Wie das geht, steht in &lt;a href=&quot;../search-console-einrichten/&quot;&gt;Google Search Console einrichten&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;2. Die Website sperrt Google aus&lt;/h2&gt;
+&lt;p&gt;Das passiert öfter, als man denkt. Beim Bau einer Website wird Google gern ausgesperrt, damit die halbfertige Seite nicht auftaucht, und danach vergisst man, die Sperre wieder aufzuheben.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;In WordPress: &lt;strong&gt;Einstellungen → Lesen&lt;/strong&gt;. Ist bei „Sichtbarkeit für Suchmaschinen“ ein Haken gesetzt, nimm ihn heraus und speichere.&lt;/li&gt;&lt;li&gt;Auch einzelne Seiten können gesperrt sein, zum Beispiel über die Einstellung „noindex“ in Yoast oder Rank Math, oder über die Datei &lt;code&gt;robots.txt&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Nextfix prüft das bei jeder Seite: &lt;a href=&quot;../../pruefungen/#p-blockiert&quot;&gt;Seiten für Google gesperrt&lt;/a&gt; und &lt;a href=&quot;../../pruefungen/#p-x_robots_noindex&quot;&gt;noindex per X-Robots-Tag&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;3. Seiten sind kaputt oder nicht erreichbar&lt;/h2&gt;
+&lt;p&gt;Liefert eine Seite „nicht gefunden“ (Fehler 404) oder leitet sie mehrmals weiter, nimmt Google sie nicht auf. Steht sie trotzdem in der Sitemap, verwirrt das zusätzlich. Typisch sind alte Aktionsseiten, die gelöscht wurden, auf die aber noch Links zeigen.&lt;/p&gt;
+&lt;p&gt;Prüfungen dazu: &lt;a href=&quot;../../pruefungen/#p-status_4xx&quot;&gt;Seiten mit 4xx-Statuscode&lt;/a&gt; und &lt;a href=&quot;../../pruefungen/#p-sitemap_falsche_seiten&quot;&gt;Falsche Seiten in sitemap.xml&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;4. Der Seitentitel sagt nicht, was du machst&lt;/h2&gt;
+&lt;p&gt;Der Seitentitel ist die blaue Zeile im Suchergebnis und das Wichtigste, was Google über eine Seite liest. Steht dort nur „Startseite“ oder dein Firmenname, weiß Google nicht, dass du Maler in Bremen bist. Wie ein guter Titel aussieht, steht in &lt;a href=&quot;../seitentitel-handwerk/&quot;&gt;Seitentitel für Handwerksbetriebe&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;5. Auf der Seite steht zu wenig&lt;/h2&gt;
+&lt;p&gt;Eine Seite mit drei Sätzen und einem Foto beantwortet kaum eine Frage. Google zeigt lieber Seiten, auf denen etwas steht: was du anbietest, wo, für wen, was es kostet oder wie es abläuft. Nextfix meldet Seiten mit weniger als 200 Wörtern im Hauptinhalt: &lt;a href=&quot;../../pruefungen/#p-wenig_text&quot;&gt;Wenig Text&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;6. Du suchst nach dem falschen Begriff&lt;/h2&gt;
+&lt;p&gt;Du findest dich bei „Malerbetrieb Mustermann“, aber nicht bei „Maler Bremen“? Dann kennt Google dich, aber andere passen für den allgemeinen Begriff besser. Hier helfen ein klarer Titel, mehr Text zu genau dieser Leistung und Geduld. Für die Suche vor Ort zählt außerdem dein kostenloses Unternehmensprofil bei Google, also der Eintrag mit Karte, Öffnungszeiten und Bewertungen. Das richtest du direkt bei Google ein; Nextfix prüft es nicht.&lt;/p&gt;
+&lt;h2&gt;Nextfix findet das für dich&lt;/h2&gt;
+&lt;p&gt;Die Gründe 2 bis 5 prüft Nextfix bei jedem Durchlauf an allen Seiten und sortiert sie nach Wirkung. Oben in „Was jetzt tun“ steht, was du zuerst angehen solltest.&lt;/p&gt;
+&lt;figure class=&quot;post__bild&quot;&gt;&lt;img src=&quot;../../assets/img/shot-aufgaben-breit-1300.webp&quot; width=&quot;1300&quot; height=&quot;870&quot; loading=&quot;lazy&quot; alt=&quot;Die Liste „Was jetzt tun“ mit Aufgaben, Wirkung und wer sie erledigt&quot;&gt;&lt;figcaption&gt;„Was jetzt tun“ bei der erfundenen Demo-Website „Radhaus Elbe“. &lt;a href=&quot;../../demo/&quot;&gt;Selbst durchklicken&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;
+&lt;p&gt;Was Nextfix nicht kann: dir versprechen, dass du danach auf Platz 1 stehst. Das kann niemand. Aber du weißt, dass es nicht an einer vergessenen Sperre oder einer kaputten Seite liegt.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Google Search Console einrichten, Schritt für Schritt</title>
+    <link href="https://the-neyro.github.io/blog/search-console-einrichten/"/>
+    <id>https://the-neyro.github.io/blog/search-console-einrichten/</id>
+    <updated>2026-10-17T21:20:00Z</updated>
+    <summary>Mit der kostenlosen Search Console siehst du, wofür Google deine Website zeigt und welche Seiten fehlen. So richtest du sie ein, auch ohne Technikkenntnisse.</summary>
+    <content type="html">&lt;p&gt;Die Search Console ist ein kostenloses Werkzeug von Google. Sie zeigt dir, bei welchen Suchbegriffen deine Website erscheint, wie oft jemand klickt und welche Seiten Google nicht aufgenommen hat, samt Grund. Es ist die einzige Quelle, die dir das direkt von Google sagt.&lt;/p&gt;
+&lt;p&gt;Einrichten kannst du sie nur für deine eigene Website: Du musst einmal beweisen, dass sie dir gehört.&lt;/p&gt;
+&lt;h2&gt;Was du brauchst&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;ein Google-Konto (zum Beispiel ein Gmail-Konto)&lt;/li&gt;&lt;li&gt;Zugang zu deiner Website, also zum Login von WordPress, Wix oder Jimdo, oder zu deinem Domain-Anbieter&lt;/li&gt;&lt;li&gt;etwa eine Viertelstunde, plus etwas Wartezeit für die ersten Zahlen&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Kommst du nirgends hin, kann dein Webbetreuer das übernehmen. Er kann dich danach als Nutzer eintragen, dann siehst du alles selbst.&lt;/p&gt;
+&lt;h2&gt;1. Website hinzufügen&lt;/h2&gt;
+&lt;p&gt;Öffne &lt;a href=&quot;https://search.google.com/search-console&quot;&gt;search.google.com/search-console&lt;/a&gt; und melde dich an. Google fragt dann, welche Art von „Property“ du anlegen willst:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Domain:&lt;/strong&gt; erfasst alles, mit und ohne &lt;code&gt;www&lt;/code&gt;, mit &lt;code&gt;http&lt;/code&gt; und &lt;code&gt;https&lt;/code&gt;. Bestätigt wird über einen Eintrag beim Domain-Anbieter (ein sogenannter TXT-Eintrag). Das ist die bessere Wahl, wenn du an die Einstellungen deiner Domain kommst.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;URL-Präfix:&lt;/strong&gt; erfasst nur genau die Adresse, die du eingibst. Bestätigt wird zum Beispiel über ein kurzes Stück Code auf deiner Startseite. Das ist der einfachere Weg, wenn du nur an deine Website kommst.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;2. Bestätigen, dass die Website dir gehört&lt;/h2&gt;
+&lt;p&gt;Google zeigt dir einen Code und sagt, wohin er gehört.&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Domain:&lt;/strong&gt; Den TXT-Eintrag legst du in der Verwaltung deines Domain-Anbieters an, meist unter „DNS“. Danach in der Search Console auf „Bestätigen“ klicken. Klappt es nicht sofort, warte etwas und versuch es später noch einmal; der Eintrag braucht manchmal eine Weile.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;URL-Präfix in WordPress:&lt;/strong&gt; Wähl bei Google die Methode „HTML-Tag“. Yoast und Rank Math haben ein Feld dafür: bei Yoast unter „Website-Verbindungen“, bei Rank Math unter „Allgemeine Einstellungen → Webmaster-Tools“. Dort fügst du den Code ein, speicherst und klickst bei Google auf „Bestätigen“.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Wix und Jimdo&lt;/strong&gt; bieten ebenfalls einen Weg, die Search Console zu verbinden. Such in den Einstellungen nach „SEO“ oder „Google Search Console“.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;3. Sitemap einreichen&lt;/h2&gt;
+&lt;p&gt;Die Sitemap ist eine Liste aller Seiten deiner Website. Damit findet Google sie schneller. Klick links auf &lt;strong&gt;Sitemaps&lt;/strong&gt;, trag die Adresse ein und klick auf „Senden“. Übliche Adressen:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;WordPress mit Yoast oder Rank Math: &lt;code&gt;sitemap_index.xml&lt;/code&gt;&lt;/li&gt;&lt;li&gt;WordPress ohne Plugin: &lt;code&gt;wp-sitemap.xml&lt;/code&gt;&lt;/li&gt;&lt;li&gt;Wix und Jimdo legen die Sitemap selbst an, meist unter &lt;code&gt;sitemap.xml&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Steht danach „Erfolgreich“ da, ist alles gut.&lt;/p&gt;
+&lt;h2&gt;4. Ein paar Tage warten, dann reinschauen&lt;/h2&gt;
+&lt;p&gt;Die ersten Zahlen kommen nach einigen Tagen. Zwei Berichte lohnen sich zuerst:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Leistung:&lt;/strong&gt; für welche Suchbegriffe du erscheinst (Impressionen), wie oft geklickt wird und auf welchem Platz du im Schnitt stehst.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Seiten&lt;/strong&gt; (unter „Indexierung“): welche Seiten Google aufgenommen hat und welche nicht, mit Grund.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Und was hat Nextfix damit zu tun?&lt;/h2&gt;
+&lt;p&gt;Nextfix fragt Google nicht selbst ab, denn das verbieten Googles Regeln. Stattdessen holt es auf Wunsch einmal am Tag deine Daten aus der Search Console und zeigt sie unter „Positionen“: Sichtbarkeit, Aufsteiger und Absteiger und Suchbegriffe, bei denen du fast auf Seite 1 stehst. Die Verbindung richtest du einmal ein, das dauert etwa zehn Minuten; die &lt;a href=&quot;https://github.com/the-neyro/nextfix/blob/main/docs/anleitung-gsc.md&quot;&gt;Anleitung&lt;/a&gt; liegt im Projekt auf GitHub.&lt;/p&gt;
+&lt;figure class=&quot;post__bild&quot;&gt;&lt;img src=&quot;../../assets/img/shot-positionen-breit-1300.webp&quot; width=&quot;1300&quot; height=&quot;1093&quot; loading=&quot;lazy&quot; alt=&quot;Positionen mit Sichtbarkeit, durchschnittlichem Platz, „Fast auf Seite 1“ und Aufsteigern&quot;&gt;&lt;figcaption&gt;„Positionen“ in Nextfix, hier mit Testdaten der erfundenen Demo-Website. &lt;a href=&quot;../../demo/projekte-1-positionen.html&quot;&gt;In der Demo ansehen&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;</content>
+  </entry>
+  <entry>
+    <title>Meta-Beschreibung schreiben: WordPress, Wix, Jimdo</title>
+    <link href="https://the-neyro.github.io/blog/meta-beschreibung-schreiben/"/>
+    <id>https://the-neyro.github.io/blog/meta-beschreibung-schreiben/</id>
+    <updated>2026-10-17T21:10:00Z</updated>
+    <summary>Die Meta-Beschreibung ist der kurze Text unter deinem Titel bei Google. Was hineingehört, wie lang sie sein sollte und wo du sie in deinem Baukasten einträgst.</summary>
+    <content type="html">&lt;p&gt;Unter der blauen Zeile im Suchergebnis steht ein kurzer Text, zwei Zeilen lang. Das ist die Meta-Beschreibung. Für deinen Platz bei Google spielt sie kaum eine Rolle, für den Klick aber schon: Sie ist dein Schaufenster. Fehlt sie, nimmt Google irgendeinen Textschnipsel von deiner Seite, oft den Cookie-Hinweis oder die Adresse.&lt;/p&gt;
+&lt;h2&gt;Was eine gute Beschreibung ausmacht&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Sie sagt, was es hier gibt:&lt;/strong&gt; die Leistung, für wen und wo.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Sie gibt einen Grund zum Klicken:&lt;/strong&gt; kostenloses Angebot, Termin in zwei Tagen, seit 30 Jahren im Viertel.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Sie ist 70 bis 160 Zeichen lang.&lt;/strong&gt; Kürzer verschenkt Platz, länger wird abgeschnitten.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Jede Seite hat ihre eigene.&lt;/strong&gt; Steht überall derselbe Text, sieht für Google jede Seite gleich aus.&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Ein Beispiel für die Leistungsseite eines Malerbetriebs:&lt;/p&gt;
+&lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code&gt;Malerarbeiten in Bremen-Findorff: Innenanstrich, Fassade und Tapezieren. Angebot kostenlos und innerhalb von zwei Tagen.&lt;/code&gt;&lt;/pre&gt;&lt;button class=&quot;code__copy&quot; type=&quot;button&quot; hidden&gt;Kopieren&lt;/button&gt;&lt;/div&gt;
+&lt;p&gt;Das sind 120 Zeichen. Google darf die Beschreibung übrigens ändern, wenn es für eine bestimmte Suche einen besser passenden Satz auf deiner Seite findet. Das ist normal und kein Fehler.&lt;/p&gt;
+&lt;h2&gt;Wo du sie einträgst&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;WordPress mit Yoast:&lt;/strong&gt; Seite bearbeiten, nach unten zum Kasten „Yoast SEO“ scrollen, dort ins Feld „Meta-Beschreibung“ schreiben, Seite aktualisieren.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WordPress mit Rank Math:&lt;/strong&gt; Seite bearbeiten, oben rechts auf das Rank-Math-Symbol klicken, „Snippet bearbeiten“ wählen und die „Beschreibung“ ausfüllen.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WordPress ohne SEO-Plugin:&lt;/strong&gt; WordPress selbst hat dafür kein Feld. Installier eines der beiden Plugins, beide gibt es kostenlos.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Wix:&lt;/strong&gt; Links im Seitenmenü bei der Seite auf die drei Punkte klicken, „SEO-Grundlagen“ öffnen und die „Meta-Beschreibung“ ausfüllen.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Jimdo:&lt;/strong&gt; In den Einstellungen der jeweiligen Seite unter „SEO“. Wo genau das Feld liegt, hängt davon ab, ob du Jimdo Creator oder den neueren Baukasten nutzt. Je nach Paket ist es erst ab einem bezahlten Tarif frei.&lt;/p&gt;
+&lt;h2&gt;Vorher ausprobieren&lt;/h2&gt;
+&lt;p&gt;Auf unserer Startseite kannst du Titel und Beschreibung eintippen und siehst sofort, wie dein Eintrag bei Google ungefähr aussehen würde: &lt;a href=&quot;../../#titel&quot;&gt;zum Titel-Check&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Nextfix findet das für dich&lt;/h2&gt;
+&lt;p&gt;Nextfix prüft die Beschreibung jeder Seite und meldet, wo sie &lt;a href=&quot;../../pruefungen/#p-meta_desc_fehlt&quot;&gt;fehlt&lt;/a&gt;, &lt;a href=&quot;../../pruefungen/#p-meta_desc_doppelt&quot;&gt;doppelt vorkommt&lt;/a&gt;, &lt;a href=&quot;../../pruefungen/#p-meta_desc_zu_kurz&quot;&gt;zu kurz&lt;/a&gt; oder &lt;a href=&quot;../../pruefungen/#p-meta_desc_zu_lang&quot;&gt;zu lang&lt;/a&gt; ist. Doppelte Beschreibungen landen weit oben in „Was jetzt tun“, zu kurze gelten als Feinschliff. Bei der erfundenen Demo-Website teilen sich vier Seiten dieselbe Beschreibung: &lt;a href=&quot;../../demo/crawls-2-issues-meta-desc-doppelt-seite.html&quot;&gt;So sieht das in Nextfix aus&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Nextfix 0.1.0: Installation in einer Zeile</title>
     <link href="https://the-neyro.github.io/blog/version-0-1-0/"/>
@@ -25,6 +106,30 @@
 &lt;h2&gt;Ehrlich zu Windows&lt;/h2&gt;
 &lt;p&gt;Die Installation läuft unter Windows automatisch geprüft durch. Von den automatischen Tests scheitert dort aber noch einer, und alles läuft deutlich langsamer als auf Mac und Linux. Bis das geklärt ist, unterstützen wir Windows nicht offiziell.&lt;/p&gt;
 &lt;p&gt;Alle Änderungen stehen im &lt;a href=&quot;https://github.com/the-neyro/nextfix/releases/tag/v0.1.0&quot;&gt;Changelog auf GitHub&lt;/a&gt;. Es laufen 273 automatische Tests.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Seitentitel für Handwerksbetriebe: so findet man dich</title>
+    <link href="https://the-neyro.github.io/blog/seitentitel-handwerk/"/>
+    <id>https://the-neyro.github.io/blog/seitentitel-handwerk/</id>
+    <updated>2026-10-17T21:00:00Z</updated>
+    <summary>Der Seitentitel entscheidet mit, bei welchen Suchen du erscheinst. Eine einfache Formel, Beispiele für jede Seite und die häufigsten Fehler.</summary>
+    <content type="html">&lt;p&gt;Der Seitentitel ist die blaue Zeile in deinem Eintrag bei Google und der Text im Browser-Tab. Für Google ist er der wichtigste Hinweis, worum es auf einer Seite geht. Trotzdem steht auf vielen Handwerkerseiten nur „Startseite“, „Home“ oder der Firmenname.&lt;/p&gt;
+&lt;h2&gt;Die Formel: Leistung, Ort, Name&lt;/h2&gt;
+&lt;p&gt;Schreib vorn hin, wonach deine Kunden suchen, und hinten, wer du bist:&lt;/p&gt;
+&lt;div class=&quot;code&quot;&gt;&lt;pre&gt;&lt;code&gt;Malerarbeiten in Bremen | Malerbetrieb Mustermann&lt;/code&gt;&lt;/pre&gt;&lt;button class=&quot;code__copy&quot; type=&quot;button&quot; hidden&gt;Kopieren&lt;/button&gt;&lt;/div&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Leistung zuerst:&lt;/strong&gt; So, wie Kunden suchen. Eher „Maler“ oder „Badsanierung“ als „Ihr Partner für Oberflächengestaltung“.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Ort dazu:&lt;/strong&gt; Wer einen Handwerker sucht, sucht fast immer in der Nähe.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Name zum Schluss:&lt;/strong&gt; Wer dich schon kennt, findet dich auch so.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Bis etwa 60 Zeichen:&lt;/strong&gt; Längere Titel schneidet Google ab. Nextfix warnt ab 70 Zeichen.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Jede Seite bekommt ihren eigenen Titel&lt;/h2&gt;
+&lt;p&gt;Hat jede Seite denselben Titel, kann Google sie nicht unterscheiden. Zum Beispiel so:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;Startseite: &lt;code&gt;Maler in Bremen-Findorff | Malerbetrieb Mustermann&lt;/code&gt;&lt;/li&gt;&lt;li&gt;Leistungsseite: &lt;code&gt;Fassade streichen in Bremen | Malerbetrieb Mustermann&lt;/code&gt;&lt;/li&gt;&lt;li&gt;Leistungsseite: &lt;code&gt;Tapezieren in Bremen | Malerbetrieb Mustermann&lt;/code&gt;&lt;/li&gt;&lt;li&gt;Über uns: &lt;code&gt;Über uns: Malermeister seit 1994 | Malerbetrieb Mustermann&lt;/code&gt;&lt;/li&gt;&lt;li&gt;Kontakt: &lt;code&gt;Kontakt und Angebot anfragen | Malerbetrieb Mustermann&lt;/code&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Für Kontakt und Impressum musst du dir keine große Mühe machen. Bei den Seiten, die Aufträge bringen sollen, lohnt sich jedes Wort.&lt;/p&gt;
+&lt;h2&gt;Häufige Fehler&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;„Startseite“ oder „Home“:&lt;/strong&gt; Sagt Google nichts.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Orte aufzählen:&lt;/strong&gt; „Maler Bremen Oldenburg Delmenhorst Achim Verden“ wirkt auf Google wie Tricksen und auf Menschen wie Spam. Für jeden wichtigen Ort lieber eine eigene Seite mit echtem Inhalt.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Alles in Großbuchstaben oder mit Sternchen:&lt;/strong&gt; Fällt auf, aber nicht positiv.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Wo du den Titel änderst&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;WordPress mit Yoast:&lt;/strong&gt; Seite bearbeiten, Kasten „Yoast SEO“, Feld „SEO-Titel“.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;WordPress mit Rank Math:&lt;/strong&gt; Rank-Math-Symbol oben rechts, „Snippet bearbeiten“, Feld „Titel“.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Wix:&lt;/strong&gt; Seitenmenü, drei Punkte an der Seite, „SEO-Grundlagen“, Feld „Titel-Tag“.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Jimdo:&lt;/strong&gt; In den SEO-Einstellungen der jeweiligen Seite.&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Ausprobieren, ohne etwas zu ändern: Auf unserer Startseite gibt es einen &lt;a href=&quot;../../#titel&quot;&gt;Titel-Check&lt;/a&gt;. Du tippst Titel und Suchbegriff ein und siehst, ob die Länge passt, ob der Begriff drinsteht und wie der Eintrag bei Google ungefähr aussieht.&lt;/p&gt;
+&lt;h2&gt;Nextfix findet das für dich&lt;/h2&gt;
+&lt;p&gt;Nextfix prüft den Titel jeder Seite: ob er &lt;a href=&quot;../../pruefungen/#p-title_fehlt&quot;&gt;fehlt&lt;/a&gt;, &lt;a href=&quot;../../pruefungen/#p-title_doppelt&quot;&gt;doppelt vorkommt&lt;/a&gt; oder &lt;a href=&quot;../../pruefungen/#p-title_zu_lang&quot;&gt;zu lang&lt;/a&gt; ist. In „Seite optimieren“ gibst du einen Suchbegriff ein und bekommst einen Titelvorschlag mit dem Begriff vorn, zum Kopieren.&lt;/p&gt;
+&lt;figure class=&quot;post__bild&quot;&gt;&lt;img src=&quot;../../assets/img/shot-seite-optimieren-breit-1200.webp&quot; width=&quot;1200&quot; height=&quot;1657&quot; loading=&quot;lazy&quot; alt=&quot;Seite optimieren mit Seiten-Score, KI-Score und einem Vorschlag für den Seitentitel&quot;&gt;&lt;figcaption&gt;„Seite optimieren“ an der erfundenen Demo-Website. &lt;a href=&quot;../../demo/onpage-1.html&quot;&gt;In der Demo ansehen&lt;/a&gt;&lt;/figcaption&gt;&lt;/figure&gt;</content>
   </entry>
   <entry>
     <title>Vier Aufgaben später: von 49 auf 91</title>

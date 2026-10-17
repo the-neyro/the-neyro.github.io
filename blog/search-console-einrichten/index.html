@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Search Console einrichten, Schritt für Schritt | Nextfix-Blog</title>
+<meta name="description" content="Mit der kostenlosen Search Console siehst du, wofür Google deine Website zeigt und welche Seiten fehlen. So richtest du sie ein, auch ohne Technikkenntnisse.">
+<!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
+<link rel="canonical" href="https://the-neyro.github.io/blog/search-console-einrichten/">
+<meta name="theme-color" content="#f7f6f3">
+<link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nextfix">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Google Search Console einrichten, Schritt für Schritt | Nextfix-Blog">
+<meta property="og:description" content="Mit der kostenlosen Search Console siehst du, wofür Google deine Website zeigt und welche Seiten fehlen. So richtest du sie ein, auch ohne Technikkenntnisse.">
+<meta property="og:url" content="https://the-neyro.github.io/blog/search-console-einrichten/">
+<meta property="og:image" content="https://the-neyro.github.io/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Nextfix","item":"https://the-neyro.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://the-neyro.github.io/blog/"},{"@type":"ListItem","position":3,"name":"Google Search Console einrichten, Schritt für Schritt","item":"https://the-neyro.github.io/blog/search-console-einrichten/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Google Search Console einrichten, Schritt für Schritt","description":"Mit der kostenlosen Search Console siehst du, wofür Google deine Website zeigt und welche Seiten fehlen. So richtest du sie ein, auch ohne Technikkenntnisse.","datePublished":"2026-10-17","dateModified":"2026-10-17","inLanguage":"de","mainEntityOfPage":"https://the-neyro.github.io/blog/search-console-einrichten/","image":"https://the-neyro.github.io/assets/img/og.png","author":{"@type":"Organization","name":"Nextfix","url":"https://the-neyro.github.io/"},"publisher":{"@type":"Organization","name":"Nextfix","url":"https://the-neyro.github.io/"}}</script>
+<!-- seo:ende -->
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../../blog/feed.xml">
+<link rel="preload" href="../../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="site-head">
+  <a class="wordmark" href="../../" aria-label="Nextfix, Startseite">Nextfix</a>
+  <nav class="site-nav" aria-label="Hauptmenü">
+    <a href="../../funktionen/">Funktionen</a>
+    <a href="../../faq/">FAQ</a>
+    <a class="nav-wide" href="../../blog/" aria-current="page">Blog</a>
+    <a class="nav-wide" href="https://github.com/the-neyro/nextfix">GitHub</a>
+    <a class="button button--small" href="../../installation/">Installieren</a>
+  </nav>
+</header>
+
+<main id="inhalt">
+  <article class="post">
+    <header class="page-head post__head">
+      <p class="post__date"><a class="link" href="../">Blog</a> · Ratgeber · <time datetime="2026-10-17">17. Oktober 2026</time></p>
+      <h1>Google Search Console einrichten, Schritt für Schritt</h1>
+      <p class="statement">Mit der kostenlosen Search Console siehst du, wofür Google deine Website zeigt und welche Seiten fehlen. So richtest du sie ein, auch ohne Technikkenntnisse.</p>
+    </header>
+    <div class="prose post__body">
+<p>Die Search Console ist ein kostenloses Werkzeug von Google. Sie zeigt dir, bei welchen Suchbegriffen deine Website erscheint, wie oft jemand klickt und welche Seiten Google nicht aufgenommen hat, samt Grund. Es ist die einzige Quelle, die dir das direkt von Google sagt.</p>
+<p>Einrichten kannst du sie nur für deine eigene Website: Du musst einmal beweisen, dass sie dir gehört.</p>
+<h2>Was du brauchst</h2>
+<ul><li>ein Google-Konto (zum Beispiel ein Gmail-Konto)</li><li>Zugang zu deiner Website, also zum Login von WordPress, Wix oder Jimdo, oder zu deinem Domain-Anbieter</li><li>etwa eine Viertelstunde, plus etwas Wartezeit für die ersten Zahlen</li></ul>
+<p>Kommst du nirgends hin, kann dein Webbetreuer das übernehmen. Er kann dich danach als Nutzer eintragen, dann siehst du alles selbst.</p>
+<h2>1. Website hinzufügen</h2>
+<p>Öffne <a href="https://search.google.com/search-console">search.google.com/search-console</a> und melde dich an. Google fragt dann, welche Art von „Property“ du anlegen willst:</p>
+<ul><li><strong>Domain:</strong> erfasst alles, mit und ohne <code>www</code>, mit <code>http</code> und <code>https</code>. Bestätigt wird über einen Eintrag beim Domain-Anbieter (ein sogenannter TXT-Eintrag). Das ist die bessere Wahl, wenn du an die Einstellungen deiner Domain kommst.</li><li><strong>URL-Präfix:</strong> erfasst nur genau die Adresse, die du eingibst. Bestätigt wird zum Beispiel über ein kurzes Stück Code auf deiner Startseite. Das ist der einfachere Weg, wenn du nur an deine Website kommst.</li></ul>
+<h2>2. Bestätigen, dass die Website dir gehört</h2>
+<p>Google zeigt dir einen Code und sagt, wohin er gehört.</p>
+<ul><li><strong>Domain:</strong> Den TXT-Eintrag legst du in der Verwaltung deines Domain-Anbieters an, meist unter „DNS“. Danach in der Search Console auf „Bestätigen“ klicken. Klappt es nicht sofort, warte etwas und versuch es später noch einmal; der Eintrag braucht manchmal eine Weile.</li><li><strong>URL-Präfix in WordPress:</strong> Wähl bei Google die Methode „HTML-Tag“. Yoast und Rank Math haben ein Feld dafür: bei Yoast unter „Website-Verbindungen“, bei Rank Math unter „Allgemeine Einstellungen → Webmaster-Tools“. Dort fügst du den Code ein, speicherst und klickst bei Google auf „Bestätigen“.</li><li><strong>Wix und Jimdo</strong> bieten ebenfalls einen Weg, die Search Console zu verbinden. Such in den Einstellungen nach „SEO“ oder „Google Search Console“.</li></ul>
+<h2>3. Sitemap einreichen</h2>
+<p>Die Sitemap ist eine Liste aller Seiten deiner Website. Damit findet Google sie schneller. Klick links auf <strong>Sitemaps</strong>, trag die Adresse ein und klick auf „Senden“. Übliche Adressen:</p>
+<ul><li>WordPress mit Yoast oder Rank Math: <code>sitemap_index.xml</code></li><li>WordPress ohne Plugin: <code>wp-sitemap.xml</code></li><li>Wix und Jimdo legen die Sitemap selbst an, meist unter <code>sitemap.xml</code></li></ul>
+<p>Steht danach „Erfolgreich“ da, ist alles gut.</p>
+<h2>4. Ein paar Tage warten, dann reinschauen</h2>
+<p>Die ersten Zahlen kommen nach einigen Tagen. Zwei Berichte lohnen sich zuerst:</p>
+<ul><li><strong>Leistung:</strong> für welche Suchbegriffe du erscheinst (Impressionen), wie oft geklickt wird und auf welchem Platz du im Schnitt stehst.</li><li><strong>Seiten</strong> (unter „Indexierung“): welche Seiten Google aufgenommen hat und welche nicht, mit Grund.</li></ul>
+<h2>Und was hat Nextfix damit zu tun?</h2>
+<p>Nextfix fragt Google nicht selbst ab, denn das verbieten Googles Regeln. Stattdessen holt es auf Wunsch einmal am Tag deine Daten aus der Search Console und zeigt sie unter „Positionen“: Sichtbarkeit, Aufsteiger und Absteiger und Suchbegriffe, bei denen du fast auf Seite 1 stehst. Die Verbindung richtest du einmal ein, das dauert etwa zehn Minuten; die <a href="https://github.com/the-neyro/nextfix/blob/main/docs/anleitung-gsc.md">Anleitung</a> liegt im Projekt auf GitHub.</p>
+<figure class="post__bild"><img src="../../assets/img/shot-positionen-breit-1300.webp" width="1300" height="1093" loading="lazy" alt="Positionen mit Sichtbarkeit, durchschnittlichem Platz, „Fast auf Seite 1“ und Aufsteigern"><figcaption>„Positionen“ in Nextfix, hier mit Testdaten der erfundenen Demo-Website. <a href="../../demo/projekte-1-positionen.html">In der Demo ansehen</a></figcaption></figure>
+    </div>
+    <nav class="prose post__nav" aria-label="Weitere Beiträge"><a class="link" href="../meta-beschreibung-schreiben/">← Meta-Beschreibung schreiben: WordPress, Wix, Jimdo</a> <a class="link" href="../google-findet-meine-website-nicht/">Warum findet Google meine Website nicht? →</a></nav>
+  </article>
+</main>
+
+<footer class="site-foot site-foot--short">
+  <div class="foot-top">
+    <div class="foot-invite">
+      <h2>Fang mit der ersten Aufgabe an.</h2>
+      <a class="button button--light" href="../../installation/">Installieren</a>
+    </div>
+    <nav class="foot-links" aria-label="Fußmenü">
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+      <a href="../../funktionen/">Funktionen</a>
+      <a href="../../pruefungen/">Alle Prüfungen</a>
+      <a href="../../installation/">Installation</a>
+      <a href="../../faq/">FAQ</a>
+      <a href="../../blog/">Blog</a>
+    </nav>
+  </div>
+  <div class="foot-legal">
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</span>
+    <a href="../../datenschutz/">Datenschutz</a>
+  </div>
+  <p class="foot-name" aria-hidden="true">Nextfix</p>
+</footer>
+
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

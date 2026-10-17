@@ -11,15 +11,19 @@ Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf d
 - [Alle 106 SEO-Prüfungen von Nextfix, mit Anleitung](https://the-neyro.github.io/pruefungen/): Die 106 Prüfungen des kostenlosen SEO-Tools Nextfix: von kaputten Links bis KI-Suche, je mit Begründung und Anleitung zum Beheben.
 - [SEO-Tool installieren: Nextfix Schritt für Schritt auf dem Mac](https://the-neyro.github.io/installation/): So installierst du das kostenlose SEO-Tool Nextfix: eine Zeile ins Terminal auf Mac oder Linux, danach Start per Doppelklick. Auch Schritt für Schritt erklärt.
 - [Fragen zu Nextfix: Kosten, Installation, Datenschutz, Grenzen](https://the-neyro.github.io/faq/): Antworten zu Nextfix: was es kostet, was du zum Installieren brauchst, wohin deine Daten gehen, was der Website-Zustand bedeutet und was das Tool nicht kann.
-- [Blog: Neues aus der Entwicklung von Nextfix](https://the-neyro.github.io/blog/): Was sich an Nextfix geändert hat und warum: neue Prüfungen, Funktionen und Entscheidungen, kurz und ehrlich erklärt.
+- [Blog: Ratgeber für deine Website und Neues von Nextfix](https://the-neyro.github.io/blog/): Anleitungen ohne Fachchinesisch: warum Google dich nicht findet, Search Console, Seitentitel und Beschreibungen. Dazu Neues von Nextfix.
 
 ## Blog
 
 - [Wirkung statt Scheinpunkte | Nextfix-Blog](https://the-neyro.github.io/blog/wirkung-statt-punkte/): Aufgaben in Nextfix zeigen jetzt „Wirkung hoch, mittel oder gering“ statt „+4,2 Punkte“. Warum eine genaue Zahl hier täuscht.
 - [Vier Aufgaben später: von 49 auf 91 | Nextfix-Blog](https://the-neyro.github.io/blog/vier-aufgaben-spaeter/): Wir haben an der Demo-Website die ersten vier Aufgaben aus „Was jetzt tun“ wirklich erledigt und neu geprüft. Was sich geändert hat und was nicht.
 - [Nextfix 0.1.0: Installation in einer Zeile | Nextfix-Blog](https://the-neyro.github.io/blog/version-0-1-0/): Die erste Version mit Nummer: Installation in einer Zeile, Start per Doppelklick auf dem Mac, „Was jetzt tun“ für Claude und bessere Titel-Vorschläge.
+- [Seitentitel für Handwerksbetriebe: so findet man dich | Nextfix-Blog](https://the-neyro.github.io/blog/seitentitel-handwerk/): Der Seitentitel entscheidet mit, bei welchen Suchen du erscheinst. Eine einfache Formel, Beispiele für jede Seite und die häufigsten Fehler.
+- [Google Search Console einrichten, Schritt für Schritt | Nextfix-Blog](https://the-neyro.github.io/blog/search-console-einrichten/): Mit der kostenlosen Search Console siehst du, wofür Google deine Website zeigt und welche Seiten fehlen. So richtest du sie ein, auch ohne Technikkenntnisse.
 - [Die Website hat ein neues Gesicht | Nextfix-Blog](https://the-neyro.github.io/blog/neue-website/): Sieben Prüfer haben die Nextfix-Website zerlegt. Was sie gefunden haben, was wir geändert haben und was noch kommt.
+- [Meta-Beschreibung schreiben: WordPress, Wix, Jimdo | Nextfix-Blog](https://the-neyro.github.io/blog/meta-beschreibung-schreiben/): Die Meta-Beschreibung ist der kurze Text unter deinem Titel bei Google. Was hineingehört, wie lang sie sein sollte und wo du sie in deinem Baukasten einträgst.
 - [Websites, die erst im Browser entstehen | Nextfix-Blog](https://the-neyro.github.io/blog/javascript-websites/): Manche Websites schicken fast leeres HTML und bauen den Inhalt per JavaScript. Nextfix erkennt das jetzt und kann solche Seiten auch richtig prüfen.
+- [Warum findet Google meine Website nicht? | Nextfix-Blog](https://the-neyro.github.io/blog/google-findet-meine-website-nicht/): Sechs häufige Gründe, warum deine Website bei Google fehlt oder weit hinten steht, und wie du jeden davon selbst prüfst. Ohne Fachchinesisch.
 - [Domain-Stärke ohne Abo | Nextfix-Blog](https://the-neyro.github.io/blog/domain-staerke-ohne-abo/): Nextfix zeigt jetzt, wie stark deine Domain im Vergleich zur Konkurrenz ist, mit den kostenlosen Daten von Open PageRank.
 - [Ladezeit zählt jetzt zum Website-Zustand | Nextfix-Blog](https://the-neyro.github.io/blog/ladezeit-zaehlt-mit/): Eine langsame Seite ist ein echtes Problem, also fließt die Ladezeit jetzt in den Website-Zustand ein. So misst Nextfix sie und so wird gerechnet.
 

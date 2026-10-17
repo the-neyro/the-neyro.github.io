@@ -28,6 +28,8 @@ from pathlib import Path
 WURZEL = Path(__file__).resolve().parent.parent
 SITE_URL = "https://the-neyro.github.io"
 BLOG_QUELLE = WURZEL / "content" / "blog"
+# Ratgeber beantworten Fragen zur eigenen Website, Neuigkeiten erzählen, was sich an Nextfix ändert
+RUBRIKEN = {"ratgeber": "Ratgeber", "neuigkeit": "Neuigkeiten"}
 MONATE = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
 STUFE = {"error": ("Dringend", "dringend"), "warning": ("Wichtig", "wichtig"), "notice": ("Feinschliff", "fein")}
 BEREICH_TEXT = {
@@ -121,7 +123,27 @@ def inline(text: str) -> str:
     return re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", r'<a href="\2">\1</a>', text)
 
 
-def markdown(quelle: str) -> str:
+def webp_groesse(datei: Path) -> tuple[int, int]:
+    """Breite und Höhe einer WebP-Datei aus dem Dateikopf (VP8, VP8L oder VP8X), ohne Bildbibliothek."""
+    k = datei.read_bytes()[:30]
+    art = k[12:16]
+    if art == b"VP8X":
+        return 1 + int.from_bytes(k[24:27], "little"), 1 + int.from_bytes(k[27:30], "little")
+    if art == b"VP8L":
+        b = int.from_bytes(k[21:25], "little")
+        return (b & 0x3FFF) + 1, ((b >> 14) & 0x3FFF) + 1
+    if art == b"VP8 ":
+        return int.from_bytes(k[26:28], "little") & 0x3FFF, int.from_bytes(k[28:30], "little") & 0x3FFF
+    raise ValueError(f"Keine WebP-Datei: {datei}")
+
+
+def bild(alt: str, pfad: str, unterschrift: str, basis: Path) -> str:
+    breite, hoehe = webp_groesse((basis / pfad).resolve())
+    return (f'<figure class="post__bild"><img src="{e(pfad)}" width="{breite}" height="{hoehe}" loading="lazy" alt="{e(alt)}">'
+            f'<figcaption>{inline(unterschrift)}</figcaption></figure>')
+
+
+def markdown(quelle: str, basis: Path | None = None) -> str:
     teile, absatz, liste, code = [], [], None, None
     def absatz_ende():
         if absatz:
@@ -144,6 +166,9 @@ def markdown(quelle: str) -> str:
             absatz_ende(); liste_ende(); code = []
         elif not z.strip():
             absatz_ende(); liste_ende()
+        elif (m := re.match(r'^!\[([^\]]+)\]\((\S+) "([^"]+)"\)$', z.strip())) and basis:
+            absatz_ende(); liste_ende()
+            teile.append(bild(m.group(1), m.group(2), m.group(3), basis))
         elif m := re.match(r"^(#{2,3})\s+(.*)", z):
             absatz_ende(); liste_ende()
             teile.append(f"<h{len(m.group(1))}>{inline(m.group(2))}</h{len(m.group(1))}>")
@@ -177,14 +202,19 @@ def beitraege() -> list[dict]:
         for pflicht in ("titel", "beschreibung"):
             if pflicht not in meta:
                 raise ValueError(f"{datei.name}: Kopfzeile '{pflicht}:' fehlt")
+        rubrik = meta.get("rubrik", "neuigkeit")
+        if rubrik not in RUBRIKEN:
+            raise ValueError(f"{datei.name}: rubrik muss {' oder '.join(RUBRIKEN)} sein")
         liste.append({"datum": dt.date.fromisoformat(m.group(1)), "zeit": meta.get("uhrzeit", "09:00"), "slug": m.group(2), "titel": meta["titel"],
-                      "beschreibung": meta["beschreibung"], "html": markdown(rumpf), "datei": datei.name})
+                      "beschreibung": meta["beschreibung"], "html": markdown(rumpf, WURZEL / "blog" / m.group(2)), "datei": datei.name,
+                      "rubrik": rubrik})
     return sorted(liste, key=lambda b: (b["datum"], b["zeit"]), reverse=True)
 
 
 def karte(b: dict, praefix: str) -> str:
     return (f'<a class="post-card" href="{praefix}{b["slug"]}/"><time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time>'
-            f'<h3>{e(b["titel"])}</h3><p>{e(b["beschreibung"])}</p></a>')
+            f'<h3>{e(b["titel"])}</h3><p>{e(b["beschreibung"])}</p>'
+            + (f'<span class="post-card__rubrik">Ratgeber</span>' if b["rubrik"] == "ratgeber" and praefix else "") + '</a>')  # im Blog steht die Rubrik schon als Überschrift
 
 
 def blog_bauen(alle: list[dict]) -> dict[str, str]:
@@ -197,7 +227,7 @@ def blog_bauen(alle: list[dict]) -> dict[str, str]:
             nachbar.append(f'<a class="link" href="../{alle[i - 1]["slug"]}/">{e(alle[i - 1]["titel"])} →</a>')
         inhalt = f"""  <article class="post">
     <header class="page-head post__head">
-      <p class="post__date"><a class="link" href="../">Blog</a> · <time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time></p>
+      <p class="post__date"><a class="link" href="../">Blog</a> · {RUBRIKEN[b["rubrik"]]} · <time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time></p>
       <h1>{e(b["titel"])}</h1>
       <p class="statement">{e(b["beschreibung"])}</p>
     </header>
@@ -207,17 +237,22 @@ def blog_bauen(alle: list[dict]) -> dict[str, str]:
     <nav class="prose post__nav" aria-label="Weitere Beiträge">{" ".join(nachbar)}</nav>
   </article>"""
         dateien[f"blog/{b['slug']}/index.html"] = seite(2, f"{b['titel']} | Nextfix-Blog", b["beschreibung"], inhalt, "blog/")
-    liste = "\n".join(f"    {karte(b, '')}" for b in alle)
-    dateien["blog/index.html"] = seite(1, "Blog: Neues aus der Entwicklung von Nextfix", "Was sich an Nextfix geändert hat und warum: neue Prüfungen, Funktionen und Entscheidungen, kurz und ehrlich erklärt.", f"""  <div class="page-head">
+    abschnitte = []
+    for rubrik, name in sorted(RUBRIKEN.items(), key=lambda r: r[0] != "ratgeber"):
+        karten = "\n".join(f"      {karte(b, '')}" for b in alle if b["rubrik"] == rubrik)
+        if karten:
+            abschnitte.append(f"""  <section class="section wrap blog-rubrik" id="{rubrik}" aria-labelledby="h-{rubrik}">
+    <h2 id="h-{rubrik}" class="h2" data-reveal>{name}</h2>
+    <div class="posts posts--all">
+{karten}
+    </div>
+  </section>""")
+    dateien["blog/index.html"] = seite(1, "Blog: Ratgeber für deine Website und Neues von Nextfix", "Anleitungen ohne Fachchinesisch: warum Google dich nicht findet, Search Console, Seitentitel und Beschreibungen. Dazu Neues von Nextfix.", f"""  <div class="page-head">
     <h1 data-reveal>Blog</h1>
-    <p class="statement" data-reveal style="--i:1">Was sich an Nextfix ändert und warum. Kurz, ehrlich, ohne Werbesprech.</p>
+    <p class="statement" data-reveal style="--i:1">Ratgeber für deine Website, ohne Fachchinesisch. Und was sich an Nextfix ändert, kurz und ehrlich.</p>
     <p class="post__feed" data-reveal style="--i:2"><a class="link" href="feed.xml">Per Feed abonnieren (Atom)</a></p>
   </div>
-  <section class="section wrap" aria-label="Alle Beiträge">
-    <div class="posts posts--all">
-{liste}
-    </div>
-  </section>""", "blog/")
+{chr(10).join(abschnitte)}""", "blog/")
     dateien["blog/feed.xml"] = feed(alle)
     return dateien
 
@@ -238,7 +273,7 @@ def feed(alle: list[dict]) -> str:
     return f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
   <title>Nextfix-Blog</title>
-  <subtitle>Neues aus der Entwicklung von Nextfix, dem kostenlosen SEO-Tool für deinen Rechner.</subtitle>
+  <subtitle>Ratgeber für deine Website und Neues von Nextfix, dem kostenlosen SEO-Tool für deinen Rechner.</subtitle>
   <link href="{SITE_URL}/blog/"/>
   <link rel="self" href="{SITE_URL}/blog/feed.xml"/>
   <id>{SITE_URL}/blog/</id>
