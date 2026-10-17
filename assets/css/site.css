@@ -631,6 +631,7 @@ thead .cmp__us { color: var(--accent); }
 .pruefung .qa__a p + p { margin-top: 0.6rem; }
 .katalog__summe { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; color: var(--muted); }
 @media (max-width: 56em) { .katalog { grid-template-columns: minmax(0, 1fr); } .katalog__nav { position: static; } .katalog__nav ul { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 24em) { .katalog__nav ul { grid-template-columns: minmax(0, 1fr); } .pruefung summary { flex-wrap: wrap; gap: 0.5rem; } .katalog__summe { font-size: 0.875rem; } }
 
 /* ---------- Bewegung (Inhalt bleibt ohne JavaScript sichtbar) ---------- */
 @media (prefers-reduced-motion: no-preference) {
