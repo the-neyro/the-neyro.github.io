@@ -1,0 +1,17 @@
+/* Nur für die statische Demo */
+.demo-band { background: #1c1b22; color: #f4f2ee; font: 500 13px/1.45 var(--schrift, system-ui, sans-serif);
+  padding: 8px 16px; text-align: center; }
+.demo-band a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.demo-band a:focus-visible { outline: 2px solid #b9a8f0; outline-offset: 2px; }
+.demo-hinweis { margin: 8px 0 4px; color: var(--text); font-size: 12.5px; font-weight: 600; flex-basis: 100%; }
+.demo-aus { cursor: not-allowed; }
+input[disabled], select[disabled], textarea[disabled], .demo-gesperrt { cursor: not-allowed; opacity: .6; }
+#demo-toast { position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 8px); opacity: 0; pointer-events: none;
+  background: #1c1b22; color: #f4f2ee; font: 500 14px/1.4 var(--schrift, system-ui, sans-serif); padding: 10px 16px;
+  border-radius: 8px; box-shadow: 0 4px 16px rgb(28 27 34 / .25); transition: opacity .2s, transform .2s; z-index: 1000; }
+#demo-toast.sichtbar { opacity: 1; transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) { #demo-toast { transition: none; } }
+/* Nextfix-Fehler bei schmalen Fenstern: lange Kopfzeile machte die Seite breiter als den Bildschirm */
+@media (max-width: 900px) { .app { grid-template-columns: minmax(0, 1fr); } }
+/* Nextfix-Fehler bei 390 px: Textfeld mit cols=44 ragte aus der Karte */
+@media (max-width: 640px) { form label { max-width: 100%; min-width: 0; } form textarea { width: 100%; } }

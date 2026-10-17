@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo · Probleme · Radhaus Elbe</title>
+  <script>
+    /* Theme vor dem ersten Zeichnen setzen (kein Aufblitzen) */
+    try { var t = localStorage.getItem("thema"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="static/app.css">
+  <link rel="icon" href="static/logo.svg" type="image/svg+xml">
+    
+<link rel="stylesheet" href="static/demo.css"><meta name="robots" content="noindex"><link rel="stylesheet" href="demo-mobil.css">
+</head>
+<body><div class="demo-band" role="note">Demo mit der erfundenen Website <strong>Radhaus Elbe</strong> · So sieht Nextfix auf deinem Rechner aus · <a href="../">zurück zur Website</a></div><div id="demo-toast" role="status" aria-live="polite"></div>
+
+
+
+
+<div class="app">
+  <aside class="leiste" id="leiste">
+    <div class="leiste-oben">
+      <a class="marke-tool" href="projekte.html">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"></rect>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Nextfix
+      </a>
+      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste" onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
+    </div>
+    <div class="menue-inhalt">
+      <details class="projektwahl">
+        <summary>
+          <span style="min-width:0">
+            <span class="name">Radhaus Elbe</span><span class="domain">radhaus-elbe.de</span>
+            
+          </span>
+        </summary>
+        <ul>
+          
+          <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
+          
+          <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
+        </ul>
+      </details>
+
+      
+      <nav aria-label="Module">
+        <a href="index.html">Übersicht</a>
+        <div class="navgruppe">Website-Check</div>
+        
+        <a href="crawls-2-issues.html" aria-current="page">Probleme
+          <span class="zahl">8</span></a>
+        <a href="crawls-2-seiten.html">Geprüfte Seiten</a>
+        <a href="crawls-2-vergleich.html">Verlauf</a>
+        <a href="crawls-2-vitals.html">Ladezeit</a>
+        
+        <div class="navgruppe">Bei Google gefunden werden</div>
+        <a href="projekte-1-positionen.html">Positionen</a>
+        <a href="projekte-1-keywords.html">Suchbegriffe finden</a>
+        <div class="navgruppe">Inhalt</div>
+        <a href="projekte-1-onpage.html">Seite optimieren</a>
+        <div class="navgruppe"></div>
+        <a href="projekte-1-einstellungen.html">Einstellungen</a>
+      </nav>
+      
+
+      <div class="leiste-fuss">
+        <div class="thema" role="group" aria-label="Darstellung">
+          <button type="button" data-thema="system" aria-pressed="true">System</button>
+          <button type="button" data-thema="light" aria-pressed="false">Hell</button>
+          <button type="button" data-thema="dark" aria-pressed="false">Dunkel</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="inhalt">
+<div class="kopf"><div><h1>Probleme</h1><div class="unter">Alles, was die Prüfung vom 17.10.2026 gefunden hat, das Dringendste zuerst.</div></div></div>
+<form class="zeile" method="get" style="margin-bottom:16px" onsubmit="return false">
+  <label>Dringlichkeit
+    <select name="schwere" onchange="this.form.submit()" title="In der Demo gesperrt" disabled="">
+      <option value="">alle</option>
+      <option value="error">Dringend</option><option value="warning">Wichtig</option><option value="notice">Feinschliff</option>
+    </select></label>
+  <label>Bereich
+    <select name="kategorie" onchange="this.form.submit()" title="In der Demo gesperrt" disabled="">
+      <option value="">alle</option>
+      <option value="crawlbarkeit">Crawlbarkeit</option><option value="https">HTTPS</option><option value="links">Interne Verlinkung</option><option value="inhalt">Inhalt &amp; Meta</option><option value="performance">Performance</option><option value="technik">Technik &amp; Markup</option><option value="international">Internationales SEO</option><option value="ki">KI-Suche</option>
+    </select></label>
+  <noscript><button class="zweit">Filtern</button></noscript>
+  <span class="knopf zweit demo-aus" title="In der Demo nicht enthalten">Als CSV herunterladen</span>
+<p class="demo-hinweis">In der Demo gesperrt</p></form>
+
+
+
+
+
+<section class="karte">
+  <h2><span class="marke dringend">Dringend</span>
+    <span class="klein" style="font-weight:400">4 Prüfungen</span></h2>
+  <div class="tabelle"><table>
+    <thead><tr><th>Problem</th><th>Bereich</th><th class="zahl">Betroffen</th></tr></thead>
+    <tbody>
+    
+    <tr id="meta_desc_doppelt">
+      <td><a href="crawls-2-issues-meta-desc-doppelt-seite.html">Doppelte Meta-Descriptions</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</div></td>
+      <td class="klein">Inhalt &amp; Meta</td>
+      <td class="zahl">4 Seiten</td>
+    </tr>
+    
+    <tr id="interne_links_defekt">
+      <td><a href="crawls-2-issues-interne-links-defekt-seite.html">Defekte interne Links</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Links ins Leere frustrieren Nutzer und verschwenden Crawl-Budget.</div></td>
+      <td class="klein">Interne Verlinkung</td>
+      <td class="zahl">1 Seite</td>
+    </tr>
+    
+    <tr id="sitemap_falsche_seiten">
+      <td><a href="crawls-2-issues-sitemap-falsche-seiten-seite.html">Falsche Seiten in sitemap.xml</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten – keine Weiterleitungen, Fehler, Duplikate oder noindex.</div></td>
+      <td class="klein">Crawlbarkeit</td>
+      <td class="zahl">1 Seite</td>
+    </tr>
+    
+    <tr id="status_4xx">
+      <td><a href="crawls-2-issues-status-4xx-seite.html">Seiten mit 4xx-Statuscode</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.</div></td>
+      <td class="klein">Crawlbarkeit</td>
+      <td class="zahl">1 Seite</td>
+    </tr>
+    
+    </tbody>
+  </table></div>
+</section>
+
+
+
+
+<section class="karte">
+  <h2><span class="marke wichtig">Wichtig</span>
+    <span class="klein" style="font-weight:400">4 Prüfungen</span></h2>
+  <div class="tabelle"><table>
+    <thead><tr><th>Problem</th><th>Bereich</th><th class="zahl">Betroffen</th></tr></thead>
+    <tbody>
+    
+    <tr id="wenig_text">
+      <td><a href="crawls-2-issues-wenig-text-seite.html">Wenig Text (&lt; 200 Wörter im Hauptinhalt)</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben.</div></td>
+      <td class="klein">Inhalt &amp; Meta</td>
+      <td class="zahl">9 Seiten</td>
+    </tr>
+    
+    <tr id="bilder_ohne_alt">
+      <td><a href="crawls-2-issues-bilder-ohne-alt-seite.html">Bilder ohne alt-Attribut</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">alt-Texte helfen Screenreadern und der Bildersuche.</div></td>
+      <td class="klein">Inhalt &amp; Meta</td>
+      <td class="zahl">3 Seiten</td>
+    </tr>
+    
+    <tr id="title_zu_lang">
+      <td><a href="crawls-2-issues-title-zu-lang-seite.html">Title zu lang (&gt; 70 Zeichen)</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Lange Titles werden im Suchergebnis abgeschnitten.</div></td>
+      <td class="klein">Inhalt &amp; Meta</td>
+      <td class="zahl">2 Seiten</td>
+    </tr>
+    
+    <tr id="meta_desc_fehlt">
+      <td><a href="crawls-2-issues-meta-desc-fehlt-seite.html">Meta-Description fehlt</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Ohne Beschreibung wählt die Suchmaschine selbst einen Textausschnitt.</div></td>
+      <td class="klein">Inhalt &amp; Meta</td>
+      <td class="zahl">1 Seite</td>
+    </tr>
+    
+    </tbody>
+  </table></div>
+</section>
+
+
+
+
+<section class="karte">
+  <h2><span class="marke feinschliff">Feinschliff</span>
+    <span class="klein" style="font-weight:400">8 Prüfungen · zählen nicht in den Website-Zustand</span></h2>
+  <div class="tabelle"><table>
+    <thead><tr><th>Problem</th><th>Bereich</th><th class="zahl">Betroffen</th></tr></thead>
+    <tbody>
+    
+    <tr id="meta_desc_zu_kurz">
+      <td><a href="crawls-2-issues-meta-desc-zu-kurz-seite.html">Meta-Description zu kurz (&lt; 70 Zeichen)</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Sehr kurze Beschreibungen nutzen den Platz im Suchergebnis nicht; Google ersetzt sie oft durch eigenen Text.</div></td>
+      <td class="klein">Inhalt &amp; Meta</td>
+      <td class="zahl">9 Seiten</td>
+    </tr>
+    
+    <tr id="ki_fragen_ohne_faq">
+      <td><a href="crawls-2-issues-ki-fragen-ohne-faq-seite.html">Fragen ohne FAQ-Markup</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Die Seite beantwortet mehrere Fragen (Zwischenüberschriften mit „?“), markiert sie aber nicht als FAQ.</div></td>
+      <td class="klein">KI-Suche</td>
+      <td class="zahl">3 Seiten</td>
+    </tr>
+    
+    <tr id="nur_ein_eingehender_link">
+      <td><a href="crawls-2-issues-nur-ein-eingehender-link-seite.html">Nur ein eingehender interner Link</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Schwach verlinkte Seiten bekommen wenig Link-Stärke und werden seltener gecrawlt.</div></td>
+      <td class="klein">Interne Verlinkung</td>
+      <td class="zahl">3 Seiten</td>
+    </tr>
+    
+    <tr id="orphan_sitemap">
+      <td><a href="crawls-2-issues-orphan-sitemap-seite.html">Verwaiste Seiten (nur in der Sitemap)</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Die Seite steht in der Sitemap, wird aber von keiner anderen Seite verlinkt.</div></td>
+      <td class="klein">Interne Verlinkung</td>
+      <td class="zahl">2 Seiten</td>
+    </tr>
+    
+    <tr id="ki_artikel_ohne_autor_datum">
+      <td><a href="crawls-2-issues-ki-artikel-ohne-autor-datum-seite.html">Artikel ohne Autor oder Datum</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Bei Artikeln achten Suchmaschinen und KI-Systeme auf Aktualität und Urheber (E-E-A-T).</div></td>
+      <td class="klein">KI-Suche</td>
+      <td class="zahl">1 Seite</td>
+    </tr>
+    
+    <tr id="llms_fehlt">
+      <td><a href="crawls-2-issues-llms-fehlt-seite.html">llms.txt nicht gefunden</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">llms.txt gibt KI-Assistenten eine kompakte Übersicht der wichtigsten Inhalte.</div></td>
+      <td class="klein">KI-Suche</td>
+      <td class="zahl">ganze Website</td>
+    </tr>
+    
+    <tr id="ohne_last_modified">
+      <td><a href="crawls-2-issues-ohne-last-modified-seite.html">Kein Last-Modified-Header</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Ohne Änderungsdatum können Crawler nicht gezielt nur geänderte Seiten neu abrufen.</div></td>
+      <td class="klein">Technik &amp; Markup</td>
+      <td class="zahl">ganze Website</td>
+    </tr>
+    
+    <tr id="perm_redirect">
+      <td><a href="crawls-2-issues-perm-redirect-seite.html">Interne Links auf alte Adressen (dauerhafte Weiterleitung)</a>
+        <div class="klein" style="margin-top:2px; max-width:72ch">Die Weiterleitung (301/308) selbst ist korrekt.</div></td>
+      <td class="klein">Crawlbarkeit</td>
+      <td class="zahl">1 Seite</td>
+    </tr>
+    
+    </tbody>
+  </table></div>
+</section>
+
+
+
+
+
+</main>
+</div>
+<script>
+  (function () {
+    var knoepfe = document.querySelectorAll("[data-thema]");
+    function zeigen() {
+      var t = document.documentElement.dataset.theme || "system";
+      knoepfe.forEach(function (k) { k.setAttribute("aria-pressed", k.dataset.thema === t); });
+    }
+    knoepfe.forEach(function (k) {
+      k.addEventListener("click", function () {
+        var t = k.dataset.thema;
+        if (t === "system") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
+        try { t === "system" ? localStorage.removeItem("thema") : localStorage.setItem("thema", t); } catch (e) {}
+        zeigen();
+      });
+    });
+    zeigen();
+    /* Projektwahl schließen beim Klick daneben */
+    document.addEventListener("click", function (e) {
+      var d = document.querySelector(".projektwahl[open]");
+      if (d && !d.contains(e.target)) d.removeAttribute("open");
+    });
+  })();
+</script>
+
+<script src="static/demo.js"></script></body></html>

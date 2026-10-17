@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo · Radhaus Elbe · Nextfix</title>
+  <script>
+    /* Theme vor dem ersten Zeichnen setzen (kein Aufblitzen) */
+    try { var t = localStorage.getItem("thema"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="static/app.css">
+  <link rel="icon" href="static/logo.svg" type="image/svg+xml">
+    
+<link rel="stylesheet" href="static/demo.css"><meta name="robots" content="noindex"><link rel="stylesheet" href="demo-mobil.css">
+</head>
+<body><div class="demo-band" role="note">Demo mit der erfundenen Website <strong>Radhaus Elbe</strong> · So sieht Nextfix auf deinem Rechner aus · <a href="../">zurück zur Website</a></div><div id="demo-toast" role="status" aria-live="polite"></div>
+
+
+
+
+<div class="app">
+  <aside class="leiste" id="leiste">
+    <div class="leiste-oben">
+      <a class="marke-tool" href="projekte.html">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"></rect>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Nextfix
+      </a>
+      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste" onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
+    </div>
+    <div class="menue-inhalt">
+      <details class="projektwahl">
+        <summary>
+          <span style="min-width:0">
+            <span class="name">Radhaus Elbe</span><span class="domain">radhaus-elbe.de</span>
+            
+          </span>
+        </summary>
+        <ul>
+          
+          <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
+          
+          <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
+        </ul>
+      </details>
+
+      
+      <nav aria-label="Module">
+        <a href="index.html" aria-current="page">Übersicht</a>
+        <div class="navgruppe">Website-Check</div>
+        
+        <a href="crawls-2-issues.html">Probleme
+          <span class="zahl">8</span></a>
+        <a href="crawls-2-seiten.html">Geprüfte Seiten</a>
+        <a href="crawls-2-vergleich.html">Verlauf</a>
+        <a href="crawls-2-vitals.html">Ladezeit</a>
+        
+        <div class="navgruppe">Bei Google gefunden werden</div>
+        <a href="projekte-1-positionen.html">Positionen</a>
+        <a href="projekte-1-keywords.html">Suchbegriffe finden</a>
+        <div class="navgruppe">Inhalt</div>
+        <a href="projekte-1-onpage.html">Seite optimieren</a>
+        <div class="navgruppe"></div>
+        <a href="projekte-1-einstellungen.html">Einstellungen</a>
+      </nav>
+      
+
+      <div class="leiste-fuss">
+        <div class="thema" role="group" aria-label="Darstellung">
+          <button type="button" data-thema="system" aria-pressed="true">System</button>
+          <button type="button" data-thema="light" aria-pressed="false">Hell</button>
+          <button type="button" data-thema="dark" aria-pressed="false">Dunkel</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="inhalt">
+<div class="kopf">
+  <div>
+    <h1>Radhaus Elbe</h1>
+    <div class="unter">radhaus-elbe.de · Prüfung vom 17.10.2026, 18:46, 17 Seiten</div>
+  </div>
+  <div id="crawl-status">
+<form style="display:flex; gap:12px; align-items:center; flex-wrap:wrap; justify-content:flex-end" onsubmit="return false">
+  
+  
+  
+  
+  <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt">Erneut prüfen</button>
+</form>
+</div>
+</div>
+
+
+  
+
+
+
+
+
+<section class="messung" aria-label="Website-Zustand">
+  <div>
+    <div class="titel">Website-Zustand</div>
+    <div class="zahl">49<small> von 100</small></div>
+    <p class="satz">
+      Mehrere grobe Fehler. Fang oben in der Liste an.
+      <br>Letzte Prüfung: 45
+        <span class="gut">(▲ 3,6)</span>
+    </p>
+  </div>
+  <div class="skala dringend" style="--wert: 48.7; --vorher: 45.1">
+    <span class="vorher" title="Letzte Prüfung: 45"></span>
+    <span class="zeiger" aria-hidden="true"></span>
+    <div class="band"></div>
+    <div class="zonen" aria-hidden="true"><span></span><span></span><span></span><div class="voll"></div></div>
+    <div class="marken" aria-hidden="true"><span style="left:0">0</span><span style="left:50%">50</span><span style="left:80%">80</span><span style="left:100%">100</span></div>
+  </div>
+</section>
+
+<div class="kennzahlen teilnoten" aria-label="Teilnoten">
+  
+  
+  <a href="crawls-2-issues.html">
+    <span class="klein">Technik</span>
+    
+    <span class="wert warning">79</span>
+    <span class="balken" aria-hidden="true"><div class="wichtig" style="width:79.3%"></div></span>
+    
+    <span class="klein"></span>
+  </a>
+  
+  
+  <a href="crawls-2-themen-inhalt.html">
+    <span class="klein">Inhalt</span>
+    
+    <span class="wert warning">61</span>
+    <span class="balken" aria-hidden="true"><div class="wichtig" style="width:61.4%"></div></span>
+    
+    <span class="klein"></span>
+  </a>
+  
+  
+  <a href="crawls-2-themen-ki.html">
+    <span class="klein">KI-Suche</span>
+    
+    <span class="wert gut">83</span>
+    <span class="balken" aria-hidden="true"><div class="" style="width:82.6%"></div></span>
+    
+    <span class="klein"></span>
+  </a>
+  
+  
+  <a href="crawls-2-vitals.html">
+    <span class="klein">Ladezeit mobil</span>
+    
+    <span class="wert gut">100</span>
+    <span class="balken" aria-hidden="true"><div class="" style="width:100%"></div></span>
+    
+    <span class="klein"></span>
+  </a>
+  
+  
+  <a href="projekte-1-positionen.html">
+    <span class="klein">Sichtbarkeit Google</span>
+    
+    <span class="wert error">15</span>
+    <span class="balken" aria-hidden="true"><div class="dringend" style="width:15.0%"></div></span>
+    
+    <span class="klein">Testdaten</span>
+  </a>
+  
+  
+  <a href="projekte.html#autoritaet">
+    <span class="klein">Autorität</span>
+    
+    <span class="wert">–</span>
+    <span class="balken" aria-hidden="true"><div class="neutral" style="width:0.0%"></div></span>
+    
+    <span class="klein">Open PageRank nicht verbunden</span>
+  </a>
+  
+</div>
+
+<div class="spalten">
+  <div>
+    <section class="karte" aria-labelledby="was-jetzt">
+      <div style="display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap">
+        <h2 id="was-jetzt">Was jetzt tun</h2>
+        <span class="klein">Sortiert nach Wirkung auf den Website-Zustand</span>
+      </div>
+      
+      <ol class="aufgaben">
+        <li class="aufgabe">
+  <div class="was">Bau 9 Seiten mit wenig Text aus oder nimm sie aus dem Index</div>
+  <div class="warum">Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben.</div>
+  <div class="info">
+    <span class="marke wichtig">Wichtig</span>
+    <span class="marke leise">Text schreiben</span>
+    <span class="marke leise">machst du selbst</span>
+    
+  </div>
+  <div class="aktion">
+    <span class="wirkung hoch">Wirkung hoch</span>
+    <a class="knopf zweit klein-knopf" style="margin-top:6px" href="crawls-2-issues-wenig-text-seite.html">Ansehen</a>
+  </div>
+</li><li class="aufgabe">
+  <div class="was">Gib 4 Seiten eigene Beschreibungen</div>
+  <div class="warum">Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</div>
+  <div class="info">
+    <span class="marke dringend">Dringend</span>
+    <span class="marke leise">kurz je Seite</span>
+    <span class="marke leise">machst du selbst</span>
+    
+  </div>
+  <div class="aktion">
+    <span class="wirkung hoch">Wirkung hoch</span>
+    <a class="knopf zweit klein-knopf" style="margin-top:6px" href="crawls-2-issues-meta-desc-doppelt-seite.html">Ansehen</a>
+  </div>
+</li><li class="aufgabe">
+  <div class="was">Entferne fehlerhafte Adressen aus der Sitemap</div>
+  <div class="warum">Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten – keine Weiterleitungen, Fehler, Duplikate oder noindex.</div>
+  <div class="info">
+    <span class="marke dringend">Dringend</span>
+    <span class="marke leise">einmal einstellen</span>
+    <span class="marke leise">für deine Technik</span>
+    
+  </div>
+  <div class="aktion">
+    <span class="wirkung mittel">Wirkung mittel</span>
+    <a class="knopf zweit klein-knopf" style="margin-top:6px" href="crawls-2-issues-sitemap-falsche-seiten-seite.html">Ansehen</a>
+  </div>
+</li><li class="aufgabe">
+  <div class="was">Behebe 1 Seite mit „nicht gefunden“ (404)</div>
+  <div class="warum">Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.</div>
+  <div class="info">
+    <span class="marke dringend">Dringend</span>
+    <span class="marke leise">kurz je Seite</span>
+    <span class="marke leise">machst du selbst</span>
+    <span class="klein gut">▼ besser: 2 → 1</span>
+    
+  </div>
+  <div class="aktion">
+    <span class="wirkung mittel">Wirkung mittel</span>
+    <a class="knopf zweit klein-knopf" style="margin-top:6px" href="crawls-2-issues-status-4xx-seite.html">Ansehen</a>
+  </div>
+</li><li class="aufgabe">
+  <div class="was">Repariere defekte interne Links auf 1 Seite</div>
+  <div class="warum">Links ins Leere frustrieren Nutzer und verschwenden Crawl-Budget.</div>
+  <div class="info">
+    <span class="marke dringend">Dringend</span>
+    <span class="marke leise">kurz je Seite</span>
+    <span class="marke leise">machst du selbst</span>
+    <span class="klein gut">▼ besser: 2 → 1</span>
+    
+  </div>
+  <div class="aktion">
+    <span class="wirkung mittel">Wirkung mittel</span>
+    <a class="knopf zweit klein-knopf" style="margin-top:6px" href="crawls-2-issues-interne-links-defekt-seite.html">Ansehen</a>
+  </div>
+</li>
+      </ol>
+      
+      <details style="margin-top:4px">
+        <summary class="klein" style="padding:8px 0">Weitere 3 Aufgaben anzeigen</summary>
+        <ol class="aufgaben" start="6" style="counter-reset: aufgabe 5">
+          <li class="aufgabe">
+  <div class="was">Ergänze Bildbeschreibungen (alt) auf 3 Seiten</div>
+  <div class="warum">alt-Texte helfen Screenreadern und der Bildersuche.</div>
+  <div class="info">
+    <span class="marke wichtig">Wichtig</span>
+    <span class="marke leise">kurz je Seite</span>
+    <span class="marke leise">machst du selbst</span>
+    
+  </div>
+  <div class="aktion">
+    <span class="wirkung gering">Wirkung gering</span>
+    <a class="knopf zweit klein-knopf" style="margin-top:6px" href="crawls-2-issues-bilder-ohne-alt-seite.html">Ansehen</a>
+  </div>
+</li><li class="aufgabe">
+  <div class="was">Kürze den Seitentitel von 2 Seiten auf 70 Zeichen</div>
+  <div class="warum">Lange Titles werden im Suchergebnis abgeschnitten.</div>
+  <div class="info">
+    <span class="marke wichtig">Wichtig</span>
+    <span class="marke leise">kurz je Seite</span>
+    <span class="marke leise">machst du selbst</span>
+    
+  </div>
+  <div class="aktion">
+    <span class="wirkung gering">Wirkung gering</span>
+    <a class="knopf zweit klein-knopf" style="margin-top:6px" href="crawls-2-issues-title-zu-lang-seite.html">Ansehen</a>
+  </div>
+</li><li class="aufgabe">
+  <div class="was">Schreib eine Beschreibung für 1 Seite</div>
+  <div class="warum">Ohne Beschreibung wählt die Suchmaschine selbst einen Textausschnitt.</div>
+  <div class="info">
+    <span class="marke wichtig">Wichtig</span>
+    <span class="marke leise">kurz je Seite</span>
+    <span class="marke leise">machst du selbst</span>
+    <span class="klein gut">▼ besser: 2 → 1</span>
+    
+  </div>
+  <div class="aktion">
+    <span class="wirkung gering">Wirkung gering</span>
+    <a class="knopf zweit klein-knopf" style="margin-top:6px" href="crawls-2-issues-meta-desc-fehlt-seite.html">Ansehen</a>
+  </div>
+</li>
+        </ol>
+      </details>
+      
+      
+
+      
+      <p class="klein" style="margin:12px 0 0"><span class="symbol gut">✓</span> Seit der letzten Prüfung erledigt:
+        H1-Überschrift fehlt</p>
+      
+    </section>
+
+    
+    <details class="karte">
+      <summary><h2 style="margin:0">Feinschliff</h2><span class="klein">8 Hinweise · zählen nicht in den Zustand</span></summary>
+      <div class="tabelle"><table>
+        
+        <tbody><tr><td><span class="symbol feinschliff" aria-hidden="true">●</span> <a href="crawls-2-issues-meta-desc-zu-kurz-seite.html">Meta-Description zu kurz (&lt; 70 Zeichen)</a></td>
+            <td class="zahl klein">9 Seiten</td></tr>
+        
+        <tr><td><span class="symbol feinschliff" aria-hidden="true">●</span> <a href="crawls-2-issues-ki-fragen-ohne-faq-seite.html">Fragen ohne FAQ-Markup</a></td>
+            <td class="zahl klein">3 Seiten</td></tr>
+        
+        <tr><td><span class="symbol feinschliff" aria-hidden="true">●</span> <a href="crawls-2-issues-nur-ein-eingehender-link-seite.html">Nur ein eingehender interner Link</a></td>
+            <td class="zahl klein">3 Seiten</td></tr>
+        
+        <tr><td><span class="symbol feinschliff" aria-hidden="true">●</span> <a href="crawls-2-issues-orphan-sitemap-seite.html">Verwaiste Seiten (nur in der Sitemap)</a></td>
+            <td class="zahl klein">2 Seiten</td></tr>
+        
+        <tr><td><span class="symbol feinschliff" aria-hidden="true">●</span> <a href="crawls-2-issues-perm-redirect-seite.html">Interne Links auf alte Adressen (dauerhafte Weiterleitung)</a></td>
+            <td class="zahl klein">1 Seite</td></tr>
+        
+        <tr><td><span class="symbol feinschliff" aria-hidden="true">●</span> <a href="crawls-2-issues-ki-artikel-ohne-autor-datum-seite.html">Artikel ohne Autor oder Datum</a></td>
+            <td class="zahl klein">1 Seite</td></tr>
+        
+        <tr><td><span class="symbol feinschliff" aria-hidden="true">●</span> <a href="crawls-2-issues-ohne-last-modified-seite.html">Kein Last-Modified-Header</a></td>
+            <td class="zahl klein">die ganze Website</td></tr>
+        
+        <tr><td><span class="symbol feinschliff" aria-hidden="true">●</span> <a href="crawls-2-issues-llms-fehlt-seite.html">llms.txt nicht gefunden</a></td>
+            <td class="zahl klein">die ganze Website</td></tr>
+        
+      </tbody></table></div>
+    </details>
+    
+  </div>
+
+  <aside>
+    <section class="karte">
+      <h2>Bereiche</h2>
+      <div class="bereiche">
+      
+        
+        <a class="bereich" href="crawls-2-themen-crawlbarkeit.html">
+          <span class="name">Crawlbarkeit</span>
+          <span class="balken" aria-hidden="true"><div class="" style="width:85.6%"></div></span>
+          <span class="wert">86</span>
+          <span class="klein">2 Probleme · 1 Feinschliff</span>
+        </a>
+      
+        
+        <a class="bereich" href="crawls-2-themen-https.html">
+          <span class="name">HTTPS</span>
+          <span class="balken" aria-hidden="true"><div class="" style="width:100.0%"></div></span>
+          <span class="wert">100</span>
+          <span class="klein">keine Probleme</span>
+        </a>
+      
+        
+        <a class="bereich" href="crawls-2-themen-links.html">
+          <span class="name">Interne Verlinkung</span>
+          <span class="balken" aria-hidden="true"><div class="" style="width:92.5%"></div></span>
+          <span class="wert">92</span>
+          <span class="klein">1 Problem · 2 Feinschliff</span>
+        </a>
+      
+        
+        <a class="bereich" href="crawls-2-themen-inhalt.html">
+          <span class="name">Inhalt &amp; Meta</span>
+          <span class="balken" aria-hidden="true"><div class="wichtig" style="width:61.4%"></div></span>
+          <span class="wert">61</span>
+          <span class="klein">5 Probleme · 1 Feinschliff</span>
+        </a>
+      
+        
+        <a class="bereich" href="crawls-2-themen-performance.html">
+          <span class="name">Performance</span>
+          <span class="balken" aria-hidden="true"><div class="" style="width:100.0%"></div></span>
+          <span class="wert">100</span>
+          <span class="klein">keine Probleme</span>
+        </a>
+      
+        
+        <a class="bereich" href="crawls-2-themen-technik.html">
+          <span class="name">Technik &amp; Markup</span>
+          <span class="balken" aria-hidden="true"><div class="" style="width:100.0%"></div></span>
+          <span class="wert">100</span>
+          <span class="klein">keine Probleme · 1 Feinschliff</span>
+        </a>
+      
+        
+        <a class="bereich" href="crawls-2-themen-international.html">
+          <span class="name">Internationales SEO</span>
+          <span class="balken" aria-hidden="true"><div class="" style="width:100.0%"></div></span>
+          <span class="wert">100</span>
+          <span class="klein">keine Probleme</span>
+        </a>
+      
+        
+        <a class="bereich" href="crawls-2-themen-ki.html">
+          <span class="name">KI-Suche</span>
+          <span class="balken" aria-hidden="true"><div class="" style="width:82.6%"></div></span>
+          <span class="wert">83</span>
+          <span class="klein">keine Probleme · 3 Feinschliff</span>
+        </a>
+      
+      </div>
+    </section>
+
+    <section class="karte">
+      <h2>Geprüfte Seiten</h2>
+      <div class="bereiche">
+        <a class="bereich" href="crawls-2-seiten.html" style="grid-template-columns:1fr auto"><span class="name">Alle geprüften Seiten</span><span class="wert">17</span></a>
+        <span class="bereich demo-aus" title="In der Demo nicht enthalten"><span class="name">Mit Problemen</span><span class="wert">13</span></span>
+        <div class="bereich" style="grid-template-columns:1fr auto"><span>Nicht erreichbar oder Fehler</span><span class="wert error">1</span></div>
+        <div class="bereich" style="grid-template-columns:1fr auto"><span>Weiterleitungen</span><span class="wert">1</span></div>
+        <div class="bereich" style="grid-template-columns:1fr auto"><span>Für Google gesperrt</span><span class="wert">0</span></div>
+      </div>
+      <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:16px">
+        <a class="knopf zweit klein-knopf" href="bericht.pdf">Bericht als PDF</a>
+        <a class="knopf zweit klein-knopf" href="crawls-2-issues.html">Alle Probleme</a>
+      </div>
+    </section>
+  </aside>
+</div>
+
+</main>
+</div>
+<script>
+  (function () {
+    var knoepfe = document.querySelectorAll("[data-thema]");
+    function zeigen() {
+      var t = document.documentElement.dataset.theme || "system";
+      knoepfe.forEach(function (k) { k.setAttribute("aria-pressed", k.dataset.thema === t); });
+    }
+    knoepfe.forEach(function (k) {
+      k.addEventListener("click", function () {
+        var t = k.dataset.thema;
+        if (t === "system") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
+        try { t === "system" ? localStorage.removeItem("thema") : localStorage.setItem("thema", t); } catch (e) {}
+        zeigen();
+      });
+    });
+    zeigen();
+    /* Projektwahl schließen beim Klick daneben */
+    document.addEventListener("click", function (e) {
+      var d = document.querySelector(".projektwahl[open]");
+      if (d && !d.contains(e.target)) d.removeAttribute("open");
+    });
+  })();
+</script>
+
+<script src="static/demo.js"></script></body></html>

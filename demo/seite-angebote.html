@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo · Seite · Radhaus Elbe</title>
+  <script>
+    /* Theme vor dem ersten Zeichnen setzen (kein Aufblitzen) */
+    try { var t = localStorage.getItem("thema"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="static/app.css">
+  <link rel="icon" href="static/logo.svg" type="image/svg+xml">
+    
+<link rel="stylesheet" href="static/demo.css"><meta name="robots" content="noindex"><link rel="stylesheet" href="demo-mobil.css">
+</head>
+<body><div class="demo-band" role="note">Demo mit der erfundenen Website <strong>Radhaus Elbe</strong> · So sieht Nextfix auf deinem Rechner aus · <a href="../">zurück zur Website</a></div><div id="demo-toast" role="status" aria-live="polite"></div>
+
+
+
+
+<div class="app">
+  <aside class="leiste" id="leiste">
+    <div class="leiste-oben">
+      <a class="marke-tool" href="projekte.html">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"></rect>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Nextfix
+      </a>
+      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste" onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
+    </div>
+    <div class="menue-inhalt">
+      <details class="projektwahl">
+        <summary>
+          <span style="min-width:0">
+            <span class="name">Radhaus Elbe</span><span class="domain">radhaus-elbe.de</span>
+            
+          </span>
+        </summary>
+        <ul>
+          
+          <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
+          
+          <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
+        </ul>
+      </details>
+
+      
+      <nav aria-label="Module">
+        <a href="index.html">Übersicht</a>
+        <div class="navgruppe">Website-Check</div>
+        
+        <a href="crawls-2-issues.html">Probleme
+          <span class="zahl">8</span></a>
+        <a href="crawls-2-seiten.html" aria-current="page">Geprüfte Seiten</a>
+        <a href="crawls-2-vergleich.html">Verlauf</a>
+        <a href="crawls-2-vitals.html">Ladezeit</a>
+        
+        <div class="navgruppe">Bei Google gefunden werden</div>
+        <a href="projekte-1-positionen.html">Positionen</a>
+        <a href="projekte-1-keywords.html">Suchbegriffe finden</a>
+        <div class="navgruppe">Inhalt</div>
+        <a href="projekte-1-onpage.html">Seite optimieren</a>
+        <div class="navgruppe"></div>
+        <a href="projekte-1-einstellungen.html">Einstellungen</a>
+      </nav>
+      
+
+      <div class="leiste-fuss">
+        <div class="thema" role="group" aria-label="Darstellung">
+          <button type="button" data-thema="system" aria-pressed="true">System</button>
+          <button type="button" data-thema="light" aria-pressed="false">Hell</button>
+          <button type="button" data-thema="dark" aria-pressed="false">Dunkel</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="inhalt">
+<div class="brotkrumen"><a href="crawls-2-seiten.html">Geprüfte Seiten</a></div><div class="kopf"><div><h1 class="url" style="font-family:var(--schrift)">/angebote</h1><div class="unter">https://radhaus-elbe.de/angebote</div></div><div style="display:flex; gap:8px; flex-wrap:wrap">
+  <form method="post" onsubmit="return false">
+    <input type="hidden" name="url" value="https://radhaus-elbe.de/angebote" title="In der Demo gesperrt" disabled="">
+    <input type="hidden" name="zurueck" value="/crawls/2/seite?url=https%3A//radhaus-elbe.de/angebote" title="In der Demo gesperrt" disabled="">
+    <button class="zweit demo-gesperrt" title="In der Demo gesperrt" aria-disabled="true">Bewusst so – Seite ausblenden</button>
+  </form>
+  <span class="knopf zweit demo-aus" title="In der Demo nicht enthalten">Seite optimieren</span></div></div>
+
+<p><a href="crawls-2-seiten.html">← Gecrawlte Seiten</a></p>
+<div class="karte">
+  <h2>Issues (4)</h2>
+  
+  <table>
+    
+    <tbody><tr><td><span class="badge notice">Feinschliff</span></td><td><strong>Meta-Description zu kurz (&lt; 70 Zeichen)</strong><br><span class="klein">Auf ca. 120–160 Zeichen ausbauen: Inhalt der Seite und Nutzen für den Leser.</span></td><td>39 Zeichen</td></tr>
+    
+    <tr><td><span class="badge warning">Wichtig</span></td><td><strong>Wenig Text (&lt; 200 Wörter im Hauptinhalt)</strong><br><span class="klein">Inhalt ausbauen, mit einer ähnlichen Seite zusammenlegen oder (z. B. dünne Glossar-Seiten) auf noindex setzen.</span></td><td>11 Wörter</td></tr>
+    
+    <tr><td><span class="badge error">Dringend</span></td><td><strong>Defekte interne Links</strong><br><span class="klein">Link korrigieren oder entfernen, Zielseite ggf. umleiten.</span></td><td>https://radhaus-elbe.de/fruehjahrsaktion-2025 (404)</td></tr>
+    
+    <tr><td><span class="badge notice">Feinschliff</span></td><td><strong>Verwaiste Seiten (nur in der Sitemap)</strong><br><span class="klein">Seite intern verlinken oder, falls nicht mehr gebraucht, aus der Sitemap entfernen.</span></td><td>kein interner Link</td></tr>
+    
+  </tbody></table>
+  
+</div>
+<div class="karte">
+  <h2>Gemessene Daten</h2>
+  <table>
+    
+    <tbody><tr><th>url</th><td class="url">https://radhaus-elbe.de/angebote</td></tr>
+    
+    <tr><th>tiefe</th><td class="url">0</td></tr>
+    
+    <tr><th>status_code</th><td class="url">200</td></tr>
+    
+    <tr><th>abruf_fehler</th><td class="url">–</td></tr>
+    
+    <tr><th>redirect_ziel</th><td class="url">–</td></tr>
+    
+    <tr><th>content_type</th><td class="url">text/html; charset=utf-8</td></tr>
+    
+    <tr><th>content_encoding</th><td class="url">–</td></tr>
+    
+    <tr><th>ladezeit_ms</th><td class="url">0</td></tr>
+    
+    <tr><th>html_bytes</th><td class="url">885</td></tr>
+    
+    <tr><th>blockiert</th><td class="url">0</td></tr>
+    
+    <tr><th>title</th><td class="url">Angebote | Radhaus Elbe</td></tr>
+    
+    <tr><th>meta_description</th><td class="url">Aktuelle Angebote der Fahrradwerkstatt.</td></tr>
+    
+    <tr><th>h1_anzahl</th><td class="url">1</td></tr>
+    
+    <tr><th>h1_text</th><td class="url">Angebote</td></tr>
+    
+    <tr><th>canonical_anzahl</th><td class="url">0</td></tr>
+    
+    <tr><th>canonical</th><td class="url">–</td></tr>
+    
+    <tr><th>meta_robots</th><td class="url">–</td></tr>
+    
+    <tr><th>x_robots_tag</th><td class="url">–</td></tr>
+    
+    <tr><th>woerter</th><td class="url">25</td></tr>
+    
+    <tr><th>text_anteil</th><td class="url">0.2018</td></tr>
+    
+    <tr><th>hat_viewport</th><td class="url">1</td></tr>
+    
+    <tr><th>viewport_ok</th><td class="url">1</td></tr>
+    
+    <tr><th>hat_doctype</th><td class="url">1</td></tr>
+    
+    <tr><th>hat_charset</th><td class="url">1</td></tr>
+    
+    <tr><th>hat_meta_refresh</th><td class="url">0</td></tr>
+    
+    <tr><th>lang</th><td class="url">de</td></tr>
+    
+    <tr><th>hat_frames</th><td class="url">0</td></tr>
+    
+    <tr><th>hat_hsts</th><td class="url">0</td></tr>
+    
+    <tr><th>last_modified</th><td class="url">–</td></tr>
+    
+    <tr><th>hat_passwort</th><td class="url">0</td></tr>
+    
+    <tr><th>hreflang</th><td class="url">[]</td></tr>
+    
+    <tr><th>markup</th><td class="url">{"typen": [], "fehler": []}</td></tr>
+    
+    <tr><th>signatur</th><td class="url">–</td></tr>
+    
+    <tr><th>plugins</th><td class="url">[]</td></tr>
+    
+    <tr><th>semantik</th><td class="url">["main", "nav", "header", "footer"]</td></tr>
+    
+    <tr><th>lesbarkeit</th><td class="url">[]</td></tr>
+    
+    <tr><th>kaputte_links</th><td class="url">[]</td></tr>
+    
+    <tr><th>link_rank</th><td class="url">0</td></tr>
+    
+    <tr><th>geo</th><td class="url">{"artikel": false, "datum": false, "autor": false, "woerter": 11, "zahlen": 1, "quellen": 0, "fragen": 0, "listen": 0, "zwischen": 0}</td></tr>
+    
+    <tr><th>blockierend</th><td class="url">[]</td></tr>
+    
+    <tr><th>woerter_roh</th><td class="url">–</td></tr>
+    
+    <tr><th>js_app</th><td class="url">–</td></tr>
+    
+    <tr><th>ausgeblendet</th><td class="url">–</td></tr>
+    
+    <tr><th>eingehende_links</th><td class="url">0</td></tr>
+    
+  </tbody></table>
+</div>
+</main>
+</div>
+<script>
+  (function () {
+    var knoepfe = document.querySelectorAll("[data-thema]");
+    function zeigen() {
+      var t = document.documentElement.dataset.theme || "system";
+      knoepfe.forEach(function (k) { k.setAttribute("aria-pressed", k.dataset.thema === t); });
+    }
+    knoepfe.forEach(function (k) {
+      k.addEventListener("click", function () {
+        var t = k.dataset.thema;
+        if (t === "system") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
+        try { t === "system" ? localStorage.removeItem("thema") : localStorage.setItem("thema", t); } catch (e) {}
+        zeigen();
+      });
+    });
+    zeigen();
+    /* Projektwahl schließen beim Klick daneben */
+    document.addEventListener("click", function (e) {
+      var d = document.querySelector(".projektwahl[open]");
+      if (d && !d.contains(e.target)) d.removeAttribute("open");
+    });
+  })();
+</script>
+
+<script src="static/demo.js"></script></body></html>

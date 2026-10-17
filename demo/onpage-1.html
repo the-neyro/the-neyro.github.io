@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo · Seite optimieren · Radhaus Elbe</title>
+  <script>
+    /* Theme vor dem ersten Zeichnen setzen (kein Aufblitzen) */
+    try { var t = localStorage.getItem("thema"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="static/app.css">
+  <link rel="icon" href="static/logo.svg" type="image/svg+xml">
+    
+<link rel="stylesheet" href="static/demo.css"><meta name="robots" content="noindex"><link rel="stylesheet" href="demo-mobil.css">
+</head>
+<body><div class="demo-band" role="note">Demo mit der erfundenen Website <strong>Radhaus Elbe</strong> · So sieht Nextfix auf deinem Rechner aus · <a href="../">zurück zur Website</a></div><div id="demo-toast" role="status" aria-live="polite"></div>
+
+
+
+
+<div class="app">
+  <aside class="leiste" id="leiste">
+    <div class="leiste-oben">
+      <a class="marke-tool" href="projekte.html">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"></rect>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Nextfix
+      </a>
+      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste" onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
+    </div>
+    <div class="menue-inhalt">
+      <details class="projektwahl">
+        <summary>
+          <span style="min-width:0">
+            <span class="name">Radhaus Elbe</span><span class="domain">radhaus-elbe.de</span>
+            
+          </span>
+        </summary>
+        <ul>
+          
+          <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
+          
+          <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
+        </ul>
+      </details>
+
+      
+      <nav aria-label="Module">
+        <a href="index.html">Übersicht</a>
+        <div class="navgruppe">Website-Check</div>
+        
+        <a href="crawls-2-issues.html">Probleme
+          <span class="zahl">8</span></a>
+        <a href="crawls-2-seiten.html">Geprüfte Seiten</a>
+        <a href="crawls-2-vergleich.html">Verlauf</a>
+        <a href="crawls-2-vitals.html">Ladezeit</a>
+        
+        <div class="navgruppe">Bei Google gefunden werden</div>
+        <a href="projekte-1-positionen.html">Positionen</a>
+        <a href="projekte-1-keywords.html">Suchbegriffe finden</a>
+        <div class="navgruppe">Inhalt</div>
+        <a href="projekte-1-onpage.html" aria-current="page">Seite optimieren</a>
+        <div class="navgruppe"></div>
+        <a href="projekte-1-einstellungen.html">Einstellungen</a>
+      </nav>
+      
+
+      <div class="leiste-fuss">
+        <div class="thema" role="group" aria-label="Darstellung">
+          <button type="button" data-thema="system" aria-pressed="true">System</button>
+          <button type="button" data-thema="light" aria-pressed="false">Hell</button>
+          <button type="button" data-thema="dark" aria-pressed="false">Dunkel</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="inhalt">
+<div class="kopf"><div><h1>Seite optimieren</h1><div class="unter">Prüf eine Seite gegen einen Suchbegriff und bekomm konkrete Verbesserungen – für Google und KI-Suche.</div></div></div>
+<div class="karte">
+  <h2>Neue Prüfung</h2>
+  <form class="zeile" onsubmit="return false">
+    <label>Seite<input name="url" value="https://radhaus-elbe.de/werkstatt" size="44" list="seiten" required="" title="In der Demo gesperrt" disabled=""></label>
+    <datalist id="seiten"></datalist>
+    <label>Suchbegriff<input name="keyword" value="fahrradwerkstatt hamburg" size="24" required="" minlength="2" maxlength="80" placeholder="z. B. seo check" title="In der Demo gesperrt" disabled=""></label>
+    <label>Mitbewerber-URLs (optional, bis 3, eine pro Zeile)<textarea name="mitbewerber" rows="2" cols="44" placeholder="https://… (z. B. Top-Treffer aus deiner Google-Suche)" title="In der Demo gesperrt" disabled=""></textarea></label>
+    <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt">Seite prüfen</button>
+    
+  <p class="demo-hinweis">In der Demo gesperrt</p></form>
+  <p class="klein">Prüft Title, H1, Meta-Description, URL, Textanfang, Häufigkeit, Zwischenüberschriften, Textlänge,
+    Alt-Texte, Indexierbarkeit, schema.org, Core Web Vitals und interne Links (aus Crawl und Messung, falls vorhanden).
+    Dazu Ideen aus Google Suggest und von Mitbewerbern. Die Google-Top-10 werden nicht automatisch abgefragt.</p>
+</div>
+
+<div id="ergebnis">
+
+
+
+<div class="kennzahlen" style="margin-top:8px">
+  <div><span class="klein">Seiten-Score für „fahrradwerkstatt hamburg“</span>
+    <span class="wert error">36<span class="klein"> / 100</span></span>
+    <span class="klein">11 Verbesserungen offen</span></div>
+  
+  <div><span class="klein">KI-Score</span>
+    <span class="wert warning">50<span class="klein"> / 100</span></span>
+    <span class="klein">Wie gut ChatGPT &amp; Co. die Seite zitieren können</span></div>
+  
+  <div style="min-width:0"><span class="klein">Geprüfte Seite</span>
+    <span class="url" style="display:block; margin:6px 0 2px">/werkstatt</span>
+    <span class="klein">275 Wörter · 2 Zwischenüberschriften · 1 Bilder</span></div>
+</div>
+
+
+<section class="karte">
+  <h2>Zuerst diese 3</h2>
+  
+  <ol class="aufgaben">
+    
+    <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+      <div class="was">Keyword im Title</div>
+      <div class="warum">„fahrradwerkstatt hamburg“ in den Title aufnehmen, möglichst weit vorn.</div>
+      
+      <div class="info" style="display:grid; gap:4px; margin-top:8px">
+        <div><span class="klein">Jetzt:</span> Fahrradreparatur und Inspektion in Hamburg | Radhaus Elbe</div>
+        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap"><span class="klein">Vorschlag:</span>
+          <strong>Fahrradwerkstatt hamburg: Fahrradreparatur und Inspektion in Hamburg</strong>
+          <button type="button" class="leise klein-knopf" onclick="navigator.clipboard.writeText(this.dataset.text).then(() =&gt; { this.textContent = 'Kopiert' })" data-text="Fahrradwerkstatt hamburg: Fahrradreparatur und Inspektion in Hamburg">Kopieren</button></div>
+      </div>
+      
+      <div class="info"><span class="marke dringend">Wirkung hoch</span><span class="klein">Inhalt</span></div>
+    </li>
+    
+    <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+      <div class="was">Keyword in der H1</div>
+      <div class="warum">Die H1 so formulieren, dass „fahrradwerkstatt hamburg“ vorkommt.</div>
+      
+      <div class="info" style="display:grid; gap:4px; margin-top:8px">
+        <div><span class="klein">Jetzt:</span> Reparatur und Inspektion</div>
+        <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap"><span class="klein">Vorschlag:</span>
+          <strong>Fahrradwerkstatt hamburg: Reparatur und Inspektion</strong>
+          <button type="button" class="leise klein-knopf" onclick="navigator.clipboard.writeText(this.dataset.text).then(() =&gt; { this.textContent = 'Kopiert' })" data-text="Fahrradwerkstatt hamburg: Reparatur und Inspektion">Kopieren</button></div>
+      </div>
+      
+      <div class="info"><span class="marke wichtig">Wirkung mittel</span><span class="klein">Inhalt</span></div>
+    </li>
+    
+    <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+      <div class="was">Keyword in den ersten 100 Wörtern</div>
+      <div class="warum">Das Thema gleich im ersten Absatz nennen.</div>
+      
+      <div class="info"><span class="marke wichtig">Wirkung mittel</span><span class="klein">Inhalt</span></div>
+    </li>
+    
+  </ol>
+  
+  <details style="margin-top:4px">
+    <summary class="klein" style="padding:8px 0">Weitere 8 Verbesserungen</summary>
+    <ol class="aufgaben" style="counter-reset: aufgabe 3">
+      
+      <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+        <div class="was">Ausreichend Text</div>
+        <div class="warum">Inhalt auf mindestens 300 Wörter ausbauen – mit echtem Mehrwert, nicht mit Füllsätzen. <span class="klein">(jetzt: 275 Wörter)</span></div>
+        <div class="info"><span class="marke wichtig">Wirkung mittel</span><span class="klein">Inhalt</span></div>
+      </li>
+      
+      <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+        <div class="was">Keyword in der Meta-Description</div>
+        <div class="warum">Meta-Description mit dem Keyword und einem klaren Nutzen schreiben (sie wird im Suchergebnis fett). <span class="klein">(jetzt: Fahrradreparatur und Inspektion in Hamburg-Altona: Bremsen, Schaltung, Kette und Laufräder. Kostenvoranschlag vorab, oft am selben Tag fertig.)</span></div>
+        <div class="info"><span class="marke feinschliff">Wirkung niedrig</span><span class="klein">Inhalt</span></div>
+      </li>
+      
+      <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+        <div class="was">Keyword in der URL</div>
+        <div class="warum">Bei neuen Seiten das Keyword in die URL nehmen (bestehende URLs nur mit 301 ändern). <span class="klein">(jetzt: /werkstatt)</span></div>
+        <div class="info"><span class="marke feinschliff">Wirkung niedrig</span><span class="klein">Inhalt</span></div>
+      </li>
+      
+      <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+        <div class="was">Keyword mehrfach im Text</div>
+        <div class="warum">Keyword (oder seine Wörter) im Text mehrfach natürlich verwenden. <span class="klein">(jetzt: 0× als Phrase (0.0 %))</span></div>
+        <div class="info"><span class="marke feinschliff">Wirkung niedrig</span><span class="klein">Inhalt</span></div>
+      </li>
+      
+      <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+        <div class="was">Keyword-Bezug in Zwischenüberschriften (H2/H3)</div>
+        <div class="warum">Text mit H2/H3 gliedern und das Keyword oder Teile davon in einer Zwischenüberschrift aufgreifen. <span class="klein">(jetzt: 2 Zwischenüberschriften)</span></div>
+        <div class="info"><span class="marke feinschliff">Wirkung niedrig</span><span class="klein">Inhalt</span></div>
+      </li>
+      
+      <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+        <div class="was">Bilder mit Alt-Text, eines mit Keyword-Bezug</div>
+        <div class="warum">Allen Bildern einen beschreibenden Alt-Text geben, beim Hauptbild mit Keyword-Bezug. <span class="klein">(jetzt: 1 Bilder, 0 ohne Alt)</span></div>
+        <div class="info"><span class="marke feinschliff">Wirkung niedrig</span><span class="klein">Inhalt</span></div>
+      </li>
+      
+      <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+        <div class="was">Interner Ankertext mit Keyword</div>
+        <div class="warum">Mindestens einen internen Link mit dem Ankertext „fahrradwerkstatt hamburg“ (oder nah dran) setzen. <span class="klein">(jetzt: 0 Ankertexte mit Keyword)</span></div>
+        <div class="info"><span class="marke feinschliff">Wirkung niedrig</span><span class="klein">Links</span></div>
+      </li>
+      
+      <li class="aufgabe" style="grid-template-columns:28px minmax(0, 1fr)">
+        <div class="was">Strukturierte Daten vorhanden</div>
+        <div class="warum">schema.org-Markup ergänzen (z. B. Article, Product, FAQPage, LocalBusiness) für Rich Results. <span class="klein">(jetzt: keine)</span></div>
+        <div class="info"><span class="marke feinschliff">Wirkung niedrig</span><span class="klein">Technik</span></div>
+      </li>
+      
+    </ol>
+  </details>
+  
+  
+</section>
+
+
+<details class="karte">
+  <summary><h2 style="margin:0">KI-Suche</h2><span class="klein">5 offen · Score 50</span></summary>
+  <p class="klein">Zahlen, Quellen und klare Gliederung erhöhen laut GEO-Studie (Princeton 2024) die Chance, in KI-Antworten zitiert zu werden.</p>
+  <div class="bereiche">
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol dringend" aria-label="offen">◆</span>
+      <span>Genug Text zum Zitieren (≥ 300 Wörter) <span class="klein">(275 Wörter)</span>
+        <br><span class="klein">Die Kernfrage der Seite ausführlicher beantworten: Fakten, Beispiele, Ablauf.</span></span>
+    </div>
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol gut" aria-label="erfüllt">✓</span>
+      <span>Hauptinhalt in &lt;main&gt;/&lt;article&gt;
+        </span>
+    </div>
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol gut" aria-label="erfüllt">✓</span>
+      <span>Konkrete Zahlen und Statistiken <span class="klein">(2 gefunden)</span>
+        </span>
+    </div>
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol dringend" aria-label="offen">◆</span>
+      <span>Links auf externe Quellen <span class="klein">(0 Domains)</span>
+        <br><span class="klein">Wichtige Aussagen mit Links auf vertrauenswürdige Quellen (Studien, Behörden, Fachseiten) belegen.</span></span>
+    </div>
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol gut" aria-label="erfüllt">✓</span>
+      <span>Fragen als Zwischenüberschriften <span class="klein">(2 Fragen)</span>
+        </span>
+    </div>
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol dringend" aria-label="offen">◆</span>
+      <span>FAQ-Markup für Frage-Antwort-Paare
+        <br><span class="klein">Die Fragen und Antworten als FAQPage (JSON-LD) auszeichnen.</span></span>
+    </div>
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol dringend" aria-label="offen">◆</span>
+      <span>Strukturierte Daten vorhanden
+        <br><span class="klein">Passendes Schema.org-Markup ergänzen (Article, Product, Organization …).</span></span>
+    </div>
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol dringend" aria-label="offen">◆</span>
+      <span>Datum angegeben (Aktualität)
+        <br><span class="klein">datePublished/dateModified im Markup und sichtbar mit &lt;time datetime&gt; angeben.</span></span>
+    </div>
+  
+    <div class="bereich" style="grid-template-columns:20px minmax(0, 1fr)">
+      <span class="symbol gut" aria-label="erfüllt">✓</span>
+      <span>Gut lesbar (Absätze, Sätze, Gliederung)
+        </span>
+    </div>
+  
+  </div>
+</details>
+
+
+
+<details class="karte">
+  <summary><h2 style="margin:0">Begriffe, die fehlen</h2><span class="klein">0 von 0</span></summary>
+  <p class="klein">Wörter, die Leute laut Google-Vorschlägen zusammen mit „fahrradwerkstatt hamburg“ suchen.</p>
+  <p class="klein">Keine – die Google-Vorschläge waren zu dünn.</p>
+</details>
+
+<details class="karte">
+  <summary><h2 style="margin:0">Fragen für einen FAQ-Block</h2><span class="klein">0 offen</span></summary>
+  <p class="klein">Keine Fragen gefunden.</p>
+  <p class="klein" style="margin-top:8px">✓ = eine Zwischenüberschrift greift die Frage schon auf.</p>
+</details>
+
+<details class="karte">
+  <summary><h2 style="margin:0">Mitbewerber</h2><span class="klein">0 geprüft</span></summary>
+  <p class="klein">Keine angegeben. Trag oben bis zu 3 Adressen ein, die für den Suchbegriff gut ranken.</p>
+  
+</details>
+
+
+<details class="karte">
+  <summary><h2 style="margin:0">Alle Prüfungen</h2><span class="klein">6 von 17 erfüllt</span></summary>
+  <div class="tabelle"><table>
+    <thead><tr><th></th><th>Prüfung</th><th>Bereich</th><th>Befund</th></tr></thead>
+    <tbody>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Keyword im Title</td><td class="klein">Inhalt</td><td class="klein">Fahrradreparatur und Inspektion in Hamburg | Radhaus Elbe</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Keyword in der H1</td><td class="klein">Inhalt</td><td class="klein">Reparatur und Inspektion</td></tr>
+    
+    <tr><td><span class="symbol gut">✓</span></td>
+      <td>Genau eine H1</td><td class="klein">Inhalt</td><td class="klein">1 H1</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Keyword in der Meta-Description</td><td class="klein">Inhalt</td><td class="klein">Fahrradreparatur und Inspektion in Hamburg-Altona: Bremsen, Schaltung, Kette und Laufräder. Kostenvoranschlag vorab, oft am selben Tag fertig.</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Keyword in der URL</td><td class="klein">Inhalt</td><td class="klein">/werkstatt</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Keyword in den ersten 100 Wörtern</td><td class="klein">Inhalt</td><td class="klein"></td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Keyword mehrfach im Text</td><td class="klein">Inhalt</td><td class="klein">0× als Phrase (0.0 %)</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Keyword-Bezug in Zwischenüberschriften (H2/H3)</td><td class="klein">Inhalt</td><td class="klein">2 Zwischenüberschriften</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Ausreichend Text</td><td class="klein">Inhalt</td><td class="klein">275 Wörter</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Bilder mit Alt-Text, eines mit Keyword-Bezug</td><td class="klein">Inhalt</td><td class="klein">1 Bilder, 0 ohne Alt</td></tr>
+    
+    <tr><td><span class="symbol gut">✓</span></td>
+      <td>Seite indexierbar (200, kein noindex, Canonical auf sich selbst)</td><td class="klein">Technik</td><td class="klein">Status 200</td></tr>
+    
+    <tr><td><span class="symbol gut">✓</span></td>
+      <td>Title und Meta-Description in passender Länge</td><td class="klein">Technik</td><td class="klein">Title 57, Meta 142 Zeichen</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Strukturierte Daten vorhanden</td><td class="klein">Technik</td><td class="klein">keine</td></tr>
+    
+    <tr><td><span class="symbol gut">✓</span></td>
+      <td>Mindestens 3 interne Links auf die Seite</td><td class="klein">Links</td><td class="klein">16 eingehende interne Links</td></tr>
+    
+    <tr><td><span class="symbol dringend">◆</span></td>
+      <td>Interner Ankertext mit Keyword</td><td class="klein">Links</td><td class="klein">0 Ankertexte mit Keyword</td></tr>
+    
+    <tr><td><span class="symbol gut">✓</span></td>
+      <td>Hauptinhalt in &lt;main&gt;/&lt;article&gt;</td><td class="klein">Nutzer &amp; KI</td><td class="klein"></td></tr>
+    
+    <tr><td><span class="symbol gut">✓</span></td>
+      <td>Gut lesbar (Absätze, Sätze, Gliederung)</td><td class="klein">Nutzer &amp; KI</td><td class="klein"></td></tr>
+    
+    </tbody>
+  </table></div>
+</details></div>
+
+
+<div class="karte">
+  <h2>Bisherige Prüfungen</h2>
+  <table>
+    <tbody><tr><th>Seite</th><th>Suchbegriff</th><th>Score</th><th>Datum</th></tr>
+    
+    <tr><td class="url klein"><a href="onpage-1.html">https://radhaus-elbe.de/werkstatt</a></td><td>fahrradwerkstatt hamburg</td>
+      <td class="error">36</td>
+      <td class="klein">17.10.2026, 18:47</td></tr>
+    
+  </tbody></table>
+</div>
+
+</main>
+</div>
+<script>
+  (function () {
+    var knoepfe = document.querySelectorAll("[data-thema]");
+    function zeigen() {
+      var t = document.documentElement.dataset.theme || "system";
+      knoepfe.forEach(function (k) { k.setAttribute("aria-pressed", k.dataset.thema === t); });
+    }
+    knoepfe.forEach(function (k) {
+      k.addEventListener("click", function () {
+        var t = k.dataset.thema;
+        if (t === "system") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
+        try { t === "system" ? localStorage.removeItem("thema") : localStorage.setItem("thema", t); } catch (e) {}
+        zeigen();
+      });
+    });
+    zeigen();
+    /* Projektwahl schließen beim Klick daneben */
+    document.addEventListener("click", function (e) {
+      var d = document.querySelector(".projektwahl[open]");
+      if (d && !d.contains(e.target)) d.removeAttribute("open");
+    });
+  })();
+</script>
+
+<script src="static/demo.js"></script></body></html>
