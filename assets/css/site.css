@@ -130,6 +130,8 @@ p { max-width: 62ch; text-wrap: pretty; }
   .link:hover, .prose a:hover, .faq-list a:hover { text-decoration-color: currentColor; }
 }
 @media (forced-colors: active) { .button, .chip, .code__copy { border: 2px solid ButtonText; } }
+@media (max-width: 24em) { .button { max-width: 100%; white-space: normal; text-align: center; padding-block: 0.5rem; } } /* lange Knopftexte brechen um statt aus dem Bild zu ragen */
+video:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 /* ---------- Kopf ---------- */
 .site-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem;
