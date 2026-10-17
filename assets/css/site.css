@@ -127,6 +127,14 @@ p { max-width: 62ch; text-wrap: pretty; }
 .site-nav a[aria-current="page"]:not(.button) { text-decoration-color: currentColor; }
 @media (hover: hover) and (pointer: fine) { .site-nav a:not(.button):hover { text-decoration-color: currentColor; } }
 @media (max-width: 37.5em) { .site-nav .nav-wide { display: none; } }
+/* Kleine Handys (320 px): Kopf enger, damit nichts aus dem Bild ragt */
+@media (max-width: 23em) {
+  .site-head { gap: 0.5rem; }
+  .wordmark { font-size: 1.375rem; }
+  .site-nav { gap: 0.7rem; }
+  .site-nav .button--small { padding: 0 0.7rem; }
+}
+@media (max-width: 19em) { .site-nav > a:nth-child(2) { display: none; } } /* FAQ, steht auch im Fuß */
 
 /* ---------- Held: Satz, geteilt durch ein Fenster ---------- */
 .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; overflow: hidden; }
@@ -180,10 +188,12 @@ p { max-width: 62ch; text-wrap: pretty; }
   .site-head--over { position: relative; }
   .hero__stage { --fw: calc(100vw - 2 * var(--margin)); --fh: calc(var(--fw) * 0.75); --gap-reel: calc(var(--fh) + 0.75rem);
     grid-template-columns: 1fr; min-height: 0; row-gap: 1.25rem; padding-block: 1rem 0; }
-  .hero__half { font-size: clamp(3rem, 14.5vw, 6.5rem); }
+  .hero__half { font-size: clamp(2.5rem, 14.5vw, 6.5rem); }
   .hero__half--a { grid-column: 1; grid-row: 1; }
   .reel { grid-column: 1; grid-row: 2; height: calc(var(--fh) + 2 * 1.75rem + 1.5rem); overflow: hidden; }
-  .reel__item { aspect-ratio: 4 / 3; }
+  /* Karte 4:3; unter 23em wächst sie mit, weil der Text dort mehr Zeilen braucht */
+  .hero__stage { --fh: calc(var(--fw) * 0.75 + max(0px, (23rem - 100vw) * 1.1)); }
+  .reel__item { aspect-ratio: auto; height: var(--fh); }
   .reel__caption { display: none; }
   .task { gap: 0.55rem; padding: 1rem; }
   .hero__half--b { grid-column: 1; grid-row: 3; }
@@ -202,6 +212,7 @@ p { max-width: 62ch; text-wrap: pretty; }
 .story__pics figure:nth-child(1) { width: 100%; }
 .story__pics figure:nth-child(2) { width: 78%; justify-self: end; }
 .story__pics figure:nth-child(3) { width: 88%; }
+.shot { overflow: clip; } /* Einblend-Zoom bleibt im Rahmen, kein Querscrollen */
 .shot img { width: 100%; border-radius: 4px; }
 figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--muted); max-width: 48ch; }
 @media (max-width: 50em) {
@@ -301,15 +312,15 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 /* FAQ: breite Überschrift, eingerückte Fragen */
 .faq-head { grid-column: 1 / -1; }
 .faq-list { grid-column: 5 / -1; margin-top: 5rem; display: grid; gap: 0.75rem; }
-.qa { position: relative; }
+.qa { position: relative; --qa-pad: min(1.5rem, var(--margin)); } /* Einzug nie breiter als der Seitenrand */
 .qa summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 2rem; align-items: center;
-  font-size: clamp(1.1875rem, 1rem + 0.5vw, 1.5rem); line-height: 1.3; padding: 1rem 1.5rem; margin-inline: -1.5rem;
+  font-size: clamp(1.1875rem, 1rem + 0.5vw, 1.5rem); line-height: 1.3; padding: 1rem var(--qa-pad); margin-inline: calc(var(--qa-pad) * -1);
   transition: background-color var(--t-hover) ease; }
 .qa summary::-webkit-details-marker { display: none; }
 .qa summary::after { content: ""; flex: none; width: 0.65rem; height: 0.65rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
   transform: translateY(-25%) rotate(45deg); transition: transform var(--t-ui) var(--ease-out); }
 .qa[open] summary::after { transform: translateY(15%) rotate(-135deg); }
-.qa[open] { background: var(--surface); margin-inline: -1.5rem; padding-inline: 1.5rem; }
+.qa[open] { background: var(--surface); margin-inline: calc(var(--qa-pad) * -1); padding-inline: var(--qa-pad); }
 .qa[open] summary { margin-inline: 0; padding-inline: 0; }
 .qa__a { padding: 0 0 1.5rem; max-width: 52ch; font-size: 1.0625rem; }
 .qa__a p + p { margin-top: 0.8em; }
