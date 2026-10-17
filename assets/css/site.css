@@ -791,3 +791,7 @@ thead .cmp__us { color: var(--accent); }
 .post__bild { margin: 1.75rem 0; }
 .post__bild img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--surface-2); }
 .post__bild figcaption { margin-top: 0.5rem; font-size: var(--step-small); color: var(--muted); }
+/* Schmale Handys (280 px): lange Wörter und Code dürfen umbrechen */
+.chat { grid-template-columns: minmax(0, 1fr); }
+.chat__tool code { overflow-wrap: anywhere; }
+.page-head h1 { hyphens: auto; overflow-wrap: break-word; }
