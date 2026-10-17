@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SEO-Tool installieren: Nextfix Schritt für Schritt auf dem Mac</title>
-<meta name="description" content="So installierst du das kostenlose SEO-Tool Nextfix auf dem Mac: Python prüfen, herunterladen, einrichten, starten. Dauert einmalig 10 bis 20 Minuten.">
+<meta name="description" content="So installierst du das kostenlose SEO-Tool Nextfix: eine Zeile ins Terminal auf Mac oder Linux, danach Start per Doppelklick. Auch Schritt für Schritt erklärt.">
 <!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
 <link rel="canonical" href="https://the-neyro.github.io/installation/">
 <meta name="theme-color" content="#f7f6f3">
@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Nextfix">
 <meta property="og:locale" content="de_DE">
 <meta property="og:title" content="SEO-Tool installieren: Nextfix Schritt für Schritt auf dem Mac">
-<meta property="og:description" content="So installierst du das kostenlose SEO-Tool Nextfix auf dem Mac: Python prüfen, herunterladen, einrichten, starten. Dauert einmalig 10 bis 20 Minuten.">
+<meta property="og:description" content="So installierst du das kostenlose SEO-Tool Nextfix: eine Zeile ins Terminal auf Mac oder Linux, danach Start per Doppelklick. Auch Schritt für Schritt erklärt.">
 <meta property="og:url" content="https://the-neyro.github.io/installation/">
 <meta property="og:image" content="https://the-neyro.github.io/assets/img/og.png">
 <meta property="og:image:width" content="1200">
@@ -45,14 +45,14 @@
   <div class="page-head page-head--split">
     <div class="page-head__main">
     <h1 data-reveal>Nextfix installieren</h1>
-    <p class="statement" data-reveal style="--i:1">Einmal 10 bis 20 Minuten, getestet auf dem Mac. Du brauchst Python 3.12 und das Terminal. Jeden Befehl kannst du kopieren.</p>
+    <p class="statement" data-reveal style="--i:1">Eine Zeile ins Terminal, den Rest erledigt das Installationsskript. Lieber jeden Schritt selbst sehen? Weiter unten steht alles einzeln.</p>
     </div>
     <aside class="page-head__side" data-reveal style="--i:2" aria-label="Auf einen Blick">
       <dl class="facts-card">
         <div><dt>Du brauchst</dt><dd>einen Mac oder Linux (automatisch getestet), Python 3.12 und einmal das Terminal. Unter Windows klappt die Installation, offiziell unterstützt ist es noch nicht.</dd></div>
-        <div><dt>Dauer</dt><dd>einmal 10 bis 20 Minuten</dd></div>
+        <div><dt>Dauer</dt><dd>meist ein paar Minuten; fehlen auf dem Mac die Entwicklerwerkzeuge, kommt ein großer Download dazu</dd></div>
         <div><dt>Danach</dt><dd>starten, Adresse eintragen, prüfen</dd></div>
-        <div><dt>Entfernen</dt><dd>Ordner löschen, fertig</dd></div>
+        <div><dt>Entfernen</dt><dd>Ordner <code>nextfix</code> löschen</dd></div>
       </dl>
       <p class="facts-card__alt">Lieber machen lassen? Schick die Anleitung mit einem Klick:</p>
       <a class="button button--small" href="mailto:?subject=Kannst%20du%20Nextfix%20f%C3%BCr%20unsere%20Website%20einrichten%3F&amp;body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20unsere%20Website%20mit%20Nextfix%20pr%C3%BCfen.%20Das%20ist%20ein%20kostenloses%20Open-Source-SEO-Tool%2C%20das%20lokal%20l%C3%A4uft%20(kein%20Konto%2C%20kein%20Abo).%0A%0AAnleitung%3A%20https%3A%2F%2Fthe-neyro.github.io%2Finstallation%2F%20(einmal%20ca.%2015%20Minuten)%0A%0ADanach%20bitte%20die%20Aufgaben%20mit%20%E2%80%9EWirkung%20hoch%E2%80%9C%20zuerst%20angehen.%0A%0ADanke!">E-Mail an den Webbetreuer</a>
@@ -60,13 +60,24 @@
   </div>
 
   <div class="prose">
-    <p><strong>Kein Terminal-Mensch?</strong> Schick den Link zu dieser Seite deinem Webbetreuer oder einer technikfesten Bekannten. Für sie sind das zehn Minuten. Danach bedienst du Nextfix im Browser und startest es auf dem Mac per Doppelklick. Keine Sorge: Alles bleibt in einem Ordner, und zum Entfernen löschst du ihn einfach.</p>
+    <p><strong>Kein Terminal-Mensch?</strong> Schick den Link zu dieser Seite deinem Webbetreuer oder einer technikfesten Bekannten. Für sie sind das ein paar Minuten. Danach bedienst du Nextfix im Browser und startest es auf dem Mac per Doppelklick. Keine Sorge: Alles bleibt in einem Ordner, und zum Entfernen löschst du ihn einfach.</p>
     <h2 id="schnell">Der schnelle Weg: eine Zeile</h2>
     <p>Öffne das Terminal (⌘ + Leertaste, „Terminal“ tippen, Enter), füge diese Zeile ein und drück Enter. Sie prüft, ob Python 3.12 da ist, lädt Nextfix in den Ordner <code>nextfix</code> in deinem Benutzerordner, richtet alles ein und fragt am Ende, ob Nextfix gleich mit der Demo-Website starten soll.</p>
     <div class="os"><p>Mac und Linux</p>
     <div class="code"><pre><code>curl -fsSL https://raw.githubusercontent.com/the-neyro/nextfix/main/scripts/install.sh | bash</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
     <div class="os"><p>Windows (PowerShell; die Installation ist geprüft, offiziell unterstützt ist Windows noch nicht)</p>
     <div class="code"><pre><code>irm https://raw.githubusercontent.com/the-neyro/nextfix/main/scripts/install.ps1 | iex</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div></div>
+    <div class="zeile-info">
+      <p class="zeile-info__h">Was diese Zeile macht</p>
+      <ul>
+        <li>Sie lädt Nextfix mit git von GitHub in den Ordner <code>nextfix</code> in deinem Benutzerordner. Gibt es den Ordner schon, wird er aktualisiert.</li>
+        <li>Darin legt sie eine eigene Python-Umgebung an und installiert die Pakete aus <code>requirements.txt</code>. Dazu kommt Chromium für Ladezeit, PDF und JavaScript-Seiten; das legt Playwright in seinen eigenen Cache-Ordner.</li>
+        <li>Sie braucht keine Admin-Rechte und kein <code>sudo</code>. Fehlt Python 3.12 oder git, bricht sie ab und sagt dir, was zu tun ist.</li>
+        <li>Sie schickt nichts über dich irgendwohin und richtet nichts ein, das von selbst startet.</li>
+        <li>Entfernen: Ordner <code>nextfix</code> löschen. Chromium liegt unter <code>~/Library/Caches/ms-playwright</code> (Mac) bzw. <code>~/.cache/ms-playwright</code> (Linux).</li>
+      </ul>
+      <p>In unseren automatischen Tests auf Mac und Linux dauert die Zeile unter einer Minute, zu Hause je nach Internet ein paar Minuten. <a class="link" href="https://github.com/the-neyro/nextfix/blob/main/scripts/install.sh">Skript auf GitHub nachlesen</a></p>
+    </div>
     <p><strong>Danach starten:</strong> Auf dem Mac doppelklickst du im Ordner <code>nextfix</code> auf <strong>„Nextfix starten.command“</strong>. Der Browser öffnet sich mit <strong>http://localhost:8000</strong>, Fenster schließen beendet Nextfix. Blockiert macOS die Datei, klick sie mit der rechten Maustaste an, wähle „Öffnen“ und bestätige einmal. Unter Linux startest du mit <code>cd ~/nextfix &amp;&amp; .venv/bin/uvicorn app.web:app</code>.</p>
     <p>Fehlt Python oder git, sagt dir die Zeile, was zu tun ist. Lieber jeden Schritt selbst sehen? Dann geht es hier weiter.</p>
 

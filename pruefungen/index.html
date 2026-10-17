@@ -56,7 +56,7 @@
       <div class="katalog__liste">
         <details class="qa pruefung" id="p-sitemap_falsche_seiten">
           <summary><span class="pruefung__name">Falsche Seiten in sitemap.xml</span><span class="tag tag--dringend">Dringend</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten – keine Weiterleitungen, Fehler, Duplikate oder noindex.</p><p><strong>So behebst du es:</strong> Weiterleitungen durch Ziel-URLs ersetzen, Fehlerseiten, Duplikate und noindex-Seiten entfernen.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten – keine Weiterleitungen, Fehler, Duplikate oder noindex.</p><p><strong>So behebst du es:</strong> Weiterleitungen durch Ziel-URLs ersetzen, Fehlerseiten, Duplikate und noindex-Seiten entfernen.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 1 Seite. <a class="link" href="../demo/crawls-2-issues-sitemap-falsche-seiten-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-robots_formatfehler">
           <summary><span class="pruefung__name">Formatfehler in robots.txt</span><span class="tag tag--dringend">Dringend</span></summary>
@@ -76,7 +76,7 @@
         </details>
         <details class="qa pruefung" id="p-status_4xx">
           <summary><span class="pruefung__name">Seiten mit 4xx-Statuscode</span><span class="tag tag--dringend">Dringend</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.</p><p><strong>So behebst du es:</strong> Seite wiederherstellen, per 301 umleiten oder Links darauf entfernen.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.</p><p><strong>So behebst du es:</strong> Seite wiederherstellen, per 301 umleiten oder Links darauf entfernen.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 1 Seite. <a class="link" href="../demo/crawls-2-issues-status-4xx-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-status_5xx">
           <summary><span class="pruefung__name">Seiten mit 5xx-Statuscode</span><span class="tag tag--dringend">Dringend</span></summary>
@@ -112,7 +112,7 @@
         </details>
         <details class="qa pruefung" id="p-perm_redirect">
           <summary><span class="pruefung__name">Interne Links auf alte Adressen (dauerhafte Weiterleitung)</span><span class="tag tag--fein">Feinschliff</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Weiterleitung (301/308) selbst ist korrekt. Links auf die alte Adresse führen aber über einen Umweg zum Ziel – das kostet bei jedem Aufruf etwas Ladezeit.</p><p><strong>So behebst du es:</strong> Ändere die internen Links so, dass sie direkt auf die neue Adresse zeigen.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Weiterleitung (301/308) selbst ist korrekt. Links auf die alte Adresse führen aber über einen Umweg zum Ziel – das kostet bei jedem Aufruf etwas Ladezeit.</p><p><strong>So behebst du es:</strong> Ändere die internen Links so, dass sie direkt auf die neue Adresse zeigen.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 1 Seite. <a class="link" href="../demo/crawls-2-issues-perm-redirect-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-klicktiefe">
           <summary><span class="pruefung__name">Mehr als 3 Klicks von der Startseite</span><span class="tag tag--fein">Feinschliff</span></summary>
@@ -193,7 +193,7 @@
         </details>
         <details class="qa pruefung" id="p-ohne_last_modified">
           <summary><span class="pruefung__name">Kein Last-Modified-Header</span><span class="tag tag--fein">Feinschliff</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Änderungsdatum können Crawler nicht gezielt nur geänderte Seiten neu abrufen.</p><p><strong>So behebst du es:</strong> Server so einstellen, dass er den Header &#x27;Last-Modified&#x27; (oder ein ETag) mitsendet.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Änderungsdatum können Crawler nicht gezielt nur geänderte Seiten neu abrufen.</p><p><strong>So behebst du es:</strong> Server so einstellen, dass er den Header &#x27;Last-Modified&#x27; (oder ein ETag) mitsendet.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ die ganze Website. <a class="link" href="../demo/crawls-2-issues-ohne-last-modified-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-veraltete_plugins">
           <summary><span class="pruefung__name">Veraltete Browser-Plugins (Flash, Java, Silverlight)</span><span class="tag tag--fein">Feinschliff</span></summary>
@@ -206,7 +206,7 @@
       <div class="katalog__liste">
         <details class="qa pruefung" id="p-meta_desc_doppelt">
           <summary><span class="pruefung__name">Doppelte Meta-Descriptions</span><span class="tag tag--dringend">Dringend</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</p><p><strong>So behebst du es:</strong> Für jede Seite eine eigene Beschreibung schreiben.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</p><p><strong>So behebst du es:</strong> Für jede Seite eine eigene Beschreibung schreiben.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 4 Seiten. <a class="link" href="../demo/crawls-2-issues-meta-desc-doppelt-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-title_doppelt">
           <summary><span class="pruefung__name">Doppelte Title-Tags</span><span class="tag tag--dringend">Dringend</span></summary>
@@ -222,7 +222,7 @@
         </details>
         <details class="qa pruefung" id="p-bilder_ohne_alt">
           <summary><span class="pruefung__name">Bilder ohne alt-Attribut</span><span class="tag tag--wichtig">Wichtig</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> alt-Texte helfen Screenreadern und der Bildersuche.</p><p><strong>So behebst du es:</strong> Jedem inhaltlichen Bild einen beschreibenden alt-Text geben (dekorative: alt=&quot;&quot;).</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> alt-Texte helfen Screenreadern und der Bildersuche.</p><p><strong>So behebst du es:</strong> Jedem inhaltlichen Bild einen beschreibenden alt-Text geben (dekorative: alt=&quot;&quot;).</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 3 Seiten. <a class="link" href="../demo/crawls-2-issues-bilder-ohne-alt-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-h1_fehlt">
           <summary><span class="pruefung__name">H1-Überschrift fehlt</span><span class="tag tag--wichtig">Wichtig</span></summary>
@@ -230,7 +230,7 @@
         </details>
         <details class="qa pruefung" id="p-meta_desc_fehlt">
           <summary><span class="pruefung__name">Meta-Description fehlt</span><span class="tag tag--wichtig">Wichtig</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Beschreibung wählt die Suchmaschine selbst einen Textausschnitt.</p><p><strong>So behebst du es:</strong> Kurze, einladende Beschreibung (ca. 120–160 Zeichen) ergänzen.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Beschreibung wählt die Suchmaschine selbst einen Textausschnitt.</p><p><strong>So behebst du es:</strong> Kurze, einladende Beschreibung (ca. 120–160 Zeichen) ergänzen.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 1 Seite. <a class="link" href="../demo/crawls-2-issues-meta-desc-fehlt-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-title_zu_kurz">
           <summary><span class="pruefung__name">Title zu kurz (≤ 10 Zeichen)</span><span class="tag tag--wichtig">Wichtig</span></summary>
@@ -238,7 +238,7 @@
         </details>
         <details class="qa pruefung" id="p-title_zu_lang">
           <summary><span class="pruefung__name">Title zu lang (&gt; 70 Zeichen)</span><span class="tag tag--wichtig">Wichtig</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Lange Titles werden im Suchergebnis abgeschnitten.</p><p><strong>So behebst du es:</strong> Title auf höchstens 70 Zeichen kürzen, Wichtiges nach vorn.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Lange Titles werden im Suchergebnis abgeschnitten.</p><p><strong>So behebst du es:</strong> Title auf höchstens 70 Zeichen kürzen, Wichtiges nach vorn.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 2 Seiten. <a class="link" href="../demo/crawls-2-issues-title-zu-lang-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-text_html_niedrig">
           <summary><span class="pruefung__name">Viel Code, wenig Text (≤ 10 % Text)</span><span class="tag tag--wichtig">Wichtig</span></summary>
@@ -246,7 +246,7 @@
         </details>
         <details class="qa pruefung" id="p-wenig_text">
           <summary><span class="pruefung__name">Wenig Text (&lt; 200 Wörter im Hauptinhalt)</span><span class="tag tag--wichtig">Wichtig</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben. Gezählt wird nur der Hauptinhalt – Menü, Fußzeile und Cookie-Hinweis machen eine Seite nicht gehaltvoller.</p><p><strong>So behebst du es:</strong> Inhalt ausbauen, mit einer ähnlichen Seite zusammenlegen oder (z. B. dünne Glossar-Seiten) auf noindex setzen.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben. Gezählt wird nur der Hauptinhalt – Menü, Fußzeile und Cookie-Hinweis machen eine Seite nicht gehaltvoller.</p><p><strong>So behebst du es:</strong> Inhalt ausbauen, mit einer ähnlichen Seite zusammenlegen oder (z. B. dünne Glossar-Seiten) auf noindex setzen.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 9 Seiten. <a class="link" href="../demo/crawls-2-issues-wenig-text-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-h1_gleich_title">
           <summary><span class="pruefung__name">Überschrift (H1) und Seitentitel identisch</span><span class="tag tag--wichtig">Wichtig</span></summary>
@@ -258,7 +258,7 @@
         </details>
         <details class="qa pruefung" id="p-meta_desc_zu_kurz">
           <summary><span class="pruefung__name">Meta-Description zu kurz (&lt; 70 Zeichen)</span><span class="tag tag--fein">Feinschliff</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Sehr kurze Beschreibungen nutzen den Platz im Suchergebnis nicht; Google ersetzt sie oft durch eigenen Text.</p><p><strong>So behebst du es:</strong> Auf ca. 120–160 Zeichen ausbauen: Inhalt der Seite und Nutzen für den Leser.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Sehr kurze Beschreibungen nutzen den Platz im Suchergebnis nicht; Google ersetzt sie oft durch eigenen Text.</p><p><strong>So behebst du es:</strong> Auf ca. 120–160 Zeichen ausbauen: Inhalt der Seite und Nutzen für den Leser.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 9 Seiten. <a class="link" href="../demo/crawls-2-issues-meta-desc-zu-kurz-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-meta_desc_zu_lang">
           <summary><span class="pruefung__name">Meta-Description zu lang (&gt; 160 Zeichen)</span><span class="tag tag--fein">Feinschliff</span></summary>
@@ -271,7 +271,7 @@
       <div class="katalog__liste">
         <details class="qa pruefung" id="p-interne_links_defekt">
           <summary><span class="pruefung__name">Defekte interne Links</span><span class="tag tag--dringend">Dringend</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Links ins Leere frustrieren Nutzer und verschwenden Crawl-Budget.</p><p><strong>So behebst du es:</strong> Link korrigieren oder entfernen, Zielseite ggf. umleiten.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Links ins Leere frustrieren Nutzer und verschwenden Crawl-Budget.</p><p><strong>So behebst du es:</strong> Link korrigieren oder entfernen, Zielseite ggf. umleiten.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 1 Seite. <a class="link" href="../demo/crawls-2-issues-interne-links-defekt-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-externe_links_defekt">
           <summary><span class="pruefung__name">Defekte externe Links</span><span class="tag tag--wichtig">Wichtig</span></summary>
@@ -315,7 +315,7 @@
         </details>
         <details class="qa pruefung" id="p-nur_ein_eingehender_link">
           <summary><span class="pruefung__name">Nur ein eingehender interner Link</span><span class="tag tag--fein">Feinschliff</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Schwach verlinkte Seiten bekommen wenig Link-Stärke und werden seltener gecrawlt.</p><p><strong>So behebst du es:</strong> Seite aus thematisch passenden Seiten zusätzlich verlinken.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Schwach verlinkte Seiten bekommen wenig Link-Stärke und werden seltener gecrawlt.</p><p><strong>So behebst du es:</strong> Seite aus thematisch passenden Seiten zusätzlich verlinken.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 3 Seiten. <a class="link" href="../demo/crawls-2-issues-nur-ein-eingehender-link-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-url_zu_lang">
           <summary><span class="pruefung__name">URL länger als 200 Zeichen</span><span class="tag tag--fein">Feinschliff</span></summary>
@@ -323,7 +323,7 @@
         </details>
         <details class="qa pruefung" id="p-orphan_sitemap">
           <summary><span class="pruefung__name">Verwaiste Seiten (nur in der Sitemap)</span><span class="tag tag--fein">Feinschliff</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Seite steht in der Sitemap, wird aber von keiner anderen Seite verlinkt.</p><p><strong>So behebst du es:</strong> Seite intern verlinken oder, falls nicht mehr gebraucht, aus der Sitemap entfernen.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Seite steht in der Sitemap, wird aber von keiner anderen Seite verlinkt.</p><p><strong>So behebst du es:</strong> Seite intern verlinken oder, falls nicht mehr gebraucht, aus der Sitemap entfernen.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 2 Seiten. <a class="link" href="../demo/crawls-2-issues-orphan-sitemap-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
       </div>
     </section>
@@ -340,11 +340,11 @@
         </details>
         <details class="qa pruefung" id="p-ki_artikel_ohne_autor_datum">
           <summary><span class="pruefung__name">Artikel ohne Autor oder Datum</span><span class="tag tag--fein">Feinschliff</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Bei Artikeln achten Suchmaschinen und KI-Systeme auf Aktualität und Urheber (E-E-A-T). Ohne Datum und Autor wirkt der Inhalt weniger vertrauenswürdig.</p><p><strong>So behebst du es:</strong> datePublished/dateModified und author im Article-Markup angeben, Datum auch sichtbar mit &lt;time datetime&gt;.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Bei Artikeln achten Suchmaschinen und KI-Systeme auf Aktualität und Urheber (E-E-A-T). Ohne Datum und Autor wirkt der Inhalt weniger vertrauenswürdig.</p><p><strong>So behebst du es:</strong> datePublished/dateModified und author im Article-Markup angeben, Datum auch sichtbar mit &lt;time datetime&gt;.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 1 Seite. <a class="link" href="../demo/crawls-2-issues-ki-artikel-ohne-autor-datum-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-ki_fragen_ohne_faq">
           <summary><span class="pruefung__name">Fragen ohne FAQ-Markup</span><span class="tag tag--fein">Feinschliff</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Seite beantwortet mehrere Fragen (Zwischenüberschriften mit „?“), markiert sie aber nicht als FAQ. Frage-Antwort-Paare mit Markup sind für KI-Systeme leicht als Antwort zu übernehmen. Hinweis: Google zeigt FAQ-Rich-Results nur noch für Behörden- und Gesundheitsseiten.</p><p><strong>So behebst du es:</strong> Fragen und Antworten als FAQPage (JSON-LD) auszeichnen, jede Antwort direkt unter der Frage in 1–3 Sätzen.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Seite beantwortet mehrere Fragen (Zwischenüberschriften mit „?“), markiert sie aber nicht als FAQ. Frage-Antwort-Paare mit Markup sind für KI-Systeme leicht als Antwort zu übernehmen. Hinweis: Google zeigt FAQ-Rich-Results nur noch für Behörden- und Gesundheitsseiten.</p><p><strong>So behebst du es:</strong> Fragen und Antworten als FAQPage (JSON-LD) auszeichnen, jede Antwort direkt unter der Frage in 1–3 Sätzen.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ 3 Seiten. <a class="link" href="../demo/crawls-2-issues-ki-fragen-ohne-faq-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-ki_schwer_lesbar">
           <summary><span class="pruefung__name">Inhalt schwer zu erfassen</span><span class="tag tag--fein">Feinschliff</span></summary>
@@ -376,7 +376,7 @@
         </details>
         <details class="qa pruefung" id="p-llms_fehlt">
           <summary><span class="pruefung__name">llms.txt nicht gefunden</span><span class="tag tag--fein">Feinschliff</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> llms.txt gibt KI-Assistenten eine kompakte Übersicht der wichtigsten Inhalte.</p><p><strong>So behebst du es:</strong> llms.txt im Root anlegen: &#x27;# Name&#x27;, Kurzbeschreibung, Links zu wichtigen Seiten.</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> llms.txt gibt KI-Assistenten eine kompakte Übersicht der wichtigsten Inhalte.</p><p><strong>So behebst du es:</strong> llms.txt im Root anlegen: &#x27;# Name&#x27;, Kurzbeschreibung, Links zu wichtigen Seiten.</p><p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ die ganze Website. <a class="link" href="../demo/crawls-2-issues-llms-fehlt-seite.html">So sieht das in Nextfix aus</a></p></div>
         </details>
         <details class="qa pruefung" id="p-llms_duenn">
           <summary><span class="pruefung__name">llms.txt ohne Kurzbeschreibung oder Links</span><span class="tag tag--fein">Feinschliff</span></summary>

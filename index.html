@@ -150,7 +150,7 @@
     <div class="video__bar"><span>Kapitel:</span> <button class="chip" type="button" data-zeit="0">00 s · Projekte</button><button class="chip" type="button" data-zeit="5">05 s · Prüfung läuft</button><button class="chip" type="button" data-zeit="9">09 s · Übersicht</button><button class="chip" type="button" data-zeit="14">14 s · Was jetzt tun</button><button class="chip" type="button" data-zeit="19">19 s · Aufgabe öffnen</button><button class="chip" type="button" data-zeit="26">26 s · Seite optimieren</button><button class="chip" type="button" data-zeit="32">32 s · Vorschlag kopieren</button></div>
   </div>
   <ol class="steps-row" data-ui>
-    <li class="step step--du" data-reveal style="--i:0"><span class="step__nr">1</span><span class="step__name">Installieren</span><span class="step__time">einmal, 10 bis 20 Minuten</span><span class="step__text">Du oder dein Webbetreuer, mit der Anleitung.</span></li>
+    <li class="step step--du" data-reveal style="--i:0"><span class="step__nr">1</span><span class="step__name">Installieren</span><span class="step__time">einmal, ein paar Minuten</span><span class="step__text">Du oder dein Webbetreuer, mit der Anleitung.</span></li>
     <li class="step" data-reveal style="--i:1"><span class="step__nr">2</span><span class="step__name">Prüfen</span><span class="step__time">ein paar Minuten</span><span class="step__text">Nextfix ruft deine Seiten nacheinander ab.</span></li>
     <li class="step step--du" data-reveal style="--i:2"><span class="step__nr">3</span><span class="step__name">Reparieren</span><span class="step__time">in deinem Tempo</span><span class="step__text">Die Liste von oben ab, im CMS oder mit Hilfe.</span></li>
     <li class="step" data-reveal style="--i:3"><span class="step__nr">4</span><span class="step__name">Nachprüfen</span><span class="step__time">ein paar Minuten</span><span class="step__text">Der Verlauf zeigt, was besser wurde.</span></li>
@@ -364,6 +364,33 @@
     </div>
     <p class="faq-more"><a class="link" href="faq/">Alle Fragen und Antworten</a></p>
   </div>
+</section>
+
+<section class="section wrap weiter" aria-labelledby="weiter-h">
+  <h2 id="weiter-h" class="h2" data-reveal>Wie es weitergeht</h2>
+  <p class="lead-after" data-reveal>Ohne Datum: Nextfix ist ein Nebenprojekt, und die Reihenfolge richtet sich nach echten Rückmeldungen.</p>
+  <div class="weiter__grid">
+    <div data-reveal>
+      <h3 class="weiter__h">Geplant</h3>
+      <ul class="weiter__liste">
+        <li><strong>Windows offiziell.</strong> Die Installation läuft schon, die Tests sind dort noch nicht jedes Mal grün.</li>
+        <li><strong>Anleitungen in Klartext.</strong> Jede Aufgabe erklärt in wenigen Schritten, wie du sie selbst behebst, auch wo das Feld in WordPress liegt (Yoast, Rank Math).</li>
+        <li><strong>Claude leichter verbinden.</strong> Das Installationsskript zeigt am Ende den fertigen Befehl mit deinem Pfad.</li>
+        <li><strong>Installation aus dem Release</strong> statt aus dem Entwicklungsstand.</li>
+        <li><strong>Verweisende Domains aus offenen Daten</strong> (Common Crawl), wenn das ohne Kosten und ohne riesige Downloads geht.</li>
+      </ul>
+    </div>
+    <div data-reveal style="--i:1">
+      <h3 class="weiter__h">Bewusst nicht geplant</h3>
+      <ul class="weiter__liste weiter__liste--nein">
+        <li><strong>Rankings fremder Websites.</strong> Die gibt es nur per Google-Scraping (gegen Googles Regeln) oder aus bezahlten Datenbanken. Nextfix nutzt Search Console und Bing, die dir schon gehören.</li>
+        <li><strong>Eine eigene Backlink-Datenbank.</strong> Dafür müsste man das ganze Web abrufen oder jeden Monat Daten mieten.</li>
+        <li><strong>Eine Cloud-Version.</strong> Nextfix läuft auf deinem Rechner, deine Daten bleiben dort.</li>
+        <li><strong>Tracking oder Telemetrie.</strong> Nextfix schickt nichts über dich oder deine Projekte irgendwohin.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="weiter__mit" data-reveal><strong>Mitmachen:</strong> Jede Prüfung ist eine kleine Python-Funktion mit <code>@check</code>. Fehler und Wünsche gehen als <a class="link" href="https://github.com/the-neyro/nextfix/issues">Issue auf GitHub</a>, Beiträge nach der <a class="link" href="https://github.com/the-neyro/nextfix/blob/main/CONTRIBUTING.md">Anleitung für Mitwirkende</a> (Englisch).</p>
 </section>
 
 <section class="section wrap" aria-labelledby="blog-h" data-blog-teaser>

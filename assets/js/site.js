@@ -23,7 +23,7 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
       e.target.classList.add('is-in');
       io.unobserve(e.target);
     }
-  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+  }, { rootMargin: '0px 0px 8% 0px', threshold: 0 }); // kurz bevor es ins Bild kommt, damit man nie auf Leere scrollt
   ziele.forEach((el) => io.observe(el));
   // Sicherheitsnetz: was nach dem Laden im Bild ist, wird sicher sichtbar
   window.addEventListener('load', () => setTimeout(() => {

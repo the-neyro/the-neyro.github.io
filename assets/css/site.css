@@ -767,3 +767,20 @@ thead .cmp__us { color: var(--accent); }
 .faq-side .shot { margin-top: 2rem; position: sticky; top: 2rem; }
 .faq-side + .faq-list--page { grid-column: 6 / -1; }
 @media (max-width: 50em) { .faq-side, .faq-side + .faq-list--page { grid-column: 1 / -1; } .faq-side .shot { position: static; } }
+.module__demo { margin-top: 1rem; font-weight: 500; }
+.module__demo .link::after { content: " →"; }
+/* Installation: was der Einzeiler tut */
+.zeile-info { margin: 1.25rem 0 1.5rem; padding: 1.1rem 1.25rem; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; }
+.zeile-info__h { font-weight: 600; margin-bottom: 0.4rem; }
+.zeile-info ul { padding-left: 1.1rem; display: grid; gap: 0.35rem; margin: 0 0 0.75rem; }
+.zeile-info p:last-child { margin-bottom: 0; font-size: var(--step-small); color: var(--muted); }
+/* Startseite: Wie es weitergeht – bewusst ohne Karten, nur Typografie */
+.weiter__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); margin-top: 2rem; }
+.weiter__h { font-family: var(--font-display); font-weight: 500; font-size: 1.5rem; line-height: 1.05; padding-bottom: 0.6rem; border-bottom: 2px solid var(--ink); }
+.weiter__liste { list-style: none; padding: 0; margin: 0; }
+.weiter__liste li { padding: 0.75rem 0 0.75rem 1.6rem; border-bottom: 1px solid var(--surface-2); position: relative; font-size: 1rem; line-height: 1.5; }
+.weiter__liste li::before { content: "→"; position: absolute; left: 0; top: 0.75rem; color: var(--accent); font-weight: 600; }
+.weiter__liste--nein li::before { content: "×"; color: var(--muted); }
+.weiter__mit { margin-top: 1.5rem; max-width: 60ch; }
+.weiter__mit code { font-family: var(--font-code); font-size: 0.9em; background: var(--surface); padding: 0.1em 0.3em; }
+@media (max-width: 48em) { .weiter__grid { grid-template-columns: minmax(0, 1fr); } }

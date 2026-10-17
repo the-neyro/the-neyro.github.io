@@ -268,13 +268,26 @@ def katalog_bauen() -> str:
     sprung = "".join(f'<li><a href="#{k}">{BEREICHE[k]} <span>{len(gruppen[k])}</span></a></li>' for k in reihenfolge)
     abschnitte = []
     rang = {"error": 0, "warning": 1, "notice": 2}
+    # Prüfungen, die bei der Demo-Website anschlagen, zeigen auf ihre Fundstellen in /demo/
+    demo: dict[str, list[str]] = {}
+    for f in json.loads((WURZEL / "content" / "demo-fundstellen.json").read_text(encoding="utf-8")):
+        demo.setdefault(f["check"], []).append(f["pfad"])
+
+    def demo_hinweis(cid: str) -> str:
+        if cid not in demo:
+            return ""
+        pfade = demo[cid]
+        wo = "die ganze Website" if pfade == ["(ganze Website)"] else ("1 Seite" if len(pfade) == 1 else f"{len(pfade)} Seiten")
+        ziel = f"../demo/crawls-2-issues-{cid.replace('_', '-')}-seite.html"
+        return f'<p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ {wo}. <a class="link" href="{ziel}">So sieht das in Nextfix aus</a></p>'
+
     for k in reihenfolge:
         punkte = []
         for c in sorted(gruppen[k], key=lambda c: (rang[c["schwere"]], c["name"])):
             stufe, klasse = STUFE[c["schwere"]]
             punkte.append(f"""        <details class="qa pruefung" id="p-{e(c["id"])}">
           <summary><span class="pruefung__name">{e(c["name"])}</span><span class="tag tag--{klasse}">{stufe}</span></summary>
-          <div class="qa__a"><p><strong>Warum das zählt:</strong> {e(c["warum"])}</p><p><strong>So behebst du es:</strong> {e(c["beheben"])}</p></div>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> {e(c["warum"])}</p><p><strong>So behebst du es:</strong> {e(c["beheben"])}</p>{demo_hinweis(c["id"])}</div>
         </details>""")
         abschnitte.append(f"""    <section class="katalog__gruppe" id="{k}" aria-labelledby="h-{k}">
       <div class="katalog__kopf"><h2 id="h-{k}" class="h2">{BEREICHE[k]}</h2><p>{BEREICH_TEXT[k]} {len(gruppen[k])} Prüfungen.</p></div>
