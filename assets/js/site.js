@@ -28,44 +28,133 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
   }, 2000));
 })();
 
-// Held: Filmstreifen mit vier echten Aufgaben. Erledigte wandert nach oben und wird durchgestrichen,
-// die nächste rückt nach. Sichtbare Knöpfe: Anhalten/Abspielen und Nächste (WCAG 2.2.2).
+// Held: „Was jetzt tun“-Panel. Oberste Aufgabe wird an Ort und Stelle abgehakt und durchgestrichen,
+// dann rücken die anderen nach; am Ende steht „Erneut prüfen“. Konzept: .review/hero-modul.md.
+// Ohne JavaScript und bei reduzierter Bewegung bleibt das Standbild aus dem HTML stehen (1 erledigt, 2 aktiv).
 (() => {
-  const reel = document.querySelector('[data-reel]');
-  if (!reel) return;
-  const fenster = reel.querySelector('.reel__window');
-  const items = [...reel.querySelectorAll('.reel__item')];
-  const pauseKnopf = reel.querySelector('[data-reel-pause]');
-  const naechsteKnopf = reel.querySelector('[data-reel-next]');
-  const n = items.length;
-  let aktuell = 0;
-  let angehalten = ruhig;   // bei reduzierter Bewegung startet nichts von selbst
+  const fig = document.querySelector('[data-wjt]');
+  if (!fig) return;
+  const liste = fig.querySelector('.wjt__list');
+  const knopf = fig.querySelector('.wjt__toggle');
+  const zaehler = fig.querySelector('.wjt__done');
+  const vorlagen = [...liste.children].map((li) => li.cloneNode(true));
+  const ICON_PAUSE = '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" fill="currentColor"/></svg>';
+  const ICON_PLAY = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>';
+  const warte = (ms) => new Promise((ok) => setTimeout(ok, ms));
+  const istSchluss = (r) => r.classList.contains('row--recheck');
+  let rows = [];
+  let erledigt = 0;
+  let laeuft = !ruhig;
+  let beschaeftigt = false;
   let schwebt = false;
+  let fokus = false;
   let sichtbar = true;
-  const setzen = () => {
-    items.forEach((el, i) => {
-      const d = i - aktuell;      // 0 = Mitte, -1 = erledigt (oben), 1 = als Nächstes (unten)
-      el.dataset.pos = String(d < -1 ? -2 : d > 1 ? 2 : d);
-      el.setAttribute('aria-hidden', d === 0 ? 'false' : 'true');
+
+  const slot = (el, s) => {
+    el.dataset.slot = String(s);
+    el.style.setProperty('--slot', s);
+    const versteckt = s > 2;
+    el.toggleAttribute('inert', versteckt);
+    el.setAttribute('aria-hidden', String(versteckt));
+  };
+  // Alle Zeilen so hoch wie die höchste: nie halbe Zeilen, nichts springt
+  const messen = () => {
+    let h = 0;
+    rows.forEach((r) => { r.style.minHeight = 'auto'; h = Math.max(h, r.offsetHeight); r.style.minHeight = ''; });
+    if (h) liste.style.setProperty('--row-h', `${h}px`);
+  };
+  const zaehlen = () => { zaehler.textContent = `${erledigt} von 4 erledigt`; };
+  const aktiv = (index = 0) => rows.forEach((r, i) => r.classList.toggle('is-active', i === index && !r.classList.contains('is-done') && !istSchluss(r)));
+  const knopfZeigen = () => {
+    if (ruhig) { knopf.textContent = 'Nächste abhaken'; knopf.removeAttribute('aria-pressed'); return; }
+    knopf.innerHTML = laeuft ? `${ICON_PAUSE}Anhalten` : `${ICON_PLAY}Abspielen`;
+    knopf.setAttribute('aria-pressed', String(!laeuft));
+  };
+  const neuAufbauen = () => {
+    liste.replaceChildren(...vorlagen.map((v) => v.cloneNode(true)));
+    rows = [...liste.children];
+    rows.forEach((r, i) => {
+      slot(r, Math.min(i, 3));
+      const check = r.querySelector('.row__check');
+      if (check) {
+        check.disabled = false;
+        check.addEventListener('click', () => { if (r === rows[0] && !r.classList.contains('is-done')) { laeuft = false; knopfZeigen(); schritt(); } });
+      }
     });
   };
-  const weiter = () => { aktuell = (aktuell + 1) % n; setzen(); };
-  const pauseZeigen = () => {
-    pauseKnopf.textContent = angehalten ? 'Abspielen' : 'Anhalten';
-    pauseKnopf.setAttribute('aria-pressed', String(angehalten));
+  // Startzustand: Bewegt = noch nichts erledigt; ruhig = Standbild aus dem HTML (1 erledigt, 2 aktiv)
+  const reset = () => {
+    neuAufbauen();
+    if (ruhig) { erledigt = 1; aktiv(1); } else { rows[0].classList.remove('is-done'); erledigt = 0; aktiv(0); }
+    zaehlen();
+    messen();
   };
-  setzen();
-  reel.querySelector('.reel__controls').hidden = false;
-  pauseZeigen();
-  pauseKnopf.addEventListener('click', () => { angehalten = !angehalten; pauseZeigen(); });
-  naechsteKnopf.addEventListener('click', () => { angehalten = true; pauseZeigen(); weiter(); });
-  fenster.addEventListener('click', () => { angehalten = true; pauseZeigen(); weiter(); });
-  fenster.addEventListener('pointerenter', () => { schwebt = true; });
-  fenster.addEventListener('pointerleave', () => { schwebt = false; });
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; }).observe(reel);
+
+  async function schritt() {
+    if (beschaeftigt) return;
+    beschaeftigt = true;
+    if (rows.findIndex(istSchluss) <= 2) { // „Erneut prüfen“ ist sichtbar: Runde vorbei, von vorn
+      await warte(2400);
+      liste.style.transition = 'opacity 240ms ease'; liste.style.opacity = '0'; await warte(260);
+      reset(); liste.style.opacity = '1'; await warte(320); liste.style.transition = '';
+      beschaeftigt = false;
+      return;
+    }
+    const fertig = rows[0];
+    fertig.classList.remove('is-active');
+    fertig.classList.add('is-done');                      // Haken springt auf, Strich wischt, Zeile wird blass
+    erledigt += 1; zaehlen();
+    await warte(1300);                                      // der Moment, den man sehen soll
+    fertig.classList.add('is-leaving'); await warte(150);
+    rows.shift();
+    rows.forEach((r, i) => {
+      if (i === 2) {
+        r.classList.add('is-entering'); slot(r, 2); void r.offsetWidth;
+        r.style.transitionDelay = '200ms'; r.classList.remove('is-entering');
+      } else if (i < 2) { r.style.transitionDelay = `${i * 40}ms`; slot(r, i); }
+    });
+    await warte(650);
+    fertig.remove();
+    rows.forEach((r) => { r.style.transitionDelay = ''; });
+    aktiv(0);
+    beschaeftigt = false;
   }
-  setInterval(() => { if (!angehalten && !schwebt && sichtbar && !document.hidden) weiter(); }, 4200);
+  // Ruhig: nur Deckkraft, keine Wege; die nächste oberste wird sofort abgehakt
+  async function schrittRuhig() {
+    if (beschaeftigt) return;
+    beschaeftigt = true;
+    if (istSchluss(rows[1])) { reset(); beschaeftigt = false; return; }
+    const alt = rows.shift();
+    alt.classList.add('is-leaving'); await warte(220); alt.remove();
+    rows.forEach((r, i) => slot(r, Math.min(i, 3)));
+    if (!istSchluss(rows[0])) { rows[0].classList.add('is-done'); erledigt += 1; zaehlen(); }
+    aktiv(1);
+    beschaeftigt = false;
+  }
+
+  knopf.hidden = false;
+  knopf.addEventListener('click', () => {
+    if (ruhig) { schrittRuhig(); return; }
+    laeuft = !laeuft; knopfZeigen();
+  });
+  fig.addEventListener('pointerenter', () => { schwebt = true; });
+  fig.addEventListener('pointerleave', () => { schwebt = false; });
+  fig.addEventListener('focusin', () => { fokus = true; });
+  fig.addEventListener('focusout', () => { fokus = false; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; }).observe(fig);
+  if ('ResizeObserver' in window) new ResizeObserver(messen).observe(liste);
+  document.fonts?.ready.then(messen);
+  reset();
+  knopfZeigen();
+  if (!ruhig) {
+    let erster = true;
+    const takt = async () => {
+      if (laeuft && !schwebt && !fokus && sichtbar && !document.hidden) await schritt();
+      setTimeout(takt, erster ? 1800 : 3200);
+      erster = false;
+    };
+    setTimeout(takt, 1800);
+  }
 })();
 
 // Seitentitel prüfen: Regeln aus „Seite optimieren“ (app/onpage/abgleich.py), hier im Browser gerechnet

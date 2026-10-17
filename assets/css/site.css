@@ -163,43 +163,84 @@ p { max-width: 62ch; text-wrap: pretty; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 .hero__meta { margin-top: 1rem; font-size: var(--step-small); color: var(--muted); }
 
-/* Filmstreifen: alle Karten in einer Rasterzelle, die Zelle ist so hoch wie die längste Karte */
-.reel { margin: 0; }
-.reel__window { position: relative; overflow: clip; padding-block: 3.25rem; border-radius: var(--radius); background: var(--surface); cursor: pointer; }
-.reel__list { display: grid; padding: 0 clamp(1rem, 2.5vw, 2rem); }
-.reel__item { grid-area: 1 / 1; transform: translateY(calc(var(--pos, 0) * (100% + 1rem)));
-  transition: transform 900ms var(--ease-in-out), opacity 500ms ease; }
-.reel__item[data-pos="-1"] { --pos: -1; opacity: 0.8; }
-.reel__item[data-pos="1"] { --pos: 1; opacity: 0.8; }
-.reel__item[data-pos="1"] .task > * { visibility: hidden; } /* nächste Karte nur als Fläche: kein blasser, schwer lesbarer Text */
-.reel__item[data-pos="-2"] { --pos: -1.3; opacity: 0; visibility: hidden; transition: none; }
-.reel__item[data-pos="2"] { --pos: 1.3; opacity: 0; visibility: hidden; transition: none; }
-.reel__caption { margin-top: 0.85rem; font-size: var(--step-small); color: var(--muted); max-width: 52ch; }
-.reel__controls { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+/* „Was jetzt tun“-Panel wie im Produkt: drei feste Plätze, oberste Aufgabe wird an Ort und Stelle abgehakt,
+   dann rücken die anderen nach. Konzept: .review/hero-modul.md. Bewegung nur über transform/opacity. */
+.wjt { margin: 0; width: 100%; max-width: 36rem; justify-self: end; container-type: inline-size;
+  --p-ink: #1B1F2A; --p-muted: #596070; --p-line: #DCDFE4; --p-ok: #1D7544;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1); --ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1); }
+.wjt__panel { background: #fff; color: var(--p-ink); border: 1px solid var(--p-line); border-radius: var(--radius); overflow: clip;
+  box-shadow: 0 1px 2px rgb(28 27 34 / 0.06), 0 12px 32px -18px rgb(28 27 34 / 0.25); } /* taste-skill-ignore: Produktfenster */
+.wjt__panel p { max-width: none; }
+.wjt__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 0.75rem; align-items: center; padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--p-line); }
+.wjt__title { font-weight: 600; font-size: 1rem; line-height: 1.3; white-space: nowrap; }
+.wjt__done { grid-row: 2; font-size: 0.8125rem; line-height: 1.3; color: var(--p-muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.wjt__toggle { grid-column: 2; grid-row: 1 / span 2; display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.25rem; padding: 0 0.7rem;
+  font-size: 0.8125rem; font-weight: 500; color: var(--p-ink); background: #fff; border: 1px solid var(--p-line); border-radius: 4px; white-space: nowrap;
+  transition: background-color var(--t-hover) ease; }
+.wjt__toggle svg { width: 0.75rem; height: 0.75rem; }
+@media (hover: hover) and (pointer: fine) { .wjt__toggle:hover { background: #f4f5f7; } }
 
-/* Aufgabe im Stil der Nextfix-Oberfläche (echtes Interface-Fragment, eigene Farben und Ränder) */
-.task { height: 100%; background: #fff; color: #1B1F2A; border-radius: var(--radius); padding: 1.4rem 1.5rem;
-  display: grid; align-content: center; gap: 0.7rem; font-family: var(--font-text); box-shadow: 0 1px 2px rgb(28 27 34 / 0.08); } /* taste-skill-ignore: Karte wie im Produkt */
-.task p { max-width: none; }
-.task__head { display: flex; gap: 0.7rem; font-size: clamp(1.0625rem, 0.9rem + 0.45vw, 1.3125rem); line-height: 1.3; font-weight: 600; }
-.task__nr { color: #596070; font-weight: 500; font-variant-numeric: tabular-nums; }
-.task__why { color: #596070; font-size: clamp(0.9375rem, 0.85rem + 0.2vw, 1.0625rem); line-height: 1.45; padding-left: 1.45rem; }
-.task__tags { display: flex; flex-wrap: wrap; gap: 0.4rem; padding-left: 1.45rem; font-size: 0.875rem; }
-.tag { border: 1px solid #DCDFE4; border-radius: 3px; padding: 0.1rem 0.45rem; color: #596070; } /* taste-skill-ignore: Interface-Fragment */
+/* Ohne JS: Zeilen im normalen Fluss, Plätze 0–2 sichtbar. Mit JS: absolute Plätze, Höhe = höchste Zeile (--row-h). */
+.wjt__list { position: relative; list-style: none; margin: 0; padding: 0; }
+.row { position: relative; display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) auto; column-gap: 0.85rem; align-items: start;
+  padding: 1rem 1.25rem; background: #fff; }
+.row[data-slot="3"] { display: none; }
+.js .wjt__list { height: calc(3 * var(--row-h, 8rem)); }
+.js .row { position: absolute; inset: 0 0 auto 0; min-height: var(--row-h, auto); transform: translateY(calc(var(--slot, 0) * var(--row-h, 8rem))); }
+.js .row[data-slot="3"] { display: grid; opacity: 0; visibility: hidden; }
+.row::after { content: ""; position: absolute; left: 1.25rem; right: 1.25rem; bottom: 0; border-bottom: 1px solid #eef0f3; } /* taste-skill-ignore: Trennlinie im Produktfenster */
+.row::before { content: ""; position: absolute; left: 0; top: 0.75rem; bottom: 0.75rem; width: 3px; border-radius: 0 3px 3px 0; background: var(--accent);
+  opacity: 0; transition: opacity 200ms ease; }
+.row.is-active::before { opacity: 1; }
+.row__check { width: 1.5rem; height: 1.5rem; margin-top: 0.05rem; position: relative; border: 1.5px solid #8b919c; border-radius: 50%; background: #fff; }
+.row__check:disabled { cursor: default; }
+.row__tick { position: absolute; inset: -1.5px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; opacity: 0; transform: scale(0.5); }
+.row__tick svg { width: 0.85rem; height: 0.85rem; }
+.row.is-done .row__tick { opacity: 1; transform: none; }
+.row__body { display: grid; gap: 0.4rem; min-width: 0; transition: opacity 200ms ease; }
+.row__title { position: relative; font-weight: 600; font-size: clamp(1rem, 0.92rem + 0.3vw, 1.125rem); line-height: 1.3; }
+.row__nr { color: var(--p-muted); font-weight: 500; margin-right: 0.4rem; font-variant-numeric: tabular-nums; }
+/* Durchstreichen nur mit transform: identische Kopie mit Linie, Wischblende (Hülle −101 %, Inhalt +101 %) */
+.row__strike { position: absolute; inset: 0; overflow: hidden; transform: translateX(-101%); pointer-events: none; }
+.row__strike > span { display: block; transform: translateX(101%); color: transparent; text-decoration: line-through 2px var(--p-ink); }
+.row.is-done .row__strike, .row.is-done .row__strike > span { transform: none; }
+.row.is-done .row__body, .row.is-done .row__effect { opacity: 0.55; }
+.row__why { color: var(--p-muted); font-size: 0.9375rem; line-height: 1.4; }
+.row__tags { display: flex; flex-wrap: wrap; gap: 0.35rem; font-size: 0.8125rem; }
+.row__effect { font-weight: 600; font-size: 0.875rem; white-space: nowrap; transition: opacity 200ms ease; }
+.row__effect--hoch { color: var(--p-ok); }
+.row--recheck { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.6rem 1rem; background: #fafaf8; }
+.js .row--recheck { display: flex; }
+.row--recheck p { color: var(--p-muted); font-size: 0.9375rem; }
+.row__btn { display: inline-flex; align-items: center; min-height: 2.25rem; padding: 0 0.85rem; border-radius: 4px; background: var(--accent); color: #fff;
+  font-weight: 600; font-size: 0.875rem; }
+.wjt__foot { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; padding: 0.75rem 1.25rem; border-top: 1px solid var(--p-line);
+  background: #fafaf8; font-size: 0.875rem; color: var(--p-muted); }
+.wjt__score { font-size: 1.375rem; font-weight: 600; color: var(--p-ink); font-variant-numeric: tabular-nums; }
+.wjt__cap { margin-top: 0.85rem; font-size: var(--step-small); color: var(--muted); max-width: 52ch; }
+/* Die Panelbreite zählt, nicht die des Fensters */
+@container (max-width: 26rem) {
+  .row { grid-template-columns: 1.25rem minmax(0, 1fr); padding: 0.85rem 1rem; column-gap: 0.7rem; }
+  .row__check { width: 1.25rem; height: 1.25rem; }
+  .row__effect { grid-column: 2; margin-top: 0.35rem; }
+  .row__why { display: none; }
+  .wjt__head, .wjt__foot { padding-inline: 1rem; }
+  .row::after { left: 1rem; right: 1rem; }
+}
+@container (max-width: 17rem) {
+  .wjt__head { grid-template-columns: minmax(0, 1fr); }
+  .wjt__toggle { grid-column: 1; grid-row: 3; justify-self: start; margin-top: 0.5rem; }
+}
+
+.tag { border: 1px solid #DCDFE4; border-radius: 3px; padding: 0.05rem 0.4rem; color: #596070; } /* taste-skill-ignore: Interface-Fragment */
 .tag--dringend { background: #FBEAE8; color: #C0261A; border-color: #FBEAE8; }
 .tag--wichtig { background: #FBF0DF; color: #985400; border-color: #FBF0DF; }
-.task__effect { padding-left: 1.45rem; font-weight: 600; font-size: 1rem; }
-.task__effect--hoch { color: #1D7544; }
-/* Erledigte Aufgabe (oben): wird durchgestrichen. Linie als Hintergrund, damit sie über mehrere Zeilen gezogen werden kann */
-.task__title > span { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3Crect width='1' height='1' fill='%231B1F2A'/%3E%3C/svg%3E") no-repeat 0 58% / 0% 2px;
-  -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-.reel__item[data-pos="-1"] .task__title > span { background-size: 100% 2px; }
 
 @media (max-width: 56em) {
   .hero { grid-template-columns: minmax(0, 1fr); row-gap: 2.5rem; padding-top: 1.5rem; }
   .hero__title { max-width: 14ch; }
-  .reel__window { padding-block: 2.25rem; }
-  .task { gap: 0.55rem; padding: 1rem 1.1rem; }
+  .wjt { justify-self: start; }
 }
 @media (max-width: 30em) { .hero__actions .button { flex: 1 1 100%; } }
 
@@ -424,9 +465,12 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
   .js .hero [data-mask] > span { display: inline-block; transform: translateY(115%);
     animation: mask-rise 900ms var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 110ms + 100ms); }
 
-  /* Erledigte Aufgabe: Strich wird gezogen, dann rückt die nächste nach */
-  .task__title > span { transition: background-size 520ms var(--ease-out) 380ms; }
-  .reel__item[data-pos="2"] .task__title > span { transition: none; }
+  /* „Was jetzt tun“: Haken springt auf, Strich wischt, Zeile geht, die anderen rücken nach */
+  .js .row { transition: transform 560ms var(--ease-out), opacity 280ms var(--ease-in); }
+  .js .row.is-leaving { opacity: 0; transform: translateY(calc(var(--slot) * var(--row-h) - 12px)); }
+  .js .row.is-entering { opacity: 0; transform: translateY(calc(var(--slot) * var(--row-h) + 16px)); transition: none; }
+  .row__tick { transition: opacity 160ms ease, transform 260ms var(--ease-pop); }
+  .row__strike, .row__strike > span { transition: transform 460ms var(--ease-out) 80ms; }
 
   /* Seitentitel zu lang: Linie zuckt einmal */
   .typer__line.is-over::after { animation: nudge 320ms var(--ease-out); }
@@ -446,8 +490,9 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
   ::view-transition-new(root) { animation: 380ms var(--ease-out) 60ms both vt-in; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .reel__item { transition: opacity 300ms ease; }
-  .task__title > span { transition: background-size 200ms ease 300ms; }
+  .js .row { transition: opacity 220ms ease; }
+  .js .row.is-leaving { opacity: 0; }
+  .js .row.is-entering { opacity: 0; transition: none; }
 }
 @keyframes rise { to { opacity: 1; transform: none; } }
 @keyframes mask-rise { to { transform: none; } }
