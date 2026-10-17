@@ -1,5 +1,5 @@
 /* Nextfix-Website – gemeinsames Stylesheet.
-   Richtung: „The sentence is the layout“ (Taste-Skill), Farben Oxblood und Grau, Schrift Fira Sans (lokal).
+   Richtung: „The sentence is the layout“ (Taste-Skill), Farben Oxblood und Grau, Schriften Fira Sans und Fira Mono (lokal).
    Alles verweist auf die Tokens unten; Begründungen in DESIGN.md. */
 
 /* ---------- Schriften (lokal, SIL OFL) ---------- */
@@ -25,6 +25,10 @@
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+1E00-1E9F, U+20A0-20AB, U+20AD-20C0, U+A720-A7FF; }
 @font-face { font-family: "Fira Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap;
   src: url("../fonts/fira-sans-condensed-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Fira Mono"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("../fonts/fira-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Fira Mono"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("../fonts/fira-mono-latin-500-normal.woff2") format("woff2"); }
 
 /* ---------- Tokens ---------- */
 :root {
@@ -46,7 +50,7 @@
   --font-display: "Fira Sans Condensed", "Fira Sans", "Arial Narrow", sans-serif;
   --font-text: "Fira Sans", "Helvetica Neue", Arial, sans-serif;
   /* Befehle in Systemschrift mit fester Breite: Punkte, Striche und Leerzeichen bleiben unterscheidbar, kein Download */
-  --font-code: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --font-code: "Fira Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* fünf Größen: klein, Text, Aussage, Überschrift, Riese */
   --step-small: 0.875rem;
