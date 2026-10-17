@@ -5,8 +5,22 @@
   <link href="https://the-neyro.github.io/blog/"/>
   <link rel="self" href="https://the-neyro.github.io/blog/feed.xml"/>
   <id>https://the-neyro.github.io/blog/</id>
-  <updated>2026-10-17T21:30:00Z</updated>
+  <updated>2026-10-17T22:00:00Z</updated>
   <author><name>Nextfix</name></author>
+  <entry>
+    <title>Nextfix 0.2.0: Lösungen in Klartext</title>
+    <link href="https://the-neyro.github.io/blog/version-0-2-0/"/>
+    <id>https://the-neyro.github.io/blog/version-0-2-0/</id>
+    <updated>2026-10-17T22:00:00Z</updated>
+    <summary>Die zehn häufigsten Aufgaben erklären jetzt in Klartext, wie du sie selbst behebst, mit WordPress-Hinweis. Dazu Doppelklick-Start auf Windows.</summary>
+    <content type="html">&lt;p&gt;Version 0.1.0 hat dir gesagt, was als Nächstes dran ist. Version 0.2.0 hilft dir, es auch selbst zu erledigen.&lt;/p&gt;
+&lt;h2&gt;Was neu ist&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Lösungen in Klartext.&lt;/strong&gt; Die zehn häufigsten Aufgaben erklären in wenigen Schritten und ohne Fachwörter, wie du sie behebst. Dazu steht da, wo das passende Feld in WordPress liegt (Yoast, Rank Math). Du findest das auf der Problemseite, in der Aufgabenliste, im PDF-Bericht und über Claude.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Start per Doppelklick auf Windows.&lt;/strong&gt; Im Ordner &lt;code&gt;nextfix&lt;/code&gt; liegt jetzt „Nextfix starten.bat“, wie „Nextfix starten.command“ auf dem Mac. Das wird bei jeder Änderung automatisch auf Windows geprüft.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Installation aus der neuesten Version.&lt;/strong&gt; Die Ein-Zeilen-Installation holt jetzt die neueste veröffentlichte Version statt des Entwicklungsstands. Führst du sie noch einmal aus, bringt sie deinen Ordner auf den neuesten Stand.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Claude in einem Schritt verbinden.&lt;/strong&gt; Am Ende der Installation steht der fertige Befehl &lt;code&gt;claude mcp add …&lt;/code&gt; mit deinem echten Pfad. Kopieren, ausführen, fertig.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Was gleich bleibt&lt;/h2&gt;
+&lt;p&gt;Windows ist weiter nicht offiziell unterstützt: Installation und Start laufen, die automatischen Tests dort aber noch nicht jedes Mal. Die WordPress-Wege sind noch nicht in einem echten WordPress nachgeklickt. Stimmt ein Weg bei dir nicht, freut sich das Projekt über ein &lt;a href=&quot;https://github.com/the-neyro/nextfix/issues&quot;&gt;Issue auf GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;Aktualisieren&lt;/h2&gt;
+&lt;p&gt;Hast du Nextfix mit der Zeile installiert, führ sie einfach noch einmal aus. Wie das geht, steht auf der Seite &lt;a href=&quot;../../installation/&quot;&gt;Installation&lt;/a&gt;. Alle Änderungen stehen im &lt;a href=&quot;https://github.com/the-neyro/nextfix/releases/tag/v0.2.0&quot;&gt;Changelog auf GitHub&lt;/a&gt;. Was als Nächstes kommt, steht auf der &lt;a href=&quot;../../#weiter-h&quot;&gt;Startseite unter „Wie es weitergeht“&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Warum findet Google meine Website nicht?</title>
     <link href="https://the-neyro.github.io/blog/google-findet-meine-website-nicht/"/>
