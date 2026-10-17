@@ -30,13 +30,29 @@ SCREENSHOT = "assets/img/shot-uebersicht-breit-1200.webp"
 WURZEL = Path(__file__).resolve().parent.parent
 
 # Reihenfolge = Reihenfolge in Sitemap und llms.txt. 404.html fehlt absichtlich (noindex).
-SEITEN = [
+FESTE_SEITEN = [
     {"datei": "index.html", "pfad": "/", "kurz": "Startseite"},
     {"datei": "funktionen/index.html", "pfad": "/funktionen/", "kurz": "Funktionen"},
+    {"datei": "pruefungen/index.html", "pfad": "/pruefungen/", "kurz": "Alle Prüfungen"},
     {"datei": "installation/index.html", "pfad": "/installation/", "kurz": "Installation"},
     {"datei": "faq/index.html", "pfad": "/faq/", "kurz": "FAQ"},
+    {"datei": "blog/index.html", "pfad": "/blog/", "kurz": "Blog"},
     {"datei": "datenschutz/index.html", "pfad": "/datenschutz/", "kurz": "Datenschutz"},
 ]
+
+
+def blog_seiten() -> list[dict]:
+    """Beiträge aus content/blog (Dateiname JJJJ-MM-TT-slug.md), neueste zuerst."""
+    liste = []
+    for datei in sorted((WURZEL / "content" / "blog").glob("*.md"), reverse=True):
+        m = re.match(r"(\d{4}-\d{2}-\d{2})-(.+)\.md$", datei.name)
+        if m and (WURZEL / "blog" / m.group(2) / "index.html").exists():
+            liste.append({"datei": f"blog/{m.group(2)}/index.html", "pfad": f"/blog/{m.group(2)}/", "kurz": "Blog", "blog": True,
+                          "datum": m.group(1)})
+    return liste
+
+
+SEITEN = FESTE_SEITEN + blog_seiten()
 
 START = "<!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->"
 ENDE = "<!-- seo:ende -->"
@@ -104,13 +120,21 @@ def json_ld(seite: dict, titel: str, beschr: str, quelltext: str) -> list[dict]:
                  "image": url("/" + OG_BILD), "screenshot": url("/" + SCREENSHOT), "inLanguage": "de"},
             ],
         }]
-    daten = [{
-        "@context": "https://schema.org", "@type": "BreadcrumbList",
-        "itemListElement": [
-            {"@type": "ListItem", "position": 1, "name": NAME, "item": url("/")},
-            {"@type": "ListItem", "position": 2, "name": seite["kurz"], "item": url(seite["pfad"])},
-        ],
-    }]
+    kette = [{"@type": "ListItem", "position": 1, "name": NAME, "item": url("/")}]
+    if seite.get("blog"):
+        kette.append({"@type": "ListItem", "position": 2, "name": "Blog", "item": url("/blog/")})
+        kette.append({"@type": "ListItem", "position": 3, "name": titel.split(" | ")[0], "item": url(seite["pfad"])})
+    else:
+        kette.append({"@type": "ListItem", "position": 2, "name": seite["kurz"], "item": url(seite["pfad"])})
+    daten = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": kette}]
+    if seite.get("blog"):
+        daten.append({
+            "@context": "https://schema.org", "@type": "BlogPosting", "headline": titel.split(" | ")[0],
+            "description": beschr, "datePublished": seite["datum"], "dateModified": seite["datum"], "inLanguage": "de",
+            "mainEntityOfPage": url(seite["pfad"]), "image": url("/" + OG_BILD),
+            "author": {"@type": "Organization", "name": NAME, "url": url("/")},
+            "publisher": {"@type": "Organization", "name": NAME, "url": url("/")},
+        })
     if seite["pfad"] == "/faq/":
         daten.append({
             "@context": "https://schema.org", "@type": "FAQPage", "inLanguage": "de",
@@ -126,9 +150,9 @@ def kopf_block(seite: dict, quelltext: str) -> str:
     zeilen = [
         START,
         f'<link rel="canonical" href="{url(seite["pfad"])}">',
-        '<meta name="theme-color" content="#e2e2e2">',
+        '<meta name="theme-color" content="#f7f6f3">',
         f'<link rel="apple-touch-icon" href="{url("/assets/img/apple-touch-icon.png")}">',
-        '<meta property="og:type" content="website">',
+        f'<meta property="og:type" content="{"article" if seite.get("blog") else "website"}">',
         f'<meta property="og:site_name" content="{NAME}">',
         '<meta property="og:locale" content="de_DE">',
         f'<meta property="og:title" content="{e(titel)}">',
@@ -181,11 +205,17 @@ def llms() -> str:
         "kein Tracking. Claude kann Nextfix über 50 MCP-Werkzeuge bedienen. Die Website ist auf Deutsch.\n",
         "## Seiten\n",
     ]
-    for s in SEITEN:
+    for s in FESTE_SEITEN:
         if s["pfad"] == "/datenschutz/":
             continue
         titel, beschr = meta(lesen(s["datei"]))
         teile.append(f"- [{titel}]({url(s['pfad'])}): {beschr}")
+    beitraege = [s for s in SEITEN if s.get("blog")]
+    if beitraege:
+        teile.append("\n## Blog\n")
+        for s in beitraege:
+            titel, beschr = meta(lesen(s["datei"]))
+            teile.append(f"- [{titel}]({url(s['pfad'])}): {beschr}")
     teile += ["\n## Quellcode\n", f"- [{NAME} auf GitHub]({REPO_URL}): Quellcode, README und Lizenz",
               "\n## Optional\n", f"- [Datenschutzerklärung]({url('/datenschutz/')})"]
     return "\n".join(teile) + "\n"

@@ -7,7 +7,7 @@
 <meta name="description" content="Antworten zu Nextfix: was es kostet, was du zum Installieren brauchst, wohin deine Daten gehen, was der Website-Zustand bedeutet und was das Tool nicht kann.">
 <!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
 <link rel="canonical" href="https://the-neyro.github.io/faq/">
-<meta name="theme-color" content="#e2e2e2">
+<meta name="theme-color" content="#f7f6f3">
 <link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nextfix">
@@ -27,6 +27,7 @@
 <link rel="preload" href="../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
+<link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../blog/feed.xml">
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt</a>
@@ -35,15 +36,26 @@
   <nav class="site-nav" aria-label="Hauptmenü">
     <a href="../funktionen/">Funktionen</a>
     <a href="./" aria-current="page">FAQ</a>
+    <a class="nav-wide" href="../blog/">Blog</a>
     <a class="nav-wide" href="https://github.com/the-neyro/nextfix">GitHub</a>
     <a class="button button--small" href="../installation/">Installieren</a>
   </nav>
 </header>
 
 <main id="inhalt">
-  <div class="page-head">
+  <div class="page-head page-head--split">
+    <div class="page-head__main">
     <h1 data-reveal>Häufige Fragen</h1>
     <p class="statement" data-reveal style="--i:1">Kurze Antworten, auch auf die unbequemen Fragen.</p>
+    </div>
+    <aside class="page-head__side" data-reveal style="--i:2" aria-label="Kurz gesagt">
+      <dl class="facts-card">
+        <div><dt>Kosten</dt><dd>0 €, kein Konto, kein Abo</dd></div>
+        <div><dt>Läuft auf</dt><dd>Mac (getestet), Windows und Linux noch ungetestet</dd></div>
+        <div><dt>Deine Daten</dt><dd>bleiben auf deinem Rechner</dd></div>
+        <div><dt>Hilfe</dt><dd><a class="link" href="../installation/">Anleitung</a> · <a class="link" href="https://github.com/the-neyro/nextfix/issues">Problem melden</a></dd></div>
+      </dl>
+    </aside>
   </div>
 
   <section class="section wrap" aria-labelledby="g1">
@@ -183,6 +195,8 @@
       <a class="button button--light" href="../installation/">Installieren</a>
     </div>
     <nav class="foot-links" aria-label="Fußmenü">
+      <a href="../pruefungen/">Alle Prüfungen</a>
+      <a href="../blog/">Blog</a>
       <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
       <a href="../funktionen/">Funktionen</a>
       <a href="../installation/">Installation</a>

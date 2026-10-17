@@ -270,6 +270,15 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   const kopieren = box.querySelector('[data-copy-vorschlag]');
   const eigen = box.querySelector('[data-own]');
   const beispiele = [...box.querySelectorAll('[data-example]')];
+  const beschreibung = box.querySelector('#desc-input');
+  const serp = { title: box.querySelector('[data-serp="title"]'), desc: box.querySelector('[data-serp="desc"]') };
+  // Google kürzt nach Pixelbreite (~600 px Titel, ~920 px Beschreibung); grob über Zeichen angenähert
+  const kuerzen = (text, max) => ([...text].length > max ? `${[...text].slice(0, max - 1).join('').replace(/\s+\S*$/, '')} …` : text);
+  const vorschau = () => {
+    if (!serp.title) return;
+    serp.title.textContent = kuerzen(title.value.replace(/\s*\n\s*/g, ' ').trim() || 'Ohne Titel', 60);
+    serp.desc.textContent = beschreibung ? kuerzen(beschreibung.value.trim(), 158) : '';
+  };
   let eigenerTitel = null;
   let beispielBegriff = keyword.value;   // Suchbegriff des gerade gezeigten Beispiels
   const linie = box.querySelector('.typer__line');
@@ -310,6 +319,7 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
     kopieren.textContent = 'Vorschlag kopieren';
     hoehe();
     ansagen();
+    vorschau();
   };
   const istBeispiel = () => beispiele.some((b) => b.dataset.title === title.value && b.dataset.keyword === keyword.value);
   title.addEventListener('keydown', (e) => { if (e.key === 'Enter') e.preventDefault(); });
@@ -321,11 +331,13 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   // Erster Klick ins Beispiel markiert alles, damit Tippen es ersetzt (am Handy kein langes Löschen)
   title.addEventListener('focus', () => { if (istBeispiel()) requestAnimationFrame(() => title.select()); });
   keyword.addEventListener('input', zeigen);
+  beschreibung?.addEventListener('input', vorschau);
   window.addEventListener('resize', hoehe);
   beispiele.forEach((b) => b.addEventListener('click', () => {
-    if (!istBeispiel()) { eigenerTitel = { t: title.value, k: keyword.value }; eigen.hidden = false; }
+    if (!istBeispiel()) { eigenerTitel = { t: title.value, k: keyword.value, d: beschreibung?.value || '' }; eigen.hidden = false; }
     title.value = b.dataset.title;
     keyword.value = b.dataset.keyword;
+    if (beschreibung) beschreibung.value = b.dataset.desc || '';
     beispielBegriff = keyword.value;
     zeigen();
   }));
@@ -333,6 +345,7 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
     if (!eigenerTitel) return;
     title.value = eigenerTitel.t;
     keyword.value = eigenerTitel.k;
+    if (beschreibung) beschreibung.value = eigenerTitel.d;
     zeigen();
     title.focus();
   });
@@ -340,6 +353,39 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
     try { await navigator.clipboard.writeText(vorschlag.textContent); kopieren.textContent = 'Kopiert'; } catch { kopieren.textContent = 'Kopieren ging nicht'; }
   });
   zeigen();
+})();
+
+// Sortier-Szene: sobald die Bühne im Bild ist, treten die 43 Fundstellen zurück und die Aufgaben steigen auf
+(() => {
+  const szene = document.querySelector('[data-sort]');
+  if (!szene) return;
+  const knopf = szene.querySelector('[data-sort-replay]');
+  const sortieren = () => { szene.classList.add('is-sorted'); if (knopf) knopf.hidden = false; };
+  if (ruhig || !('IntersectionObserver' in window)) { sortieren(); return; }
+  const io = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    io.disconnect();
+    setTimeout(sortieren, 900);   // erst die volle Liste wirken lassen
+  }, { threshold: 0.45 });
+  io.observe(szene.querySelector('.sort__stage'));
+  knopf?.addEventListener('click', () => {
+    szene.classList.remove('is-sorted');
+    knopf.hidden = true;
+    setTimeout(sortieren, 1200);
+  });
+})();
+
+// E-Mail an den Webbetreuer: Text auch zum Kopieren (falls kein Mailprogramm eingerichtet ist)
+(() => {
+  const mail = document.querySelector('[data-mail]');
+  const kopie = document.querySelector('[data-mail-copy]');
+  if (!mail || !kopie || !navigator.clipboard) return;
+  const text = decodeURIComponent(new URL(mail.href).searchParams.get('body') || '');
+  kopie.hidden = false;
+  kopie.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(text); kopie.textContent = 'Kopiert'; } catch { kopie.textContent = 'Kopieren ging nicht'; }
+    setTimeout(() => { kopie.textContent = 'Text kopieren'; }, 2000);
+  });
 })();
 
 // Codeblöcke: Kopierknopf

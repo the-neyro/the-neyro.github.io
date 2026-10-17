@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Websites, die erst im Browser entstehen | Nextfix-Blog</title>
+<meta name="description" content="Manche Websites schicken fast leeres HTML und bauen den Inhalt per JavaScript. Nextfix erkennt das jetzt und kann solche Seiten auch richtig prüfen.">
+<!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
+<link rel="canonical" href="https://the-neyro.github.io/blog/javascript-websites/">
+<meta name="theme-color" content="#f7f6f3">
+<link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nextfix">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Websites, die erst im Browser entstehen | Nextfix-Blog">
+<meta property="og:description" content="Manche Websites schicken fast leeres HTML und bauen den Inhalt per JavaScript. Nextfix erkennt das jetzt und kann solche Seiten auch richtig prüfen.">
+<meta property="og:url" content="https://the-neyro.github.io/blog/javascript-websites/">
+<meta property="og:image" content="https://the-neyro.github.io/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Nextfix","item":"https://the-neyro.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://the-neyro.github.io/blog/"},{"@type":"ListItem","position":3,"name":"Websites, die erst im Browser entstehen","item":"https://the-neyro.github.io/blog/javascript-websites/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Websites, die erst im Browser entstehen","description":"Manche Websites schicken fast leeres HTML und bauen den Inhalt per JavaScript. Nextfix erkennt das jetzt und kann solche Seiten auch richtig prüfen.","datePublished":"2026-10-17","dateModified":"2026-10-17","inLanguage":"de","mainEntityOfPage":"https://the-neyro.github.io/blog/javascript-websites/","image":"https://the-neyro.github.io/assets/img/og.png","author":{"@type":"Organization","name":"Nextfix","url":"https://the-neyro.github.io/"},"publisher":{"@type":"Organization","name":"Nextfix","url":"https://the-neyro.github.io/"}}</script>
+<!-- seo:ende -->
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../../blog/feed.xml">
+<link rel="preload" href="../../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="site-head">
+  <a class="wordmark" href="../../" aria-label="Nextfix, Startseite">Nextfix</a>
+  <nav class="site-nav" aria-label="Hauptmenü">
+    <a href="../../funktionen/">Funktionen</a>
+    <a href="../../faq/">FAQ</a>
+    <a class="nav-wide" href="../../blog/" aria-current="page">Blog</a>
+    <a class="nav-wide" href="https://github.com/the-neyro/nextfix">GitHub</a>
+    <a class="button button--small" href="../../installation/">Installieren</a>
+  </nav>
+</header>
+
+<main id="inhalt">
+  <article class="post">
+    <header class="page-head post__head">
+      <p class="post__date"><a class="link" href="../">Blog</a> · <time datetime="2026-10-17">17. Oktober 2026</time></p>
+      <h1>Websites, die erst im Browser entstehen</h1>
+      <p class="statement">Manche Websites schicken fast leeres HTML und bauen den Inhalt per JavaScript. Nextfix erkennt das jetzt und kann solche Seiten auch richtig prüfen.</p>
+    </header>
+    <div class="prose post__body">
+<p>Viele moderne Websites sind eigentlich Apps: Der Server schickt eine fast leere Seite, und erst das JavaScript im Browser baut Texte, Menüs und Links. Für Besucher ist das kein Unterschied. Für ein Prüfwerkzeug schon: Wer nur das HTML liest, sieht eine leere Seite und meldet lauter falsche Fehler.</p>
+<h2>Was Nextfix jetzt macht</h2>
+<ul><li><strong>Es erkennt das Muster.</strong> Findet Nextfix einen leeren App-Container (etwa <code>&lt;div id=&quot;root&quot;&gt;&lt;/div&gt;</code>) und kaum Text, zeigt die Übersicht einen Hinweis: Diese Website entsteht per JavaScript, prüf sie mit eingeschaltetem Rendering.</li><li><strong>Es kann rendern.</strong> In den Einstellungen gibt es dafür einen Schalter. Dann lädt Nextfix jede Seite in einem echten Chromium und prüft, was ein Besucher sieht. Bilder, Schriften und Videos lässt es dabei weg, damit es schneller geht.</li><li><strong>Es vergleicht.</strong> Mit Rendering misst Nextfix zusätzlich, wie viel Text erst durch JavaScript entsteht. Steht der wichtige Inhalt nur dort, gibt es eine eigene Aufgabe dafür, denn nicht jede Suchmaschine und kein KI-Crawler wartet auf dein JavaScript.</li></ul>
+<p>Für klassische Websites, etwa mit WordPress, ändert sich nichts. Bei einer statischen Testseite waren die Ergebnisse mit und ohne Rendering gleich.</p>
+    </div>
+    <nav class="prose post__nav" aria-label="Weitere Beiträge"><a class="link" href="../wirkung-statt-punkte/">← Wirkung statt Scheinpunkte</a> <a class="link" href="../domain-staerke-ohne-abo/">Domain-Stärke ohne Abo →</a></nav>
+  </article>
+</main>
+
+<footer class="site-foot site-foot--short">
+  <div class="foot-top">
+    <div class="foot-invite">
+      <h2>Fang mit der ersten Aufgabe an.</h2>
+      <a class="button button--light" href="../../installation/">Installieren</a>
+    </div>
+    <nav class="foot-links" aria-label="Fußmenü">
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+      <a href="../../funktionen/">Funktionen</a>
+      <a href="../../pruefungen/">Alle Prüfungen</a>
+      <a href="../../installation/">Installation</a>
+      <a href="../../faq/">FAQ</a>
+      <a href="../../blog/">Blog</a>
+    </nav>
+  </div>
+  <div class="foot-legal">
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</span>
+    <a href="../../datenschutz/">Datenschutz</a>
+  </div>
+  <p class="foot-name" aria-hidden="true">Nextfix</p>
+</footer>
+
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>

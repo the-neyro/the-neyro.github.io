@@ -8,8 +8,18 @@ Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf d
 
 - [Kostenloses SEO-Tool: Website prüfen und wissen, was zuerst kommt](https://the-neyro.github.io/): Kostenloses Open-Source-SEO-Tool für den Mac: prüft deine Website und sagt dir, was du zuerst verbesserst, warum und wie. Ohne Abo, ohne Konto.
 - [Funktionen: Website-Check, Ladezeit, Positionen und mehr | Nextfix](https://the-neyro.github.io/funktionen/): Was Nextfix prüft und misst: 106 Prüfungen, Website-Zustand, Ladezeit, Positionen aus Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Suche.
+- [Alle 106 SEO-Prüfungen von Nextfix, mit Anleitung](https://the-neyro.github.io/pruefungen/): Die 106 Prüfungen des kostenlosen SEO-Tools Nextfix: von kaputten Links bis KI-Suche, je mit Begründung und Anleitung zum Beheben.
 - [SEO-Tool installieren: Nextfix Schritt für Schritt auf dem Mac](https://the-neyro.github.io/installation/): So installierst du das kostenlose SEO-Tool Nextfix auf dem Mac: Python prüfen, herunterladen, einrichten, starten. Dauert einmalig 10 bis 20 Minuten.
 - [Fragen zu Nextfix: Kosten, Installation, Datenschutz, Grenzen](https://the-neyro.github.io/faq/): Antworten zu Nextfix: was es kostet, was du zum Installieren brauchst, wohin deine Daten gehen, was der Website-Zustand bedeutet und was das Tool nicht kann.
+- [Blog: Neues aus der Entwicklung von Nextfix](https://the-neyro.github.io/blog/): Was sich an Nextfix geändert hat und warum: neue Prüfungen, Funktionen und Entscheidungen, kurz und ehrlich erklärt.
+
+## Blog
+
+- [Wirkung statt Scheinpunkte | Nextfix-Blog](https://the-neyro.github.io/blog/wirkung-statt-punkte/): Aufgaben in Nextfix zeigen jetzt „Wirkung hoch, mittel oder gering“ statt „+4,2 Punkte“. Warum eine genaue Zahl hier täuscht.
+- [Die Website hat ein neues Gesicht | Nextfix-Blog](https://the-neyro.github.io/blog/neue-website/): Sieben Prüfer haben die Nextfix-Website zerlegt. Was sie gefunden haben, was wir geändert haben und was noch kommt.
+- [Websites, die erst im Browser entstehen | Nextfix-Blog](https://the-neyro.github.io/blog/javascript-websites/): Manche Websites schicken fast leeres HTML und bauen den Inhalt per JavaScript. Nextfix erkennt das jetzt und kann solche Seiten auch richtig prüfen.
+- [Domain-Stärke ohne Abo | Nextfix-Blog](https://the-neyro.github.io/blog/domain-staerke-ohne-abo/): Nextfix zeigt jetzt, wie stark deine Domain im Vergleich zur Konkurrenz ist, mit den kostenlosen Daten von Open PageRank.
+- [Ladezeit zählt jetzt zum Website-Zustand | Nextfix-Blog](https://the-neyro.github.io/blog/ladezeit-zaehlt-mit/): Eine langsame Seite ist ein echtes Problem, also fließt die Ladezeit jetzt in den Website-Zustand ein. So misst Nextfix sie und so wird gerechnet.
 
 ## Quellcode
 

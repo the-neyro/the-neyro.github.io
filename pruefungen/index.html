@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alle 106 SEO-Prüfungen von Nextfix, mit Anleitung</title>
+<meta name="description" content="Die 106 Prüfungen des kostenlosen SEO-Tools Nextfix: von kaputten Links bis KI-Suche, je mit Begründung und Anleitung zum Beheben.">
+<!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
+<link rel="canonical" href="https://the-neyro.github.io/pruefungen/">
+<meta name="theme-color" content="#f7f6f3">
+<link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nextfix">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Alle 106 SEO-Prüfungen von Nextfix, mit Anleitung">
+<meta property="og:description" content="Die 106 Prüfungen des kostenlosen SEO-Tools Nextfix: von kaputten Links bis KI-Suche, je mit Begründung und Anleitung zum Beheben.">
+<meta property="og:url" content="https://the-neyro.github.io/pruefungen/">
+<meta property="og:image" content="https://the-neyro.github.io/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Nextfix","item":"https://the-neyro.github.io/"},{"@type":"ListItem","position":2,"name":"Alle Prüfungen","item":"https://the-neyro.github.io/pruefungen/"}]}</script>
+<!-- seo:ende -->
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../blog/feed.xml">
+<link rel="preload" href="../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="site-head">
+  <a class="wordmark" href="../" aria-label="Nextfix, Startseite">Nextfix</a>
+  <nav class="site-nav" aria-label="Hauptmenü">
+    <a href="../funktionen/">Funktionen</a>
+    <a href="../faq/">FAQ</a>
+    <a class="nav-wide" href="../blog/">Blog</a>
+    <a class="nav-wide" href="https://github.com/the-neyro/nextfix">GitHub</a>
+    <a class="button button--small" href="../installation/">Installieren</a>
+  </nav>
+</header>
+
+<main id="inhalt">
+  <div class="page-head">
+    <h1 data-reveal>Alle 106 Prüfungen</h1>
+    <p class="statement" data-reveal style="--i:1">Was Nextfix auf jeder Seite deiner Website prüft, warum es zählt und wie du es behebst.</p>
+    <p class="katalog__summe" data-reveal style="--i:2"><span class="tag tag--dringend">Dringend</span> 33 · <span class="tag tag--wichtig">Wichtig</span> 42 · <span class="tag tag--fein">Feinschliff</span> 31</p>
+  </div>
+  <div class="wrap katalog">
+    <nav class="katalog__nav" aria-label="Bereiche"><ul><li><a href="#crawlbarkeit">Crawlbarkeit <span>19</span></a></li><li><a href="#technik">Technik & Markup <span>16</span></a></li><li><a href="#inhalt">Inhalt & Meta <span>15</span></a></li><li><a href="#links">Interne Verlinkung <span>14</span></a></li><li><a href="#ki">KI-Suche <span>13</span></a></li><li><a href="#performance">Performance <span>12</span></a></li><li><a href="#https">HTTPS <span>10</span></a></li><li><a href="#international">Internationales SEO <span>7</span></a></li></ul></nav>
+    <div class="katalog__inhalt">
+    <section class="katalog__gruppe" id="crawlbarkeit" aria-labelledby="h-crawlbarkeit">
+      <div class="katalog__kopf"><h2 id="h-crawlbarkeit" class="h2">Crawlbarkeit</h2><p>Ob Suchmaschinen deine Seiten finden und abrufen können. 19 Prüfungen.</p></div>
+      <div class="katalog__liste">
+        <details class="qa pruefung" id="p-sitemap_falsche_seiten">
+          <summary><span class="pruefung__name">Falsche Seiten in sitemap.xml</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten – keine Weiterleitungen, Fehler, Duplikate oder noindex.</p><p><strong>So behebst du es:</strong> Weiterleitungen durch Ziel-URLs ersetzen, Fehlerseiten, Duplikate und noindex-Seiten entfernen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-robots_formatfehler">
+          <summary><span class="pruefung__name">Formatfehler in robots.txt</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Fehlerhafte Zeilen werden von Suchmaschinen ignoriert, Sperren greifen evtl. nicht.</p><p><strong>So behebst du es:</strong> Nur gültige Felder (User-agent, Allow, Disallow, Sitemap …) im Format &#x27;Feld: Wert&#x27; verwenden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-sitemap_formatfehler">
+          <summary><span class="pruefung__name">Formatfehler in sitemap.xml</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Suchmaschinen können eine fehlerhafte Sitemap nicht oder nur teilweise lesen.</p><p><strong>So behebst du es:</strong> Sitemap gegen das Schema von sitemaps.org prüfen und korrigieren.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-redirect_kette">
+          <summary><span class="pruefung__name">Redirect-Ketten und -Schleifen</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Mehr als 3 Weiterleitungen hintereinander oder eine Schleife: Crawler brechen ab, Ladezeit steigt.</p><p><strong>So behebst du es:</strong> Jede Weiterleitung direkt auf das endgültige Ziel zeigen lassen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-nicht_erreichbar">
+          <summary><span class="pruefung__name">Seiten laden nicht oder zu langsam</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Diese Seiten antworteten nicht innerhalb von 5 Sekunden oder gar nicht. Besucher und Google sehen nur eine Fehlermeldung.</p><p><strong>So behebst du es:</strong> Öffne die Seiten selbst im Browser. Laden sie auch dort nicht, gib die Liste an deinen Hoster.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-status_4xx">
+          <summary><span class="pruefung__name">Seiten mit 4xx-Statuscode</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.</p><p><strong>So behebst du es:</strong> Seite wiederherstellen, per 301 umleiten oder Links darauf entfernen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-status_5xx">
+          <summary><span class="pruefung__name">Seiten mit 5xx-Statuscode</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Serverfehler: Seite ist für alle nicht erreichbar.</p><p><strong>So behebst du es:</strong> Server-Logs prüfen, Fehler im Backend beheben.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-www_aufloesung">
+          <summary><span class="pruefung__name">WWW-Auflösung uneinheitlich</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Mit und ohne www. sind getrennt erreichbar: Suchmaschinen sehen zwei Websites mit gleichem Inhalt.</p><p><strong>So behebst du es:</strong> Eine Variante wählen und die andere per 301 dorthin umleiten.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-sitemap_zu_gross">
+          <summary><span class="pruefung__name">sitemap.xml zu groß</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Über 50 MB (unkomprimiert) oder 50.000 URLs ignorieren Suchmaschinen den Rest der Datei.</p><p><strong>So behebst du es:</strong> Sitemap aufteilen und über einen Sitemap-Index verbinden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-inhalt_nur_per_js">
+          <summary><span class="pruefung__name">Inhalt entsteht erst per JavaScript</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne JavaScript steht auf der Seite weniger als die Hälfte des Textes. Google rendert JavaScript, aber verzögert; die Crawler der KI-Suchdienste (ChatGPT, Perplexity, Claude) und viele andere führen es gar nicht aus und sehen eine fast leere Seite.</p><p><strong>So behebst du es:</strong> Wichtige Inhalte schon im HTML ausliefern: Server-Rendering oder statische Seiten (z. B. Next.js/Nuxt mit SSR/SSG, Prerendering). Nur Komfort-Funktionen per JavaScript nachladen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-js_app_ohne_rendern">
+          <summary><span class="pruefung__name">Seite baut sich per JavaScript auf – ohne JavaScript geprüft</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Seite hat einen leeren App-Container (z. B. React oder Vue) und kaum Text im HTML. So sehen sie auch die Crawler der KI-Suchdienste. Die Prüfung lief ohne JavaScript, Inhalt und Links fehlen daher womöglich im Ergebnis.</p><p><strong>So behebst du es:</strong> In den Einstellungen „JavaScript ausführen“ einschalten und erneut prüfen. Dauerhaft besser: Inhalte schon im HTML ausliefern (Server-Rendering oder statische Seiten).</p></div>
+        </details>
+        <details class="qa pruefung" id="p-sitemap_nicht_in_robots">
+          <summary><span class="pruefung__name">Sitemap nicht in robots.txt</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Suchmaschinen finden die Sitemap am zuverlässigsten über robots.txt.</p><p><strong>So behebst du es:</strong> Zeile &#x27;Sitemap: https://…/sitemap.xml&#x27; in robots.txt ergänzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-temp_redirect">
+          <summary><span class="pruefung__name">Temporäre Weiterleitungen</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> 302/307 signalisieren nur vorübergehenden Umzug; Ranking-Signale gehen evtl. nicht über.</p><p><strong>So behebst du es:</strong> Bei dauerhaftem Umzug 301 verwenden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-sitemap_fehlt">
+          <summary><span class="pruefung__name">sitemap.xml nicht gefunden</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Sitemap hilft Suchmaschinen, alle wichtigen Seiten zu finden.</p><p><strong>So behebst du es:</strong> sitemap.xml erzeugen und in robots.txt eintragen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-perm_redirect">
+          <summary><span class="pruefung__name">Interne Links auf alte Adressen (dauerhafte Weiterleitung)</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Weiterleitung (301/308) selbst ist korrekt. Links auf die alte Adresse führen aber über einen Umweg zum Ziel – das kostet bei jedem Aufruf etwas Ladezeit.</p><p><strong>So behebst du es:</strong> Ändere die internen Links so, dass sie direkt auf die neue Adresse zeigen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-klicktiefe">
+          <summary><span class="pruefung__name">Mehr als 3 Klicks von der Startseite</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Tief versteckte Seiten werden seltener gecrawlt und gelten als weniger wichtig.</p><p><strong>So behebst du es:</strong> Wichtige Seiten aus Navigation oder Hub-Seiten verlinken.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-blockiert">
+          <summary><span class="pruefung__name">Seiten für Google gesperrt</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Diese Seiten erscheinen nie im Suchergebnis, weil robots.txt oder „noindex“ sie sperrt.</p><p><strong>So behebst du es:</strong> Geh die Liste durch: Login, Warenkorb und Danke-Seiten dürfen gesperrt sein. Alles andere entsperren lassen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-x_robots_noindex">
+          <summary><span class="pruefung__name">noindex per X-Robots-Tag</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Der HTTP-Header schließt die Seite vom Index aus.</p><p><strong>So behebst du es:</strong> Prüfen, ob das gewollt ist.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-robots_fehlt">
+          <summary><span class="pruefung__name">robots.txt nicht gefunden</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne robots.txt fehlen Crawl-Regeln und der Verweis auf die Sitemap.</p><p><strong>So behebst du es:</strong> robots.txt im Root anlegen, mindestens mit Sitemap-Zeile.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="katalog__gruppe" id="technik" aria-labelledby="h-technik">
+      <div class="katalog__kopf"><h2 id="h-technik" class="h2">Technik & Markup</h2><p>Technische Grundlagen und strukturierte Daten. 16 Prüfungen.</p></div>
+      <div class="katalog__liste">
+        <details class="qa pruefung" id="p-interne_bilder_defekt">
+          <summary><span class="pruefung__name">Defekte interne Bilder</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Fehlende Bilder wirken unprofessionell und fehlen in der Bildersuche.</p><p><strong>So behebst du es:</strong> Pfad korrigieren oder Bild wieder hochladen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-interne_js_css_defekt">
+          <summary><span class="pruefung__name">Defekte interne JS- und CSS-Dateien</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Fehlende Skripte oder Styles können Darstellung und Funktion der Seite zerstören.</p><p><strong>So behebst du es:</strong> Pfad korrigieren oder Datei wieder bereitstellen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-markup_fehlerhaft">
+          <summary><span class="pruefung__name">Fehlerhafte strukturierte Daten</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Fehlerhaftes JSON-LD oder fehlende Pflichtfelder verhindern Rich Results im Suchergebnis.</p><p><strong>So behebst du es:</strong> JSON-Syntax korrigieren und Pflichtfelder des jeweiligen schema.org-Typs ergänzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-canonical_defekt">
+          <summary><span class="pruefung__name">Hauptversion (Canonical) zeigt auf eine kaputte Seite</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Der Canonical verweist auf eine Adresse, die einen Fehler liefert oder weiterleitet. Google ignoriert den Hinweis dann.</p><p><strong>So behebst du es:</strong> Trag als Canonical die richtige, funktionierende Adresse ein – meist die Seite selbst.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-mehrere_canonicals">
+          <summary><span class="pruefung__name">Mehrere Canonical-URLs</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Widersprüchliche Canonicals werden von Suchmaschinen ignoriert.</p><p><strong>So behebst du es:</strong> Genau ein Canonical pro Seite setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-meta_refresh">
+          <summary><span class="pruefung__name">Seite mit Meta-Refresh</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Meta-Refresh ist eine schlechte Weiterleitung: langsam und für Suchmaschinen unklar.</p><p><strong>So behebst du es:</strong> Durch serverseitige 301-Weiterleitung ersetzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-viewport_unvollstaendig">
+          <summary><span class="pruefung__name">Viewport ohne width/initial-scale</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Viewport-Tag ist da, aber ohne Breite bzw. Skalierung wirkungslos.</p><p><strong>So behebst du es:</strong> content=&quot;width=device-width, initial-scale=1&quot; setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-viewport_fehlt">
+          <summary><span class="pruefung__name">Viewport-Tag fehlt</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Viewport wird die Seite auf Smartphones winzig dargestellt; Google bewertet mobil.</p><p><strong>So behebst du es:</strong> &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt; ergänzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-externe_bilder_defekt">
+          <summary><span class="pruefung__name">Defekte externe Bilder</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Von fremden Servern eingebundene Bilder fehlen, wenn der Server sie entfernt hat oder blockiert.</p><p><strong>So behebst du es:</strong> Bild selbst hosten oder eine funktionierende Quelle einbinden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-externe_js_css_defekt">
+          <summary><span class="pruefung__name">Defekte externe JS- und CSS-Dateien</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Fällt ein eingebundenes fremdes Skript oder Stylesheet aus, kann die Seite falsch aussehen oder nicht funktionieren.</p><p><strong>So behebst du es:</strong> Adresse prüfen, auf eine aktuelle Version umstellen oder die Datei selbst hosten.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ohne_doctype">
+          <summary><span class="pruefung__name">Kein Doctype</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Doctype rendern Browser im Quirks-Modus.</p><p><strong>So behebst du es:</strong> &lt;!doctype html&gt; an den Anfang setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ohne_lang">
+          <summary><span class="pruefung__name">Kein lang-Attribut</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Sprachangabe raten Suchmaschinen und Screenreader die Sprache.</p><p><strong>So behebst du es:</strong> &lt;html lang=&quot;de&quot;&gt; setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ohne_charset">
+          <summary><span class="pruefung__name">Keine Zeichenkodierung</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Kodierung können Umlaute falsch dargestellt werden.</p><p><strong>So behebst du es:</strong> &lt;meta charset=&quot;utf-8&quot;&gt; oder Content-Type mit charset setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-frames">
+          <summary><span class="pruefung__name">Seite mit Frames</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Inhalte in Frames werden schlecht indexiert.</p><p><strong>So behebst du es:</strong> Frames durch normales Layout ersetzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ohne_last_modified">
+          <summary><span class="pruefung__name">Kein Last-Modified-Header</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Änderungsdatum können Crawler nicht gezielt nur geänderte Seiten neu abrufen.</p><p><strong>So behebst du es:</strong> Server so einstellen, dass er den Header &#x27;Last-Modified&#x27; (oder ein ETag) mitsendet.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-veraltete_plugins">
+          <summary><span class="pruefung__name">Veraltete Browser-Plugins (Flash, Java, Silverlight)</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Diese Plugins laufen in aktuellen Browsern nicht mehr, der Inhalt bleibt für Nutzer und Crawler unsichtbar.</p><p><strong>So behebst du es:</strong> Inhalte mit HTML5 (video, canvas, JavaScript) umsetzen.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="katalog__gruppe" id="inhalt" aria-labelledby="h-inhalt">
+      <div class="katalog__kopf"><h2 id="h-inhalt" class="h2">Inhalt & Meta</h2><p>Titel, Beschreibungen, Überschriften, Texte und Bilder. 15 Prüfungen.</p></div>
+      <div class="katalog__liste">
+        <details class="qa pruefung" id="p-meta_desc_doppelt">
+          <summary><span class="pruefung__name">Doppelte Meta-Descriptions</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</p><p><strong>So behebst du es:</strong> Für jede Seite eine eigene Beschreibung schreiben.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-title_doppelt">
+          <summary><span class="pruefung__name">Doppelte Title-Tags</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Gleiche Titles machen es Suchmaschinen schwer, die passende Seite zu wählen.</p><p><strong>So behebst du es:</strong> Jeden Title einzigartig formulieren.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-duplicate_content">
+          <summary><span class="pruefung__name">Doppelter Inhalt (≥ 85% ähnlich)</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Fast gleicher Haupttext auf mehreren URLs: Suchmaschinen wählen selbst eine Version, die anderen ranken kaum.</p><p><strong>So behebst du es:</strong> Inhalte zusammenführen, deutlich unterscheiden oder per Canonical auf die Hauptversion verweisen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-title_fehlt">
+          <summary><span class="pruefung__name">Title-Tag fehlt oder ist leer</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Der Title ist das wichtigste On-Page-Signal und erscheint als Überschrift im Suchergebnis.</p><p><strong>So behebst du es:</strong> Jeder Seite einen eindeutigen, beschreibenden Title geben.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-bilder_ohne_alt">
+          <summary><span class="pruefung__name">Bilder ohne alt-Attribut</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> alt-Texte helfen Screenreadern und der Bildersuche.</p><p><strong>So behebst du es:</strong> Jedem inhaltlichen Bild einen beschreibenden alt-Text geben (dekorative: alt=&quot;&quot;).</p></div>
+        </details>
+        <details class="qa pruefung" id="p-h1_fehlt">
+          <summary><span class="pruefung__name">H1-Überschrift fehlt</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die H1 zeigt Nutzern und Suchmaschinen das Thema der Seite.</p><p><strong>So behebst du es:</strong> Eine aussagekräftige H1 pro Seite setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-meta_desc_fehlt">
+          <summary><span class="pruefung__name">Meta-Description fehlt</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Beschreibung wählt die Suchmaschine selbst einen Textausschnitt.</p><p><strong>So behebst du es:</strong> Kurze, einladende Beschreibung (ca. 120–160 Zeichen) ergänzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-title_zu_kurz">
+          <summary><span class="pruefung__name">Title zu kurz (≤ 10 Zeichen)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Sehr kurze Titles sagen zu wenig über die Seite aus.</p><p><strong>So behebst du es:</strong> Title mit Haupt-Keyword und Nutzen ergänzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-title_zu_lang">
+          <summary><span class="pruefung__name">Title zu lang (&gt; 70 Zeichen)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Lange Titles werden im Suchergebnis abgeschnitten.</p><p><strong>So behebst du es:</strong> Title auf höchstens 70 Zeichen kürzen, Wichtiges nach vorn.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-text_html_niedrig">
+          <summary><span class="pruefung__name">Viel Code, wenig Text (≤ 10 % Text)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Weniger als 10 % der Seite ist lesbarer Text, der Rest ist Code. Oft ist der Inhalt dünn oder die Seite lädt unnötig viel.</p><p><strong>So behebst du es:</strong> Ergänze Text. Bleibt der Wert niedrig, lass prüfen, welche eingebetteten Skripte und Styles überflüssig sind.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-wenig_text">
+          <summary><span class="pruefung__name">Wenig Text (&lt; 200 Wörter im Hauptinhalt)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben. Gezählt wird nur der Hauptinhalt – Menü, Fußzeile und Cookie-Hinweis machen eine Seite nicht gehaltvoller.</p><p><strong>So behebst du es:</strong> Inhalt ausbauen, mit einer ähnlichen Seite zusammenlegen oder (z. B. dünne Glossar-Seiten) auf noindex setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-h1_gleich_title">
+          <summary><span class="pruefung__name">Überschrift (H1) und Seitentitel identisch</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Kein Fehler, aber verschenkt: Unterschiedliche Formulierungen decken mehr Suchvarianten ab.</p><p><strong>So behebst du es:</strong> Formuliere die Überschrift auf der Seite etwas anders als den Seitentitel.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-mehrere_h1">
+          <summary><span class="pruefung__name">Mehr als eine H1</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Mehrere H1 verwässern die Struktur der Seite.</p><p><strong>So behebst du es:</strong> Eine H1 behalten, weitere zu H2 machen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-meta_desc_zu_kurz">
+          <summary><span class="pruefung__name">Meta-Description zu kurz (&lt; 70 Zeichen)</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Sehr kurze Beschreibungen nutzen den Platz im Suchergebnis nicht; Google ersetzt sie oft durch eigenen Text.</p><p><strong>So behebst du es:</strong> Auf ca. 120–160 Zeichen ausbauen: Inhalt der Seite und Nutzen für den Leser.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-meta_desc_zu_lang">
+          <summary><span class="pruefung__name">Meta-Description zu lang (&gt; 160 Zeichen)</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Zu lange Beschreibungen schneidet Google im Suchergebnis ab; die Botschaft am Ende geht verloren.</p><p><strong>So behebst du es:</strong> Auf höchstens 160 Zeichen kürzen, das Wichtigste zuerst.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="katalog__gruppe" id="links" aria-labelledby="h-links">
+      <div class="katalog__kopf"><h2 id="h-links" class="h2">Interne Verlinkung</h2><p>Wie deine Seiten untereinander verlinkt sind. 14 Prüfungen.</p></div>
+      <div class="katalog__liste">
+        <details class="qa pruefung" id="p-interne_links_defekt">
+          <summary><span class="pruefung__name">Defekte interne Links</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Links ins Leere frustrieren Nutzer und verschwenden Crawl-Budget.</p><p><strong>So behebst du es:</strong> Link korrigieren oder entfernen, Zielseite ggf. umleiten.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-externe_links_defekt">
+          <summary><span class="pruefung__name">Defekte externe Links</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Links auf nicht mehr vorhandene fremde Seiten frustrieren Besucher und wirken ungepflegt.</p><p><strong>So behebst du es:</strong> Link auf eine funktionierende Adresse ändern oder entfernen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-interne_links_nofollow">
+          <summary><span class="pruefung__name">Interne Links mit nofollow</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> nofollow auf eigenen Links bremst die Verteilung der Link-Stärke.</p><p><strong>So behebst du es:</strong> nofollow von internen Links entfernen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-link_url_zu_lang">
+          <summary><span class="pruefung__name">Link-URL zu lang (&gt; 2.000 Zeichen)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Überlange URLs werden von manchen Browsern und Servern nicht verarbeitet.</p><p><strong>So behebst du es:</strong> URL kürzen, Parameter reduzieren.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-link_syntax_fehler">
+          <summary><span class="pruefung__name">Links mit fehlerhafter Syntax</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Tippfehler im href (z. B. &#x27;http:/&#x27;, &#x27;htp://&#x27;, Leerzeichen) ergeben Links, die nirgendwohin führen.</p><p><strong>So behebst du es:</strong> Die betroffenen href-Werte korrigieren.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-unterstriche_url">
+          <summary><span class="pruefung__name">Unterstriche in der URL</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Suchmaschinen trennen Wörter an Bindestrichen, nicht an Unterstrichen.</p><p><strong>So behebst du es:</strong> Bindestriche statt Unterstrichen verwenden (mit 301 von alter URL).</p></div>
+        </details>
+        <details class="qa pruefung" id="p-zu_viele_links">
+          <summary><span class="pruefung__name">Zu viele Links auf der Seite (&gt; 3000)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Sehr viele Links verdünnen die Link-Stärke und wirken spammig.</p><p><strong>So behebst du es:</strong> Navigation und Listen ausdünnen, Paginierung nutzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-zu_viele_parameter">
+          <summary><span class="pruefung__name">Zu viele URL-Parameter (&gt; 4)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Viele Parameter erzeugen Duplikate und verschwenden Crawl-Budget.</p><p><strong>So behebst du es:</strong> Parameter reduzieren, sprechende URLs verwenden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-externe_nofollow">
+          <summary><span class="pruefung__name">Externe Links mit nofollow</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Kein Fehler, aber prüfen, ob vertrauenswürdige Quellen wirklich nofollow brauchen.</p><p><strong>So behebst du es:</strong> nofollow nur bei bezahlten oder nicht vertrauenswürdigen Links setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-links_ohne_anker">
+          <summary><span class="pruefung__name">Links ohne Anchor-Text</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Text wissen Nutzer und Suchmaschinen nicht, wohin der Link führt.</p><p><strong>So behebst du es:</strong> Beschreibenden Linktext oder alt-Text am Link-Bild ergänzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-nichtssagender_anker">
+          <summary><span class="pruefung__name">Nicht aussagekräftiger Anchor-Text</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Texte wie „hier“ oder „mehr“ verraten nichts über das Ziel.</p><p><strong>So behebst du es:</strong> Linktext beschreiben lassen, worum es auf der Zielseite geht.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-nur_ein_eingehender_link">
+          <summary><span class="pruefung__name">Nur ein eingehender interner Link</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Schwach verlinkte Seiten bekommen wenig Link-Stärke und werden seltener gecrawlt.</p><p><strong>So behebst du es:</strong> Seite aus thematisch passenden Seiten zusätzlich verlinken.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-url_zu_lang">
+          <summary><span class="pruefung__name">URL länger als 200 Zeichen</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Lange URLs sind schwer zu teilen und werden im Suchergebnis gekürzt.</p><p><strong>So behebst du es:</strong> Kürzere, sprechende URLs verwenden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-orphan_sitemap">
+          <summary><span class="pruefung__name">Verwaiste Seiten (nur in der Sitemap)</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Seite steht in der Sitemap, wird aber von keiner anderen Seite verlinkt.</p><p><strong>So behebst du es:</strong> Seite intern verlinken oder, falls nicht mehr gebraucht, aus der Sitemap entfernen.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="katalog__gruppe" id="ki" aria-labelledby="h-ki">
+      <div class="katalog__kopf"><h2 id="h-ki" class="h2">KI-Suche</h2><p>Ob KI-Suchdienste deine Inhalte lesen und zitieren können. 13 Prüfungen.</p></div>
+      <div class="katalog__liste">
+        <details class="qa pruefung" id="p-ki_bots_blockiert">
+          <summary><span class="pruefung__name">KI-Suchcrawler per robots.txt gesperrt</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Gesperrte KI-Crawler können die Website nicht als Quelle in KI-Antworten nennen.</p><p><strong>So behebst du es:</strong> In robots.txt die gewünschten KI-Suchcrawler erlauben.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-llms_tote_links">
+          <summary><span class="pruefung__name">llms.txt verlinkt fehlerhafte Seiten</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Links in der llms.txt führen auf Seiten, die beim Crawl einen Fehler lieferten. KI-Assistenten landen so auf toten Seiten.</p><p><strong>So behebst du es:</strong> Die Links in der llms.txt korrigieren oder entfernen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ki_artikel_ohne_autor_datum">
+          <summary><span class="pruefung__name">Artikel ohne Autor oder Datum</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Bei Artikeln achten Suchmaschinen und KI-Systeme auf Aktualität und Urheber (E-E-A-T). Ohne Datum und Autor wirkt der Inhalt weniger vertrauenswürdig.</p><p><strong>So behebst du es:</strong> datePublished/dateModified und author im Article-Markup angeben, Datum auch sichtbar mit &lt;time datetime&gt;.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ki_fragen_ohne_faq">
+          <summary><span class="pruefung__name">Fragen ohne FAQ-Markup</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Seite beantwortet mehrere Fragen (Zwischenüberschriften mit „?“), markiert sie aber nicht als FAQ. Frage-Antwort-Paare mit Markup sind für KI-Systeme leicht als Antwort zu übernehmen. Hinweis: Google zeigt FAQ-Rich-Results nur noch für Behörden- und Gesundheitsseiten.</p><p><strong>So behebst du es:</strong> Fragen und Antworten als FAQPage (JSON-LD) auszeichnen, jede Antwort direkt unter der Frage in 1–3 Sätzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ki_schwer_lesbar">
+          <summary><span class="pruefung__name">Inhalt schwer zu erfassen</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Sehr lange Absätze und Sätze oder übersprungene Überschriften-Ebenen erschweren Lesern und KI das Zusammenfassen.</p><p><strong>So behebst du es:</strong> Absätze kürzen, Sätze teilen, Überschriften ohne Sprünge (H2 → H3) gliedern.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ki_training_bots_blockiert">
+          <summary><span class="pruefung__name">KI-Trainingscrawler per robots.txt gesperrt</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Zur Info, kein Fehler: Diese Crawler sammeln Texte für das Training von KI-Modellen (z. B. GPTBot, ClaudeBot). Gesperrt fließen die Inhalte nicht in künftige Modelle ein – die Marke ist dort dann weniger bekannt. Auf die Nennung als Quelle in KI-Suchen hat das keinen Einfluss.</p><p><strong>So behebst du es:</strong> Bewusst entscheiden: Inhalte schützen (Sperre lassen) oder Bekanntheit in KI-Modellen (in robots.txt erlauben).</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ki_ohne_hauptbereich">
+          <summary><span class="pruefung__name">Kein &lt;main&gt; oder &lt;article&gt;</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne klar markierten Hauptbereich müssen Crawler und KI-Systeme raten, welcher Text der eigentliche Inhalt ist.</p><p><strong>So behebst du es:</strong> Den Hauptinhalt in &lt;main&gt; (oder &lt;article&gt;) fassen, Navigation und Fußzeile außerhalb lassen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ki_textwand">
+          <summary><span class="pruefung__name">Langer Text ohne Gliederung</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Langer Text ohne Listen oder Tabellen und mit kaum Zwischenüberschriften. KI-Systeme zitieren einzelne Abschnitte – ohne Gliederung finden sie keine klar abgegrenzte Antwort.</p><p><strong>So behebst du es:</strong> Mit H2/H3 in Abschnitte teilen, Aufzählungen und Vergleiche als Liste oder Tabelle darstellen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ki_ohne_entitaet">
+          <summary><span class="pruefung__name">Startseite ohne Organisations-Markup</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Organization- oder Person-Markup müssen KI-Systeme raten, wer hinter der Website steht. Eine klar beschriebene Marke (Name, Logo, Profile) wird eher erkannt und genannt.</p><p><strong>So behebst du es:</strong> Auf der Startseite Organization (bzw. LocalBusiness/Person) als JSON-LD einbinden: name, url, logo, sameAs.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ki_ohne_belege">
+          <summary><span class="pruefung__name">Text ohne Zahlen und Quellen</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Längerer Text ohne konkrete Zahlen und ohne Links auf externe Quellen. Laut GEO-Studie (Princeton 2024) werden Inhalte mit Statistiken und Quellenangaben deutlich häufiger in KI-Antworten zitiert.</p><p><strong>So behebst du es:</strong> Konkrete Zahlen (%, €, Mengen) ergänzen und Aussagen mit Links auf vertrauenswürdige Quellen belegen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-llms_format">
+          <summary><span class="pruefung__name">llms.txt mit Formatfehlern</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Datei sollte Markdown sein und mit einer H1-Zeile (&#x27;# Name&#x27;) beginnen.</p><p><strong>So behebst du es:</strong> Aufbau nach llmstxt.org: H1, Zitat mit Kurzbeschreibung, Abschnitte mit Linklisten.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-llms_fehlt">
+          <summary><span class="pruefung__name">llms.txt nicht gefunden</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> llms.txt gibt KI-Assistenten eine kompakte Übersicht der wichtigsten Inhalte.</p><p><strong>So behebst du es:</strong> llms.txt im Root anlegen: &#x27;# Name&#x27;, Kurzbeschreibung, Links zu wichtigen Seiten.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-llms_duenn">
+          <summary><span class="pruefung__name">llms.txt ohne Kurzbeschreibung oder Links</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die llms.txt ist vorhanden, sagt KI-Assistenten aber wenig: Ohne Kurzbeschreibung (&#x27;&gt; …&#x27;) und Links auf die wichtigsten Seiten bringt sie kaum Nutzen.</p><p><strong>So behebst du es:</strong> Unter der H1 ein Zitat mit 1–2 Sätzen zur Website, darunter H2-Abschnitte mit Linklisten &#x27;- [Titel](URL): Beschreibung&#x27;.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="katalog__gruppe" id="performance" aria-labelledby="h-performance">
+      <div class="katalog__kopf"><h2 id="h-performance" class="h2">Performance</h2><p>Wie schnell und stabil deine Seiten laden. 12 Prüfungen.</p></div>
+      <div class="katalog__liste">
+        <details class="qa pruefung" id="p-html_zu_gross">
+          <summary><span class="pruefung__name">HTML zu groß (&gt; 2 MB)</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Große Seiten laden langsam, Crawler brechen evtl. ab.</p><p><strong>So behebst du es:</strong> Inline-Daten, Skripte und Styles auslagern, HTML verschlanken.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-langsame_seite">
+          <summary><span class="pruefung__name">Langsame Seite (HTML &gt; 1 s)</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Nur die HTML-Antwortzeit gemessen; über 1 Sekunde ist für Nutzer spürbar.</p><p><strong>So behebst du es:</strong> Server-Antwortzeit verbessern: Caching, schnellere Datenbank-Abfragen, CDN.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ladezeit_lcp">
+          <summary><span class="pruefung__name">Hauptinhalt lädt langsam (LCP mobil über 4 s)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Der größte sichtbare Inhalt erscheint auf dem Handy erst nach über 4 Sekunden. LCP gehört zu den Core Web Vitals, die Google fürs Ranking nutzt, und viele Besucher springen vorher ab.</p><p><strong>So behebst du es:</strong> Hauptbild verkleinern (WebP/AVIF, passende Größe) und nicht lazy laden, sondern vorladen; Server-Antwort beschleunigen und render-blockierende Skripte und Styles reduzieren.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-js_css_zu_gross">
+          <summary><span class="pruefung__name">JS und CSS zusammen zu groß (&gt; 2 MB)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Je mehr Skript- und Style-Daten eine Seite braucht, desto später ist sie benutzbar, vor allem mobil.</p><p><strong>So behebst du es:</strong> Ungenutzten Code entfernen, Dateien aufteilen und nur dort laden, wo sie gebraucht werden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-js_css_ohne_cache">
+          <summary><span class="pruefung__name">JS- und CSS-Dateien ohne Browser-Caching</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne Cache-Angaben lädt der Browser dieselben Dateien bei jedem Seitenaufruf neu.</p><p><strong>So behebst du es:</strong> Header &#x27;Cache-Control: max-age=…&#x27; (oder Expires) für statische Dateien setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ladezeit_cls">
+          <summary><span class="pruefung__name">Layout springt beim Laden (CLS mobil über 0,25)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Inhalte verschieben sich während des Ladens, Besucher klicken daneben. CLS gehört zu den Core Web Vitals.</p><p><strong>So behebst du es:</strong> Bildern, Videos und Einbettungen feste Breite und Höhe geben, Platz für Banner reservieren, Schriften mit font-display und passender Ersatzschrift laden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-ladezeit_tbt">
+          <summary><span class="pruefung__name">Seite reagiert träge (TBT mobil über 600 ms)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Lange JavaScript-Aufgaben blockieren die Seite, Klicks reagieren verzögert. TBT ist im Labor der Ersatz für INP, das dritte Core Web Vital.</p><p><strong>So behebst du es:</strong> Unnötige Skripte entfernen oder mit defer laden, Drittanbieter-Tags (Tracking, Chat, Werbung) prüfen, große JavaScript-Pakete aufteilen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-js_css_unkomprimiert">
+          <summary><span class="pruefung__name">Unkomprimierte JS- und CSS-Dateien</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne gzip oder Brotli überträgt der Server ein Vielfaches der nötigen Datenmenge.</p><p><strong>So behebst du es:</strong> Kompression (gzip/Brotli) für JavaScript und CSS im Webserver einschalten.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-unkomprimiert">
+          <summary><span class="pruefung__name">Unkomprimierte Seiten</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne gzip/brotli werden deutlich mehr Daten übertragen.</p><p><strong>So behebst du es:</strong> Kompression auf dem Webserver aktivieren.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-zu_viele_js_css">
+          <summary><span class="pruefung__name">Zu viele JS- und CSS-Dateien (&gt; 100)</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Jede Datei ist eine eigene Anfrage an den Server, viele davon bremsen den Seitenaufbau.</p><p><strong>So behebst du es:</strong> Dateien bündeln und nicht benötigte Skripte und Styles entfernen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-js_css_nicht_minifiziert">
+          <summary><span class="pruefung__name">Skript- und Style-Dateien nicht verkleinert</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Leerzeichen, Kommentare und Zeilenumbrüche machen die Dateien größer, die Seite lädt dadurch etwas langsamer.</p><p><strong>So behebst du es:</strong> Aktiviere ein Optimierungs-Plugin (z. B. Autoptimize bei WordPress) oder lass die Dateien beim Build verkleinern (esbuild, cssnano).</p></div>
+        </details>
+        <details class="qa pruefung" id="p-skripte_blockierend">
+          <summary><span class="pruefung__name">Skripte bremsen den Seitenaufbau</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Diese Skripte im &lt;head&gt; laden, bevor die Seite etwas zeigt (kein async oder defer). Besucher sehen länger eine leere Fläche.</p><p><strong>So behebst du es:</strong> Lade Chat-Widget, Tracking und ähnliche Skripte später (Attribut „defer“) oder am Ende der Seite. Das kann deine Technik in Minuten.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="katalog__gruppe" id="https" aria-labelledby="h-https">
+      <div class="katalog__kopf"><h2 id="h-https" class="h2">HTTPS</h2><p>Ob die Verbindung sicher ist und das Zertifikat stimmt. 10 Prüfungen.</p></div>
+      <div class="katalog__liste">
+        <details class="qa pruefung" id="p-zertifikat_name">
+          <summary><span class="pruefung__name">Falscher Zertifikatsname</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Das Zertifikat gilt nicht für diesen Hostnamen: Browser zeigen eine Warnung.</p><p><strong>So behebst du es:</strong> Zertifikat für alle genutzten Hostnamen (mit/ohne www.) ausstellen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-http_nicht_auf_https">
+          <summary><span class="pruefung__name">HTTP leitet nicht auf HTTPS um</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die HTTP-Version ist erreichbar, ohne auf HTTPS weiterzuleiten: doppelte Inhalte, unsichere Aufrufe.</p><p><strong>So behebst du es:</strong> http:// per 301 auf die https://-Version umleiten.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-passwort_ohne_https">
+          <summary><span class="pruefung__name">Passwortfeld auf HTTP-Seite</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Eingegebene Passwörter gehen unverschlüsselt über das Netz, Browser warnen deutlich.</p><p><strong>So behebst du es:</strong> Seiten mit Login- oder Passwortfeld nur über HTTPS ausliefern.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-mixed_content">
+          <summary><span class="pruefung__name">Unsichere Inhalte auf sicheren Seiten (Mixed Content)</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Die Seite läuft über HTTPS, lädt aber Bilder, Skripte oder Styles über HTTP. Browser blockieren sie oder zeigen eine Warnung.</p><p><strong>So behebst du es:</strong> Ersetze in den Adressen dieser Dateien „http://“ durch „https://“.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-tls_veraltet">
+          <summary><span class="pruefung__name">Veraltetes Sicherheitsprotokoll (TLS 1.0/1.1)</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Alte Protokolle sind unsicher und werden von Browsern nicht mehr unterstützt.</p><p><strong>So behebst du es:</strong> TLS 1.0 und 1.1 auf dem Server abschalten, nur TLS 1.2/1.3 erlauben.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-zertifikat_ablauf">
+          <summary><span class="pruefung__name">Zertifikat abgelaufen oder läuft bald ab</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ein abgelaufenes Zertifikat blockiert Besucher mit einer Browser-Warnung.</p><p><strong>So behebst du es:</strong> Zertifikat erneuern bzw. automatische Erneuerung (z. B. Let&#x27;s Encrypt) prüfen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-sitemap_http_bei_https">
+          <summary><span class="pruefung__name">HTTP-URLs in sitemap.xml einer HTTPS-Website</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Suchmaschinen müssen jeder HTTP-URL erst per Weiterleitung folgen.</p><p><strong>So behebst du es:</strong> In der Sitemap nur die https://-Adressen verwenden.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-https_verlinkt_http">
+          <summary><span class="pruefung__name">HTTPS-Seiten verlinken auf HTTP</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Interne Links auf HTTP erzeugen unnötige Redirects oder unsichere Seitenaufrufe.</p><p><strong>So behebst du es:</strong> Interne Links auf die HTTPS-Version umstellen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-startseite_ohne_https">
+          <summary><span class="pruefung__name">Startseite nutzt kein HTTPS</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ohne HTTPS warnt der Browser, und HTTPS ist ein Ranking-Signal.</p><p><strong>So behebst du es:</strong> TLS-Zertifikat einrichten und HTTP per 301 auf HTTPS umleiten.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-kein_hsts">
+          <summary><span class="pruefung__name">Browser erzwingen keine sichere Verbindung (HSTS)</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Beim allerersten Aufruf kann die Verbindung noch unverschlüsselt sein und abgefangen werden.</p><p><strong>So behebst du es:</strong> Lass deinen Hoster den Header „Strict-Transport-Security“ einschalten – eine Einstellung für die ganze Website.</p></div>
+        </details>
+      </div>
+    </section>
+    <section class="katalog__gruppe" id="international" aria-labelledby="h-international">
+      <div class="katalog__kopf"><h2 id="h-international" class="h2">Internationales SEO</h2><p>Sprachangaben für Websites in mehreren Sprachen. 7 Prüfungen.</p></div>
+      <div class="katalog__liste">
+        <details class="qa pruefung" id="p-hreflang_code_ungueltig">
+          <summary><span class="pruefung__name">Ungültiger Sprachcode in hreflang</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Suchmaschinen ignorieren hreflang-Einträge, deren Sprach- oder Ländercode sie nicht kennen.</p><p><strong>So behebst du es:</strong> Codes im Format Sprache[-Region] verwenden, z. B. de, de-AT, en-GB oder x-default.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-hreflang_ohne_rueckverweis">
+          <summary><span class="pruefung__name">hreflang ohne Rückverweis</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> hreflang gilt nur, wenn die Zielseite auch zurück verweist. Einseitige Angaben werden ignoriert.</p><p><strong>So behebst du es:</strong> Auf der Zielseite einen hreflang-Eintrag ergänzen, der auf diese Seite zeigt.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-hreflang_ziel_defekt">
+          <summary><span class="pruefung__name">hreflang zeigt auf fehlerhafte Seite</span><span class="tag tag--dringend">Dringend</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Ein Sprachverweis auf eine Weiterleitung oder Fehlerseite wird von Suchmaschinen verworfen.</p><p><strong>So behebst du es:</strong> Das hreflang-Ziel auf die endgültige, erreichbare URL (Status 200) setzen.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-hreflang_relativ">
+          <summary><span class="pruefung__name">Relative URL in hreflang</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> hreflang-Ziele sollen vollständige URLs sein, relative Angaben werden oft falsch gedeutet.</p><p><strong>So behebst du es:</strong> Im href immer die komplette URL mit https:// und Domain angeben.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-hreflang_doppelt">
+          <summary><span class="pruefung__name">Sprachcode mehrfach mit verschiedenen URLs</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Zeigt derselbe Sprachcode auf mehrere Seiten, weiß die Suchmaschine nicht, welche gemeint ist.</p><p><strong>So behebst du es:</strong> Pro Sprachcode genau eine Ziel-URL angeben.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-hreflang_ohne_selbstbezug">
+          <summary><span class="pruefung__name">hreflang ohne Verweis auf sich selbst</span><span class="tag tag--wichtig">Wichtig</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Jede Sprachversion sollte sich in ihrer eigenen hreflang-Liste mit aufführen.</p><p><strong>So behebst du es:</strong> Einen hreflang-Eintrag ergänzen, der auf die Seite selbst zeigt.</p></div>
+        </details>
+        <details class="qa pruefung" id="p-hreflang_lang_konflikt">
+          <summary><span class="pruefung__name">hreflang und lang-Attribut widersprechen sich</span><span class="tag tag--fein">Feinschliff</span></summary>
+          <div class="qa__a"><p><strong>Warum das zählt:</strong> Der Eintrag für die Seite selbst nennt eine andere Sprache als das lang-Attribut im HTML.</p><p><strong>So behebst du es:</strong> Sprache im lang-Attribut und im hreflang-Selbstverweis angleichen.</p></div>
+        </details>
+      </div>
+    </section>
+    </div>
+  </div>
+</main>
+
+<footer class="site-foot site-foot--short">
+  <div class="foot-top">
+    <div class="foot-invite">
+      <h2>Fang mit der ersten Aufgabe an.</h2>
+      <a class="button button--light" href="../installation/">Installieren</a>
+    </div>
+    <nav class="foot-links" aria-label="Fußmenü">
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+      <a href="../funktionen/">Funktionen</a>
+      <a href="../pruefungen/">Alle Prüfungen</a>
+      <a href="../installation/">Installation</a>
+      <a href="../faq/">FAQ</a>
+      <a href="../blog/">Blog</a>
+    </nav>
+  </div>
+  <div class="foot-legal">
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</span>
+    <a href="../datenschutz/">Datenschutz</a>
+  </div>
+  <p class="foot-name" aria-hidden="true">Nextfix</p>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+</body>
+</html>

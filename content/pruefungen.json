@@ -1,0 +1,850 @@
+[
+ {
+  "id": "status_4xx",
+  "name": "Seiten mit 4xx-Statuscode",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.",
+  "beheben": "Seite wiederherstellen, per 301 umleiten oder Links darauf entfernen."
+ },
+ {
+  "id": "status_5xx",
+  "name": "Seiten mit 5xx-Statuscode",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Serverfehler: Seite ist für alle nicht erreichbar.",
+  "beheben": "Server-Logs prüfen, Fehler im Backend beheben."
+ },
+ {
+  "id": "nicht_erreichbar",
+  "name": "Seiten laden nicht oder zu langsam",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Diese Seiten antworteten nicht innerhalb von 5 Sekunden oder gar nicht. Besucher und Google sehen nur eine Fehlermeldung.",
+  "beheben": "Öffne die Seiten selbst im Browser. Laden sie auch dort nicht, gib die Liste an deinen Hoster."
+ },
+ {
+  "id": "redirect_kette",
+  "name": "Redirect-Ketten und -Schleifen",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Mehr als 3 Weiterleitungen hintereinander oder eine Schleife: Crawler brechen ab, Ladezeit steigt.",
+  "beheben": "Jede Weiterleitung direkt auf das endgültige Ziel zeigen lassen."
+ },
+ {
+  "id": "temp_redirect",
+  "name": "Temporäre Weiterleitungen",
+  "schwere": "warning",
+  "kategorie": "crawlbarkeit",
+  "warum": "302/307 signalisieren nur vorübergehenden Umzug; Ranking-Signale gehen evtl. nicht über.",
+  "beheben": "Bei dauerhaftem Umzug 301 verwenden."
+ },
+ {
+  "id": "perm_redirect",
+  "name": "Interne Links auf alte Adressen (dauerhafte Weiterleitung)",
+  "schwere": "notice",
+  "kategorie": "crawlbarkeit",
+  "warum": "Die Weiterleitung (301/308) selbst ist korrekt. Links auf die alte Adresse führen aber über einen Umweg zum Ziel – das kostet bei jedem Aufruf etwas Ladezeit.",
+  "beheben": "Ändere die internen Links so, dass sie direkt auf die neue Adresse zeigen."
+ },
+ {
+  "id": "robots_fehlt",
+  "name": "robots.txt nicht gefunden",
+  "schwere": "notice",
+  "kategorie": "crawlbarkeit",
+  "warum": "Ohne robots.txt fehlen Crawl-Regeln und der Verweis auf die Sitemap.",
+  "beheben": "robots.txt im Root anlegen, mindestens mit Sitemap-Zeile."
+ },
+ {
+  "id": "sitemap_fehlt",
+  "name": "sitemap.xml nicht gefunden",
+  "schwere": "warning",
+  "kategorie": "crawlbarkeit",
+  "warum": "Die Sitemap hilft Suchmaschinen, alle wichtigen Seiten zu finden.",
+  "beheben": "sitemap.xml erzeugen und in robots.txt eintragen."
+ },
+ {
+  "id": "sitemap_nicht_in_robots",
+  "name": "Sitemap nicht in robots.txt",
+  "schwere": "warning",
+  "kategorie": "crawlbarkeit",
+  "warum": "Suchmaschinen finden die Sitemap am zuverlässigsten über robots.txt.",
+  "beheben": "Zeile 'Sitemap: https://…/sitemap.xml' in robots.txt ergänzen."
+ },
+ {
+  "id": "blockiert",
+  "name": "Seiten für Google gesperrt",
+  "schwere": "notice",
+  "kategorie": "crawlbarkeit",
+  "warum": "Diese Seiten erscheinen nie im Suchergebnis, weil robots.txt oder „noindex“ sie sperrt.",
+  "beheben": "Geh die Liste durch: Login, Warenkorb und Danke-Seiten dürfen gesperrt sein. Alles andere entsperren lassen."
+ },
+ {
+  "id": "x_robots_noindex",
+  "name": "noindex per X-Robots-Tag",
+  "schwere": "notice",
+  "kategorie": "crawlbarkeit",
+  "warum": "Der HTTP-Header schließt die Seite vom Index aus.",
+  "beheben": "Prüfen, ob das gewollt ist."
+ },
+ {
+  "id": "klicktiefe",
+  "name": "Mehr als 3 Klicks von der Startseite",
+  "schwere": "notice",
+  "kategorie": "crawlbarkeit",
+  "warum": "Tief versteckte Seiten werden seltener gecrawlt und gelten als weniger wichtig.",
+  "beheben": "Wichtige Seiten aus Navigation oder Hub-Seiten verlinken."
+ },
+ {
+  "id": "js_app_ohne_rendern",
+  "name": "Seite baut sich per JavaScript auf – ohne JavaScript geprüft",
+  "schwere": "warning",
+  "kategorie": "crawlbarkeit",
+  "warum": "Die Seite hat einen leeren App-Container (z. B. React oder Vue) und kaum Text im HTML. So sehen sie auch die Crawler der KI-Suchdienste. Die Prüfung lief ohne JavaScript, Inhalt und Links fehlen daher womöglich im Ergebnis.",
+  "beheben": "In den Einstellungen „JavaScript ausführen“ einschalten und erneut prüfen. Dauerhaft besser: Inhalte schon im HTML ausliefern (Server-Rendering oder statische Seiten)."
+ },
+ {
+  "id": "inhalt_nur_per_js",
+  "name": "Inhalt entsteht erst per JavaScript",
+  "schwere": "warning",
+  "kategorie": "crawlbarkeit",
+  "warum": "Ohne JavaScript steht auf der Seite weniger als die Hälfte des Textes. Google rendert JavaScript, aber verzögert; die Crawler der KI-Suchdienste (ChatGPT, Perplexity, Claude) und viele andere führen es gar nicht aus und sehen eine fast leere Seite.",
+  "beheben": "Wichtige Inhalte schon im HTML ausliefern: Server-Rendering oder statische Seiten (z. B. Next.js/Nuxt mit SSR/SSG, Prerendering). Nur Komfort-Funktionen per JavaScript nachladen."
+ },
+ {
+  "id": "title_fehlt",
+  "name": "Title-Tag fehlt oder ist leer",
+  "schwere": "error",
+  "kategorie": "inhalt",
+  "warum": "Der Title ist das wichtigste On-Page-Signal und erscheint als Überschrift im Suchergebnis.",
+  "beheben": "Jeder Seite einen eindeutigen, beschreibenden Title geben."
+ },
+ {
+  "id": "title_doppelt",
+  "name": "Doppelte Title-Tags",
+  "schwere": "error",
+  "kategorie": "inhalt",
+  "warum": "Gleiche Titles machen es Suchmaschinen schwer, die passende Seite zu wählen.",
+  "beheben": "Jeden Title einzigartig formulieren."
+ },
+ {
+  "id": "meta_desc_doppelt",
+  "name": "Doppelte Meta-Descriptions",
+  "schwere": "error",
+  "kategorie": "inhalt",
+  "warum": "Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.",
+  "beheben": "Für jede Seite eine eigene Beschreibung schreiben."
+ },
+ {
+  "id": "title_zu_lang",
+  "name": "Title zu lang (> 70 Zeichen)",
+  "schwere": "warning",
+  "kategorie": "inhalt",
+  "warum": "Lange Titles werden im Suchergebnis abgeschnitten.",
+  "beheben": "Title auf höchstens 70 Zeichen kürzen, Wichtiges nach vorn."
+ },
+ {
+  "id": "title_zu_kurz",
+  "name": "Title zu kurz (≤ 10 Zeichen)",
+  "schwere": "warning",
+  "kategorie": "inhalt",
+  "warum": "Sehr kurze Titles sagen zu wenig über die Seite aus.",
+  "beheben": "Title mit Haupt-Keyword und Nutzen ergänzen."
+ },
+ {
+  "id": "meta_desc_zu_lang",
+  "name": "Meta-Description zu lang (> 160 Zeichen)",
+  "schwere": "notice",
+  "kategorie": "inhalt",
+  "warum": "Zu lange Beschreibungen schneidet Google im Suchergebnis ab; die Botschaft am Ende geht verloren.",
+  "beheben": "Auf höchstens 160 Zeichen kürzen, das Wichtigste zuerst."
+ },
+ {
+  "id": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "kategorie": "inhalt",
+  "warum": "Sehr kurze Beschreibungen nutzen den Platz im Suchergebnis nicht; Google ersetzt sie oft durch eigenen Text.",
+  "beheben": "Auf ca. 120–160 Zeichen ausbauen: Inhalt der Seite und Nutzen für den Leser."
+ },
+ {
+  "id": "meta_desc_fehlt",
+  "name": "Meta-Description fehlt",
+  "schwere": "warning",
+  "kategorie": "inhalt",
+  "warum": "Ohne Beschreibung wählt die Suchmaschine selbst einen Textausschnitt.",
+  "beheben": "Kurze, einladende Beschreibung (ca. 120–160 Zeichen) ergänzen."
+ },
+ {
+  "id": "h1_fehlt",
+  "name": "H1-Überschrift fehlt",
+  "schwere": "warning",
+  "kategorie": "inhalt",
+  "warum": "Die H1 zeigt Nutzern und Suchmaschinen das Thema der Seite.",
+  "beheben": "Eine aussagekräftige H1 pro Seite setzen."
+ },
+ {
+  "id": "h1_gleich_title",
+  "name": "Überschrift (H1) und Seitentitel identisch",
+  "schwere": "warning",
+  "kategorie": "inhalt",
+  "warum": "Kein Fehler, aber verschenkt: Unterschiedliche Formulierungen decken mehr Suchvarianten ab.",
+  "beheben": "Formuliere die Überschrift auf der Seite etwas anders als den Seitentitel."
+ },
+ {
+  "id": "mehrere_h1",
+  "name": "Mehr als eine H1",
+  "schwere": "notice",
+  "kategorie": "inhalt",
+  "warum": "Mehrere H1 verwässern die Struktur der Seite.",
+  "beheben": "Eine H1 behalten, weitere zu H2 machen."
+ },
+ {
+  "id": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "kategorie": "inhalt",
+  "warum": "Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben. Gezählt wird nur der Hauptinhalt – Menü, Fußzeile und Cookie-Hinweis machen eine Seite nicht gehaltvoller.",
+  "beheben": "Inhalt ausbauen, mit einer ähnlichen Seite zusammenlegen oder (z. B. dünne Glossar-Seiten) auf noindex setzen."
+ },
+ {
+  "id": "text_html_niedrig",
+  "name": "Viel Code, wenig Text (≤ 10 % Text)",
+  "schwere": "warning",
+  "kategorie": "inhalt",
+  "warum": "Weniger als 10 % der Seite ist lesbarer Text, der Rest ist Code. Oft ist der Inhalt dünn oder die Seite lädt unnötig viel.",
+  "beheben": "Ergänze Text. Bleibt der Wert niedrig, lass prüfen, welche eingebetteten Skripte und Styles überflüssig sind."
+ },
+ {
+  "id": "bilder_ohne_alt",
+  "name": "Bilder ohne alt-Attribut",
+  "schwere": "warning",
+  "kategorie": "inhalt",
+  "warum": "alt-Texte helfen Screenreadern und der Bildersuche.",
+  "beheben": "Jedem inhaltlichen Bild einen beschreibenden alt-Text geben (dekorative: alt=\"\")."
+ },
+ {
+  "id": "duplicate_content",
+  "name": "Doppelter Inhalt (≥ 85% ähnlich)",
+  "schwere": "error",
+  "kategorie": "inhalt",
+  "warum": "Fast gleicher Haupttext auf mehreren URLs: Suchmaschinen wählen selbst eine Version, die anderen ranken kaum.",
+  "beheben": "Inhalte zusammenführen, deutlich unterscheiden oder per Canonical auf die Hauptversion verweisen."
+ },
+ {
+  "id": "markup_fehlerhaft",
+  "name": "Fehlerhafte strukturierte Daten",
+  "schwere": "error",
+  "kategorie": "technik",
+  "warum": "Fehlerhaftes JSON-LD oder fehlende Pflichtfelder verhindern Rich Results im Suchergebnis.",
+  "beheben": "JSON-Syntax korrigieren und Pflichtfelder des jeweiligen schema.org-Typs ergänzen."
+ },
+ {
+  "id": "mixed_content",
+  "name": "Unsichere Inhalte auf sicheren Seiten (Mixed Content)",
+  "schwere": "error",
+  "kategorie": "https",
+  "warum": "Die Seite läuft über HTTPS, lädt aber Bilder, Skripte oder Styles über HTTP. Browser blockieren sie oder zeigen eine Warnung.",
+  "beheben": "Ersetze in den Adressen dieser Dateien „http://“ durch „https://“."
+ },
+ {
+  "id": "startseite_ohne_https",
+  "name": "Startseite nutzt kein HTTPS",
+  "schwere": "warning",
+  "kategorie": "https",
+  "warum": "Ohne HTTPS warnt der Browser, und HTTPS ist ein Ranking-Signal.",
+  "beheben": "TLS-Zertifikat einrichten und HTTP per 301 auf HTTPS umleiten."
+ },
+ {
+  "id": "https_verlinkt_http",
+  "name": "HTTPS-Seiten verlinken auf HTTP",
+  "schwere": "warning",
+  "kategorie": "https",
+  "warum": "Interne Links auf HTTP erzeugen unnötige Redirects oder unsichere Seitenaufrufe.",
+  "beheben": "Interne Links auf die HTTPS-Version umstellen."
+ },
+ {
+  "id": "kein_hsts",
+  "name": "Browser erzwingen keine sichere Verbindung (HSTS)",
+  "schwere": "notice",
+  "kategorie": "https",
+  "warum": "Beim allerersten Aufruf kann die Verbindung noch unverschlüsselt sein und abgefangen werden.",
+  "beheben": "Lass deinen Hoster den Header „Strict-Transport-Security“ einschalten – eine Einstellung für die ganze Website."
+ },
+ {
+  "id": "html_zu_gross",
+  "name": "HTML zu groß (> 2 MB)",
+  "schwere": "error",
+  "kategorie": "performance",
+  "warum": "Große Seiten laden langsam, Crawler brechen evtl. ab.",
+  "beheben": "Inline-Daten, Skripte und Styles auslagern, HTML verschlanken."
+ },
+ {
+  "id": "langsame_seite",
+  "name": "Langsame Seite (HTML > 1 s)",
+  "schwere": "error",
+  "kategorie": "performance",
+  "warum": "Nur die HTML-Antwortzeit gemessen; über 1 Sekunde ist für Nutzer spürbar.",
+  "beheben": "Server-Antwortzeit verbessern: Caching, schnellere Datenbank-Abfragen, CDN."
+ },
+ {
+  "id": "unkomprimiert",
+  "name": "Unkomprimierte Seiten",
+  "schwere": "warning",
+  "kategorie": "performance",
+  "warum": "Ohne gzip/brotli werden deutlich mehr Daten übertragen.",
+  "beheben": "Kompression auf dem Webserver aktivieren."
+ },
+ {
+  "id": "interne_bilder_defekt",
+  "name": "Defekte interne Bilder",
+  "schwere": "error",
+  "kategorie": "technik",
+  "warum": "Fehlende Bilder wirken unprofessionell und fehlen in der Bildersuche.",
+  "beheben": "Pfad korrigieren oder Bild wieder hochladen."
+ },
+ {
+  "id": "interne_js_css_defekt",
+  "name": "Defekte interne JS- und CSS-Dateien",
+  "schwere": "error",
+  "kategorie": "technik",
+  "warum": "Fehlende Skripte oder Styles können Darstellung und Funktion der Seite zerstören.",
+  "beheben": "Pfad korrigieren oder Datei wieder bereitstellen."
+ },
+ {
+  "id": "viewport_fehlt",
+  "name": "Viewport-Tag fehlt",
+  "schwere": "error",
+  "kategorie": "technik",
+  "warum": "Ohne Viewport wird die Seite auf Smartphones winzig dargestellt; Google bewertet mobil.",
+  "beheben": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> ergänzen."
+ },
+ {
+  "id": "viewport_unvollstaendig",
+  "name": "Viewport ohne width/initial-scale",
+  "schwere": "error",
+  "kategorie": "technik",
+  "warum": "Viewport-Tag ist da, aber ohne Breite bzw. Skalierung wirkungslos.",
+  "beheben": "content=\"width=device-width, initial-scale=1\" setzen."
+ },
+ {
+  "id": "meta_refresh",
+  "name": "Seite mit Meta-Refresh",
+  "schwere": "error",
+  "kategorie": "technik",
+  "warum": "Meta-Refresh ist eine schlechte Weiterleitung: langsam und für Suchmaschinen unklar.",
+  "beheben": "Durch serverseitige 301-Weiterleitung ersetzen."
+ },
+ {
+  "id": "mehrere_canonicals",
+  "name": "Mehrere Canonical-URLs",
+  "schwere": "error",
+  "kategorie": "technik",
+  "warum": "Widersprüchliche Canonicals werden von Suchmaschinen ignoriert.",
+  "beheben": "Genau ein Canonical pro Seite setzen."
+ },
+ {
+  "id": "canonical_defekt",
+  "name": "Hauptversion (Canonical) zeigt auf eine kaputte Seite",
+  "schwere": "error",
+  "kategorie": "technik",
+  "warum": "Der Canonical verweist auf eine Adresse, die einen Fehler liefert oder weiterleitet. Google ignoriert den Hinweis dann.",
+  "beheben": "Trag als Canonical die richtige, funktionierende Adresse ein – meist die Seite selbst."
+ },
+ {
+  "id": "ohne_lang",
+  "name": "Kein lang-Attribut",
+  "schwere": "warning",
+  "kategorie": "technik",
+  "warum": "Ohne Sprachangabe raten Suchmaschinen und Screenreader die Sprache.",
+  "beheben": "<html lang=\"de\"> setzen."
+ },
+ {
+  "id": "ohne_charset",
+  "name": "Keine Zeichenkodierung",
+  "schwere": "warning",
+  "kategorie": "technik",
+  "warum": "Ohne Kodierung können Umlaute falsch dargestellt werden.",
+  "beheben": "<meta charset=\"utf-8\"> oder Content-Type mit charset setzen."
+ },
+ {
+  "id": "ohne_doctype",
+  "name": "Kein Doctype",
+  "schwere": "warning",
+  "kategorie": "technik",
+  "warum": "Ohne Doctype rendern Browser im Quirks-Modus.",
+  "beheben": "<!doctype html> an den Anfang setzen."
+ },
+ {
+  "id": "frames",
+  "name": "Seite mit Frames",
+  "schwere": "warning",
+  "kategorie": "technik",
+  "warum": "Inhalte in Frames werden schlecht indexiert.",
+  "beheben": "Frames durch normales Layout ersetzen."
+ },
+ {
+  "id": "passwort_ohne_https",
+  "name": "Passwortfeld auf HTTP-Seite",
+  "schwere": "error",
+  "kategorie": "https",
+  "warum": "Eingegebene Passwörter gehen unverschlüsselt über das Netz, Browser warnen deutlich.",
+  "beheben": "Seiten mit Login- oder Passwortfeld nur über HTTPS ausliefern."
+ },
+ {
+  "id": "veraltete_plugins",
+  "name": "Veraltete Browser-Plugins (Flash, Java, Silverlight)",
+  "schwere": "notice",
+  "kategorie": "technik",
+  "warum": "Diese Plugins laufen in aktuellen Browsern nicht mehr, der Inhalt bleibt für Nutzer und Crawler unsichtbar.",
+  "beheben": "Inhalte mit HTML5 (video, canvas, JavaScript) umsetzen."
+ },
+ {
+  "id": "ohne_last_modified",
+  "name": "Kein Last-Modified-Header",
+  "schwere": "notice",
+  "kategorie": "technik",
+  "warum": "Ohne Änderungsdatum können Crawler nicht gezielt nur geänderte Seiten neu abrufen.",
+  "beheben": "Server so einstellen, dass er den Header 'Last-Modified' (oder ein ETag) mitsendet."
+ },
+ {
+  "id": "externe_links_defekt",
+  "name": "Defekte externe Links",
+  "schwere": "warning",
+  "kategorie": "links",
+  "warum": "Links auf nicht mehr vorhandene fremde Seiten frustrieren Besucher und wirken ungepflegt.",
+  "beheben": "Link auf eine funktionierende Adresse ändern oder entfernen."
+ },
+ {
+  "id": "externe_bilder_defekt",
+  "name": "Defekte externe Bilder",
+  "schwere": "warning",
+  "kategorie": "technik",
+  "warum": "Von fremden Servern eingebundene Bilder fehlen, wenn der Server sie entfernt hat oder blockiert.",
+  "beheben": "Bild selbst hosten oder eine funktionierende Quelle einbinden."
+ },
+ {
+  "id": "externe_js_css_defekt",
+  "name": "Defekte externe JS- und CSS-Dateien",
+  "schwere": "warning",
+  "kategorie": "technik",
+  "warum": "Fällt ein eingebundenes fremdes Skript oder Stylesheet aus, kann die Seite falsch aussehen oder nicht funktionieren.",
+  "beheben": "Adresse prüfen, auf eine aktuelle Version umstellen oder die Datei selbst hosten."
+ },
+ {
+  "id": "hreflang_code_ungueltig",
+  "name": "Ungültiger Sprachcode in hreflang",
+  "schwere": "error",
+  "kategorie": "international",
+  "warum": "Suchmaschinen ignorieren hreflang-Einträge, deren Sprach- oder Ländercode sie nicht kennen.",
+  "beheben": "Codes im Format Sprache[-Region] verwenden, z. B. de, de-AT, en-GB oder x-default."
+ },
+ {
+  "id": "hreflang_relativ",
+  "name": "Relative URL in hreflang",
+  "schwere": "warning",
+  "kategorie": "international",
+  "warum": "hreflang-Ziele sollen vollständige URLs sein, relative Angaben werden oft falsch gedeutet.",
+  "beheben": "Im href immer die komplette URL mit https:// und Domain angeben."
+ },
+ {
+  "id": "hreflang_ohne_selbstbezug",
+  "name": "hreflang ohne Verweis auf sich selbst",
+  "schwere": "warning",
+  "kategorie": "international",
+  "warum": "Jede Sprachversion sollte sich in ihrer eigenen hreflang-Liste mit aufführen.",
+  "beheben": "Einen hreflang-Eintrag ergänzen, der auf die Seite selbst zeigt."
+ },
+ {
+  "id": "hreflang_doppelt",
+  "name": "Sprachcode mehrfach mit verschiedenen URLs",
+  "schwere": "warning",
+  "kategorie": "international",
+  "warum": "Zeigt derselbe Sprachcode auf mehrere Seiten, weiß die Suchmaschine nicht, welche gemeint ist.",
+  "beheben": "Pro Sprachcode genau eine Ziel-URL angeben."
+ },
+ {
+  "id": "hreflang_ziel_defekt",
+  "name": "hreflang zeigt auf fehlerhafte Seite",
+  "schwere": "error",
+  "kategorie": "international",
+  "warum": "Ein Sprachverweis auf eine Weiterleitung oder Fehlerseite wird von Suchmaschinen verworfen.",
+  "beheben": "Das hreflang-Ziel auf die endgültige, erreichbare URL (Status 200) setzen."
+ },
+ {
+  "id": "hreflang_ohne_rueckverweis",
+  "name": "hreflang ohne Rückverweis",
+  "schwere": "error",
+  "kategorie": "international",
+  "warum": "hreflang gilt nur, wenn die Zielseite auch zurück verweist. Einseitige Angaben werden ignoriert.",
+  "beheben": "Auf der Zielseite einen hreflang-Eintrag ergänzen, der auf diese Seite zeigt."
+ },
+ {
+  "id": "hreflang_lang_konflikt",
+  "name": "hreflang und lang-Attribut widersprechen sich",
+  "schwere": "notice",
+  "kategorie": "international",
+  "warum": "Der Eintrag für die Seite selbst nennt eine andere Sprache als das lang-Attribut im HTML.",
+  "beheben": "Sprache im lang-Attribut und im hreflang-Selbstverweis angleichen."
+ },
+ {
+  "id": "ki_ohne_hauptbereich",
+  "name": "Kein <main> oder <article>",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Ohne klar markierten Hauptbereich müssen Crawler und KI-Systeme raten, welcher Text der eigentliche Inhalt ist.",
+  "beheben": "Den Hauptinhalt in <main> (oder <article>) fassen, Navigation und Fußzeile außerhalb lassen."
+ },
+ {
+  "id": "ki_schwer_lesbar",
+  "name": "Inhalt schwer zu erfassen",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Sehr lange Absätze und Sätze oder übersprungene Überschriften-Ebenen erschweren Lesern und KI das Zusammenfassen.",
+  "beheben": "Absätze kürzen, Sätze teilen, Überschriften ohne Sprünge (H2 → H3) gliedern."
+ },
+ {
+  "id": "ki_fragen_ohne_faq",
+  "name": "Fragen ohne FAQ-Markup",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Die Seite beantwortet mehrere Fragen (Zwischenüberschriften mit „?“), markiert sie aber nicht als FAQ. Frage-Antwort-Paare mit Markup sind für KI-Systeme leicht als Antwort zu übernehmen. Hinweis: Google zeigt FAQ-Rich-Results nur noch für Behörden- und Gesundheitsseiten.",
+  "beheben": "Fragen und Antworten als FAQPage (JSON-LD) auszeichnen, jede Antwort direkt unter der Frage in 1–3 Sätzen."
+ },
+ {
+  "id": "ki_ohne_belege",
+  "name": "Text ohne Zahlen und Quellen",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Längerer Text ohne konkrete Zahlen und ohne Links auf externe Quellen. Laut GEO-Studie (Princeton 2024) werden Inhalte mit Statistiken und Quellenangaben deutlich häufiger in KI-Antworten zitiert.",
+  "beheben": "Konkrete Zahlen (%, €, Mengen) ergänzen und Aussagen mit Links auf vertrauenswürdige Quellen belegen."
+ },
+ {
+  "id": "ki_textwand",
+  "name": "Langer Text ohne Gliederung",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Langer Text ohne Listen oder Tabellen und mit kaum Zwischenüberschriften. KI-Systeme zitieren einzelne Abschnitte – ohne Gliederung finden sie keine klar abgegrenzte Antwort.",
+  "beheben": "Mit H2/H3 in Abschnitte teilen, Aufzählungen und Vergleiche als Liste oder Tabelle darstellen."
+ },
+ {
+  "id": "ki_artikel_ohne_autor_datum",
+  "name": "Artikel ohne Autor oder Datum",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Bei Artikeln achten Suchmaschinen und KI-Systeme auf Aktualität und Urheber (E-E-A-T). Ohne Datum und Autor wirkt der Inhalt weniger vertrauenswürdig.",
+  "beheben": "datePublished/dateModified und author im Article-Markup angeben, Datum auch sichtbar mit <time datetime>."
+ },
+ {
+  "id": "ki_ohne_entitaet",
+  "name": "Startseite ohne Organisations-Markup",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Ohne Organization- oder Person-Markup müssen KI-Systeme raten, wer hinter der Website steht. Eine klar beschriebene Marke (Name, Logo, Profile) wird eher erkannt und genannt.",
+  "beheben": "Auf der Startseite Organization (bzw. LocalBusiness/Person) als JSON-LD einbinden: name, url, logo, sameAs."
+ },
+ {
+  "id": "ladezeit_lcp",
+  "name": "Hauptinhalt lädt langsam (LCP mobil über 4 s)",
+  "schwere": "warning",
+  "kategorie": "performance",
+  "warum": "Der größte sichtbare Inhalt erscheint auf dem Handy erst nach über 4 Sekunden. LCP gehört zu den Core Web Vitals, die Google fürs Ranking nutzt, und viele Besucher springen vorher ab.",
+  "beheben": "Hauptbild verkleinern (WebP/AVIF, passende Größe) und nicht lazy laden, sondern vorladen; Server-Antwort beschleunigen und render-blockierende Skripte und Styles reduzieren."
+ },
+ {
+  "id": "ladezeit_cls",
+  "name": "Layout springt beim Laden (CLS mobil über 0,25)",
+  "schwere": "warning",
+  "kategorie": "performance",
+  "warum": "Inhalte verschieben sich während des Ladens, Besucher klicken daneben. CLS gehört zu den Core Web Vitals.",
+  "beheben": "Bildern, Videos und Einbettungen feste Breite und Höhe geben, Platz für Banner reservieren, Schriften mit font-display und passender Ersatzschrift laden."
+ },
+ {
+  "id": "ladezeit_tbt",
+  "name": "Seite reagiert träge (TBT mobil über 600 ms)",
+  "schwere": "warning",
+  "kategorie": "performance",
+  "warum": "Lange JavaScript-Aufgaben blockieren die Seite, Klicks reagieren verzögert. TBT ist im Labor der Ersatz für INP, das dritte Core Web Vital.",
+  "beheben": "Unnötige Skripte entfernen oder mit defer laden, Drittanbieter-Tags (Tracking, Chat, Werbung) prüfen, große JavaScript-Pakete aufteilen."
+ },
+ {
+  "id": "interne_links_defekt",
+  "name": "Defekte interne Links",
+  "schwere": "error",
+  "kategorie": "links",
+  "warum": "Links ins Leere frustrieren Nutzer und verschwenden Crawl-Budget.",
+  "beheben": "Link korrigieren oder entfernen, Zielseite ggf. umleiten."
+ },
+ {
+  "id": "interne_links_nofollow",
+  "name": "Interne Links mit nofollow",
+  "schwere": "warning",
+  "kategorie": "links",
+  "warum": "nofollow auf eigenen Links bremst die Verteilung der Link-Stärke.",
+  "beheben": "nofollow von internen Links entfernen."
+ },
+ {
+  "id": "zu_viele_links",
+  "name": "Zu viele Links auf der Seite (> 3000)",
+  "schwere": "warning",
+  "kategorie": "links",
+  "warum": "Sehr viele Links verdünnen die Link-Stärke und wirken spammig.",
+  "beheben": "Navigation und Listen ausdünnen, Paginierung nutzen."
+ },
+ {
+  "id": "link_url_zu_lang",
+  "name": "Link-URL zu lang (> 2.000 Zeichen)",
+  "schwere": "warning",
+  "kategorie": "links",
+  "warum": "Überlange URLs werden von manchen Browsern und Servern nicht verarbeitet.",
+  "beheben": "URL kürzen, Parameter reduzieren."
+ },
+ {
+  "id": "links_ohne_anker",
+  "name": "Links ohne Anchor-Text",
+  "schwere": "notice",
+  "kategorie": "links",
+  "warum": "Ohne Text wissen Nutzer und Suchmaschinen nicht, wohin der Link führt.",
+  "beheben": "Beschreibenden Linktext oder alt-Text am Link-Bild ergänzen."
+ },
+ {
+  "id": "nichtssagender_anker",
+  "name": "Nicht aussagekräftiger Anchor-Text",
+  "schwere": "notice",
+  "kategorie": "links",
+  "warum": "Texte wie „hier“ oder „mehr“ verraten nichts über das Ziel.",
+  "beheben": "Linktext beschreiben lassen, worum es auf der Zielseite geht."
+ },
+ {
+  "id": "externe_nofollow",
+  "name": "Externe Links mit nofollow",
+  "schwere": "notice",
+  "kategorie": "links",
+  "warum": "Kein Fehler, aber prüfen, ob vertrauenswürdige Quellen wirklich nofollow brauchen.",
+  "beheben": "nofollow nur bei bezahlten oder nicht vertrauenswürdigen Links setzen."
+ },
+ {
+  "id": "nur_ein_eingehender_link",
+  "name": "Nur ein eingehender interner Link",
+  "schwere": "notice",
+  "kategorie": "links",
+  "warum": "Schwach verlinkte Seiten bekommen wenig Link-Stärke und werden seltener gecrawlt.",
+  "beheben": "Seite aus thematisch passenden Seiten zusätzlich verlinken."
+ },
+ {
+  "id": "zu_viele_parameter",
+  "name": "Zu viele URL-Parameter (> 4)",
+  "schwere": "warning",
+  "kategorie": "links",
+  "warum": "Viele Parameter erzeugen Duplikate und verschwenden Crawl-Budget.",
+  "beheben": "Parameter reduzieren, sprechende URLs verwenden."
+ },
+ {
+  "id": "unterstriche_url",
+  "name": "Unterstriche in der URL",
+  "schwere": "warning",
+  "kategorie": "links",
+  "warum": "Suchmaschinen trennen Wörter an Bindestrichen, nicht an Unterstrichen.",
+  "beheben": "Bindestriche statt Unterstrichen verwenden (mit 301 von alter URL)."
+ },
+ {
+  "id": "url_zu_lang",
+  "name": "URL länger als 200 Zeichen",
+  "schwere": "notice",
+  "kategorie": "links",
+  "warum": "Lange URLs sind schwer zu teilen und werden im Suchergebnis gekürzt.",
+  "beheben": "Kürzere, sprechende URLs verwenden."
+ },
+ {
+  "id": "link_syntax_fehler",
+  "name": "Links mit fehlerhafter Syntax",
+  "schwere": "warning",
+  "kategorie": "links",
+  "warum": "Tippfehler im href (z. B. 'http:/', 'htp://', Leerzeichen) ergeben Links, die nirgendwohin führen.",
+  "beheben": "Die betroffenen href-Werte korrigieren."
+ },
+ {
+  "id": "js_css_zu_gross",
+  "name": "JS und CSS zusammen zu groß (> 2 MB)",
+  "schwere": "warning",
+  "kategorie": "performance",
+  "warum": "Je mehr Skript- und Style-Daten eine Seite braucht, desto später ist sie benutzbar, vor allem mobil.",
+  "beheben": "Ungenutzten Code entfernen, Dateien aufteilen und nur dort laden, wo sie gebraucht werden."
+ },
+ {
+  "id": "zu_viele_js_css",
+  "name": "Zu viele JS- und CSS-Dateien (> 100)",
+  "schwere": "warning",
+  "kategorie": "performance",
+  "warum": "Jede Datei ist eine eigene Anfrage an den Server, viele davon bremsen den Seitenaufbau.",
+  "beheben": "Dateien bündeln und nicht benötigte Skripte und Styles entfernen."
+ },
+ {
+  "id": "js_css_unkomprimiert",
+  "name": "Unkomprimierte JS- und CSS-Dateien",
+  "schwere": "warning",
+  "kategorie": "performance",
+  "warum": "Ohne gzip oder Brotli überträgt der Server ein Vielfaches der nötigen Datenmenge.",
+  "beheben": "Kompression (gzip/Brotli) für JavaScript und CSS im Webserver einschalten."
+ },
+ {
+  "id": "js_css_ohne_cache",
+  "name": "JS- und CSS-Dateien ohne Browser-Caching",
+  "schwere": "warning",
+  "kategorie": "performance",
+  "warum": "Ohne Cache-Angaben lädt der Browser dieselben Dateien bei jedem Seitenaufruf neu.",
+  "beheben": "Header 'Cache-Control: max-age=…' (oder Expires) für statische Dateien setzen."
+ },
+ {
+  "id": "js_css_nicht_minifiziert",
+  "name": "Skript- und Style-Dateien nicht verkleinert",
+  "schwere": "notice",
+  "kategorie": "performance",
+  "warum": "Leerzeichen, Kommentare und Zeilenumbrüche machen die Dateien größer, die Seite lädt dadurch etwas langsamer.",
+  "beheben": "Aktiviere ein Optimierungs-Plugin (z. B. Autoptimize bei WordPress) oder lass die Dateien beim Build verkleinern (esbuild, cssnano)."
+ },
+ {
+  "id": "skripte_blockierend",
+  "name": "Skripte bremsen den Seitenaufbau",
+  "schwere": "notice",
+  "kategorie": "performance",
+  "warum": "Diese Skripte im <head> laden, bevor die Seite etwas zeigt (kein async oder defer). Besucher sehen länger eine leere Fläche.",
+  "beheben": "Lade Chat-Widget, Tracking und ähnliche Skripte später (Attribut „defer“) oder am Ende der Seite. Das kann deine Technik in Minuten."
+ },
+ {
+  "id": "robots_formatfehler",
+  "name": "Formatfehler in robots.txt",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Fehlerhafte Zeilen werden von Suchmaschinen ignoriert, Sperren greifen evtl. nicht.",
+  "beheben": "Nur gültige Felder (User-agent, Allow, Disallow, Sitemap …) im Format 'Feld: Wert' verwenden."
+ },
+ {
+  "id": "http_nicht_auf_https",
+  "name": "HTTP leitet nicht auf HTTPS um",
+  "schwere": "error",
+  "kategorie": "https",
+  "warum": "Die HTTP-Version ist erreichbar, ohne auf HTTPS weiterzuleiten: doppelte Inhalte, unsichere Aufrufe.",
+  "beheben": "http:// per 301 auf die https://-Version umleiten."
+ },
+ {
+  "id": "www_aufloesung",
+  "name": "WWW-Auflösung uneinheitlich",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Mit und ohne www. sind getrennt erreichbar: Suchmaschinen sehen zwei Websites mit gleichem Inhalt.",
+  "beheben": "Eine Variante wählen und die andere per 301 dorthin umleiten."
+ },
+ {
+  "id": "zertifikat_ablauf",
+  "name": "Zertifikat abgelaufen oder läuft bald ab",
+  "schwere": "error",
+  "kategorie": "https",
+  "warum": "Ein abgelaufenes Zertifikat blockiert Besucher mit einer Browser-Warnung.",
+  "beheben": "Zertifikat erneuern bzw. automatische Erneuerung (z. B. Let's Encrypt) prüfen."
+ },
+ {
+  "id": "zertifikat_name",
+  "name": "Falscher Zertifikatsname",
+  "schwere": "error",
+  "kategorie": "https",
+  "warum": "Das Zertifikat gilt nicht für diesen Hostnamen: Browser zeigen eine Warnung.",
+  "beheben": "Zertifikat für alle genutzten Hostnamen (mit/ohne www.) ausstellen."
+ },
+ {
+  "id": "tls_veraltet",
+  "name": "Veraltetes Sicherheitsprotokoll (TLS 1.0/1.1)",
+  "schwere": "error",
+  "kategorie": "https",
+  "warum": "Alte Protokolle sind unsicher und werden von Browsern nicht mehr unterstützt.",
+  "beheben": "TLS 1.0 und 1.1 auf dem Server abschalten, nur TLS 1.2/1.3 erlauben."
+ },
+ {
+  "id": "llms_fehlt",
+  "name": "llms.txt nicht gefunden",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "llms.txt gibt KI-Assistenten eine kompakte Übersicht der wichtigsten Inhalte.",
+  "beheben": "llms.txt im Root anlegen: '# Name', Kurzbeschreibung, Links zu wichtigen Seiten."
+ },
+ {
+  "id": "llms_format",
+  "name": "llms.txt mit Formatfehlern",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Die Datei sollte Markdown sein und mit einer H1-Zeile ('# Name') beginnen.",
+  "beheben": "Aufbau nach llmstxt.org: H1, Zitat mit Kurzbeschreibung, Abschnitte mit Linklisten."
+ },
+ {
+  "id": "ki_bots_blockiert",
+  "name": "KI-Suchcrawler per robots.txt gesperrt",
+  "schwere": "warning",
+  "kategorie": "ki",
+  "warum": "Gesperrte KI-Crawler können die Website nicht als Quelle in KI-Antworten nennen.",
+  "beheben": "In robots.txt die gewünschten KI-Suchcrawler erlauben."
+ },
+ {
+  "id": "ki_training_bots_blockiert",
+  "name": "KI-Trainingscrawler per robots.txt gesperrt",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Zur Info, kein Fehler: Diese Crawler sammeln Texte für das Training von KI-Modellen (z. B. GPTBot, ClaudeBot). Gesperrt fließen die Inhalte nicht in künftige Modelle ein – die Marke ist dort dann weniger bekannt. Auf die Nennung als Quelle in KI-Suchen hat das keinen Einfluss.",
+  "beheben": "Bewusst entscheiden: Inhalte schützen (Sperre lassen) oder Bekanntheit in KI-Modellen (in robots.txt erlauben)."
+ },
+ {
+  "id": "llms_duenn",
+  "name": "llms.txt ohne Kurzbeschreibung oder Links",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Die llms.txt ist vorhanden, sagt KI-Assistenten aber wenig: Ohne Kurzbeschreibung ('> …') und Links auf die wichtigsten Seiten bringt sie kaum Nutzen.",
+  "beheben": "Unter der H1 ein Zitat mit 1–2 Sätzen zur Website, darunter H2-Abschnitte mit Linklisten '- [Titel](URL): Beschreibung'."
+ },
+ {
+  "id": "llms_tote_links",
+  "name": "llms.txt verlinkt fehlerhafte Seiten",
+  "schwere": "warning",
+  "kategorie": "ki",
+  "warum": "Links in der llms.txt führen auf Seiten, die beim Crawl einen Fehler lieferten. KI-Assistenten landen so auf toten Seiten.",
+  "beheben": "Die Links in der llms.txt korrigieren oder entfernen."
+ },
+ {
+  "id": "sitemap_formatfehler",
+  "name": "Formatfehler in sitemap.xml",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Suchmaschinen können eine fehlerhafte Sitemap nicht oder nur teilweise lesen.",
+  "beheben": "Sitemap gegen das Schema von sitemaps.org prüfen und korrigieren."
+ },
+ {
+  "id": "sitemap_zu_gross",
+  "name": "sitemap.xml zu groß",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Über 50 MB (unkomprimiert) oder 50.000 URLs ignorieren Suchmaschinen den Rest der Datei.",
+  "beheben": "Sitemap aufteilen und über einen Sitemap-Index verbinden."
+ },
+ {
+  "id": "sitemap_falsche_seiten",
+  "name": "Falsche Seiten in sitemap.xml",
+  "schwere": "error",
+  "kategorie": "crawlbarkeit",
+  "warum": "Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten – keine Weiterleitungen, Fehler, Duplikate oder noindex.",
+  "beheben": "Weiterleitungen durch Ziel-URLs ersetzen, Fehlerseiten, Duplikate und noindex-Seiten entfernen."
+ },
+ {
+  "id": "sitemap_http_bei_https",
+  "name": "HTTP-URLs in sitemap.xml einer HTTPS-Website",
+  "schwere": "warning",
+  "kategorie": "https",
+  "warum": "Suchmaschinen müssen jeder HTTP-URL erst per Weiterleitung folgen.",
+  "beheben": "In der Sitemap nur die https://-Adressen verwenden."
+ },
+ {
+  "id": "orphan_sitemap",
+  "name": "Verwaiste Seiten (nur in der Sitemap)",
+  "schwere": "notice",
+  "kategorie": "links",
+  "warum": "Die Seite steht in der Sitemap, wird aber von keiner anderen Seite verlinkt.",
+  "beheben": "Seite intern verlinken oder, falls nicht mehr gebraucht, aus der Sitemap entfernen."
+ }
+]

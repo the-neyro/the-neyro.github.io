@@ -1,0 +1,260 @@
+[
+ {
+  "check": "status_4xx",
+  "name": "Seiten mit 4xx-Statuscode",
+  "schwere": "error",
+  "pfad": "/fruehjahrsaktion-2025"
+ },
+ {
+  "check": "perm_redirect",
+  "name": "Interne Links auf alte Adressen (dauerhafte Weiterleitung)",
+  "schwere": "notice",
+  "pfad": "/fahrradleasing"
+ },
+ {
+  "check": "meta_desc_doppelt",
+  "name": "Doppelte Meta-Descriptions",
+  "schwere": "error",
+  "pfad": "/blog"
+ },
+ {
+  "check": "meta_desc_doppelt",
+  "name": "Doppelte Meta-Descriptions",
+  "schwere": "error",
+  "pfad": "/blog/winter-check"
+ },
+ {
+  "check": "meta_desc_doppelt",
+  "name": "Doppelte Meta-Descriptions",
+  "schwere": "error",
+  "pfad": "/preise"
+ },
+ {
+  "check": "meta_desc_doppelt",
+  "name": "Doppelte Meta-Descriptions",
+  "schwere": "error",
+  "pfad": "/ueber-uns"
+ },
+ {
+  "check": "title_zu_lang",
+  "name": "Title zu lang (> 70 Zeichen)",
+  "schwere": "warning",
+  "pfad": "/blog/reifendruck"
+ },
+ {
+  "check": "title_zu_lang",
+  "name": "Title zu lang (> 70 Zeichen)",
+  "schwere": "warning",
+  "pfad": "/leihraeder"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/angebote"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/blog"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/blog/kette-oelen"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/blog/winter-check"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/datenschutz"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/faq"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/impressum"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/preise"
+ },
+ {
+  "check": "meta_desc_zu_kurz",
+  "name": "Meta-Description zu kurz (< 70 Zeichen)",
+  "schwere": "notice",
+  "pfad": "/ueber-uns"
+ },
+ {
+  "check": "meta_desc_fehlt",
+  "name": "Meta-Description fehlt",
+  "schwere": "warning",
+  "pfad": "/kontakt"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/angebote"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/blog"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/blog/winter-check"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/datenschutz"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/faq"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/impressum"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/kontakt"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/preise"
+ },
+ {
+  "check": "wenig_text",
+  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
+  "schwere": "warning",
+  "pfad": "/ueber-uns"
+ },
+ {
+  "check": "bilder_ohne_alt",
+  "name": "Bilder ohne alt-Attribut",
+  "schwere": "warning",
+  "pfad": "/"
+ },
+ {
+  "check": "bilder_ohne_alt",
+  "name": "Bilder ohne alt-Attribut",
+  "schwere": "warning",
+  "pfad": "/e-bikes"
+ },
+ {
+  "check": "bilder_ohne_alt",
+  "name": "Bilder ohne alt-Attribut",
+  "schwere": "warning",
+  "pfad": "/ueber-uns"
+ },
+ {
+  "check": "ohne_last_modified",
+  "name": "Kein Last-Modified-Header",
+  "schwere": "notice",
+  "pfad": "(ganze Website)"
+ },
+ {
+  "check": "ki_fragen_ohne_faq",
+  "name": "Fragen ohne FAQ-Markup",
+  "schwere": "notice",
+  "pfad": "/blog/kette-oelen"
+ },
+ {
+  "check": "ki_fragen_ohne_faq",
+  "name": "Fragen ohne FAQ-Markup",
+  "schwere": "notice",
+  "pfad": "/faq"
+ },
+ {
+  "check": "ki_fragen_ohne_faq",
+  "name": "Fragen ohne FAQ-Markup",
+  "schwere": "notice",
+  "pfad": "/werkstatt"
+ },
+ {
+  "check": "ki_artikel_ohne_autor_datum",
+  "name": "Artikel ohne Autor oder Datum",
+  "schwere": "notice",
+  "pfad": "/blog/reifendruck"
+ },
+ {
+  "check": "interne_links_defekt",
+  "name": "Defekte interne Links",
+  "schwere": "error",
+  "pfad": "/angebote"
+ },
+ {
+  "check": "nur_ein_eingehender_link",
+  "name": "Nur ein eingehender interner Link",
+  "schwere": "notice",
+  "pfad": "/blog/kette-oelen"
+ },
+ {
+  "check": "nur_ein_eingehender_link",
+  "name": "Nur ein eingehender interner Link",
+  "schwere": "notice",
+  "pfad": "/blog/reifendruck"
+ },
+ {
+  "check": "nur_ein_eingehender_link",
+  "name": "Nur ein eingehender interner Link",
+  "schwere": "notice",
+  "pfad": "/blog/winter-check"
+ },
+ {
+  "check": "llms_fehlt",
+  "name": "llms.txt nicht gefunden",
+  "schwere": "notice",
+  "pfad": "(ganze Website)"
+ },
+ {
+  "check": "sitemap_falsche_seiten",
+  "name": "Falsche Seiten in sitemap.xml",
+  "schwere": "error",
+  "pfad": "/fahrradleasing"
+ },
+ {
+  "check": "orphan_sitemap",
+  "name": "Verwaiste Seiten (nur in der Sitemap)",
+  "schwere": "notice",
+  "pfad": "/angebote"
+ },
+ {
+  "check": "orphan_sitemap",
+  "name": "Verwaiste Seiten (nur in der Sitemap)",
+  "schwere": "notice",
+  "pfad": "/ueber-uns"
+ }
+]

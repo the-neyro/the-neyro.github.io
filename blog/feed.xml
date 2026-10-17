@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="de">
+  <title>Nextfix-Blog</title>
+  <subtitle>Neues aus der Entwicklung von Nextfix, dem kostenlosen SEO-Tool für deinen Rechner.</subtitle>
+  <link href="https://the-neyro.github.io/blog/"/>
+  <link rel="self" href="https://the-neyro.github.io/blog/feed.xml"/>
+  <id>https://the-neyro.github.io/blog/</id>
+  <updated>2026-10-17T18:00:00Z</updated>
+  <author><name>Nextfix</name></author>
+  <entry>
+    <title>Die Website hat ein neues Gesicht</title>
+    <link href="https://the-neyro.github.io/blog/neue-website/"/>
+    <id>https://the-neyro.github.io/blog/neue-website/</id>
+    <updated>2026-10-17T18:00:00Z</updated>
+    <summary>Sieben Prüfer haben die Nextfix-Website zerlegt. Was sie gefunden haben, was wir geändert haben und was noch kommt.</summary>
+    <content type="html">&lt;p&gt;Bevor wir diese Website zeigen, wollten wir wissen, wie sie auf andere wirkt. Also haben sieben unabhängige Prüfer sie auseinandergenommen: zwei Gestalter, eine UX-Expertin, ein Texter, eine Prüferin für Barrierefreiheit, ein Blick aus rechtlicher Sicht und eine Suche nach passenden Werkzeugen.&lt;/p&gt;
+&lt;h2&gt;Was sie gefunden haben&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Alles war rot.&lt;/strong&gt; Text, Links, Knöpfe, Code: alles in Weinrot auf Grau. Das wirkte wie eine Mahnung, und Rot ist im Produkt die Farbe für „Dringend“.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Die Überschrift war klug, aber nicht klar.&lt;/strong&gt; Man musste zweimal hinsehen, um zu verstehen, dass es um die eigene Website geht.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Die Titel-Prüfung machte schwache Vorschläge.&lt;/strong&gt; Kleingeschriebene Orte, doppelte Wörter, ein „zu lang“ ohne Vorschlag.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Manche Sätze versprachen zu viel.&lt;/strong&gt; Etwa „läuft danach alles im Browser“, obwohl jeder Start einen Befehl im Terminal braucht.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Was wir geändert haben&lt;/h2&gt;
+&lt;p&gt;Graphit auf hellem Papier, das Violett aus dem Produkt als einzige Akzentfarbe. Oben steht jetzt in einem Satz, was Nextfix tut, und rechts arbeitet sich eine echte Aufgabenliste ab. Die Titel-Prüfung kennt Firmennamen, Füllwörter und Großschreibung und zeigt jetzt eine Google-Vorschau. Die Texte sagen ehrlich, was Nextfix kann und was nicht. Und ohne JavaScript bleibt nichts mehr unsichtbar.&lt;/p&gt;
+&lt;h2&gt;Was noch kommt&lt;/h2&gt;
+&lt;p&gt;Ein Video eines echten Durchlaufs, ein Vorher-Nachher an der Demo-Website und eine Demo zum Durchklicken. Hier im Blog steht, wenn es so weit ist.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Domain-Stärke ohne Abo</title>
+    <link href="https://the-neyro.github.io/blog/domain-staerke-ohne-abo/"/>
+    <id>https://the-neyro.github.io/blog/domain-staerke-ohne-abo/</id>
+    <updated>2026-10-17T15:00:00Z</updated>
+    <summary>Nextfix zeigt jetzt, wie stark deine Domain im Vergleich zur Konkurrenz ist, mit den kostenlosen Daten von Open PageRank.</summary>
+    <content type="html">&lt;p&gt;Wie stark ist meine Website im Vergleich zu den anderen in meiner Branche? Große SEO-Suiten beantworten das mit eigenen Linkdatenbanken, die viel Geld kosten. Nextfix bleibt kostenlos und nutzt deshalb &lt;strong&gt;Open PageRank&lt;/strong&gt;: eine freie Kennzahl von 0 bis 10, berechnet aus öffentlich verfügbaren Linkdaten.&lt;/p&gt;
+&lt;h2&gt;So funktioniert es&lt;/h2&gt;
+&lt;ol&gt;&lt;li&gt;Du holst dir einmal einen kostenlosen Schlüssel bei Open PageRank.&lt;/li&gt;&lt;li&gt;Nextfix fragt damit die Werte für deine Domain und für die Konkurrenz ab, die du angibst.&lt;/li&gt;&lt;li&gt;Die Startseite von Nextfix zeigt den Vergleich, die Werte bleiben 30 Tage im Speicher, damit nicht ständig neu gefragt wird.&lt;/li&gt;&lt;/ol&gt;
+&lt;h2&gt;Was die Zahl ist und was nicht&lt;/h2&gt;
+&lt;p&gt;Open PageRank ist eine grobe Einordnung, kein Ranking-Faktor von Google. Die Teilnote „Autorität“ fließt deshalb nicht in den Website-Zustand ein. Einzelne Backlinks zeigt Nextfix nicht, dafür bräuchte es eine bezahlte Datenbank. Wenn du wissen willst, wer genau auf dich verlinkt, schau in der Search Console unter „Links“ nach.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Websites, die erst im Browser entstehen</title>
+    <link href="https://the-neyro.github.io/blog/javascript-websites/"/>
+    <id>https://the-neyro.github.io/blog/javascript-websites/</id>
+    <updated>2026-10-17T12:00:00Z</updated>
+    <summary>Manche Websites schicken fast leeres HTML und bauen den Inhalt per JavaScript. Nextfix erkennt das jetzt und kann solche Seiten auch richtig prüfen.</summary>
+    <content type="html">&lt;p&gt;Viele moderne Websites sind eigentlich Apps: Der Server schickt eine fast leere Seite, und erst das JavaScript im Browser baut Texte, Menüs und Links. Für Besucher ist das kein Unterschied. Für ein Prüfwerkzeug schon: Wer nur das HTML liest, sieht eine leere Seite und meldet lauter falsche Fehler.&lt;/p&gt;
+&lt;h2&gt;Was Nextfix jetzt macht&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Es erkennt das Muster.&lt;/strong&gt; Findet Nextfix einen leeren App-Container (etwa &lt;code&gt;&amp;lt;div id=&amp;quot;root&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/code&gt;) und kaum Text, zeigt die Übersicht einen Hinweis: Diese Website entsteht per JavaScript, prüf sie mit eingeschaltetem Rendering.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Es kann rendern.&lt;/strong&gt; In den Einstellungen gibt es dafür einen Schalter. Dann lädt Nextfix jede Seite in einem echten Chromium und prüft, was ein Besucher sieht. Bilder, Schriften und Videos lässt es dabei weg, damit es schneller geht.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Es vergleicht.&lt;/strong&gt; Mit Rendering misst Nextfix zusätzlich, wie viel Text erst durch JavaScript entsteht. Steht der wichtige Inhalt nur dort, gibt es eine eigene Aufgabe dafür, denn nicht jede Suchmaschine und kein KI-Crawler wartet auf dein JavaScript.&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Für klassische Websites, etwa mit WordPress, ändert sich nichts. Bei einer statischen Testseite waren die Ergebnisse mit und ohne Rendering gleich.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Wirkung statt Scheinpunkte</title>
+    <link href="https://the-neyro.github.io/blog/wirkung-statt-punkte/"/>
+    <id>https://the-neyro.github.io/blog/wirkung-statt-punkte/</id>
+    <updated>2026-10-17T09:00:00Z</updated>
+    <summary>Aufgaben in Nextfix zeigen jetzt „Wirkung hoch, mittel oder gering“ statt „+4,2 Punkte“. Warum eine genaue Zahl hier täuscht.</summary>
+    <content type="html">&lt;p&gt;Früher stand an jeder Aufgabe in „Was jetzt tun“ eine Zahl: „+4,2 Punkte“. Das sah genau aus, war es aber nicht.&lt;/p&gt;
+&lt;h2&gt;Das Problem mit der Zahl&lt;/h2&gt;
+&lt;p&gt;Die Punkte kamen aus unserer eigenen Formel für den Website-Zustand. Sie sagen, wie stark eine Aufgabe diese Zahl verändert. Über Google sagen sie nichts. Niemand kann seriös vorhersagen, wie viele Besucher dir eine behobene Beschreibung bringt. Eine Kommastelle tut aber so, als wüsste man es.&lt;/p&gt;
+&lt;h2&gt;Was jetzt da steht&lt;/h2&gt;
+&lt;p&gt;Jede Aufgabe hat eine von drei Stufen: &lt;strong&gt;Wirkung hoch&lt;/strong&gt;, &lt;strong&gt;mittel&lt;/strong&gt; oder &lt;strong&gt;gering&lt;/strong&gt;. Die Reihenfolge bleibt gleich, oben steht weiter, was am meisten bringt. Nur die falsche Genauigkeit ist weg.&lt;/p&gt;
+&lt;p&gt;Dazu sagt jede Aufgabe weiterhin, wie viel Aufwand sie ist (zum Beispiel „kurz je Seite“ oder „einmal einstellen“) und wer sie meistens erledigt: du selbst im CMS oder deine Technik.&lt;/p&gt;
+&lt;p&gt;Wer Nextfix über Claude bedient, bekommt die genaue Zahl weiterhin mitgeliefert, für eigene Auswertungen. In der Oberfläche, im PDF-Bericht und hier auf der Website steht nur noch die Stufe.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Ladezeit zählt jetzt zum Website-Zustand</title>
+    <link href="https://the-neyro.github.io/blog/ladezeit-zaehlt-mit/"/>
+    <id>https://the-neyro.github.io/blog/ladezeit-zaehlt-mit/</id>
+    <updated>2026-10-16T09:00:00Z</updated>
+    <summary>Eine langsame Seite ist ein echtes Problem, also fließt die Ladezeit jetzt in den Website-Zustand ein. So misst Nextfix sie und so wird gerechnet.</summary>
+    <content type="html">&lt;p&gt;Bisher stand die Ladezeit in Nextfix für sich: eine eigene Messung, ein eigener Bereich, aber kein Einfluss auf die Zahl, die du zuerst siehst. Das war unehrlich. Eine Seite, die auf dem Handy fünf Sekunden zum Aufbau braucht, hat ein Problem, auch wenn Titel und Links stimmen.&lt;/p&gt;
+&lt;h2&gt;Was sich geändert hat&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;Drei neue Prüfungen: &lt;strong&gt;größtes Element lädt zu langsam&lt;/strong&gt; (LCP), &lt;strong&gt;Layout springt beim Laden&lt;/strong&gt; (CLS) und &lt;strong&gt;Seite blockiert zu lange&lt;/strong&gt; (TBT). Gemessen wird für das Handy.&lt;/li&gt;&lt;li&gt;Die Ladezeit misst Nextfix auf deinem Rechner, mit einem echten Chromium und gedrosselter Leitung, wie Lighthouse. Bei einer Testseite lagen wir bei 96, PageSpeed Insights bei 99.&lt;/li&gt;&lt;li&gt;Gezählt wird gegen die Seiten, die tatsächlich gemessen wurden. Wenn du nur fünf Seiten misst und zwei sind langsam, wiegt das schwer, egal wie groß die Website ist.&lt;/li&gt;&lt;li&gt;Nach jeder Messung rechnet Nextfix den Zustand neu. Auf Wunsch misst es nach jeder Prüfung automatisch mit.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Was es nicht ist&lt;/h2&gt;
+&lt;p&gt;Das sind Labormessungen, keine Daten von echten Besuchern. Die Werte zeigen dir, wo es hakt. Was Google bei echten Besuchern misst, siehst du in der Search Console.&lt;/p&gt;</content>
+  </entry>
+</feed>

@@ -7,7 +7,7 @@
 <meta name="description" content="So installierst du das kostenlose SEO-Tool Nextfix auf dem Mac: Python prüfen, herunterladen, einrichten, starten. Dauert einmalig 10 bis 20 Minuten.">
 <!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
 <link rel="canonical" href="https://the-neyro.github.io/installation/">
-<meta name="theme-color" content="#e2e2e2">
+<meta name="theme-color" content="#f7f6f3">
 <link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nextfix">
@@ -26,6 +26,7 @@
 <link rel="preload" href="../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
+<link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../blog/feed.xml">
 </head>
 <body>
 <a class="skip" href="#inhalt">Zum Inhalt</a>
@@ -34,15 +35,28 @@
   <nav class="site-nav" aria-label="Hauptmenü">
     <a href="../funktionen/">Funktionen</a>
     <a href="../faq/">FAQ</a>
+    <a class="nav-wide" href="../blog/">Blog</a>
     <a class="nav-wide" href="https://github.com/the-neyro/nextfix">GitHub</a>
     <a class="button button--small" href="./" aria-current="page">Installieren</a>
   </nav>
 </header>
 
 <main id="inhalt">
-  <div class="page-head">
+  <div class="page-head page-head--split">
+    <div class="page-head__main">
     <h1 data-reveal>Nextfix installieren</h1>
     <p class="statement" data-reveal style="--i:1">Einmal 10 bis 20 Minuten, getestet auf dem Mac. Du brauchst Python 3.12 und das Terminal. Jeden Befehl kannst du kopieren.</p>
+    </div>
+    <aside class="page-head__side" data-reveal style="--i:2" aria-label="Auf einen Blick">
+      <dl class="facts-card">
+        <div><dt>Du brauchst</dt><dd>einen Mac (getestet), Python 3.12 und einmal das Terminal</dd></div>
+        <div><dt>Dauer</dt><dd>einmal 10 bis 20 Minuten</dd></div>
+        <div><dt>Danach</dt><dd>starten, Adresse eintragen, prüfen</dd></div>
+        <div><dt>Entfernen</dt><dd>Ordner löschen, fertig</dd></div>
+      </dl>
+      <p class="facts-card__alt"><strong>Kein Terminal-Mensch?</strong> Schick die Anleitung deinem Webbetreuer.</p>
+      <a class="button button--small" href="mailto:?subject=Kannst%20du%20Nextfix%20f%C3%BCr%20unsere%20Website%20einrichten%3F&amp;body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20unsere%20Website%20mit%20Nextfix%20pr%C3%BCfen.%20Das%20ist%20ein%20kostenloses%20Open-Source-SEO-Tool%2C%20das%20lokal%20l%C3%A4uft%20(kein%20Konto%2C%20kein%20Abo).%0A%0AAnleitung%3A%20https%3A%2F%2Fthe-neyro.github.io%2Finstallation%2F%20(einmal%20ca.%2015%20Minuten)%0A%0ADanach%20bitte%20die%20Aufgaben%20mit%20%E2%80%9EWirkung%20hoch%E2%80%9C%20zuerst%20angehen.%0A%0ADanke!">E-Mail an den Webbetreuer</a>
+    </aside>
   </div>
 
   <div class="prose">
@@ -156,7 +170,7 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
     </figure>
     <p>Für die Domain-Autorität holst du dir einen kostenlosen Schlüssel bei <a href="https://openpagerank.keywordseverywhere.com/dashboard">Open PageRank</a> und speicherst ihn als <code>~/.config/seo-tool/openpagerank-api-key.txt</code>.</p>
 
-    <h2>Optional: mit Claude bedienen</h2>
+    <h2 id="claude">Optional: mit Claude bedienen</h2>
     <p>Nextfix bringt einen MCP-Server mit 50 Werkzeugen mit. Für Claude Code kopierst du <code>.mcp.json.example</code> nach <code>.mcp.json</code> und trägst den Pfad zu deinem Nextfix-Ordner ein. Danach kannst du Claude etwa bitten, deine Website zu prüfen und die drei wichtigsten Aufgaben zu erklären.</p>
 
     <h2>Aktualisieren und entfernen</h2>
@@ -175,6 +189,8 @@ cd nextfix</code></pre><button class="code__copy" type="button" hidden>Kopieren<
       <p class="foot-note">Öffnet localhost:8000 auf deinem Rechner. Läuft nicht? <a href="#starten">Zurück zu Schritt 4</a> oder <a href="#hilfe">Hilfe bei Fehlern</a>.</p>
     </div>
     <nav class="foot-links" aria-label="Fußmenü">
+      <a href="../pruefungen/">Alle Prüfungen</a>
+      <a href="../blog/">Blog</a>
       <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
       <a href="../funktionen/">Funktionen</a>
       <a href="./">Installation</a>
