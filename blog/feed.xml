@@ -5,8 +5,32 @@
   <link href="https://the-neyro.github.io/blog/"/>
   <link rel="self" href="https://the-neyro.github.io/blog/feed.xml"/>
   <id>https://the-neyro.github.io/blog/</id>
-  <updated>2026-10-17T22:00:00Z</updated>
+  <updated>2026-10-18T14:00:00Z</updated>
   <author><name>Nextfix</name></author>
+  <entry>
+    <title>Nextfix prüft seine eigene Website</title>
+    <link href="https://the-neyro.github.io/blog/nextfix-prueft-seine-eigene-website/"/>
+    <id>https://the-neyro.github.io/blog/nextfix-prueft-seine-eigene-website/</id>
+    <updated>2026-10-18T14:00:00Z</updated>
+    <summary>Drei Durchläufe an dieser Website: von 64 auf 98. Was davon echte Verbesserung war, was Fehlalarme von Nextfix selbst und was wir daraus gelernt haben.</summary>
+    <content type="html">&lt;p&gt;Alle Zahlen auf dieser Website stammen bisher von „Radhaus Elbe“, einer erfundenen Demo-Website. Das ist praktisch, beweist aber wenig. Also haben wir Nextfix auf die echte Website losgelassen, die du gerade liest: the-neyro.github.io, mit Blog, Prüfungskatalog und der klickbaren Demo. Hier sind die drei Durchläufe, auf die es ankommt (dazwischen gab es ein paar Testläufe mit ähnlichem Ergebnis), alle mit Nextfix selbst.&lt;/p&gt;
+&lt;h2&gt;Durchlauf 1: 64,3&lt;/h2&gt;
+&lt;p&gt;Am 17. Oktober abends, noch ohne den Fix aus Version 0.2.1: 76 Seiten, Website-Zustand &lt;strong&gt;64,3&lt;/strong&gt;. Ganz oben standen 21 doppelte Seitentitel, 54 Seiten ohne Beschreibung und zwei fast gleiche Seiten.&lt;/p&gt;
+&lt;p&gt;Das klang schlimm, stimmte aber nicht. Alle Funde lagen in /demo/, der klickbaren Kopie der Oberfläche. Diese Seiten sind mit „noindex“ für Google ausgeblendet, Google zeigt sie also nie an. Nextfix hat sie trotzdem mitgezählt. Das war ein Fehler in Nextfix, nicht auf der Website.&lt;/p&gt;
+&lt;h2&gt;Durchlauf 2: 66,3&lt;/h2&gt;
+&lt;p&gt;Der Fehler ist seit Version 0.2.1 behoben: Seiten mit „noindex“ zählen nicht mehr bei Titeln, Beschreibungen, Überschriften und doppeltem Inhalt. Am 18. Oktober mit 0.2.2 waren diese Funde weg. Der Zustand lag trotzdem nur bei &lt;strong&gt;66,3&lt;/strong&gt;, denn diesmal meldete Nextfix vier Seiten als „nicht erreichbar“ und deshalb defekte Links auf 16 Seiten.&lt;/p&gt;
+&lt;p&gt;Auch das stimmte nicht. Die vier Seiten liefen, im Browser und bei einem zweiten Abruf. Während des Durchlaufs hatte nur der Verbindungsaufbau zu GitHub ein paar Mal zu lange gedauert. Nextfix versucht es in so einem Fall bisher nicht ein zweites Mal. Das reparieren wir gerade.&lt;/p&gt;
+&lt;p&gt;Zwei echte Funde gab es: Ein Blogbeitrag hatte nur 194 Wörter, und auf der Startseite fehlte die maschinenlesbare Angabe, wer hinter der Website steht. Beides haben wir behoben.&lt;/p&gt;
+&lt;h2&gt;Durchlauf 3: 97,9&lt;/h2&gt;
+&lt;p&gt;Kurz danach, gleicher Code, 78 Seiten: &lt;strong&gt;97,9&lt;/strong&gt;. Keine dringenden Aufgaben mehr, eine wichtige, dazu vier Hinweise als Feinschliff. Technik, Inhalt, HTTPS und Crawlbarkeit stehen bei 100.&lt;/p&gt;
+&lt;p&gt;Ehrlich gesagt: Der Sprung von 66 auf 98 kommt fast ganz daher, dass die Zeitüberschreitungen diesmal nicht auftraten. Unsere eigenen Änderungen haben nur einen kleinen Teil beigetragen.&lt;/p&gt;
+&lt;h2&gt;Was übrig bleibt&lt;/h2&gt;
+&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Zwei „defekte“ Links, beide in Ordnung.&lt;/strong&gt; Der Hilfe-Link zur Search Console liefert Nextfix eine 404, einem normalen Browser aber die Seite. Google behandelt Abrufe mit Bot-Kennung anders. Und der Knopf „Nextfix öffnen“ zeigt absichtlich auf &lt;code&gt;localhost&lt;/code&gt;, also auf das Programm auf deinem eigenen Rechner. Beides soll Nextfix künftig erkennen.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;54 Seiten für Google gesperrt:&lt;/strong&gt; die Demo, mit Absicht.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;CSS und JavaScript nicht verkleinert:&lt;/strong&gt; stimmt. Bei einem Stylesheet und einem Skript bringt das wenig, steht aber auf der Liste.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Texte ohne Zahlen und Quellen&lt;/strong&gt; auf sieben Seiten, &lt;strong&gt;Fragen ohne FAQ-Markup&lt;/strong&gt; auf zwei: Feinschliff für die KI-Suche, als Nächstes dran.&lt;/li&gt;&lt;/ul&gt;
+&lt;h2&gt;Was wir daraus gelernt haben&lt;/h2&gt;
+&lt;p&gt;Ein Prüfwerkzeug muss sich selbst prüfen lassen. Die eigene Website hat Nextfix drei echte Schwächen gezeigt: noindex-Seiten zählten mit (behoben in 0.2.1), ein einzelner langsamer Abruf zählte als Ausfall, und manche Links werden mit Bot-Kennung falsch eingeschätzt (beides in Arbeit). Jede davon hätte auch bei dir zu falschen Aufgaben geführt.&lt;/p&gt;
+&lt;p&gt;Für dich heißt das: Wenn Nextfix etwas meldet, schau kurz nach, ob es stimmt. Ist es Absicht, blendest du es mit „Bewusst so“ aus, dann zählt es nicht mehr. Und wenn Nextfix sich irrt, freut sich das Projekt über ein &lt;a href=&quot;https://github.com/the-neyro/nextfix/issues&quot;&gt;Issue auf GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Gemessen am 17. und 18. Oktober 2026, zuerst mit dem Stand vor 0.2.1, dann mit 0.2.2, Projekt „the-neyro.github.io“, Standardeinstellungen (500 Seiten, robots.txt beachten).&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Nextfix 0.2: Lösungen in Klartext</title>
     <link href="https://the-neyro.github.io/blog/version-0-2-0/"/>

@@ -18,6 +18,7 @@ Aktuelle Version: 0.2.2 vom 18.10.2026. Läuft auf macOS und Linux; Windows funk
 
 ## Blog
 
+- [Nextfix prüft seine eigene Website | Nextfix-Blog](https://the-neyro.github.io/blog/nextfix-prueft-seine-eigene-website/): Drei Durchläufe an dieser Website: von 64 auf 98. Was davon echte Verbesserung war, was Fehlalarme von Nextfix selbst und was wir daraus gelernt haben.
 - [Wirkung statt Scheinpunkte | Nextfix-Blog](https://the-neyro.github.io/blog/wirkung-statt-punkte/): Aufgaben in Nextfix zeigen jetzt „Wirkung hoch, mittel oder gering“ statt „+4,2 Punkte“. Warum eine genaue Zahl hier täuscht.
 - [Vier Aufgaben später: Website-Zustand von 49 auf 91 | Nextfix-Blog](https://the-neyro.github.io/blog/vier-aufgaben-spaeter/): Wir haben an der Demo-Website die ersten vier Aufgaben aus „Was jetzt tun“ wirklich erledigt und neu geprüft. Was sich geändert hat und was nicht.
 - [Nextfix 0.2: Lösungen in Klartext | Nextfix-Blog](https://the-neyro.github.io/blog/version-0-2-0/): Die zehn häufigsten Aufgaben erklären jetzt in Klartext, wie du sie selbst behebst, mit WordPress-Hinweis. Dazu Doppelklick-Start auf Windows.

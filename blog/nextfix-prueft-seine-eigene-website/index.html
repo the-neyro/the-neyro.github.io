@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nextfix prüft seine eigene Website | Nextfix-Blog</title>
+<meta name="description" content="Drei Durchläufe an dieser Website: von 64 auf 98. Was davon echte Verbesserung war, was Fehlalarme von Nextfix selbst und was wir daraus gelernt haben.">
+<!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
+<link rel="canonical" href="https://the-neyro.github.io/blog/nextfix-prueft-seine-eigene-website/">
+<meta name="theme-color" content="#f7f6f3">
+<link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nextfix">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Nextfix prüft seine eigene Website | Nextfix-Blog">
+<meta property="og:description" content="Drei Durchläufe an dieser Website: von 64 auf 98. Was davon echte Verbesserung war, was Fehlalarme von Nextfix selbst und was wir daraus gelernt haben.">
+<meta property="og:url" content="https://the-neyro.github.io/blog/nextfix-prueft-seine-eigene-website/">
+<meta property="og:image" content="https://the-neyro.github.io/assets/img/og/nextfix-prueft-seine-eigene-website.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Nextfix-Blog: Nextfix prüft seine eigene Website">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Nextfix","item":"https://the-neyro.github.io/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://the-neyro.github.io/blog/"},{"@type":"ListItem","position":3,"name":"Nextfix prüft seine eigene Website","item":"https://the-neyro.github.io/blog/nextfix-prueft-seine-eigene-website/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Nextfix prüft seine eigene Website","description":"Drei Durchläufe an dieser Website: von 64 auf 98. Was davon echte Verbesserung war, was Fehlalarme von Nextfix selbst und was wir daraus gelernt haben.","datePublished":"2026-10-18","dateModified":"2026-10-18","inLanguage":"de","mainEntityOfPage":"https://the-neyro.github.io/blog/nextfix-prueft-seine-eigene-website/","image":"https://the-neyro.github.io/assets/img/og/nextfix-prueft-seine-eigene-website.png","author":{"@type":"Person","name":"the-neyro","url":"https://github.com/the-neyro"},"publisher":{"@type":"Organization","name":"Nextfix","url":"https://the-neyro.github.io/"}}</script>
+<!-- seo:ende -->
+<link rel="icon" href="../../favicon.svg" type="image/svg+xml">
+<link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../../blog/feed.xml">
+<link rel="preload" href="../../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+
+<header class="site-head">
+  <a class="wordmark" href="../../" aria-label="Nextfix, Startseite">Nextfix</a>
+  <nav class="site-nav" aria-label="Hauptmenü">
+    <a href="../../funktionen/">Funktionen</a>
+    <a href="../../faq/">FAQ</a>
+    <a class="nav-wide" href="../../blog/" aria-current="page">Blog</a>
+    <a class="nav-wide" href="https://github.com/the-neyro/nextfix">GitHub</a>
+    <a class="button button--small" href="../../installation/">Installieren</a>
+  </nav>
+</header>
+
+<main id="inhalt">
+  <article class="post">
+    <header class="page-head post__head">
+      <p class="post__date"><a class="link" href="../">Blog</a> · Neuigkeiten · <time datetime="2026-10-18">18. Oktober 2026</time> · von <a class="link" href="https://github.com/the-neyro">the-neyro</a></p>
+      <h1>Nextfix prüft seine eigene Website</h1>
+      <p class="statement">Drei Durchläufe an dieser Website: von 64 auf 98. Was davon echte Verbesserung war, was Fehlalarme von Nextfix selbst und was wir daraus gelernt haben.</p>
+    </header>
+    <div class="prose post__body">
+<p>Alle Zahlen auf dieser Website stammen bisher von „Radhaus Elbe“, einer erfundenen Demo-Website. Das ist praktisch, beweist aber wenig. Also haben wir Nextfix auf die echte Website losgelassen, die du gerade liest: the-neyro.github.io, mit Blog, Prüfungskatalog und der klickbaren Demo. Hier sind die drei Durchläufe, auf die es ankommt (dazwischen gab es ein paar Testläufe mit ähnlichem Ergebnis), alle mit Nextfix selbst.</p>
+<h2>Durchlauf 1: 64,3</h2>
+<p>Am 17. Oktober abends, noch ohne den Fix aus Version 0.2.1: 76 Seiten, Website-Zustand <strong>64,3</strong>. Ganz oben standen 21 doppelte Seitentitel, 54 Seiten ohne Beschreibung und zwei fast gleiche Seiten.</p>
+<p>Das klang schlimm, stimmte aber nicht. Alle Funde lagen in /demo/, der klickbaren Kopie der Oberfläche. Diese Seiten sind mit „noindex“ für Google ausgeblendet, Google zeigt sie also nie an. Nextfix hat sie trotzdem mitgezählt. Das war ein Fehler in Nextfix, nicht auf der Website.</p>
+<h2>Durchlauf 2: 66,3</h2>
+<p>Der Fehler ist seit Version 0.2.1 behoben: Seiten mit „noindex“ zählen nicht mehr bei Titeln, Beschreibungen, Überschriften und doppeltem Inhalt. Am 18. Oktober mit 0.2.2 waren diese Funde weg. Der Zustand lag trotzdem nur bei <strong>66,3</strong>, denn diesmal meldete Nextfix vier Seiten als „nicht erreichbar“ und deshalb defekte Links auf 16 Seiten.</p>
+<p>Auch das stimmte nicht. Die vier Seiten liefen, im Browser und bei einem zweiten Abruf. Während des Durchlaufs hatte nur der Verbindungsaufbau zu GitHub ein paar Mal zu lange gedauert. Nextfix versucht es in so einem Fall bisher nicht ein zweites Mal. Das reparieren wir gerade.</p>
+<p>Zwei echte Funde gab es: Ein Blogbeitrag hatte nur 194 Wörter, und auf der Startseite fehlte die maschinenlesbare Angabe, wer hinter der Website steht. Beides haben wir behoben.</p>
+<h2>Durchlauf 3: 97,9</h2>
+<p>Kurz danach, gleicher Code, 78 Seiten: <strong>97,9</strong>. Keine dringenden Aufgaben mehr, eine wichtige, dazu vier Hinweise als Feinschliff. Technik, Inhalt, HTTPS und Crawlbarkeit stehen bei 100.</p>
+<p>Ehrlich gesagt: Der Sprung von 66 auf 98 kommt fast ganz daher, dass die Zeitüberschreitungen diesmal nicht auftraten. Unsere eigenen Änderungen haben nur einen kleinen Teil beigetragen.</p>
+<h2>Was übrig bleibt</h2>
+<ul><li><strong>Zwei „defekte“ Links, beide in Ordnung.</strong> Der Hilfe-Link zur Search Console liefert Nextfix eine 404, einem normalen Browser aber die Seite. Google behandelt Abrufe mit Bot-Kennung anders. Und der Knopf „Nextfix öffnen“ zeigt absichtlich auf <code>localhost</code>, also auf das Programm auf deinem eigenen Rechner. Beides soll Nextfix künftig erkennen.</li><li><strong>54 Seiten für Google gesperrt:</strong> die Demo, mit Absicht.</li><li><strong>CSS und JavaScript nicht verkleinert:</strong> stimmt. Bei einem Stylesheet und einem Skript bringt das wenig, steht aber auf der Liste.</li><li><strong>Texte ohne Zahlen und Quellen</strong> auf sieben Seiten, <strong>Fragen ohne FAQ-Markup</strong> auf zwei: Feinschliff für die KI-Suche, als Nächstes dran.</li></ul>
+<h2>Was wir daraus gelernt haben</h2>
+<p>Ein Prüfwerkzeug muss sich selbst prüfen lassen. Die eigene Website hat Nextfix drei echte Schwächen gezeigt: noindex-Seiten zählten mit (behoben in 0.2.1), ein einzelner langsamer Abruf zählte als Ausfall, und manche Links werden mit Bot-Kennung falsch eingeschätzt (beides in Arbeit). Jede davon hätte auch bei dir zu falschen Aufgaben geführt.</p>
+<p>Für dich heißt das: Wenn Nextfix etwas meldet, schau kurz nach, ob es stimmt. Ist es Absicht, blendest du es mit „Bewusst so“ aus, dann zählt es nicht mehr. Und wenn Nextfix sich irrt, freut sich das Projekt über ein <a href="https://github.com/the-neyro/nextfix/issues">Issue auf GitHub</a>.</p>
+<p>Gemessen am 17. und 18. Oktober 2026, zuerst mit dem Stand vor 0.2.1, dann mit 0.2.2, Projekt „the-neyro.github.io“, Standardeinstellungen (500 Seiten, robots.txt beachten).</p>
+    </div>
+    <nav class="prose post__nav" aria-label="Weitere Beiträge"><a class="link" href="../version-0-2-0/">← Nextfix 0.2: Lösungen in Klartext</a></nav>
+  </article>
+</main>
+
+<footer class="site-foot site-foot--short">
+  <div class="foot-top">
+    <div class="foot-invite">
+      <h2>Fang mit der ersten Aufgabe an.</h2>
+      <a class="button button--light" href="../../installation/">Installieren</a>
+    </div>
+    <nav class="foot-links" aria-label="Fußmenü">
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+      <a href="../../funktionen/">Funktionen</a>
+      <a href="../../pruefungen/">Alle Prüfungen</a>
+      <a href="../../installation/">Installation</a>
+      <a href="../../faq/">FAQ</a>
+      <a href="../../blog/">Blog</a>
+    </nav>
+  </div>
+  <div class="foot-legal">
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</span>
+    <a href="../../datenschutz/">Datenschutz</a>
+  </div>
+  <p class="foot-name" aria-hidden="true">Nextfix</p>
+</footer>
+
+<script src="../../assets/js/site.js" defer></script>
+</body>
+</html>
