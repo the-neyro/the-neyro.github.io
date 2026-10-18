@@ -13,14 +13,14 @@ Einrichten kannst du sie nur für deine eigene Website: Du musst einmal beweisen
 - Zugang zu deiner Website, also zum Login von WordPress, Wix oder Jimdo, oder zu deinem Domain-Anbieter
 - etwa eine Viertelstunde, plus etwas Wartezeit für die ersten Zahlen
 
-Kommst du nirgends hin, kann dein Webbetreuer das übernehmen. Er kann dich danach als Nutzer eintragen, dann siehst du alles selbst.
+Hast du keinen Zugang, kann dein Webbetreuer das übernehmen. Er kann dich danach als Nutzer eintragen, dann siehst du alles selbst.
 
 ## 1. Website hinzufügen
 
 Öffne [search.google.com/search-console](https://search.google.com/search-console) und melde dich an. Google fragt dann, welche Art von „Property“ du anlegen willst:
 
 - **Domain:** erfasst alles, mit und ohne `www`, mit `http` und `https`. Bestätigt wird über einen Eintrag beim Domain-Anbieter (ein sogenannter TXT-Eintrag). Das ist die bessere Wahl, wenn du an die Einstellungen deiner Domain kommst.
-- **URL-Präfix:** erfasst nur genau die Adresse, die du eingibst. Bestätigt wird zum Beispiel über ein kurzes Stück Code auf deiner Startseite. Das ist der einfachere Weg, wenn du nur an deine Website kommst.
+- **URL-Präfix:** erfasst alle Seiten, deren Adresse genau so beginnt, wie du sie eingibst, also mit `https://` und mit oder ohne `www`, aber keine Subdomains. Bestätigt wird zum Beispiel über ein kurzes Stück Code auf deiner Startseite. Das ist der einfachere Weg, wenn du nur an deine Website kommst.
 
 ## 2. Bestätigen, dass die Website dir gehört
 
@@ -47,8 +47,19 @@ Die ersten Zahlen kommen nach einigen Tagen. Zwei Berichte lohnen sich zuerst:
 - **Leistung:** für welche Suchbegriffe du erscheinst (Impressionen), wie oft geklickt wird und auf welchem Platz du im Schnitt stehst.
 - **Seiten** (unter „Indexierung“): welche Seiten Google aufgenommen hat und welche nicht, mit Grund.
 
+Für eine einzelne Seite gibst du ihre Adresse oben in die Suchleiste ein (URL-Prüfung). Dann siehst du, ob sie bei Google ist. Wenn nicht, kannst du dort „Indexierung beantragen“. Der Bericht zu den Core Web Vitals zeigt bei kleinen Websites oft „Nicht genügend Daten“, weil er echte Besuche braucht. Das ist kein Fehler.
+
+## Bing nicht vergessen
+
+Bing hat mit den Bing Webmaster Tools ein ähnliches kostenloses Werkzeug, und es kann deine Website direkt aus der Search Console übernehmen. Das kostet nur ein paar Minuten.
+
 ## Und was hat Nextfix damit zu tun?
 
-Nextfix fragt Google nicht selbst ab, denn das verbieten Googles Regeln. Stattdessen holt es auf Wunsch einmal am Tag deine Daten aus der Search Console und zeigt sie unter „Positionen“: Sichtbarkeit, Aufsteiger und Absteiger und Suchbegriffe, bei denen du fast auf Seite 1 stehst. Die Verbindung richtest du einmal ein, das dauert etwa zehn Minuten; die [Anleitung](https://github.com/the-neyro/nextfix/blob/main/docs/anleitung-gsc.md) liegt im Projekt auf GitHub.
+Suchergebnisse liest Nextfix nicht aus, das verbieten Googles Nutzungsbedingungen. Stattdessen holt es auf Wunsch einmal am Tag deine Daten aus der Search Console und zeigt sie unter „Positionen“: Sichtbarkeit, Aufsteiger und Absteiger und Suchbegriffe, bei denen du fast auf Seite 1 stehst. Die Verbindung richtest du einmal über ein Dienstkonto bei Google Cloud ein: ein technisches Konto, dem du in der Search Console Zugriff auf deine Website gibst. Das ist kostenlos, aber eher etwas für deinen Webbetreuer; die [Anleitung](https://github.com/the-neyro/nextfix/blob/main/docs/anleitung-gsc.md) liegt im Projekt auf GitHub.
 
 ![Positionen mit Sichtbarkeit, durchschnittlichem Platz, „Fast auf Seite 1“ und Aufsteigern](../../assets/img/shot-positionen-breit-1300.webp "„Positionen“ in Nextfix, hier mit Testdaten der erfundenen Demo-Website. [In der Demo ansehen](../../demo/projekte-1-positionen.html)")
+
+## Quellen
+
+- Google-Hilfe: [Property hinzufügen](https://support.google.com/webmasters/answer/34592?hl=de)
+- Google Search Central: [Core Web Vitals](https://developers.google.com/search/docs/appearance/core-web-vitals)

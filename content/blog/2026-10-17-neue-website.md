@@ -1,8 +1,8 @@
 titel: Die Website hat ein neues Gesicht
-beschreibung: Sieben Prüfer haben die Nextfix-Website zerlegt. Was sie gefunden haben, was wir geändert haben und was noch kommt.
+beschreibung: Sieben KI-Prüfer haben die Nextfix-Website zerlegt. Was sie gefunden haben, was wir geändert haben und was noch kommt.
 uhrzeit: 18:00
 
-Bevor wir diese Website zeigen, wollten wir wissen, wie sie auf andere wirkt. Also haben sieben unabhängige Prüfer sie auseinandergenommen: zwei Gestalter, eine UX-Expertin, ein Texter, eine Prüferin für Barrierefreiheit, ein Blick aus rechtlicher Sicht und eine Suche nach passenden Werkzeugen.
+Bevor wir diese Website zeigen, wollten wir wissen, wie sie auf andere wirkt. Also haben sieben Prüfer sie auseinandergenommen, und zwar KI-Agenten (Claude) mit getrennten Aufträgen, die einander nicht gesehen haben: zwei aus Sicht der Gestaltung, einer für Bedienbarkeit, einer für die Texte, einer für Barrierefreiheit, einer aus rechtlicher Sicht und eine Suche nach passenden Werkzeugen. Menschen ersetzt das nicht, aber es findet erstaunlich viel.
 
 ## Was sie gefunden haben
 
@@ -17,4 +17,4 @@ Graphit auf hellem Papier, das Violett aus dem Produkt als einzige Akzentfarbe. 
 
 ## Was noch kommt
 
-Ein Video eines echten Durchlaufs, ein Vorher-Nachher an der Demo-Website und eine Demo zum Durchklicken. Hier im Blog steht, wenn es so weit ist.
+Ein Video eines echten Durchlaufs, ein Vorher-Nachher an der Demo-Website und eine Demo zum Durchklicken. Nachtrag: Alle drei sind inzwischen da, das [Video](../../#durchlauf) auf der Startseite, das [Vorher-Nachher](../vier-aufgaben-spaeter/) und die [Demo](../../demo/).
