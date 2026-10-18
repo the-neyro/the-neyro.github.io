@@ -202,6 +202,8 @@ def beitraege() -> list[dict]:
         for pflicht in ("titel", "beschreibung"):
             if pflicht not in meta:
                 raise ValueError(f"{datei.name}: Kopfzeile '{pflicht}:' fehlt")
+        if meta.get("entwurf") == "ja":  # fertig geschrieben, aber noch nicht veröffentlicht
+            continue
         rubrik = meta.get("rubrik", "neuigkeit")
         if rubrik not in RUBRIKEN:
             raise ValueError(f"{datei.name}: rubrik muss {' oder '.join(RUBRIKEN)} sein")
