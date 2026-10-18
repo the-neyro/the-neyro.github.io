@@ -115,14 +115,17 @@ def json_ld(seite: dict, titel: str, beschr: str, quelltext: str) -> list[dict]:
         return [{
             "@context": "https://schema.org",
             "@graph": [
-                {"@type": "WebSite", "@id": url("/#website"), "url": url("/"), "name": NAME, "inLanguage": "de"},
+                {"@type": "WebSite", "@id": url("/#website"), "url": url("/"), "name": NAME, "inLanguage": "de",
+                 "publisher": {"@id": url("/#autor")}},
+                # Wer dahintersteht: Pseudonym wie auf GitHub (sichtbar in FAQ und Fußzeile)
+                {**AUTOR, "@id": url("/#autor"), "sameAs": [AUTOR["url"], REPO_URL]},
                 {"@type": "SoftwareApplication", "@id": url("/#software"), "name": NAME, "url": url("/"),
                  "description": beschr, "applicationCategory": "BusinessApplication",
                  "applicationSubCategory": "SEO-Tool", "operatingSystem": "macOS, Linux",
                  "softwareVersion": VERSION, "datePublished": VERSION_DATUM,
                  "isAccessibleForFree": True, "license": "https://opensource.org/licenses/MIT",
                  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
-                 "installUrl": url("/installation/"), "sameAs": [REPO_URL],
+                 "installUrl": url("/installation/"), "sameAs": [REPO_URL], "author": {"@id": url("/#autor")},
                  "image": url("/" + OG_BILD), "screenshot": url("/" + SCREENSHOT), "inLanguage": "de"},
             ],
         }]
