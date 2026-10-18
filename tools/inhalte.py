@@ -345,10 +345,27 @@ def katalog_bauen() -> str:
     return seite(1, f"Alle {len(daten)} SEO-Prüfungen von Nextfix, mit Anleitung", f"Die {len(daten)} Prüfungen des kostenlosen SEO-Tools Nextfix: von kaputten Links bis KI-Suche, je mit Begründung und Anleitung zum Beheben.", inhalt, "pruefungen/")
 
 
+# ---------- Einzelne Textseiten (content/seiten/*.md) ----------
+
+def textseite_bauen(slug: str) -> str:
+    """Eine Seite aus content/seiten/<slug>.md: Kopf mit titel, seitentitel, beschreibung, statement; dann Markdown."""
+    kopf, _, rumpf = (WURZEL / "content" / "seiten" / f"{slug}.md").read_text(encoding="utf-8").partition("\n\n")
+    meta = {k.strip(): v.strip() for k, v in (z.split(":", 1) for z in kopf.splitlines() if ":" in z)}
+    inhalt = f"""  <div class="page-head">
+    <h1 data-reveal>{e(meta["titel"])}</h1>
+    <p class="statement" data-reveal style="--i:1">{e(meta["statement"])}</p>
+  </div>
+  <div class="prose">
+{markdown(rumpf, WURZEL / slug)}
+  </div>"""
+    return seite(1, meta.get("seitentitel", meta["titel"]), meta["beschreibung"], inhalt, f"{slug}/")
+
+
 def main() -> None:
     alle = beitraege()
     dateien = blog_bauen(alle)
     dateien["pruefungen/index.html"] = katalog_bauen()
+    dateien["alternative/index.html"] = textseite_bauen("alternative")
     dateien["index.html"] = startseite_teaser(alle)
     for name, inhalt in dateien.items():
         ziel = WURZEL / name

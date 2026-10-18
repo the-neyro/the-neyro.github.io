@@ -39,6 +39,7 @@ FESTE_SEITEN = [
     {"datei": "index.html", "pfad": "/", "kurz": "Startseite"},
     {"datei": "funktionen/index.html", "pfad": "/funktionen/", "kurz": "Funktionen"},
     {"datei": "pruefungen/index.html", "pfad": "/pruefungen/", "kurz": "Alle Prüfungen"},
+    {"datei": "alternative/index.html", "pfad": "/alternative/", "kurz": "Alternative"},
     {"datei": "installation/index.html", "pfad": "/installation/", "kurz": "Installation"},
     {"datei": "faq/index.html", "pfad": "/faq/", "kurz": "FAQ"},
     {"datei": "blog/index.html", "pfad": "/blog/", "kurz": "Blog"},
