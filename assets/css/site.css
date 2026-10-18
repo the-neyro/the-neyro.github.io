@@ -827,3 +827,13 @@ thead .cmp__us { color: var(--accent); }
 .wordmark { min-height: 44px; }
 .foot-links a { display: inline-block; min-width: 44px; }
 .foot-legal a { display: inline-block; padding-block: 0.65rem; }
+/* Handy: Kapitel als wischbare Reihe statt Treppe, Video-Knopf nur als Symbol (Name bleibt per aria-label) */
+@media (max-width: 40em) {
+  .video__bar { flex-wrap: nowrap; overflow-x: auto; gap: 0.5rem; padding-bottom: 0.4rem; scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+  .video__bar > span { flex: none; }
+  .video__bar .chip { flex: none; scroll-snap-align: start; white-space: nowrap; }
+  .video__ctrl { right: 0.5rem; bottom: 0.5rem; width: 2.75rem; height: 2.75rem; min-height: 0; padding: 0; justify-content: center; border-radius: 50%; }
+  .video__ctrl-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .video__ctrl svg { width: 0.8rem; height: 0.8rem; }
+}

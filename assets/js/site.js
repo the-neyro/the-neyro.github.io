@@ -657,7 +657,7 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   let vonHand = false; // Wer selbst anhält, dem startet das Scrollen nichts neu
   const zeigen = () => {
     const pausiert = v.paused;
-    knopf.innerHTML = pausiert ? `${ICON_PLAY}Abspielen` : `${ICON_PAUSE}Anhalten`;
+    knopf.innerHTML = pausiert ? `${ICON_PLAY}<span class="video__ctrl-text">Abspielen</span>` : `${ICON_PAUSE}<span class="video__ctrl-text">Anhalten</span>`;
     knopf.setAttribute('aria-label', pausiert ? 'Video abspielen' : 'Video anhalten');
   };
   const abspielen = () => { v.preload = 'auto'; v.play().catch(() => {}); };
