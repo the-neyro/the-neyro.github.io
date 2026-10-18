@@ -26,6 +26,8 @@ NAME = "Nextfix"
 # Aktuelle Version des Programms; bei jedem Release mit der Startseite (Hero-Zeile) zusammen anheben
 VERSION = "0.2.2"
 VERSION_DATUM = "2026-10-18"
+# Autor der Beiträge: Pseudonym, wie es der Nutzer gewählt hat (kein Klarname)
+AUTOR = {"@type": "Person", "name": "neyro-devs", "url": "https://github.com/the-neyro"}
 OG_BILD = "assets/img/og.png"
 OG_BILD_ALT = "Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“"
 SCREENSHOT = "assets/img/shot-uebersicht-breit-1200.webp"
@@ -136,7 +138,7 @@ def json_ld(seite: dict, titel: str, beschr: str, quelltext: str) -> list[dict]:
             "@context": "https://schema.org", "@type": "BlogPosting", "headline": titel.split(" | ")[0],
             "description": beschr, "datePublished": seite["datum"], "dateModified": seite["datum"], "inLanguage": "de",
             "mainEntityOfPage": url(seite["pfad"]), "image": url("/" + OG_BILD),
-            "author": {"@type": "Organization", "name": NAME, "url": url("/")},
+            "author": AUTOR,
             "publisher": {"@type": "Organization", "name": NAME, "url": url("/")},
         })
     if seite["pfad"] == "/faq/":
