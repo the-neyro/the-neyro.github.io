@@ -602,7 +602,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 @media (max-width: 56em) { .data { grid-template-columns: minmax(0, 1fr); } }
 .cmp { margin-top: 2rem; overflow-x: auto; border: 1px solid var(--surface-2); border-radius: 10px; background: #fff; }
 .cmp:focus-visible { outline-offset: 2px; }
-.cmp__table { width: 100%; min-width: 46rem; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.4; }
+.cmp__table { width: 100%; min-width: 56rem; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.4; }
 .cmp__table th, .cmp__table td { padding: 0.8rem 1rem; text-align: left; vertical-align: top; border-top: 1px solid var(--surface); } /* taste-skill-ignore: echte Tabelle */
 .cmp__table thead th { border-top: 0; font-weight: 600; font-size: 1rem; }
 .cmp__table thead th span { font-weight: 400; color: var(--muted); font-size: 0.8125rem; }
