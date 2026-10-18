@@ -101,7 +101,7 @@ def seite(tiefe: int, titel: str, beschreibung: str, inhalt: str, aktiv: str = "
     </nav>
   </div>
   <div class="foot-legal">
-    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von neyro-devs und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</span>
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</span>
     <a href="{p}datenschutz/">Datenschutz</a>
   </div>
   <p class="foot-name" aria-hidden="true">Nextfix</p>
@@ -227,7 +227,7 @@ def blog_bauen(alle: list[dict]) -> dict[str, str]:
             nachbar.append(f'<a class="link" href="../{alle[i - 1]["slug"]}/">{e(alle[i - 1]["titel"])} →</a>')
         inhalt = f"""  <article class="post">
     <header class="page-head post__head">
-      <p class="post__date"><a class="link" href="../">Blog</a> · {RUBRIKEN[b["rubrik"]]} · <time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time> · von <a class="link" href="https://github.com/the-neyro">neyro-devs</a></p>
+      <p class="post__date"><a class="link" href="../">Blog</a> · {RUBRIKEN[b["rubrik"]]} · <time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time> · von <a class="link" href="https://github.com/the-neyro">the-neyro</a></p>
       <h1>{e(b["titel"])}</h1>
       <p class="statement">{e(b["beschreibung"])}</p>
     </header>

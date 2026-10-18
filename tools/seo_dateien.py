@@ -27,7 +27,7 @@ NAME = "Nextfix"
 VERSION = "0.2.2"
 VERSION_DATUM = "2026-10-18"
 # Autor der Beiträge: Pseudonym, wie es der Nutzer gewählt hat (kein Klarname)
-AUTOR = {"@type": "Person", "name": "neyro-devs", "url": "https://github.com/the-neyro"}
+AUTOR = {"@type": "Person", "name": "the-neyro", "url": "https://github.com/the-neyro"}
 OG_BILD = "assets/img/og.png"
 OG_BILD_ALT = "Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“"
 SCREENSHOT = "assets/img/shot-uebersicht-breit-1200.webp"
