@@ -7,6 +7,29 @@ const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const ICON_PAUSE = '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" fill="currentColor"/></svg>';
 const ICON_PLAY = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>';
 
+// Handy: Die Kopfzeile hat nur Platz für „Mehr“ und „Installieren“; „Mehr“ klappt die übrigen Links auf
+(() => {
+  const nav = document.querySelector('.site-nav');
+  const weit = nav ? [...nav.querySelectorAll('a:not(.button)')] : [];
+  if (!weit.length) return;
+  const knopf = document.createElement('button');
+  knopf.type = 'button'; knopf.className = 'nav-more'; knopf.textContent = 'Mehr';
+  knopf.setAttribute('aria-expanded', 'false'); knopf.setAttribute('aria-controls', 'nav-mehr');
+  const menue = document.createElement('div');
+  menue.id = 'nav-mehr'; menue.className = 'nav-menu';
+  weit.forEach((a) => { const k = a.cloneNode(true); k.classList.remove('nav-wide'); menue.append(k); });
+  nav.querySelector('.button')?.before(knopf);
+  nav.after(menue);
+  const zu = () => { menue.removeAttribute('data-open'); knopf.setAttribute('aria-expanded', 'false'); };
+  knopf.addEventListener('click', () => {
+    const auf = !menue.hasAttribute('data-open');
+    menue.toggleAttribute('data-open', auf); knopf.setAttribute('aria-expanded', String(auf));
+    if (auf) menue.querySelector('a')?.focus();
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && menue.hasAttribute('data-open')) { zu(); knopf.focus(); } });
+  document.addEventListener('click', (e) => { if (!menue.contains(e.target) && e.target !== knopf) zu(); });
+})();
+
 // Lesetexte: Absätze, Überschriften und Fragen einzeln einblenden
 document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .code, .faq-list .qa, .steps > li > *').forEach((el) => {
   if (!el.closest('[data-reveal]')) el.setAttribute('data-reveal', '');

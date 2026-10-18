@@ -53,7 +53,7 @@
   --font-code: "Fira Mono", ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* fünf Größen: klein, Text, Aussage, Überschrift, Riese */
-  --step-small: 0.875rem;
+  --step-small: 0.9375rem; /* 15 px: Nebentexte bleiben gut lesbar */
   --step-body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
   --step-statement: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
   --step-h2: clamp(2rem, 1.25rem + 2.4vw, 3.5rem);   /* eine Stufe für alle Abschnitts-Überschriften */
@@ -92,6 +92,8 @@ a { color: inherit; text-underline-offset: 0.2em; text-decoration-thickness: 0.0
 ::selection { background: var(--ink); color: var(--bg); }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .field-red :focus-visible, .site-foot :focus-visible, .code :focus-visible { outline-color: var(--field-ink); }
+/* Dunkle Flächen: heller Ring, sonst nur 2,4:1 Kontrast */
+.claude :focus-visible, .fokus :focus-visible, .chat :focus-visible { outline-color: #c7b9ff; }
 ::placeholder { color: var(--muted); opacity: 1; }
 html { scrollbar-color: var(--muted) var(--bg); }
 
@@ -287,6 +289,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
   font-family: var(--font-display); font-size: var(--step-head); line-height: 1.1; letter-spacing: -0.02em;
   color: var(--ink); caret-color: var(--ink); caret-shape: block; text-overflow: clip; cursor: text; }
 .typer__input:focus { outline: none; }
+.typer__input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .typer__line:focus-within { outline: 3px solid var(--ink); outline-offset: 0.5rem; }
 /* Mit JavaScript wird die Linie unter dem Titel zur Längen-Anzeige: füllt sich bis 70 Zeichen */
 .js .typer__input { border-bottom-color: var(--surface-2); } /* Spur; die Füllung darüber zeigt die Länge */
@@ -702,6 +705,9 @@ thead .cmp__us { color: var(--accent); }
   .js [data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--ease-out), transform 900ms var(--ease-out);
     transition-delay: calc(var(--i, 0) * 80ms); }
   .js [data-reveal].is-in { opacity: 1; transform: none; }
+  /* Was beim Laden schon im Bild ist, ist sofort lesbar: nur Bewegung, kein Ausblenden (sonst LCP ~1 s später) */
+  .js .page-head [data-reveal] { opacity: 1; }
+  .js .hero .hero__lead[data-rise] { opacity: 1; animation-name: rise-nur; }
   .js .hero [data-rise] { opacity: 0; transform: translateY(22px); animation: rise var(--t-reveal) var(--ease-out) forwards;
     animation-delay: calc(var(--i, 0) * 90ms + 120ms); }
   .js .shot[data-reveal] img { transform: scale(1.06); transition: transform 1600ms var(--ease-out); }
@@ -743,6 +749,7 @@ thead .cmp__us { color: var(--accent); }
   .js .row.is-entering { opacity: 0; transition: none; }
 }
 @keyframes rise { to { opacity: 1; transform: none; } }
+@keyframes rise-nur { to { transform: none; } }
 @keyframes mask-rise { to { transform: none; } }
 @keyframes nudge { 30% { transform: translateX(10px) scaleX(1); } 60% { transform: translateX(-6px) scaleX(1); } }
 @keyframes vt-out { to { opacity: 0; } }
@@ -797,3 +804,26 @@ thead .cmp__us { color: var(--accent); }
 .page-head h1 { hyphens: auto; overflow-wrap: break-word; }
 .weiter__liste li.ist-fertig::before { content: "✓"; }
 .weiter__status { display: inline-block; margin-left: 0.35rem; padding: 0.05rem 0.45rem; border-radius: 4px; font: 500 0.75rem/1.5 var(--font-code); color: var(--accent); background: var(--surface); white-space: nowrap; }
+
+/* ---------- Handy: Menü „Mehr“, Kopf bleibt oben, Tippziele 44 px ---------- */
+.nav-more, .nav-menu { display: none; }
+.site-nav > a:where(:not(.button)) { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; } /* niedrige Spezifität: Ausblend-Regeln oben gewinnen */
+.button--small, .chip, .code__copy { min-height: 2.75rem; }
+.video__bar .chip { min-height: 2.75rem; }
+.module__demo .link { display: inline-block; padding-block: 0.6rem; }
+@media (max-width: 37.5em) {
+  html { scroll-padding-top: 4.5rem; }
+  .site-head { position: sticky; top: 0; z-index: 20; background: var(--bg); padding-block: 0.55rem; border-bottom: 1px solid var(--surface-2); }
+  .js .site-nav > a:not(.button) { display: none; }
+  .js .nav-more { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0; border: 0; background: none;
+    color: inherit; font: inherit; font-size: var(--step-small); cursor: pointer; }
+  .nav-more[aria-expanded="true"] { text-decoration: underline 2px var(--accent); text-underline-offset: 0.35em; }
+  .nav-menu[data-open] { display: grid; position: absolute; top: 100%; right: var(--edge); min-width: 12rem; padding: 0.35rem;
+    background: var(--bg); border: 1px solid var(--surface-2); border-radius: var(--radius); box-shadow: 0 16px 32px -20px rgb(28 27 34 / 0.45); }
+  .nav-menu a { display: flex; align-items: center; min-height: 44px; padding: 0 0.75rem; border-radius: var(--radius); text-decoration: none; }
+  .nav-menu a:focus-visible { outline-offset: -3px; }
+}
+@media (hover: hover) and (pointer: fine) { .nav-menu a:hover { background: var(--surface); } }
+.wordmark { min-height: 44px; }
+.foot-links a { display: inline-block; min-width: 44px; }
+.foot-legal a { display: inline-block; padding-block: 0.65rem; }
