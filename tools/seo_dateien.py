@@ -111,6 +111,15 @@ def url(pfad: str) -> str:
 
 # ---------- Bauen ----------
 
+def og_bild(seite: dict, titel: str = "") -> tuple[str, str]:
+    """Vorschaubild und Alt-Text: Blogbeiträge haben ein eigenes (tools/og_bild.py), sonst das allgemeine."""
+    if seite.get("blog"):
+        eigenes = f"assets/img/og/{seite['pfad'].strip('/').split('/')[-1]}.png"
+        if (WURZEL / eigenes).exists():
+            return eigenes, f"Nextfix-Blog: {titel.split(' | ')[0]}"
+    return OG_BILD, OG_BILD_ALT
+
+
 def json_ld(seite: dict, titel: str, beschr: str, quelltext: str) -> list[dict]:
     if seite["pfad"] == "/":
         return [{
@@ -141,7 +150,7 @@ def json_ld(seite: dict, titel: str, beschr: str, quelltext: str) -> list[dict]:
         daten.append({
             "@context": "https://schema.org", "@type": "BlogPosting", "headline": titel.split(" | ")[0],
             "description": beschr, "datePublished": seite["datum"], "dateModified": seite["datum"], "inLanguage": "de",
-            "mainEntityOfPage": url(seite["pfad"]), "image": url("/" + OG_BILD),
+            "mainEntityOfPage": url(seite["pfad"]), "image": url("/" + og_bild(seite)[0]),
             "author": AUTOR,
             "publisher": {"@type": "Organization", "name": NAME, "url": url("/")},
         })
@@ -168,10 +177,10 @@ def kopf_block(seite: dict, quelltext: str) -> str:
         f'<meta property="og:title" content="{e(titel)}">',
         f'<meta property="og:description" content="{e(beschr)}">',
         f'<meta property="og:url" content="{url(seite["pfad"])}">',
-        f'<meta property="og:image" content="{url("/" + OG_BILD)}">',
+        f'<meta property="og:image" content="{url("/" + og_bild(seite)[0])}">',
         '<meta property="og:image:width" content="1200">',
         '<meta property="og:image:height" content="630">',
-        f'<meta property="og:image:alt" content="{e(OG_BILD_ALT)}">',
+        f'<meta property="og:image:alt" content="{e(og_bild(seite, titel)[1])}">',
         '<meta name="twitter:card" content="summary_large_image">',
     ]
     for daten in json_ld(seite, titel, beschr, quelltext):
