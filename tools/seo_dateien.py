@@ -23,6 +23,9 @@ from pathlib import Path
 SITE_URL = "https://the-neyro.github.io"  # ohne Schrägstrich am Ende
 REPO_URL = "https://github.com/the-neyro/nextfix"
 NAME = "Nextfix"
+# Aktuelle Version des Programms; bei jedem Release mit der Startseite (Hero-Zeile) zusammen anheben
+VERSION = "0.2.2"
+VERSION_DATUM = "2026-10-18"
 OG_BILD = "assets/img/og.png"
 OG_BILD_ALT = "Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“"
 SCREENSHOT = "assets/img/shot-uebersicht-breit-1200.webp"
@@ -113,7 +116,8 @@ def json_ld(seite: dict, titel: str, beschr: str, quelltext: str) -> list[dict]:
                 {"@type": "WebSite", "@id": url("/#website"), "url": url("/"), "name": NAME, "inLanguage": "de"},
                 {"@type": "SoftwareApplication", "@id": url("/#software"), "name": NAME, "url": url("/"),
                  "description": beschr, "applicationCategory": "BusinessApplication",
-                 "applicationSubCategory": "SEO-Tool", "operatingSystem": "macOS",
+                 "applicationSubCategory": "SEO-Tool", "operatingSystem": "macOS, Linux",
+                 "softwareVersion": VERSION, "datePublished": VERSION_DATUM,
                  "isAccessibleForFree": True, "license": "https://opensource.org/licenses/MIT",
                  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
                  "installUrl": url("/installation/"), "sameAs": [REPO_URL],
@@ -200,9 +204,12 @@ def llms() -> str:
         "Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf dem eigenen Rechner läuft. "
         "Es crawlt eine Website, bewertet 106 Prüfungen in acht Bereichen zu einem Website-Zustand von 0 bis 100 und "
         "macht daraus die Liste „Was jetzt tun“: Aufgaben in der Reihenfolge ihrer Wirkung, mit Begründung, Anleitung "
-        "und dem Hinweis, wer sie erledigt. Dazu Ladezeit (Core Web Vitals im Labor), Positionen aus Google Search Console "
+        "und dem Hinweis, wer sie erledigt. Dazu Ladezeit im Labor (LCP, CLS, TBT), Positionen aus Google Search Console "
         "und Bing, Suchbegriffe, Seite optimieren und KI-Sichtbarkeit. Keine bezahlten Schnittstellen, kein Konto, "
         "kein Tracking. Claude kann Nextfix über 51 MCP-Werkzeuge bedienen. Die Website ist auf Deutsch.\n",
+        f"Aktuelle Version: {VERSION} vom {dt.date.fromisoformat(VERSION_DATUM):%d.%m.%Y}. Läuft auf macOS und Linux; Windows "
+        "funktioniert, ist aber noch nicht offiziell unterstützt. Installation: eine Zeile im Terminal, sie holt die neueste "
+        f"veröffentlichte Version ({REPO_URL}/releases).\n",
         "## Seiten\n",
     ]
     for s in FESTE_SEITEN:
