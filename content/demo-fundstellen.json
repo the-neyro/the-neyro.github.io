@@ -6,33 +6,27 @@
   "pfad": "/fruehjahrsaktion-2025"
  },
  {
-  "check": "perm_redirect",
-  "name": "Interne Links auf alte Adressen (dauerhafte Weiterleitung)",
-  "schwere": "notice",
-  "pfad": "/fahrradleasing"
- },
- {
   "check": "meta_desc_doppelt",
   "name": "Doppelte Meta-Descriptions",
-  "schwere": "error",
+  "schwere": "warning",
   "pfad": "/blog"
  },
  {
   "check": "meta_desc_doppelt",
   "name": "Doppelte Meta-Descriptions",
-  "schwere": "error",
+  "schwere": "warning",
   "pfad": "/blog/winter-check"
  },
  {
   "check": "meta_desc_doppelt",
   "name": "Doppelte Meta-Descriptions",
-  "schwere": "error",
+  "schwere": "warning",
   "pfad": "/preise"
  },
  {
   "check": "meta_desc_doppelt",
   "name": "Doppelte Meta-Descriptions",
-  "schwere": "error",
+  "schwere": "warning",
   "pfad": "/ueber-uns"
  },
  {
@@ -129,19 +123,7 @@
   "check": "wenig_text",
   "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
   "schwere": "warning",
-  "pfad": "/datenschutz"
- },
- {
-  "check": "wenig_text",
-  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
-  "schwere": "warning",
   "pfad": "/faq"
- },
- {
-  "check": "wenig_text",
-  "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
-  "schwere": "warning",
-  "pfad": "/impressum"
  },
  {
   "check": "wenig_text",
@@ -181,7 +163,7 @@
  },
  {
   "check": "ohne_last_modified",
-  "name": "Kein Last-Modified-Header",
+  "name": "Weder Last-Modified noch ETag",
   "schwere": "notice",
   "pfad": "(ganze Website)"
  },
@@ -256,5 +238,95 @@
   "name": "Verwaiste Seiten (nur in der Sitemap)",
   "schwere": "notice",
   "pfad": "/ueber-uns"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/angebote"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/blog"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/blog/kette-oelen"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/blog/reifendruck"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/blog/winter-check"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/datenschutz"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/e-bikes"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/faq"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/impressum"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/kontakt"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/leihraeder"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/preise"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/ueber-uns"
+ },
+ {
+  "check": "bilder_ohne_masse",
+  "name": "Bilder ohne Breite und Höhe",
+  "schwere": "notice",
+  "pfad": "/werkstatt"
  }
 ]
