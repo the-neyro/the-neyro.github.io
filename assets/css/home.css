@@ -279,6 +279,7 @@ thead .cmp__us { color: var(--accent); }
   .stat--a strong { font-size: 15vw; }
   .stat--b, .stat--c { grid-column: auto; margin-top: 0; height: 52vw; min-height: 11rem; }
   .stat--c { margin-top: 2rem; }
+  .stat--a { margin-bottom: 1.5rem; }
   .stat--b strong, .stat--c strong { font-size: 11vw; }
 }
 
@@ -341,7 +342,7 @@ thead .cmp__us { color: var(--accent); }
 .poster__list li:hover small { color: var(--ink); }
 .poster__list li:hover span { color: var(--muted); }
 @media (max-width: 50em) {
-  .poster__list span { font-size: 12vw; }
+  .poster__list span { font-size: 10.4vw; }
   .poster__list p { text-align: left; font-size: 0.9375rem; margin: 0.4rem 0 1.4rem; max-width: none; flex-basis: 100%; }
 }
 

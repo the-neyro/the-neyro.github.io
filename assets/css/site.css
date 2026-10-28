@@ -98,9 +98,9 @@ p { max-width: 62ch; text-wrap: pretty; }
 .wrap { padding-inline: var(--edge); }
 .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
 
-.skip { position: absolute; left: var(--margin); top: -4rem; z-index: 50; background: var(--ink); color: var(--bg);
+.skip { position: fixed; left: var(--margin); top: 0; transform: translateY(-150%); z-index: 50; background: var(--ink); color: var(--bg);
   padding: 0.7rem 1rem; text-decoration: none; }
-.skip:focus { top: 0.75rem; }
+.skip:focus { transform: translateY(0.75rem); }
 
 /* ---------- Bedienelemente ---------- */
 .button { display: inline-flex; align-items: center; justify-content: center; min-height: 3rem; padding: 0 1.4rem;
