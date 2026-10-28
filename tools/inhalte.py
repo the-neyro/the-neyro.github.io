@@ -357,7 +357,7 @@ def katalog_bauen() -> str:
             return ""
         pfade = demo[cid]
         wo = "die ganze Website" if pfade == ["(ganze Website)"] else ("1 Seite" if len(pfade) == 1 else f"{len(pfade)} Seiten")
-        ziel = f"../demo/crawls-2-issues-{cid.replace('_', '-')}-seite.html"
+        ziel = f"../demo/crawls-1-issues-{cid.replace('_', '-')}-seite.html"
         return f'<p><strong>In der Demo:</strong> betrifft bei „Radhaus Elbe“ {wo}. <a class="link" href="{ziel}">So sieht das in Nextfix aus</a></p>'
 
     for k in reihenfolge:
