@@ -297,7 +297,7 @@ thead .cmp__us { color: var(--accent); }
 .proof__src { color: var(--muted); font-size: var(--step-small); }
 .proof__names { margin: 2rem auto 0; font-size: clamp(1.0625rem, 1.5vw, 1.375rem); line-height: 1.7; max-width: none; }
 @media (max-width: 50em) {
-  .proof { height: 62rem; }
+  .proof { height: 72rem; }
   .proof__card { width: 92%; transform: rotate(-1deg); padding: 1.75rem; }
   .proof__h { font-size: 1.375rem; }
   .proof__names { font-size: 1.0625rem; }
