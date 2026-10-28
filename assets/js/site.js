@@ -552,42 +552,6 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
 })();
 
 
-// Durchlauf-Video: läuft stumm in Schleife, sobald es im Bild ist (bei reduzierter Bewegung nur auf Klick).
-// Eigener Knopf statt Browser-Steuerung; Kapitel springen an die Stelle und zeigen, wo das Video gerade ist.
-(() => {
-  const v = document.querySelector('[data-video]');
-  const knopf = document.querySelector('[data-video-ctrl]');
-  if (!v || !knopf) return;
-  const kapitel = [...document.querySelectorAll('[data-zeit]')];
-  v.controls = false;
-  v.loop = true;
-  knopf.hidden = false;
-  let vonHand = false; // Wer selbst anhält, dem startet das Scrollen nichts neu
-  const zeigen = () => {
-    const pausiert = v.paused;
-    knopf.innerHTML = pausiert ? `${ICON_PLAY}<span class="video__ctrl-text">Abspielen</span>` : `${ICON_PAUSE}<span class="video__ctrl-text">Anhalten</span>`;
-    knopf.setAttribute('aria-label', pausiert ? 'Video abspielen' : 'Video anhalten');
-  };
-  const abspielen = () => { v.preload = 'auto'; v.play().catch(() => {}); };
-  v.addEventListener('play', zeigen);
-  v.addEventListener('pause', zeigen);
-  v.addEventListener('timeupdate', () => {
-    let aktiv = kapitel[0];
-    kapitel.forEach((k) => { if (v.currentTime >= Number(k.dataset.zeit)) aktiv = k; });
-    kapitel.forEach((k) => k.toggleAttribute('aria-current', k === aktiv && v.currentTime > 0));
-  });
-  knopf.addEventListener('click', () => {
-    if (v.paused) { vonHand = false; abspielen(); } else { vonHand = true; v.pause(); }
-  });
-  v.addEventListener('click', () => knopf.click());
-  kapitel.forEach((k) => k.addEventListener('click', () => { v.currentTime = Number(k.dataset.zeit); vonHand = false; abspielen(); }));
-  zeigen();
-  if (ruhig || !('IntersectionObserver' in window)) return;
-  new IntersectionObserver(([e]) => {
-    if (e.isIntersecting) { if (!vonHand) abspielen(); } else if (!v.paused) v.pause();
-  }, { threshold: 0.5 }).observe(v);
-})();
-
 // E-Mail an den Webbetreuer: Text auch zum Kopieren (falls kein Mailprogramm eingerichtet ist)
 (() => {
   const mail = document.querySelector('[data-mail]');
