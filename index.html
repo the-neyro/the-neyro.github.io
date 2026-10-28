@@ -7,7 +7,7 @@
 <meta name="description" content="Kostenloses Open-Source-SEO-Tool für deinen Rechner: prüft deine Website und sagt dir, was du zuerst verbesserst, warum und wie. Ohne Abo, ohne Konto.">
 <!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
 <link rel="canonical" href="https://the-neyro.github.io/">
-<meta name="theme-color" content="#f7f6f3">
+<meta name="theme-color" content="#f7f9f8">
 <link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nextfix">
@@ -23,11 +23,13 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://the-neyro.github.io/#website","url":"https://the-neyro.github.io/","name":"Nextfix","inLanguage":"de","publisher":{"@id":"https://the-neyro.github.io/#autor"}},{"@type":"Person","name":"the-neyro","url":"https://github.com/the-neyro","@id":"https://the-neyro.github.io/#autor","sameAs":["https://github.com/the-neyro","https://github.com/the-neyro/nextfix"]},{"@type":"SoftwareApplication","@id":"https://the-neyro.github.io/#software","name":"Nextfix","url":"https://the-neyro.github.io/","description":"Kostenloses Open-Source-SEO-Tool für deinen Rechner: prüft deine Website und sagt dir, was du zuerst verbesserst, warum und wie. Ohne Abo, ohne Konto.","applicationCategory":"BusinessApplication","applicationSubCategory":"SEO-Tool","operatingSystem":"macOS, Linux","softwareVersion":"0.2.2","datePublished":"2026-10-18","isAccessibleForFree":true,"license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"installUrl":"https://the-neyro.github.io/installation/","sameAs":["https://github.com/the-neyro/nextfix"],"author":{"@id":"https://the-neyro.github.io/#autor"},"image":"https://the-neyro.github.io/assets/img/og.png","screenshot":"https://the-neyro.github.io/assets/img/shot-uebersicht-breit-1200.webp","inLanguage":"de"}]}</script>
 <!-- seo:ende -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/home.css">
 <script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
 </head>
-<body>
+<body class="home">
+
 <a class="skip" href="#inhalt">Zum Inhalt</a>
 
 <header class="site-head">
@@ -42,14 +44,16 @@
 </header>
 
 <main id="inhalt">
-<div class="hero wrap">
-  <div class="hero__text">
-    <h1 class="hero__title" data-mask><span>Was deine Website als Nächstes braucht.</span></h1>
-    <p class="hero__lead" data-rise style="--i:1"><strong>Nextfix ist ein kostenloser SEO-Check, der lokal auf deinem Rechner läuft.</strong> Es prüft deine Website und macht daraus eine kurze Liste: was zuerst dran ist, warum und wie. Quelloffen, ohne Konto, ohne Abo.</p>
-    <p class="hero__actions" data-rise style="--i:2"><a class="button" href="installation/">Kostenlos installieren</a><a class="button button--ghost" href="demo/">Demo ansehen</a></p>
-    <p class="hero__meta" data-rise style="--i:3" data-life>Version 0.2.2 vom 18.10.2026 · ohne Konto, ohne Abo · MIT-Lizenz · <a class="link" href="https://github.com/the-neyro/nextfix/releases/latest">Was ist neu</a> · <a class="link" href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a></p>
+<section class="hero" aria-labelledby="hero-h">
+  <div class="hero__field">
+    <h1 id="hero-h" class="hero__title" data-mask><span>Nächster</span> <span>Fix.</span></h1>
+    <p class="hero__lead" data-rise style="--i:1"><strong>Nextfix ist ein kostenloser SEO-Check, der lokal auf deinem Rechner läuft.</strong> Er prüft deine Website und macht daraus eine kurze Liste: was zuerst dran ist, warum und wie.</p>
   </div>
-  <figure class="wjt" data-wjt data-rise style="--i:2">
+  <div class="hero__band">
+    <p class="hero__links" data-rise style="--i:2"><a class="link" href="demo/">Demo ansehen</a> · <a class="link" href="https://github.com/the-neyro/nextfix/releases/latest">Version 0.2.2 vom 18.10.2026, was ist neu</a></p>
+    <a class="button hero__cta" href="installation/" data-rise style="--i:3">Kostenlos installieren</a>
+  </div>
+  <figure class="wjt" data-wjt>
     <div class="wjt__window" data-ui>
       <div class="wjt__chrome" aria-hidden="true"><span class="wjt__dots"><i></i><i></i><i></i></span><span class="wjt__addr">localhost:8000 · Radhaus Elbe</span></div>
     <div class="wjt__panel">
@@ -104,42 +108,67 @@
     </div>
     <figcaption class="wjt__cap">Beispiel aus „Was jetzt tun“ für eine erfundene Demo-Website. Erledigtes wird abgehakt, die nächste Aufgabe rückt nach. <a class="link" href="faq/#begriffe">Was heißt Sitemap, Index und 404?</a></figcaption>
   </figure>
-</div>
+</section>
 
-<section class="section wrap fokus-sec" aria-labelledby="sort-h">
-  <h2 id="sort-h" class="h2" data-reveal>43&nbsp;Fundstellen. 8&nbsp;Aufgaben. Eine zuerst.</h2>
-  <p class="lead-after" data-reveal>So sieht die erfundene Demo-Website „Radhaus Elbe“ nach einer Prüfung aus: 17 Seiten, 16 Prüfungen schlagen an. Große SEO-Tools zeigen dir dieses Rauschen. Nextfix fasst gleiche Probleme zusammen, sortiert sie nach Wirkung und holt heraus, was als Nächstes zählt.</p>
-  <figure class="fokus" data-fokus>
-    <canvas aria-hidden="true"></canvas>
-    <div class="fokus__hud" aria-hidden="true"><span data-hud-l><b>43</b> Fundstellen · 16 Prüfungen · 17 Seiten</span><span>radhaus-elbe.de</span></div>
-    <div class="fokus__frame" aria-hidden="true">
-      <span class="fokus__label" data-label>Als Nächstes · 1 von 8</span>
-      <span class="fokus__task" data-task>Bau 9 Seiten mit wenig Text aus</span>
-      <span class="fokus__meta" data-meta>Wichtig · <span class="hoch">Wirkung hoch</span> · machst du selbst</span>
-    </div>
-    <button class="fokus__ctrl" type="button" data-fokus-ctrl hidden>Anhalten</button>
-    <figcaption class="sr-only">Animation: Die 43 Fundstellen der Demo-Prüfung sortieren sich in 8 Aufgaben und Feinschliff, dann wird eine Aufgabe nach der anderen gezeigt.</figcaption>
+<section class="showcase" aria-labelledby="show-h">
+  <div class="showcase__row" data-showcase tabindex="0" role="region" aria-label="Ausschnitte aus Nextfix, seitlich wischbar">
+      <figure class="sp" data-sp data-name="Zustand der Website" data-text="Eine Zahl von 0 bis 100, dazu Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit." data-ui>
+        <div class="sp__crop"><img src="assets/img/shot-zustand-schmal-760.webp" srcset="assets/img/shot-zustand-schmal-760.webp 760w, assets/img/shot-zustand-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Website-Zustand mit Gesamtzahl und Teilnoten" loading="lazy"></div>
+        <figcaption><strong>Zustand der Website.</strong> Eine Zahl von 0 bis 100, dazu Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit.</figcaption>
+      </figure>
+      <figure class="sp" data-sp data-name="Was jetzt tun" data-text="Die Aufgaben nach Wirkung sortiert, mit „wer macht es“: du selbst oder deine Technik." data-ui>
+        <div class="sp__crop"><img src="assets/img/shot-aufgaben-schmal-760.webp" srcset="assets/img/shot-aufgaben-schmal-760.webp 760w, assets/img/shot-aufgaben-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Liste „Was jetzt tun“ mit Aufgaben, Dringlichkeit und Wirkung" loading="lazy"></div>
+        <figcaption><strong>Was jetzt tun.</strong> Die Aufgaben nach Wirkung sortiert, mit „wer macht es“: du selbst oder deine Technik.</figcaption>
+      </figure>
+      <figure class="sp" data-sp data-name="Problem im Detail" data-text="Warum es zählt, was du ändern musst, und welche Seiten betroffen sind." data-ui>
+        <div class="sp__crop"><img src="assets/img/shot-problem-schmal-760.webp" srcset="assets/img/shot-problem-schmal-760.webp 760w, assets/img/shot-problem-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Detailansicht eines Problems mit Begründung und betroffenen Seiten" loading="lazy"></div>
+        <figcaption><strong>Problem im Detail.</strong> Warum es zählt, was du ändern musst, und welche Seiten betroffen sind.</figcaption>
+      </figure>
+      <figure class="sp" data-sp data-name="Seite optimieren" data-text="Für eine Seite und einen Suchbegriff: was an Titel und Text fehlt, mit Vorschlag zum Kopieren." data-ui>
+        <div class="sp__crop"><img src="assets/img/shot-seite-optimieren-schmal-760.webp" srcset="assets/img/shot-seite-optimieren-schmal-760.webp 760w, assets/img/shot-seite-optimieren-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Seite optimieren mit „Zuerst diese 3“ und Vorschlag zum Kopieren" loading="lazy"></div>
+        <figcaption><strong>Seite optimieren.</strong> Für eine Seite und einen Suchbegriff: was an Titel und Text fehlt, mit Vorschlag zum Kopieren.</figcaption>
+      </figure>
+      <figure class="sp" data-sp data-name="Google-Positionen" data-text="Plätze und Klicks aus Search Console und Bing, hier mit Testdaten." data-ui>
+        <div class="sp__crop"><img src="assets/img/shot-positionen-schmal-760.webp" srcset="assets/img/shot-positionen-schmal-760.webp 760w, assets/img/shot-positionen-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Positionen mit Sichtbarkeit, Platz, Klicks und „Fast auf Seite 1“, Testdaten" loading="lazy"></div>
+        <figcaption><strong>Google-Positionen.</strong> Plätze und Klicks aus Search Console und Bing, hier mit Testdaten.</figcaption>
+      </figure>
+      <figure class="sp" data-sp data-name="Mit Claude" data-text="Claude ruft die Werkzeuge von Nextfix auf, lokal auf deinem Rechner und ohne Kosten pro Abfrage." data-ui>
+        <div class="sp__crop sp__crop--chat">
+          <div class="chat">
+            <div class="chat__msg chat__msg--du"><span class="chat__who">Du</span><p>Was soll ich auf radhaus-elbe.de als Nächstes tun?</p></div>
+            <div class="chat__tool"><span class="chat__who">Werkzeug</span><code>seo-tool · was_jetzt_tun(projekt_id=1)</code><span class="chat__res">8 Aufgaben, sortiert nach Wirkung</span></div>
+            <div class="chat__msg"><span class="chat__who">Claude</span><p>Zuerst diese drei:</p>
+              <ol><li><strong>Bau 9 Seiten mit wenig Text aus</strong> (Wirkung hoch, machst du selbst).</li><li><strong>Gib 4 Seiten eigene Beschreibungen</strong> (Wirkung hoch).</li><li><strong>Entferne fehlerhafte Adressen aus der Sitemap</strong> (Wirkung mittel).</li></ol></div>
+          </div>
+        </div>
+        <figcaption><strong>Mit Claude.</strong> Claude ruft die Werkzeuge von Nextfix auf, lokal auf deinem Rechner und ohne Kosten pro Abfrage. Beispiel mit der Demo-Website, die Antwort hat Claude formuliert.</figcaption>
+      </figure>
+  </div>
+  <div class="showcase__label">
+    <h2 id="show-h" class="showcase__name" data-show-name>Zustand der Website</h2>
+    <p class="showcase__text" data-show-text>Eine Zahl von 0 bis 100, dazu Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit.</p>
+  </div>
+</section>
+
+<section class="stats" aria-labelledby="stats-h">
+  <h2 id="stats-h" class="stats__h" data-reveal>Nextfix in Zahlen</h2>
+  <div class="stat stat--a" data-reveal><strong>106</strong><span>Prüfungen zu Technik und Inhalt</span></div>
+  <div class="stat stat--b" data-reveal style="--i:1"><strong>8</strong><span>Bereiche, von Crawlbarkeit bis KI-Suche</span></div>
+  <div class="stat stat--c" data-reveal style="--i:2"><strong>0 €</strong><span>kein Abo, keine Guthaben, keine bezahlten Schnittstellen</span></div>
+</section>
+
+<section class="section wrap how" aria-labelledby="ablauf-h" id="durchlauf">
+  <h2 id="ablauf-h" class="h2" data-reveal>43&nbsp;Fundstellen. 8&nbsp;Aufgaben. Eine&nbsp;zuerst.</h2>
+  <p class="how__lead" data-reveal>So sieht die erfundene Demo-Website „Radhaus Elbe“ nach einer Prüfung aus: 17 Seiten, 16 Prüfungen schlagen an. Große SEO-Tools zeigen dir dieses Rauschen. Nextfix fasst gleiche Probleme zusammen, sortiert sie nach Wirkung und holt heraus, was als Nächstes zählt.</p>
+  <figure class="how__diagram" data-diagram role="img" aria-label="Diagramm: 43 verstreute Fundstellen werden zu einem Band gebündelt und dann in 8 Aufgaben und Feinschliff geordnet, die erste Aufgabe ist hervorgehoben">
   </figure>
-  <ol class="fokus__liste" aria-label="Die ersten drei Aufgaben der Demo-Prüfung">
-    <li><span class="fokus__nr">1</span>Bau 9 Seiten mit wenig Text aus <span class="tag tag--wichtig">Wichtig</span></li>
-    <li><span class="fokus__nr">2</span>Gib 4 Seiten eigene Beschreibungen <span class="tag tag--dringend">Dringend</span></li>
-    <li><span class="fokus__nr">3</span>Entferne fehlerhafte Adressen aus der Sitemap <span class="tag tag--dringend">Dringend</span></li>
-  </ol>
-</section>
-
-<section class="facts" aria-label="Nextfix in Zahlen">
-  <ul class="facts__list wrap">
-    <li><strong>106</strong><span>Prüfungen in acht Bereichen</span></li>
-    <li><strong>51</strong><span>Werkzeuge, mit denen Claude Nextfix bedient</span></li>
-    <li><strong>0 €</strong><span>kein Abo, keine Guthaben, keine bezahlten Schnittstellen</span></li>
-    <li><strong>284</strong><span>automatische Tests bei jeder Änderung</span></li>
-  </ul>
-</section>
-
-<section class="section wrap" id="durchlauf" aria-labelledby="ablauf-h">
-  <h2 id="ablauf-h" class="h2" data-reveal>So läuft eine Runde</h2>
-  <p class="lead-after" data-reveal>Ein echter Durchlauf mit der Demo-Website, 42 Sekunden ohne Ton: prüfen, Aufgabe öffnen, Vorschlag kopieren. Selbst durchklicken kannst du in der <a class="link" href="demo/">Demo</a>.</p>
-  <div class="durchlauf" data-durchlauf>
+  <div class="how__cols">
+    <div data-reveal><h3>Prüfen</h3><p>Nextfix ruft deine Seiten nacheinander ab, ein paar Minuten, und findet hier 43 Stellen.</p></div>
+    <div data-reveal style="--i:1"><h3>Bündeln</h3><p>Gleiche Probleme werden zu 8 Aufgaben zusammengefasst, alles Kleine bleibt als Feinschliff.</p></div>
+    <div data-reveal style="--i:2"><h3>Reparieren</h3><p>Du gehst die Liste von oben ab, in deinem Tempo, im CMS oder mit Hilfe. Der Verlauf zeigt, was besser wurde.</p></div>
+  </div>
+  <div class="durchlauf" data-durchlauf data-reveal>
+    <p class="durchlauf__lead">Ein echter Durchlauf mit der Demo-Website, 42 Sekunden ohne Ton. Selbst durchklicken kannst du in der <a class="link" href="demo/">Demo</a>.</p>
     <figure class="video">
       <video controls muted aria-label="Durchlauf mit der Demo-Website, 42 Sekunden ohne Ton" playsinline preload="none" poster="assets/img/durchlauf-poster.webp" width="1280" height="800" data-video>
         <source src="assets/video/durchlauf.webm" type="video/webm">
@@ -149,31 +178,36 @@
     </figure>
     <div class="video__bar"><span>Kapitel:</span> <button class="chip" type="button" data-zeit="0">00 s · Projekte</button><button class="chip" type="button" data-zeit="5">05 s · Prüfung läuft</button><button class="chip" type="button" data-zeit="9">09 s · Übersicht</button><button class="chip" type="button" data-zeit="14">14 s · Was jetzt tun</button><button class="chip" type="button" data-zeit="19">19 s · Aufgabe öffnen</button><button class="chip" type="button" data-zeit="26">26 s · Seite optimieren</button><button class="chip" type="button" data-zeit="32">32 s · Vorschlag kopieren</button></div>
   </div>
-  <ol class="steps-row" data-ui>
-    <li class="step step--du" data-reveal style="--i:0"><span class="step__nr">1</span><span class="step__name">Installieren</span><span class="step__time">einmal, ein paar Minuten</span><span class="step__text">Du oder dein Webbetreuer, mit der Anleitung.</span></li>
-    <li class="step" data-reveal style="--i:1"><span class="step__nr">2</span><span class="step__name">Prüfen</span><span class="step__time">ein paar Minuten</span><span class="step__text">Nextfix ruft deine Seiten nacheinander ab.</span></li>
-    <li class="step step--du" data-reveal style="--i:2"><span class="step__nr">3</span><span class="step__name">Reparieren</span><span class="step__time">in deinem Tempo</span><span class="step__text">Die Liste von oben ab, im CMS oder mit Hilfe.</span></li>
-    <li class="step" data-reveal style="--i:3"><span class="step__nr">4</span><span class="step__name">Nachprüfen</span><span class="step__time">ein paar Minuten</span><span class="step__text">Der Verlauf zeigt, was besser wurde.</span></li>
-  </ol>
 </section>
 
-<section class="section wrap vn" aria-labelledby="vn-h" data-vn data-vorher="49" data-nachher="91">
-  <h2 id="vn-h" class="h2" data-reveal>Vier Aufgaben später.</h2>
-  <p class="lead-after" data-reveal>Wir haben die ersten vier Aufgaben an der Demo-Website wirklich erledigt und neu geprüft. Echte Messung mit Nextfix, an einer erfundenen Website. Was das bei Google bringt, kann niemand versprechen.</p>
-  <div class="vn__grid" data-reveal>
-    <div class="vn__col"><span class="vn__label">Vorher</span><strong class="vn__zahl">49</strong><span class="vn__von">von 100</span>
-      <ul><li>8 Aufgaben</li><li>Technik 79 · Inhalt 61</li><li>17 Seiten geprüft</li></ul></div>
-    <div class="vn__pfeil" aria-hidden="true">→</div>
-    <div class="vn__col vn__col--nach"><span class="vn__label">Nachher</span><strong class="vn__zahl" data-vn-zahl>91</strong><span class="vn__von">von 100</span>
-      <ul><li>3 Aufgaben, alle mit geringer Wirkung</li><li>Technik 100 · Inhalt 91</li><li>15 Seiten (404 und Weiterleitung sind weg)</li></ul></div>
-  </div>
-  <ol class="vn__erledigt" data-reveal aria-label="Erledigt">
-    <li>Bau 9 Seiten mit wenig Text aus</li><li>Gib 4 Seiten eigene Beschreibungen</li><li>Entferne fehlerhafte Adressen aus der Sitemap</li><li>Behebe 1 Seite mit „nicht gefunden“ (404)</li>
-  </ol>
-  <p class="vn__quelle">Gemessen am 17.10.2026 mit Nextfix, beide Fassungen der Demo-Website lokal geprüft. <a class="link" href="blog/vier-aufgaben-spaeter/">So haben wir gemessen</a></p>
+<section class="proof" aria-labelledby="proof-h">
+  <article class="proof__card" data-vn data-vorher="49" data-nachher="91">
+    <h2 id="proof-h" class="proof__h">Prüfprotokoll Radhaus Elbe</h2>
+    <p class="proof__demo">Erfundene Demo-Website, echte Messung mit Nextfix.</p>
+    <figure class="proof__photo"><img src="assets/img/pruefhalle-900.webp" srcset="assets/img/pruefhalle-900.webp 900w, assets/img/pruefhalle-1600.webp 1600w" sizes="(max-width: 50em) 80vw, 46vw" width="1600" height="900" loading="lazy" alt="Eine Autowerkstatt: ein orangefarbener Käfer ohne Räder auf der Hebebühne, Werkzeug auf dem Boden"><figcaption>Archivbild einer Werkstatt, Symbolbild für das Protokoll. Nachweis im Fuß.</figcaption></figure>
+    <div class="proof__slip" data-reveal>
+      <div><span class="vn__label">Vorher</span><strong class="vn__zahl">49</strong><span>von 100</span><small>8 Aufgaben, Technik 79, Inhalt 61, 17 Seiten</small></div>
+      <div aria-hidden="true" class="proof__pfeil">→</div>
+      <div><span class="vn__label">Nachher</span><strong class="vn__zahl" data-vn-zahl>91</strong><span>von 100</span><small>3 Aufgaben mit geringer Wirkung, Technik 100, Inhalt 91, 15 Seiten</small></div>
+    </div>
+    <p class="proof__done">Vier Aufgaben erledigt: Bau 9 Seiten mit wenig Text aus · Gib 4 Seiten eigene Beschreibungen · Entferne fehlerhafte Adressen aus der Sitemap · Behebe 1 Seite mit „nicht gefunden“ (404).</p>
+    <p class="proof__src">Gemessen am 17.10.2026, beide Fassungen lokal geprüft. Was das bei Google bringt, kann niemand versprechen. <a class="link" href="blog/vier-aufgaben-spaeter/">So haben wir gemessen</a> · <a class="link" href="pruefungen/">Alle 106 Prüfungen ansehen</a></p>
+    <p class="proof__names">Seiten mit 4xx-Statuscode &nbsp;·&nbsp; Redirect-Ketten und -Schleifen &nbsp;·&nbsp; robots.txt nicht gefunden &nbsp;·&nbsp; Seiten für Google gesperrt &nbsp;·&nbsp; Seite baut sich per JavaScript auf – ohne JavaScript geprüft &nbsp;·&nbsp; Doppelte Title-Tags &nbsp;·&nbsp; Title zu kurz (≤ 10 Zeichen) &nbsp;·&nbsp; Meta-Description fehlt &nbsp;·&nbsp; Mehr als eine H1 &nbsp;·&nbsp; Bilder ohne alt-Attribut &nbsp;·&nbsp; Unsichere Inhalte auf sicheren Seiten (Mixed Content) &nbsp;·&nbsp; Browser erzwingen keine sichere Verbindung (HSTS) &nbsp;·&nbsp; Unkomprimierte Seiten &nbsp;·&nbsp; Viewport-Tag fehlt &nbsp;·&nbsp; Mehrere Canonical-URLs &nbsp;·&nbsp; Keine Zeichenkodierung &nbsp;·&nbsp; Passwortfeld auf HTTP-Seite &nbsp;·&nbsp; Defekte externe Links &nbsp;·&nbsp; Ungültiger Sprachcode in hreflang &nbsp;·&nbsp; Sprachcode mehrfach mit verschiedenen URLs &nbsp;·&nbsp; hreflang und lang-Attribut widersprechen sich &nbsp;·&nbsp; Fragen ohne FAQ-Markup &nbsp;·&nbsp; Artikel ohne Autor oder Datum &nbsp;·&nbsp; Layout springt beim Laden (CLS mobil über 0,25) &nbsp;·&nbsp; Interne Links mit nofollow &nbsp;·&nbsp; Links ohne Anchor-Text &nbsp;·&nbsp; Nur ein eingehender interner Link &nbsp;·&nbsp; URL länger als 200 Zeichen &nbsp;·&nbsp; Zu viele JS- und CSS-Dateien (> 100) &nbsp;·&nbsp; Skript- und Style-Dateien nicht verkleinert &nbsp;·&nbsp; HTTP leitet nicht auf HTTPS um &nbsp;·&nbsp; Falscher Zertifikatsname &nbsp;·&nbsp; llms.txt mit Formatfehlern &nbsp;·&nbsp; llms.txt ohne Kurzbeschreibung oder Links &nbsp;·&nbsp; sitemap.xml zu groß &nbsp;·&nbsp; Verwaiste Seiten (nur in der Sitemap)</p>
+  </article>
 </section>
 
-<section class="section wrap" aria-labelledby="vergleich-h">
+<section class="poster" aria-labelledby="poster-h">
+  <h2 id="poster-h" class="sr-only">Was Nextfix ausmacht</h2>
+  <ul class="poster__list">
+    <li><span>Kostenlos</span><small>0 €, kein Abo, keine Guthaben</small></li>
+    <li><span>Lokal</span><small>deine Daten bleiben auf deinem Rechner</small></li>
+    <li><span>Quelloffen</span><small>MIT-Lizenz, Code auf GitHub</small></li>
+    <li><span>Ohne Konto</span><small>kein Tracking, keine Telemetrie</small></li>
+    <li><span>Mit Claude</span><small>MCP-Server, 51 Werkzeuge</small></li>
+  </ul>
+</section>
+
+<section class="section wrap vergleich" aria-labelledby="vergleich-h">
   <h2 id="vergleich-h" class="h2" data-reveal>Kostenlose Alternative? Ehrlich verglichen.</h2>
   <p class="lead-after" data-reveal>Mit den Lücken von Nextfix und mit den anderen freien Werkzeugen. Preise und Angaben laut Anbieter-Websites und GitHub, Stand Oktober 2026.</p>
   <div class="cmp" data-reveal tabindex="0" role="region" aria-label="Vergleichstabelle, waagrecht scrollbar">
@@ -195,6 +229,50 @@
   </table>
   </div>
   <p class="cmp__src"><a class="link" href="alternative/">Ausführlich: Wofür Nextfix als Alternative reicht und wofür nicht</a>. Quellen: <a href="https://github.com/StJudeWasHere/seonaut">SEOnaut</a>, <a href="https://github.com/harlan-zw/unlighthouse">Unlighthouse</a>, <a href="https://openseo.so/pricing">OpenSEO</a> (<a href="https://github.com/every-app/open-seo">Quellcode und Selbst-Hosting</a>), <a href="https://www.semrush.com/prices/">Semrush</a>, <a href="https://ahrefs.com/pricing">Ahrefs</a>, <a href="https://www.sistrix.de/preise/">Sistrix</a> (zzgl. MwSt.), <a href="https://www.screamingfrog.co.uk/seo-spider/pricing/">Screaming Frog</a>. Abgerufen am 17.10.2026, ohne Gewähr. Kostenlose Testphasen und Gratis-Stufen der Anbieter gibt es mit Einschränkungen.</p>
+</section>
+
+<section class="section wrap cmd" aria-labelledby="cmd-h" data-cmd-list>
+  <h2 id="cmd-h" class="sr-only">Was Nextfix kann</h2>
+  <div class="cmd__box" data-ui>
+    <label class="sr-only" for="cmd-filter">Funktion finden</label>
+    <input class="cmd__input" id="cmd-filter" type="search" placeholder="Funktion finden" autocomplete="off" spellcheck="false">
+    <ul class="cmd__list">
+      <li class="cmd__row is-selected" data-cmd="website-check">
+        <button class="cmd__name" type="button" aria-expanded="true" aria-controls="cmd-0">Website-Check</button>
+        <div class="cmd__more" id="cmd-0"><p>106 Prüfungen zu Technik und Inhalt, eine Zahl für den Zustand und die Liste „Was jetzt tun“.</p><img src="assets/img/tile-website-check-600.webp" srcset="assets/img/tile-website-check-600.webp 600w, assets/img/tile-website-check-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Website-Zustand 49 von 100 mit Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit"></div>
+      </li>
+      <li class="cmd__row" data-cmd="ladezeit">
+        <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-1">Ladezeit</button>
+        <div class="cmd__more" id="cmd-1"><p>Wie schnell deine Seiten auf einem simulierten Handy laden, gemessen auf deinem Rechner.</p><img src="assets/img/tile-ladezeit-600.webp" srcset="assets/img/tile-ladezeit-600.webp 600w, assets/img/tile-ladezeit-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Ladezeit der Demo-Website: mobil 100, Desktop 100"></div>
+      </li>
+      <li class="cmd__row" data-cmd="google-positionen">
+        <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-2">Google-Positionen</button>
+        <div class="cmd__more" id="cmd-2"><p>Plätze und Klicks aus der Search Console und von Bing, sobald du sie einrichtest.</p><img src="assets/img/tile-positionen-600.webp" srcset="assets/img/tile-positionen-600.webp 600w, assets/img/tile-positionen-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Positionen mit Sichtbarkeit, durchschnittlichem Platz, Klicks und „Fast auf Seite 1“, mit Testdaten"></div>
+      </li>
+      <li class="cmd__row" data-cmd="suchbegriffe finden">
+        <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-3">Suchbegriffe finden</button>
+        <div class="cmd__more" id="cmd-3"><p>Ideen, wonach deine Kunden suchen, aus den Vorschlägen beim Tippen.</p><img src="assets/img/tile-suchbegriffe-600.webp" srcset="assets/img/tile-suchbegriffe-600.webp 600w, assets/img/tile-suchbegriffe-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Suchbegriff-Ideen mit Suchabsicht, Gruppe und Volumen, mit Testdaten"></div>
+      </li>
+      <li class="cmd__row" data-cmd="seite optimieren">
+        <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-4">Seite optimieren</button>
+        <div class="cmd__more" id="cmd-4"><p>Für eine Seite und einen Suchbegriff: was du an Titel und Text änderst, mit Vorschlag zum Kopieren.</p><img src="assets/img/tile-seite-optimieren-600.webp" srcset="assets/img/tile-seite-optimieren-600.webp 600w, assets/img/tile-seite-optimieren-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="„Zuerst diese 3“ mit einem Vorschlag zum Kopieren"></div>
+      </li>
+      <li class="cmd__row" data-cmd="ki-suche">
+        <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-5">KI-Suche</button>
+        <div class="cmd__more" id="cmd-5"><p>Ob ChatGPT, Claude und Co. deine Seite lesen und verstehen können.</p><img src="assets/img/tile-ki-suche-600.webp" srcset="assets/img/tile-ki-suche-600.webp 600w, assets/img/tile-ki-suche-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Bereich KI-Suche mit 83 Prozent, fehlender llms.txt und Antwort-Signalen"></div>
+      </li>
+      <li class="cmd__row" data-cmd="berichte">
+        <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-6">Berichte</button>
+        <div class="cmd__more" id="cmd-6"><p>Berichte als PDF und CSV und ein Vergleich deiner Domain mit der Konkurrenz. <a class="link" href="beispiel-bericht-radhaus-elbe.pdf">Beispielbericht ansehen (PDF, 8 Seiten)</a></p></div>
+      </li>
+      <li class="cmd__row" data-cmd="mit claude">
+        <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-7">Mit Claude</button>
+        <div class="cmd__more" id="cmd-7"><p>Ein MCP-Server mit 51 Werkzeugen: Claude prüft, erklärt Aufgaben, erstellt Berichte und holt Positionen, lokal und ohne Kosten pro Abfrage. <a class="link" href="installation/#claude">So richtest du es ein</a></p></div>
+      </li>
+    </ul>
+    <p class="cmd__empty" role="status" hidden>Keine Funktion gefunden.</p>
+  </div>
+  <p class="cmd__more-link"><a class="link" href="funktionen/">Alle Funktionen ansehen</a></p>
 </section>
 
 <section class="section wrap typer" id="titel" data-typer aria-labelledby="typer-h">
@@ -256,26 +334,13 @@
   <p class="typer__cta"><a class="button" href="installation/">Das für jede Seite deiner Website: Nextfix installieren</a></p>
 </section>
 
-<section class="section wrap" aria-labelledby="kann-h">
-  <h2 id="kann-h" class="h2" data-reveal>Was Nextfix kann</h2>
-  <ul class="bento" data-bento>
-    <li class="tile tile--wide" data-reveal><h3>Website-Check</h3><p>106 Prüfungen zu Technik und Inhalt, eine Zahl für den Zustand und die Liste „Was jetzt tun“.</p><img src="assets/img/tile-website-check-1200.webp" srcset="assets/img/tile-website-check-600.webp 600w, assets/img/tile-website-check-1200.webp 1200w" sizes="(max-width: 56em) calc(100vw - 2rem), 52rem" width="1200" height="900" loading="lazy" alt="Website-Zustand 49 von 100 mit Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit"></li>
-    <li class="tile" data-reveal style="--i:1"><h3>Ladezeit</h3><p>Wie schnell deine Seiten auf einem simulierten Handy laden, gemessen auf deinem Rechner.</p><img src="assets/img/tile-ladezeit-600.webp" srcset="assets/img/tile-ladezeit-600.webp 600w, assets/img/tile-ladezeit-1200.webp 1200w" sizes="(max-width: 34em) calc(100vw - 2rem), (max-width: 56em) 45vw, 26rem" width="1200" height="900" loading="lazy" alt="Ladezeit der Demo-Website: mobil 100, Desktop 100"></li>
-    <li class="tile" data-reveal style="--i:2"><h3>Google-Positionen</h3><p>Plätze und Klicks aus der Search Console und von Bing, sobald du sie einrichtest.</p><img src="assets/img/tile-positionen-600.webp" srcset="assets/img/tile-positionen-600.webp 600w, assets/img/tile-positionen-1200.webp 1200w" sizes="(max-width: 34em) calc(100vw - 2rem), (max-width: 56em) 45vw, 26rem" width="1200" height="900" loading="lazy" alt="Positionen mit Sichtbarkeit, durchschnittlichem Platz, Klicks und „Fast auf Seite 1“, mit Testdaten"><span class="tile__note">Testdaten</span></li>
-    <li class="tile" data-reveal style="--i:3"><h3>Suchbegriffe finden</h3><p>Ideen, wonach deine Kunden suchen, aus den Vorschlägen beim Tippen.</p><img src="assets/img/tile-suchbegriffe-600.webp" srcset="assets/img/tile-suchbegriffe-600.webp 600w, assets/img/tile-suchbegriffe-1200.webp 1200w" sizes="(max-width: 34em) calc(100vw - 2rem), (max-width: 56em) 45vw, 26rem" width="1200" height="900" loading="lazy" alt="Suchbegriff-Ideen mit Suchabsicht, Gruppe und Volumen, mit Testdaten"><span class="tile__note">Testdaten</span></li>
-    <li class="tile" data-reveal style="--i:4"><h3>Seite optimieren</h3><p>Für eine Seite und einen Suchbegriff: was du an Titel und Text änderst, mit Vorschlag zum Kopieren.</p><img src="assets/img/tile-seite-optimieren-600.webp" srcset="assets/img/tile-seite-optimieren-600.webp 600w, assets/img/tile-seite-optimieren-1200.webp 1200w" sizes="(max-width: 34em) calc(100vw - 2rem), (max-width: 56em) 45vw, 26rem" width="1200" height="900" loading="lazy" alt="„Zuerst diese 3“ mit einem Vorschlag zum Kopieren"></li>
-    <li class="tile" data-reveal style="--i:5"><h3>KI-Suche</h3><p>Ob ChatGPT, Claude und Co. deine Seite lesen und verstehen können.</p><img src="assets/img/tile-ki-suche-600.webp" srcset="assets/img/tile-ki-suche-600.webp 600w, assets/img/tile-ki-suche-1200.webp 1200w" sizes="(max-width: 34em) calc(100vw - 2rem), (max-width: 56em) 45vw, 26rem" width="1200" height="900" loading="lazy" alt="Bereich KI-Suche mit 83 Prozent, fehlender llms.txt und Antwort-Signalen"></li>
-  </ul>
-  <p class="modules__more" data-reveal>Dazu Berichte als PDF und CSV und ein Vergleich deiner Domain mit der Konkurrenz. <a class="link" href="beispiel-bericht-radhaus-elbe.pdf">Beispielbericht ansehen (PDF, 8 Seiten)</a> · <a class="link" href="funktionen/">Alle Funktionen ansehen</a></p>
-</section>
-
-<section class="claude" aria-labelledby="claude-h">
-  <div class="claude__inner wrap">
-    <div class="claude__text">
-      <h2 id="claude-h" class="h2">Oder frag einfach Claude.</h2>
-      <p>Nextfix bringt einen MCP-Server mit 51 Werkzeugen mit. Claude kann damit prüfen, Aufgaben erklären, Berichte erstellen und Positionen holen, alles lokal auf deinem Rechner und ohne Kosten pro Abfrage.</p>
-      <details class="claude__dev">
-        <summary>Für Entwickler: so trägst du es in Claude Code ein</summary>
+<section class="about" aria-labelledby="wer-h">
+  <h2 id="wer-h" class="about__h">Deine Daten bleiben bei dir.</h2>
+  <div class="about__text">
+    <div><h3>Für wen</h3><p>Für Handwerksbetriebe, Freiberufler, Vereine und alle, die eine Website betreuen. Ohne Fachwissen: die Liste sagt, was du selbst schaffst und was dein Webbetreuer macht.</p></div>
+    <div><h3>Auf deinem Rechner</h3><p>Ergebnisse, Verlauf und Zugangsdaten liegen in einer Datei bei dir. Raus geht nur der Abruf deiner Website und, wenn du es einrichtest, Search Console, Bing und Open PageRank.</p></div>
+    <div><h3>Mit Claude</h3><p>Nextfix bringt einen MCP-Server mit 51 Werkzeugen mit. So trägst du ihn in Claude Code ein:</p>
+      <details class="about__dev"><summary>Für Entwickler: Konfiguration</summary>
       <div class="code"><pre><code>{
   "mcpServers": {
     "seo-tool": {
@@ -285,149 +350,57 @@
     }
   }
 }</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div>
-      </details>
-      <p class="claude__more"><a href="installation/#claude">So richtest du es ein</a></p>
+      </details></div>
+    <div class="about__cta"><a class="button button--light" href="installation/">Kostenlos installieren</a><a class="link" href="installation/#claude">So richtest du Claude ein</a></div>
+  </div>
+  <figure class="about__plakette"><img src="assets/img/werkstatt-hebebuehne-640.webp" srcset="assets/img/werkstatt-hebebuehne-640.webp 640w, assets/img/werkstatt-hebebuehne-1000.webp 1000w" sizes="(max-width: 50em) 86vw, 38vw" width="1000" height="1498" loading="lazy" alt="Ein Mechaniker in Arbeitskleidung geht durch eine Werkstatthalle, links ein Auto auf der Hebebühne"></figure>
+</section>
+
+<section class="faq" aria-labelledby="faq-h">
+  <h2 id="faq-h" class="faq__head" data-reveal>Bevor du anfängst</h2>
+    <div class="band band--a" data-reveal>
+      <h3 class="band__q">Kostet Nextfix wirklich nichts?</h3>
+      <div class="band__a"><p>Ja. Nextfix nutzt nur kostenlose Quellen: deine Website, die Search Console, Bing und Open PageRank. Es gibt keinen Server, keine bezahlten Schnittstellen und nichts, wofür jemand zahlen müsste.</p><p>Der Quellcode ist offen (MIT-Lizenz). Jede und jeder kann nachsehen, was das Programm tut, und es verbessern.</p></div>
     </div>
-    <figure class="chat" data-ui>
-      <div class="chat__msg chat__msg--du"><span class="chat__who">Du</span><p>Was soll ich auf radhaus-elbe.de als Nächstes tun?</p></div>
-      <div class="chat__tool"><span class="chat__who">Werkzeug</span><code>seo-tool · was_jetzt_tun(projekt_id=1)</code><span class="chat__res">8 Aufgaben, sortiert nach Wirkung · 8 Punkte Feinschliff</span></div>
-      <div class="chat__msg"><span class="chat__who">Claude</span><p>Zuerst diese drei, sortiert nach Wirkung:</p>
-        <ol><li><strong>Bau 9 Seiten mit wenig Text aus</strong> oder nimm sie aus dem Index (Wirkung hoch, Text schreiben, machst du selbst).</li><li><strong>Gib 4 Seiten eigene Beschreibungen</strong> (Wirkung hoch, kurz je Seite).</li><li><strong>Entferne fehlerhafte Adressen aus der Sitemap</strong> (Wirkung mittel, einmal einstellen, eher etwas für deine Technik).</li></ol>
-        <p>Soll ich dir für die vier Seiten eigene Beschreibungen vorschlagen?</p></div>
-      <figcaption>Beispiel mit der Demo-Website. Werkzeugaufruf und Zahlen sind echt, die Antwort hat Claude formuliert.</figcaption>
-    </figure>
-  </div>
-</section>
-
-<section class="section wrap" aria-labelledby="wer-h">
-  <h2 id="wer-h" class="h2" data-reveal>Für wen ist das?</h2>
-  <ul class="who">
-    <li data-reveal><h3>Handwerksbetrieb</h3><p>„Uns findet bei Google keiner.“ Nextfix zeigt, welche drei Dinge du zuerst angehst, und ob du das selbst im CMS schaffst.</p></li>
-    <li data-reveal style="--i:1"><h3>Freiberuflerin</h3><p>Eine Seite soll für einen Suchbegriff gefunden werden. „Seite optimieren“ sagt, was an Titel und Text fehlt.</p></li>
-    <li data-reveal style="--i:2"><h3>Verein</h3><p>Einmal im Jahr prüfen, den PDF-Bericht an den Vorstand schicken, die Liste gemeinsam abarbeiten.</p></li>
-    <li data-reveal style="--i:3"><h3>Webbetreuer und Agentur</h3><p>Mehrere Websites, eine Übersicht. Aufgaben mit „für deine Technik“ sind deine, der Rest geht an den Kunden.</p></li>
-  </ul>
-  <div class="daten-block">
-  <h2 id="daten-h" class="h2 daten-block__h" data-reveal>Deine Daten bleiben auf deinem Rechner.</h2>
-  <div class="data">
-    <div class="data__col" data-reveal><h3>Bleibt bei dir</h3><ul><li>Alle Ergebnisse, in einer einzigen Datei</li><li>Verlauf, Aufgaben, „Bewusst so“-Markierungen</li><li>Zugangsdaten für Search Console und Co.</li><li>Berichte als PDF und CSV</li></ul></div>
-    <div class="data__col data__col--out" data-reveal style="--i:1"><h3>Geht raus, nur wenn nötig</h3><ul><li>Abruf deiner Website (wie ein Besucher)</li><li>Vorschläge beim Tippen, für Suchbegriff-Ideen</li><li>Search Console, Bing, Open PageRank, wenn du sie einrichtest</li></ul></div>
-    <div class="data__col data__col--never" data-reveal style="--i:2"><h3>Gibt es nicht</h3><ul><li>Konto bei Nextfix</li><li>Tracking, Telemetrie, Werbung</li><li>Server, auf dem deine Daten liegen</li></ul></div>
-  </div>
-  </div>
-</section>
-
-<section class="field-red" aria-labelledby="pruef-h">
-  <h2 id="pruef-h" class="h2">106 Prüfungen, zum Beispiel</h2>
-  <ul class="checks-list">
-    <li>kaputte Seiten und Links</li><li>fehlende oder doppelte Seitentitel</li><li>Seiten mit wenig Text</li><li>Bilder ohne Beschreibung</li>
-    <li>zu langsam auf dem Handy</li><li>springendes Layout beim Laden</li><li>kein HTTPS oder ablaufende Zertifikate</li><li>fehlende Sitemap</li>
-    <li>Seiten, die niemand verlinkt</li><li>gesperrte KI-Suchdienste</li><li>falsche Sprachangaben</li><li>Fragen ohne FAQ-Markup</li>
-  </ul>
-  <p class="checks-more"><a class="button button--light" href="pruefungen/">Alle 106 Prüfungen ansehen</a></p>
-</section>
-
-<section class="section wrap" aria-labelledby="faq-h">
-  <div class="grid">
-    <h2 id="faq-h" class="h2 faq-head" data-reveal>Bevor du anfängst</h2>
-    <aside class="faq-facts faq-help" data-reveal aria-labelledby="hilfe-h">
-      <h3 id="hilfe-h" class="faq-help__h">Kein Terminal-Mensch?</h3>
-      <p>Dann schick Nextfix deinem Webbetreuer. Der Text ist fertig, du musst nur noch auf Senden drücken.</p>
-      <p class="pair__actions"><a class="button" data-mail href="mailto:?subject=Kannst%20du%20Nextfix%20f%C3%BCr%20unsere%20Website%20einrichten%3F&amp;body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20unsere%20Website%20mit%20Nextfix%20pr%C3%BCfen.%20Das%20ist%20ein%20kostenloses%20Open-Source-SEO-Tool%2C%20das%20lokal%20l%C3%A4uft%20(kein%20Konto%2C%20kein%20Abo).%0A%0AAnleitung%3A%20https%3A%2F%2Fthe-neyro.github.io%2Finstallation%2F%20(einmal%20ca.%2015%20Minuten)%0A%0ADanach%20bitte%20einmal%20pr%C3%BCfen%20und%20mir%20den%20PDF-Bericht%20schicken%20(Knopf%20%E2%80%9EPDF%E2%80%9C%20in%20der%20%C3%9Cbersicht).%20Die%20Aufgaben%20mit%20%E2%80%9EWirkung%20hoch%E2%80%9C%20gehen%20wir%20dann%20zuerst%20an.%0A%0ADanke!">E-Mail an den Webbetreuer</a><button class="button button--ghost" type="button" data-mail-copy hidden>Text kopieren</button></p>
-      <p class="pair__pdf">So sieht ein Bericht aus: <a class="link" href="beispiel-bericht-radhaus-elbe.pdf">Beispielbericht der Demo-Website (PDF, 8 Seiten, 118 KB)</a></p>
-    </aside>
-    <div class="faq-list">
-      <details class="qa" data-reveal style="--i:0">
-        <summary>Kostet Nextfix wirklich nichts?</summary>
-        <div class="qa__a"><p>Ja. Nextfix nutzt nur kostenlose Quellen: deine Website, die Search Console, Bing und Open PageRank. Es gibt keinen Server, keine bezahlten Schnittstellen und nichts, wofür jemand zahlen müsste.</p><p>Der Quellcode ist offen (MIT-Lizenz). Jede und jeder kann nachsehen, was das Programm tut, und es verbessern.</p></div>
-      </details>
-      <details class="qa" data-reveal style="--i:1">
-        <summary>Muss ich programmieren können?</summary>
-        <div class="qa__a"><p>Nein. Zum Installieren fügst du eine Zeile ins Terminal ein, oder dein Webbetreuer macht das. Danach startest du Nextfix auf dem Mac und unter Windows per Doppelklick, unter Linux mit einem Befehl, und bedienst es im Browser. Die Anleitung erklärt jeden Schritt.</p></div>
-      </details>
-      <details class="qa" data-reveal style="--i:2">
-        <summary>Läuft das auch unter Windows?</summary>
-        <div class="qa__a"><p>Nextfix wird auf dem Mac entwickelt. Unter Mac und Linux laufen alle 284 automatischen Tests durch. Unter Windows funktionieren Installation, Start per Doppelklick und Prüfen; das wird bei jeder Änderung automatisch geprüft. Offiziell unterstützt ist Windows trotzdem noch nicht, weil dort einzelne Tests gelegentlich scheitern. Wenn du es ausprobierst, freut sich das Projekt über eine Rückmeldung auf GitHub.</p></div>
-      </details>
-      <details class="qa" data-reveal style="--i:3">
-        <summary>Wohin gehen meine Daten?</summary>
-        <div class="qa__a"><p>Deine Ergebnisse bleiben auf deinem Rechner, in einer einzigen Datei. Nach außen geht nur, was für eine Abfrage nötig ist: Nextfix ruft deine Website ab, holt Vorschläge bei Google und, wenn du es einrichtest, Daten von Search Console, Bing und Open PageRank. Kein Konto bei Nextfix, kein Tracking.</p></div>
-      </details>
-      <details class="qa" data-reveal style="--i:4">
-        <summary>Was kann Nextfix nicht?</summary>
-        <div class="qa__a"><p>Es zeigt keine Positionen deiner Konkurrenz und keine einzelnen Backlinks, dafür bräuchte es bezahlte Datenbanken. Die Ladezeit misst es im Labor auf deinem Rechner, nicht bei echten Besuchern.</p></div>
-      </details>
-      <details class="qa" data-reveal style="--i:5">
-        <summary>Ersetzt Nextfix eine Agentur?</summary>
-        <div class="qa__a"><p>Nein. Nextfix sagt dir, was zu tun ist und ob du es selbst im CMS erledigen kannst oder dein Webbetreuer ran muss. Die Arbeit selbst bleibt bei euch. Dafür weißt du genau, was du beauftragst.</p></div>
-      </details>
+    <div class="band band--b" data-reveal>
+      <h3 class="band__q">Muss ich programmieren können?</h3>
+      <div class="band__a"><p>Nein. Zum Installieren fügst du eine Zeile ins Terminal ein, oder dein Webbetreuer macht das (einmal, ein paar Minuten). Danach startest du Nextfix auf dem Mac und unter Windows per Doppelklick, unter Linux mit einem Befehl, und bedienst es im Browser. Die Anleitung erklärt jeden Schritt.</p></div>
     </div>
-    <p class="faq-more"><a class="link" href="faq/">Alle Fragen und Antworten</a></p>
-  </div>
-</section>
-
-<section class="section wrap weiter" aria-labelledby="weiter-h">
-  <h2 id="weiter-h" class="h2" data-reveal>Wie es weitergeht</h2>
-  <p class="lead-after" data-reveal>Ohne Datum: Nextfix ist ein Nebenprojekt, und die Reihenfolge richtet sich nach echten Rückmeldungen.</p>
-  <div class="weiter__grid">
-    <div data-reveal>
-      <h3 class="weiter__h">Neu und geplant</h3>
-      <ul class="weiter__liste">
-        <li class="ist-fertig"><strong>Installation aus der neuesten Version</strong> statt aus dem Entwicklungsstand. Am Ende steht der fertige Befehl für Claude Code da. <span class="weiter__status">seit 0.2.0</span></li>
-        <li class="ist-fertig"><strong>Anleitungen in Klartext.</strong> Die zehn häufigsten Aufgaben erklären in wenigen Schritten, wie du sie selbst behebst, auch wo das Feld in WordPress liegt. <span class="weiter__status">seit 0.2.0</span></li>
-        <li class="ist-fertig"><strong>Start per Doppelklick auf Windows.</strong> <span class="weiter__status">seit 0.2.0</span></li>
-        <li><strong>Klartext für alle Prüfungen,</strong> nicht nur für die zehn häufigsten Aufgaben.</li>
-        <li><strong>Windows offiziell.</strong> Installation, Start und Prüfen laufen schon; einzelne Tests scheitern dort noch gelegentlich.</li>
-        <li><strong>Verweisende Domains aus offenen Daten</strong> (Common Crawl), wenn das ohne Kosten und ohne riesige Downloads geht.</li>
-      </ul>
+    <div class="band band--a" data-reveal>
+      <h3 class="band__q">Läuft das auch unter Windows?</h3>
+      <div class="band__a"><p>Nextfix wird auf dem Mac entwickelt. Unter Mac und Linux laufen alle 284 automatischen Tests durch. Unter Windows funktionieren Installation, Start per Doppelklick und Prüfen; das wird bei jeder Änderung automatisch geprüft. Offiziell unterstützt ist Windows trotzdem noch nicht, weil dort einzelne Tests gelegentlich scheitern. Wenn du es ausprobierst, freut sich das Projekt über eine Rückmeldung auf GitHub.</p></div>
     </div>
-    <div data-reveal style="--i:1">
-      <h3 class="weiter__h">Bewusst nicht geplant</h3>
-      <ul class="weiter__liste weiter__liste--nein">
-        <li><strong>Rankings fremder Websites.</strong> Die gibt es nur per Google-Scraping (gegen Googles Regeln) oder aus bezahlten Datenbanken. Nextfix nutzt Search Console und Bing, die dir schon gehören.</li>
-        <li><strong>Eine eigene Backlink-Datenbank.</strong> Dafür müsste man das ganze Web abrufen oder jeden Monat Daten mieten.</li>
-        <li><strong>Eine Cloud-Version.</strong> Nextfix läuft auf deinem Rechner, deine Daten bleiben dort.</li>
-        <li><strong>Tracking oder Telemetrie.</strong> Nextfix schickt nichts über dich oder deine Projekte irgendwohin.</li>
-      </ul>
+    <div class="band band--b" data-reveal>
+      <h3 class="band__q">Wohin gehen meine Daten?</h3>
+      <div class="band__a"><p>Deine Ergebnisse bleiben auf deinem Rechner, in einer einzigen Datei, ebenso Verlauf, Aufgaben und Zugangsdaten. Nach außen geht nur, was für eine Abfrage nötig ist: Nextfix ruft deine Website ab, holt Vorschläge bei Google und, wenn du es einrichtest, Daten von Search Console, Bing und Open PageRank. Es gibt kein Konto bei Nextfix, kein Tracking, keine Telemetrie, keine Werbung und keinen Server, auf dem deine Daten liegen.</p></div>
     </div>
-  </div>
-  <p class="weiter__mit" data-reveal><strong>Mitmachen:</strong> Jede Prüfung ist eine kleine Python-Funktion mit <code>@check</code>. Fehler und Wünsche gehen als <a class="link" href="https://github.com/the-neyro/nextfix/issues">Issue auf GitHub</a>, Beiträge nach der <a class="link" href="https://github.com/the-neyro/nextfix/blob/main/CONTRIBUTING.md">Anleitung für Mitwirkende</a> (Englisch).</p>
-</section>
-
-<section class="section wrap" aria-labelledby="blog-h" data-blog-teaser>
-  <h2 id="blog-h" class="h2" data-reveal>Neu im Blog</h2>
-  <!-- blog:start -->
-  <div class="posts">
-    <a class="post-card" href="blog/nextfix-prueft-seine-eigene-website/"><time datetime="2026-10-18">18. Oktober 2026</time><h3>Nextfix prüft seine eigene Website</h3><p>Drei Durchläufe an dieser Website: von 64 auf 98. Was davon echte Verbesserung war, was Fehlalarme von Nextfix selbst und was wir daraus gelernt haben.</p></a>
-    <a class="post-card" href="blog/version-0-2-0/"><time datetime="2026-10-17">17. Oktober 2026</time><h3>Nextfix 0.2: Lösungen in Klartext</h3><p>Die zehn häufigsten Aufgaben erklären jetzt in Klartext, wie du sie selbst behebst, mit WordPress-Hinweis. Dazu Doppelklick-Start auf Windows.</p></a>
-    <a class="post-card" href="blog/google-findet-meine-website-nicht/"><time datetime="2026-10-17">17. Oktober 2026</time><h3>Warum findet Google meine Website nicht?</h3><p>Sechs häufige Gründe, warum deine Website bei Google fehlt oder weit hinten steht, und wie du die meisten davon selbst prüfst. Ohne Fachchinesisch.</p><span class="post-card__rubrik">Ratgeber</span></a>
-  </div>
-  <!-- blog:ende -->
-  <p class="modules__more"><a class="link" href="blog/">Alle Beiträge</a> · <a class="link" href="blog/feed.xml">Feed abonnieren</a></p>
+    <div class="band band--a" data-reveal>
+      <h3 class="band__q">Was kann Nextfix nicht?</h3>
+      <div class="band__a"><p>Es zeigt keine Positionen deiner Konkurrenz und keine einzelnen Backlinks, dafür bräuchte es bezahlte Datenbanken. Die Ladezeit misst es im Labor auf deinem Rechner, nicht bei echten Besuchern.</p></div>
+    </div>
+    <div class="band band--b" data-reveal>
+      <h3 class="band__q">Ersetzt Nextfix eine Agentur?</h3>
+      <div class="band__a"><p>Nein. Nextfix sagt dir, was zu tun ist und ob du es selbst im CMS erledigen kannst oder dein Webbetreuer ran muss. Die Arbeit selbst bleibt bei euch. Dafür weißt du genau, was du beauftragst.</p></div>
+    </div>
+    <div class="band band--a" data-reveal>
+      <h3 class="band__q">Für wen ist das?</h3>
+      <div class="band__a"><ul><li><strong>Handwerksbetrieb:</strong> „Uns findet bei Google keiner.“ Nextfix zeigt, welche drei Dinge du zuerst angehst.</li><li><strong>Freiberuflerin:</strong> eine Seite soll für einen Suchbegriff gefunden werden. „Seite optimieren“ sagt, was fehlt.</li><li><strong>Verein:</strong> einmal im Jahr prüfen, den PDF-Bericht an den Vorstand schicken.</li><li><strong>Webbetreuer und Agentur:</strong> mehrere Websites, eine Übersicht.</li></ul></div>
+    </div>
+    <div class="band band--b" data-reveal>
+      <h3 class="band__q">Kein Terminal-Mensch?</h3>
+      <div class="band__a">      <p>Dann schick Nextfix deinem Webbetreuer. Der Text ist fertig, du musst nur noch auf Senden drücken.</p>
+      <p class="faq-actions"><a class="button" data-mail href="mailto:?subject=Kannst%20du%20Nextfix%20f%C3%BCr%20unsere%20Website%20einrichten%3F&amp;body=Hallo%2C%0A%0Aich%20m%C3%B6chte%20unsere%20Website%20mit%20Nextfix%20pr%C3%BCfen.%20Das%20ist%20ein%20kostenloses%20Open-Source-SEO-Tool%2C%20das%20lokal%20l%C3%A4uft%20(kein%20Konto%2C%20kein%20Abo).%0A%0AAnleitung%3A%20https%3A%2F%2Fthe-neyro.github.io%2Finstallation%2F%20(einmal%20ca.%2015%20Minuten)%0A%0ADanach%20bitte%20einmal%20pr%C3%BCfen%20und%20mir%20den%20PDF-Bericht%20schicken%20(Knopf%20%E2%80%9EPDF%E2%80%9C%20in%20der%20%C3%9Cbersicht).%20Die%20Aufgaben%20mit%20%E2%80%9EWirkung%20hoch%E2%80%9C%20gehen%20wir%20dann%20zuerst%20an.%0A%0ADanke!">E-Mail an den Webbetreuer</a><button class="button button--ghost" type="button" data-mail-copy hidden>Text kopieren</button></p>
+      <p>So sieht ein Bericht aus: <a class="link" href="beispiel-bericht-radhaus-elbe.pdf">Beispielbericht der Demo-Website (PDF, 8 Seiten, 118 KB)</a></p></div>
+    </div>
+    <div class="band band--a" id="weiter" data-reveal>
+      <h3 class="band__q">Wie geht es weiter?</h3>
+      <div class="band__a"><p>Ohne Datum: Nextfix ist ein Nebenprojekt, und die Reihenfolge richtet sich nach echten Rückmeldungen.</p><p><strong>Geplant:</strong> Klartext für alle Prüfungen, nicht nur für die zehn häufigsten Aufgaben. Windows offiziell. Verweisende Domains aus offenen Daten (Common Crawl), wenn das ohne Kosten geht.</p><p><strong>Schon da seit 0.2.0:</strong> Installation aus der neuesten Version, Anleitungen in Klartext, Start per Doppelklick auf Windows.</p><p><strong>Bewusst nicht geplant:</strong> Rankings fremder Websites (nur per Google-Scraping oder aus bezahlten Datenbanken), eine eigene Backlink-Datenbank, eine Cloud-Version, Tracking oder Telemetrie.</p><p><strong>Mitmachen:</strong> Jede Prüfung ist eine kleine Python-Funktion mit <code>@check</code>. Fehler und Wünsche gehen als <a class="link" href="https://github.com/the-neyro/nextfix/issues">Issue auf GitHub</a>, Beiträge nach der <a class="link" href="https://github.com/the-neyro/nextfix/blob/main/CONTRIBUTING.md">Anleitung für Mitwirkende</a> (Englisch).</p></div>
+    </div>
+  <p class="faq__more"><a class="link" href="faq/">Alle Fragen und Antworten</a></p>
 </section>
 </main>
 
-<footer class="site-foot">
-  <div class="foot-top">
-    <div class="foot-invite">
-      <h2>Fang mit der ersten Aufgabe an.</h2>
-      <a class="button button--light" href="installation/">Installieren</a>
-    </div>
-    <nav class="foot-links" aria-label="Fußmenü">
-      <a href="pruefungen/">Alle Prüfungen</a>
-      <a href="blog/">Blog</a>
-      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
-      <a href="funktionen/">Funktionen</a>
-      <a href="installation/">Installation</a>
-      <a href="faq/">FAQ</a>
-    </nav>
-  </div>
-  <div class="foot-legal">
-    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</span>
-    <a href="datenschutz/">Datenschutz</a>
-  </div>
-  <p class="foot-name" aria-hidden="true">Nextfix</p>
-</footer>
+<footer class="site-foot"></footer>
 
 <script src="assets/js/site.js" defer></script>
 </body>
