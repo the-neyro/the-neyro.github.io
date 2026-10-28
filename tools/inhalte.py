@@ -120,7 +120,7 @@ def fuss(p: str, kurz: bool = True, start: bool = False) -> str:
     <div class="foot-col">
       <p class="foot-h">Projekt</p>
       <a href="{GITHUB}">Quellcode auf GitHub</a>
-      <a href="{GITHUB}/releases/latest">Version 0.2.2, was ist neu</a>
+      <a href="{GITHUB}/releases/latest">Version 0.2.3, was ist neu</a>
       <span>MIT-Lizenz, quelloffen</span>
       <a href="{p}faq/#weiter">Wie es weitergeht</a>
     </div>

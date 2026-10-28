@@ -20,7 +20,7 @@ Große SEO-Suiten zeigen hunderte Zahlen und überlassen die Reihenfolge dem Nut
 
 ## Operating Context
 - Nextfix läuft lokal (Python 3.12+, Web-Oberfläche im Browser auf localhost:8000), Oberfläche auf Deutsch, hell/dunkel.
-- Module: Website-Check (Crawler, 106 Prüfungen in 8 Bereichen, Website-Zustand 0–100, „Was jetzt tun“), Ladezeit (Core Web Vitals im Labor), Positionen (Search Console, Bing), Autorität (Open PageRank), Suchbegriffe finden, Seite optimieren (Seiten- und KI-Score), Prüfungen für KI-Suche (llms.txt, KI-Crawler, FAQ-Markup).
+- Module: Website-Check (Crawler, 111 Prüfungen in 8 Bereichen, Website-Zustand 0–100, „Was jetzt tun“), Ladezeit (Core Web Vitals im Labor), Positionen (Search Console, Bing), Autorität (Open PageRank), Suchbegriffe finden, Seite optimieren (Seiten- und KI-Score), Prüfungen für KI-Suche (llms.txt, KI-Crawler, FAQ-Markup).
 - Ergebnisse: Aufgabenliste, Problem-Detailseiten, Verlauf, CSV, PDF-Bericht.
 - Installation über Terminal (git clone, venv, pip, uvicorn). Das ist für die Zielgruppe eine echte Hürde.
 
@@ -40,7 +40,7 @@ Große SEO-Suiten zeigen hunderte Zahlen und überlassen die Reihenfolge dem Nut
 
 ## Evidence on Hand
 - Echte Screenshots der Oberfläche (hell und dunkel) mit der erfundenen Demo-Website „Radhaus Elbe“: `docs/screenshots/` im [Nextfix-Repo](https://github.com/the-neyro/nextfix).
-- Fakten aus dem README (106 Prüfungen, 50 MCP-Tools, 257 Tests, Module).
+- Fakten aus dem README (111 Prüfungen, 50 MCP-Tools, 257 Tests, Module).
 - Keine Kunden, Testimonials, Downloadzahlen, Presse oder Logos. Nichts davon erfinden.
 
 ## Product Principles
