@@ -395,7 +395,8 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .module__demo { margin-top: 1rem; font-weight: 500; }
 .module__demo .link::after { content: " →"; }
 /* Installation: was der Einzeiler tut */
-.zeile-info { margin: 1.25rem 0 1.5rem; padding: 1.1rem 1.25rem; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; }
+.prose--col { max-width: calc(46rem + 2 * var(--edge)); margin-inline: auto; }
+.zeile-info { max-width: 46rem; margin: 1.25rem 0 1.5rem; padding: 1.1rem 1.25rem; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; }
 .zeile-info__h { font-weight: 600; margin-bottom: 0.4rem; }
 .zeile-info ul { padding-left: 1.1rem; display: grid; gap: 0.35rem; margin: 0 0 0.75rem; }
 .zeile-info p:last-child { margin-bottom: 0; font-size: var(--step-small); color: var(--muted); }
