@@ -169,7 +169,7 @@ def kopf_block(seite: dict, quelltext: str) -> str:
     zeilen = [
         START,
         f'<link rel="canonical" href="{url(seite["pfad"])}">',
-        '<meta name="theme-color" content="#f7f6f3">',
+        '<meta name="theme-color" content="#f7f9f8">',
         f'<link rel="apple-touch-icon" href="{url("/assets/img/apple-touch-icon.png")}">',
         f'<meta property="og:type" content="{"article" if seite.get("blog") else "website"}">',
         f'<meta property="og:site_name" content="{NAME}">',

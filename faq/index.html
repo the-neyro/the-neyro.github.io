@@ -7,7 +7,7 @@
 <meta name="description" content="Antworten zu Nextfix: was es kostet, was du zum Installieren brauchst, wohin deine Daten gehen, was der Website-Zustand bedeutet und was das Tool nicht kann.">
 <!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
 <link rel="canonical" href="https://the-neyro.github.io/faq/">
-<meta name="theme-color" content="#f7f6f3">
+<meta name="theme-color" content="#f7f9f8">
 <link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Nextfix">
@@ -24,7 +24,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"de","mainEntity":[{"@type":"Question","name":"Was ist Nextfix?","acceptedAnswer":{"@type":"Answer","text":"Ein SEO-Tool, das auf deinem eigenen Rechner läuft. Es prüft deine Website und macht aus den Ergebnissen eine kurze Liste: was du zuerst tust, warum, wie und wer es erledigt. Dazu kommen Ladezeit, Positionen bei Google und Bing, Suchbegriffe und Tipps für einzelne Seiten."}},{"@type":"Question","name":"Kostet Nextfix wirklich nichts?","acceptedAnswer":{"@type":"Answer","text":"Ja. Der Quellcode ist offen (MIT-Lizenz), es gibt kein Abo und keine bezahlten Schnittstellen. Die Daten kommen von deiner Website, aus der Google Search Console und von Bing; beide Dienste sind kostenlos. Für die Domain-Autorität brauchst du einen kostenlosen Schlüssel von Open PageRank."}},{"@type":"Question","name":"Für wen ist Nextfix gedacht?","acceptedAnswer":{"@type":"Answer","text":"Für alle, die ihre Website selbst pflegen oder pflegen lassen und kein Budget für SEO-Software haben: Freiberufler, Handwerker, kleine Firmen, Vereine. Fachbegriffe werden erklärt, Aufgaben stehen in ganzen Sätzen."}},{"@type":"Question","name":"Ersetzt Nextfix eine Agentur?","acceptedAnswer":{"@type":"Answer","text":"Nein. Nextfix sagt dir, was zu tun ist und ob du es selbst im CMS erledigen kannst oder dein Webbetreuer ran muss. Die Arbeit selbst bleibt bei euch. Dafür weißt du genau, was du beauftragst."}},{"@type":"Question","name":"Wer steckt dahinter?","acceptedAnswer":{"@type":"Answer","text":"Nextfix ist ein privates Open-Source-Projekt von the-neyro, entwickelt öffentlich auf GitHub. Kein Unternehmen, keine Werbung, kein Verkauf von Daten. Diese Website stellt das Programm vor und ist zugleich sein Testfall: An ihr wird Nextfix an einer echten Website erprobt. Kontakt: neyro.devs@gmail.com oder ein Issue auf GitHub."}},{"@type":"Question","name":"Muss ich programmieren können?","acceptedAnswer":{"@type":"Answer","text":"Nein. Zum Installieren fügst du eine Zeile ins Terminal ein, oder dein Webbetreuer macht das. Danach startest du Nextfix auf dem Mac und unter Windows per Doppelklick, unter Linux mit einem Befehl, und bedienst es im Browser. Die Anleitung erklärt jeden Schritt."}},{"@type":"Question","name":"Kann ich die Installationszeile bedenkenlos ausführen?","acceptedAnswer":{"@type":"Answer","text":"Die Zeile lädt ein Skript von GitHub und führt es aus. Das solltest du bei keinem Programm blind tun, deshalb kannst du es vorher komplett lesen. Es braucht keine Admin-Rechte, legt alles im Ordner nextfix ab (nur Chromium landet im Cache von Playwright), richtet nichts ein, das von selbst startet, und schickt nichts über dich irgendwohin. Was es Schritt für Schritt tut, steht auf der Seite Installation. Der ganze Quellcode ist öffentlich (MIT-Lizenz). Lieber nichts im Terminal ausführen? Dann gib die Anleitung deinem Webbetreuer."}},{"@type":"Question","name":"Läuft das auch unter Windows?","acceptedAnswer":{"@type":"Answer","text":"Nextfix wird auf dem Mac entwickelt. Unter Mac und Linux laufen alle 284 automatischen Tests durch. Unter Windows funktionieren Installation, Start per Doppelklick und Prüfen; das wird bei jeder Änderung automatisch geprüft. Offiziell unterstützt ist Windows trotzdem noch nicht, weil dort einzelne Tests gelegentlich scheitern. Wenn du es ausprobierst, freut sich das Projekt über eine Rückmeldung auf GitHub."}},{"@type":"Question","name":"Kann ich auch fremde Websites prüfen?","acceptedAnswer":{"@type":"Answer","text":"Ja, der Website-Check braucht keinen Zugang, nur die Adresse. Der Crawler ruft die Seiten nacheinander ab, nicht parallel, und hält sich standardmäßig an die robots.txt. Positionen gibt es nur für Websites, deren Search Console du verbunden hast."}},{"@type":"Question","name":"Was ist MCP, und brauche ich Claude?","acceptedAnswer":{"@type":"Answer","text":"Nein, die Oberfläche im Browser reicht. MCP ist eine Schnittstelle, über die Claude Programme bedienen kann. Nextfix bietet dort 51 Werkzeuge an. Wer Claude nutzt, kann dann im Chat sagen: „Prüf meine Website und erklär mir die drei wichtigsten Aufgaben.“"}},{"@type":"Question","name":"Wohin gehen meine Daten?","acceptedAnswer":{"@type":"Answer","text":"Deine Ergebnisse bleiben auf deinem Rechner, in einer einzigen Datei (data/seo.db). Nach außen geht nur, was für eine Abfrage nötig ist: Nextfix ruft deine Website ab, holt für Suchbegriff-Ideen die Vorschläge beim Tippen von Google und, wenn du es einrichtest, Daten von Search Console, Bing und Open PageRank. Kein Konto bei Nextfix, kein Tracking."}},{"@type":"Question","name":"Fragt Nextfix Google-Suchergebnisse ab?","acceptedAnswer":{"@type":"Answer","text":"Nein. Nextfix liest keine Suchergebnisse aus. Deine Positionen kommen aus der Search Console und von Bing, also aus den Daten, die dir als Website-Betreiber ohnehin zustehen. Für Suchbegriff-Ideen fragt es in kleinem Umfang die Vorschläge beim Tippen ab; das ist keine offizielle Schnittstelle von Google."}},{"@type":"Question","name":"Was bedeutet der Website-Zustand?","acceptedAnswer":{"@type":"Answer","text":"Eine Zahl von 0 bis 100, die zeigt, wie viele und wie schwere Probleme gefunden wurden. Ab 80 gilt eine Website als gut gepflegt, unter 50 gibt es mehrere grobe Fehler. Ein Fehler auf vielen Seiten wiegt schwerer als einer auf einer einzelnen Seite. Die Zahl sagt nichts darüber, auf welchem Platz du bei Google landest. Sie ist ein Maß für den Pflegezustand, nicht fürs Ranking."}},{"@type":"Question","name":"Warum gibt es keine Punkte je Aufgabe?","acceptedAnswer":{"@type":"Answer","text":"Weil niemand seriös vorhersagen kann, was eine Behebung bei Google bringt. Eine Angabe wie „+4,2 Punkte“ täuscht Genauigkeit vor. Nextfix sortiert die Aufgaben trotzdem nach ihrem Gewicht und zeigt die Wirkung in drei Stufen: hoch, mittel, gering."}},{"@type":"Question","name":"Was heißt „Bewusst so“?","acceptedAnswer":{"@type":"Answer","text":"Manches ist Absicht: eine Login-Seite ohne Text, ein Impressum ohne Beschreibung. Markierst du ein Problem, eine Seite oder eine einzelne Fundstelle als „Bewusst so“, zählt es nicht mehr im Zustand und taucht nicht in den Aufgaben auf. Du kannst es jederzeit zurücknehmen."}},{"@type":"Question","name":"Was kann Nextfix nicht?","acceptedAnswer":{"@type":"Answer","text":"Es zeigt keine Positionen deiner Konkurrenz und keine einzelnen Backlinks, dafür bräuchte es bezahlte Datenbanken. Die Ladezeit misst es im Labor auf deinem Rechner, nicht bei echten Besuchern."}}]}</script>
 <!-- seo:ende -->
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
-<link rel="preload" href="../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
 <link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../blog/feed.xml">
@@ -214,25 +214,41 @@
 </main>
 
 <footer class="site-foot site-foot--short">
-  <div class="foot-top">
-    <div class="foot-invite">
-      <h2>Fang mit der ersten Aufgabe an.</h2>
-      <a class="button button--light" href="../installation/">Installieren</a>
-    </div>
-    <nav class="foot-links" aria-label="Fußmenü">
-      <a href="../pruefungen/">Alle Prüfungen</a>
-      <a href="../blog/">Blog</a>
-      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+  <div class="foot-cols">
+    <nav class="foot-col" aria-label="Fußmenü">
+      <p class="foot-h">Nextfix</p>
       <a href="../funktionen/">Funktionen</a>
+      <a href="../pruefungen/">Alle Prüfungen</a>
       <a href="../installation/">Installation</a>
-      <a href="./">FAQ</a>
+      <a href="../faq/">FAQ</a>
+      <a href="../blog/">Blog</a>
     </nav>
+    <div class="foot-col">
+      <p class="foot-h">Projekt</p>
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+      <a href="https://github.com/the-neyro/nextfix/releases/latest">Version 0.2.2, was ist neu</a>
+      <span>MIT-Lizenz, quelloffen</span>
+      <a href="../faq/#weiter">Wie es weitergeht</a>
+    </div>
+    <div class="foot-col" data-blog-teaser>
+      <p class="foot-h">Neu im Blog</p>
+      <!-- blog:start -->
+      <a href="../blog/nextfix-prueft-seine-eigene-website/">Nextfix prüft seine eigene Website</a>
+      <a href="../blog/version-0-2-0/">Nextfix 0.2: Lösungen in Klartext</a>
+      <a href="../blog/google-findet-meine-website-nicht/">Warum findet Google meine Website nicht?</a>
+      <!-- blog:ende -->
+    </div>
+    <div class="foot-col">
+      <p class="foot-h">Rechtliches</p>
+      <a href="../datenschutz/">Datenschutz</a>
+      <a href="../#bildnachweis">Bildnachweise</a>
+      <span>Privates Projekt von the-neyro</span>
+    </div>
   </div>
+  <svg class="foot-name" viewBox="0 0 1000 140" aria-hidden="true" focusable="false"><text x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs" font-size="178">NEXTFIX</text></svg>
   <div class="foot-legal">
-    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</span>
-    <a href="../datenschutz/">Datenschutz</a>
+    <p>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</p>
   </div>
-  <p class="foot-name" aria-hidden="true">Nextfix</p>
 </footer>
 <script src="../assets/js/site.js" defer></script>
 </body>
