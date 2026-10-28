@@ -59,51 +59,60 @@
     <div class="wjt__panel">
       <div class="wjt__head">
         <p class="wjt__title">Was jetzt tun</p>
-        <p class="wjt__done" aria-live="polite">1 von 4 erledigt</p>
+        <p class="wjt__done" aria-live="polite">1 von 5 erledigt</p>
         <button class="wjt__toggle" type="button" hidden>Anhalten</button>
       </div>
       <ol class="wjt__list" aria-label="Aufgaben der Demo-Website Radhaus Elbe, sortiert nach Wirkung">
         <li class="row is-done" data-slot="0" style="--slot:0">
-          <button class="row__check" type="button" aria-label="Als erledigt markieren: Bau 9 Seiten mit wenig Text aus oder nimm sie aus dem Index" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="row__body">
-            <p class="row__title"><span class="row__nr">1</span>Bau 9 Seiten mit wenig Text aus oder nimm sie aus dem Index<span class="row__strike" aria-hidden="true"><span><span class="row__nr">1</span>Bau 9 Seiten mit wenig Text aus oder nimm sie aus dem Index</span></span></p>
-            <p class="row__why">Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben.</p>
-            <p class="row__tags"><span class="tag tag--wichtig">Wichtig</span><span class="tag">Text schreiben</span><span class="tag">machst du selbst</span></p>
-          </div>
-          <p class="row__effect row__effect--hoch">Wirkung hoch</p>
-        </li>
-        <li class="row is-active" data-slot="1" style="--slot:1">
-          <button class="row__check" type="button" aria-label="Als erledigt markieren: Gib 4 Seiten eigene Beschreibungen" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="row__body">
-            <p class="row__title"><span class="row__nr">2</span>Gib 4 Seiten eigene Beschreibungen<span class="row__strike" aria-hidden="true"><span><span class="row__nr">2</span>Gib 4 Seiten eigene Beschreibungen</span></span></p>
-            <p class="row__why">Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</p>
-            <p class="row__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
-          </div>
-          <p class="row__effect row__effect--hoch">Wirkung hoch</p>
-        </li>
-        <li class="row" data-slot="2" style="--slot:2">
           <button class="row__check" type="button" aria-label="Als erledigt markieren: Entferne fehlerhafte Adressen aus der Sitemap" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
           <div class="row__body">
-            <p class="row__title"><span class="row__nr">3</span>Entferne fehlerhafte Adressen aus der Sitemap<span class="row__strike" aria-hidden="true"><span><span class="row__nr">3</span>Entferne fehlerhafte Adressen aus der Sitemap</span></span></p>
+            <p class="row__title"><span class="row__nr">1</span>Entferne fehlerhafte Adressen aus der Sitemap<span class="row__strike" aria-hidden="true"><span><span class="row__nr">1</span>Entferne fehlerhafte Adressen aus der Sitemap</span></span></p>
             <p class="row__why">Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten.</p>
             <p class="row__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">einmal einstellen</span><span class="tag">für deine Technik</span></p>
           </div>
           <p class="row__effect row__effect--mittel">Wirkung mittel</p>
         </li>
-        <li class="row" data-slot="3" style="--slot:3">
+        <li class="row is-active" data-slot="1" style="--slot:1">
           <button class="row__check" type="button" aria-label="Als erledigt markieren: Behebe 1 Seite mit „nicht gefunden“ (404)" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
           <div class="row__body">
-            <p class="row__title"><span class="row__nr">4</span>Behebe 1 Seite mit „nicht gefunden“ (404)<span class="row__strike" aria-hidden="true"><span><span class="row__nr">4</span>Behebe 1 Seite mit „nicht gefunden“ (404)</span></span></p>
-            <p class="row__why">Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.</p>
+            <p class="row__title"><span class="row__nr">2</span>Behebe 1 Seite mit „nicht gefunden“ (404)<span class="row__strike" aria-hidden="true"><span><span class="row__nr">2</span>Behebe 1 Seite mit „nicht gefunden“ (404)</span></span></p>
+            <p class="row__why">Die Adresse führt ins Leere: Besucher brechen ab, Google nimmt die Seite aus den Ergebnissen.</p>
             <p class="row__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
           </div>
           <p class="row__effect row__effect--mittel">Wirkung mittel</p>
+        </li>
+        <li class="row" data-slot="2" style="--slot:2">
+          <button class="row__check" type="button" aria-label="Als erledigt markieren: Repariere defekte interne Links auf 1 Seite" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="row__body">
+            <p class="row__title"><span class="row__nr">3</span>Repariere defekte interne Links auf 1 Seite<span class="row__strike" aria-hidden="true"><span><span class="row__nr">3</span>Repariere defekte interne Links auf 1 Seite</span></span></p>
+            <p class="row__why">Ein Link führt auf eine Seite, die es nicht gibt: Besucher und Google laufen ins Leere.</p>
+            <p class="row__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
+          </div>
+          <p class="row__effect row__effect--mittel">Wirkung mittel</p>
+        </li>
+        <li class="row" data-slot="3" style="--slot:3">
+          <button class="row__check" type="button" aria-label="Als erledigt markieren: Bau 7 Seiten mit wenig Text aus oder nimm sie aus dem Index" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="row__body">
+            <p class="row__title"><span class="row__nr">4</span>Bau 7 Seiten mit wenig Text aus oder nimm sie aus dem Index<span class="row__strike" aria-hidden="true"><span><span class="row__nr">4</span>Bau 7 Seiten mit wenig Text aus oder nimm sie aus dem Index</span></span></p>
+            <p class="row__why">Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben.</p>
+            <p class="row__tags"><span class="tag tag--wichtig">Wichtig</span><span class="tag">Text schreiben</span><span class="tag">machst du selbst</span></p>
+          </div>
+          <p class="row__effect row__effect--mittel">Wirkung mittel</p>
+        </li>
+        <li class="row" data-slot="3" style="--slot:3">
+          <button class="row__check" type="button" aria-label="Als erledigt markieren: Gib 4 Seiten eigene Beschreibungen" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+          <div class="row__body">
+            <p class="row__title"><span class="row__nr">5</span>Gib 4 Seiten eigene Beschreibungen<span class="row__strike" aria-hidden="true"><span><span class="row__nr">5</span>Gib 4 Seiten eigene Beschreibungen</span></span></p>
+            <p class="row__why">Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</p>
+            <p class="row__tags"><span class="tag tag--wichtig">Wichtig</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
+          </div>
+          <p class="row__effect row__effect--gering">Wirkung gering</p>
         </li>
         <li class="row row--recheck" data-slot="3" style="--slot:3">
           <p>Erledigt? Dann prüf noch mal.</p><span class="row__btn" aria-hidden="true">Erneut prüfen</span>
         </li>
       </ol>
-      <div class="wjt__foot">Website-Zustand <span class="wjt__score" data-score>49</span> von 100</div>
+      <div class="wjt__foot">Website-Zustand <span class="wjt__score" data-score>64</span> von 100</div>
     </div>
     </div>
     <figcaption class="wjt__cap">Beispiel aus „Was jetzt tun“ für eine erfundene Demo-Website. Erledigtes wird abgehakt, die nächste Aufgabe rückt nach. <a class="link" href="faq/#begriffe">Was heißt Sitemap, Index und 404?</a></figcaption>
