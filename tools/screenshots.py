@@ -32,15 +32,15 @@ QUALITAET = 90
 RAND = 12  # App-Hintergrund rund um den Ausschnitt, in CSS-Pixeln
 # Nextfix-Fehler bei Handybreite: eine lange Kopfzeile (Positionen, Seite optimieren) macht die ganze Seite
 # breiter als den Bildschirm. Für die Aufnahme abgefangen; die Kopfzeile liegt dort außerhalb des Ausschnitts.
-KORREKTUR_CSS = "@media (max-width: 900px) { .app { grid-template-columns: minmax(0, 1fr); } }"
+KORREKTUR_CSS = ""  # die neue App ist schmal von selbst responsiv
 
 # Name, Pfad, Fassungen: (Fassung, Viewport-Breite, Skalierung, Elemente von–bis, max. Höhe, Ausgabebreiten)
 # „Elemente von–bis“: der Ausschnitt reicht vom oberen Rand des ersten bis zum unteren Rand des zweiten Selektors;
 # endet er an einem Listeneintrag, sieht man, dass es weitergeht.
 MOTIVE = [
     ("uebersicht", "/projekte/1", [
-        ("breit", 1440, 2.2, (".messung", ".aufgaben > li:nth-child(3)"), 900, (800, 1200, 1600, 2400)),
-        ("schmal", 390, 3, (".messung", ".aufgaben > li:nth-child(1)"), 1100, (760, 1140)),
+        ("breit", 1440, 2.2, ("section.karte:has(.aufgaben)", ".teilnoten"), 900, (800, 1200, 1600, 2400)),
+        ("schmal", 390, 3, ("section.karte:has(.aufgaben)", ".aufgaben > li:nth-child(1)"), 1100, (760, 1140)),
     ]),
     ("aufgaben", "/projekte/1", [
         ("breit", 1440, 3.5, ("section.karte:has(.aufgaben)", ".aufgaben > li:nth-child(4)"), 900, (800, 1300, 1600, 2600)),
@@ -61,6 +61,18 @@ MOTIVE = [
     ("zustand", "/projekte/1", [
         ("schmal", 390, 3, (".messung", ".teilnoten"), 900, (760, 1140)),
     ]),
+    ("lead", "/projekte/1", [
+        ("breit", 1440, 3.5, (".aufgaben:not(.lead) > li >> nth=0", ".aufgaben:not(.lead) > li >> nth=0"), 600, (800, 1300)),
+    ]),
+    ("ki-suche", "/crawls/1/themen/ki", [
+        ("breit", 1000, 3, ("h1", ".raster"), 800, (800, 1200)),
+    ]),
+    ("ladezeit", "/crawls/1/vitals", [
+        ("breit", 1000, 3, ("h1", ".raster"), 800, (800, 1200)),
+    ]),
+    ("suchbegriffe", "/projekte/1/keywords", [
+        ("breit", 1000, 3, ("h1", ".karte >> nth=0"), 800, (800, 1200)),
+    ]),
     ("projekte", "/", [
         ("breit", 632, 4, ("#liste", "section.karte:has(form)"), 900, (800, 1200, 1600, 2400)),
         ("schmal", 390, 3, ("section.karte:has(form)", "section.karte:has(form)"), 900, (760, 1140)),
@@ -70,7 +82,7 @@ MOTIVE = [
 
 def server_starten(nextfix: Path) -> subprocess.Popen:
     env = dict(os.environ, SEO_DB=str(nextfix / "data/demo.db"))
-    prozess = subprocess.Popen([str(nextfix / ".venv/bin/uvicorn"), "app.web:app", "--port", str(PORT),
+    prozess = subprocess.Popen([sys.executable, "-m", "uvicorn", "app.web:app", "--port", str(PORT),
                                 "--log-level", "warning"], cwd=nextfix, env=env)
     for _ in range(100):
         try:
@@ -107,7 +119,8 @@ def aufnehmen() -> None:
                                               color_scheme="light", reduced_motion="reduce")
                 seite = kontext.new_page()
                 seite.goto(BASIS + pfad, wait_until="networkidle")
-                seite.add_style_tag(content=KORREKTUR_CSS)
+                if KORREKTUR_CSS:
+                    seite.add_style_tag(content=KORREKTUR_CSS)
                 seite.evaluate("document.fonts.ready")
                 rechteck = ausschnitt(seite, von, bis, max_hoehe)
                 png = Path(tmp) / f"{name}-{fassung}.png"

@@ -22,7 +22,7 @@ async def main() -> None:
         await seite.screenshot(path=str(WURZEL / "assets/img/og.png"))
 
         # Touch-Icon: Favicon randlos und eckig, die Ecken rundet iOS selbst ab
-        svg = (WURZEL / "favicon.svg").read_text(encoding="utf-8").replace('rx="8"', 'rx="0"')
+        svg = (WURZEL / "favicon.svg").read_text(encoding="utf-8").replace('rx="7"', 'rx="0"')
         svg = svg.replace("<svg ", '<svg width="180" height="180" ', 1)
         icon = await browser.new_page(viewport={"width": 180, "height": 180})
         await icon.set_content(f'<body style="margin:0">{svg}</body>')
