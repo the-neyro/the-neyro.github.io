@@ -135,9 +135,6 @@
 /* ---------- Runde: Video + vier Schritte ---------- */
 .durchlauf:empty { display: none; }
 .durchlauf { margin-top: 2rem; }
-.video { position: relative; margin: 0; border-radius: 10px; overflow: clip; background: #111; border: 1px solid var(--surface-2);
-  box-shadow: 0 24px 48px -28px rgb(28 27 34 / 0.45); } /* taste-skill-ignore: Videofenster */
-.video video { display: block; width: 100%; height: auto; }
 .video video { cursor: pointer; }
 .video__ctrl { position: absolute; right: 0.75rem; bottom: 0.75rem; display: inline-flex; align-items: center; gap: 0.45rem; min-height: 2.25rem;
   padding: 0 0.8rem; font-size: 0.8125rem; font-weight: 500; color: #fff; background: rgb(28 27 34 / 0.72); border: 1px solid rgb(255 255 255 / 0.25);
@@ -212,22 +209,21 @@ thead .cmp__us { color: var(--accent); }
 .hero__title > span { display: block; }
 .hero__lead { font-size: clamp(1.125rem, 1rem + 0.45vw, 1.375rem); line-height: 1.45; max-width: 36ch; }
 .hero__lead strong { font-weight: 600; }
-.hero__band { background: var(--bg); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1rem var(--edge); }
+.hero__band { background: var(--bg); display: flex; align-items: center; justify-content: flex-start; gap: 1.5rem; padding: 1rem var(--edge); }
 .hero__links { font-size: var(--step-small); max-width: 34ch; }
 .hero__band .link { display: inline-block; padding-block: 0.35rem; }
 .hero__cta { min-height: 3.5rem; padding-inline: 2rem; }
-.hero .wjt { position: absolute; z-index: 2; left: 53vw; width: min(32vw, 30rem); min-width: 21rem; bottom: calc(18% - 6rem); transform: rotate(5deg); transform-origin: 50% 80%; max-width: none; }
+.hero .wjt { position: absolute; z-index: 2; left: 58vw; width: min(36vw, 34rem); min-width: 21rem; bottom: calc(18% - 7rem); transform: rotate(5deg); transform-origin: 50% 80%; max-width: none; }
 .hero .wjt__window { box-shadow: 0 18px 40px -18px rgb(6 40 46 / 0.55); } /* taste-skill-ignore: schwebt über der Naht */
 .hero .wjt__cap { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 56em) {
-  .hero { grid-template-rows: auto 8.5rem; min-height: calc(100svh - 4rem); }
-  .hero__field { padding: 2rem var(--edge) 15rem; gap: 1.25rem; }
-  .hero__title { font-size: 13.4vw; }
-  .hero .wjt { left: auto; right: -6vw; width: 74vw; min-width: 0; bottom: 3.5rem; transform-origin: 50% 70%; }
-  .hero__band { flex-direction: column; align-items: stretch; padding-block: 0.75rem; justify-content: flex-end; }
-  .hero__band .hero__cta { order: -1; }
+  .hero { grid-template-rows: auto 12.5rem; min-height: calc(100svh - 4rem); }
+  .hero__field { padding: 2rem var(--edge) 16rem; gap: 1.25rem; }
+  .hero__title { font-size: 12.4vw; }
+  .hero .wjt { left: auto; right: -5vw; width: 66vw; min-width: 0; bottom: 9.5rem; transform-origin: 50% 70%; }
+  .hero .wjt__window { height: 18rem; overflow: clip; }
+  .hero__band { flex-direction: column; align-items: stretch; justify-content: flex-end; gap: 0.25rem; padding-block: 0.5rem; }
 }
-
 /* Signatur: der Werkstattauftrag öffnet sich wie ein Rollladen von unten, das Bild darin setzt sich */
 @media (prefers-reduced-motion: no-preference) {
   .js .hero .wjt__window { animation: shutter 1.1s var(--ease-out) 0.15s both; }
@@ -243,7 +239,7 @@ thead .cmp__us { color: var(--accent); }
 .showcase__row::-webkit-scrollbar { display: none; }
 .showcase__row.is-drag { cursor: grabbing; scroll-snap-type: none; }
 .showcase__row:focus-visible { outline: 3px solid var(--field-ink); outline-offset: -3px; }
-.sp { flex: 0 0 var(--pw); margin: 0; scroll-snap-align: center; background: #fff; color: #0b3b42; transition: opacity 400ms var(--ease-out); }
+.sp { position: relative; flex: 0 0 var(--pw); margin: 0; scroll-snap-align: center; background: #fff; color: #0b3b42; transition: opacity 400ms var(--ease-out); }
 .js .sp:not(.is-center) { opacity: 0.22; }
 .sp__crop { height: clamp(24rem, 62svh, 36rem); overflow: hidden; background: #fff; }
 .sp__crop img { width: 100%; height: auto; background: #fff; user-select: none; -webkit-user-drag: none; }
@@ -252,7 +248,7 @@ thead .cmp__us { color: var(--accent); }
 .sp__crop--chat { padding: 1rem; background: var(--surface); }
 .chat { display: grid; gap: 0.6rem; font-size: 0.9375rem; }
 .chat p { max-width: none; }
-.chat__who { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--muted); margin-bottom: 0.2rem; }
+.chat__who { display: block; font-size: 0.8125rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
 .chat__msg { background: #fff; padding: 0.75rem 0.9rem; line-height: 1.45; }
 .chat__msg--du { background: var(--ink); color: var(--bg); justify-self: end; max-width: 88%; }
 .chat__msg--du .chat__who { color: var(--field-dim); }
@@ -311,7 +307,7 @@ thead .cmp__us { color: var(--accent); }
 }
 
 /* ---------- Prüfprotokoll: bedruckte Karte, unten abgeschnitten ---------- */
-.proof { background: var(--field); color: var(--ink); height: clamp(48rem, 74vw, 70rem); overflow: hidden; padding-top: clamp(3rem, 6vw, 5rem); }
+.proof { background: var(--field); color: var(--ink); height: clamp(52rem, 86vw, 82rem); overflow: hidden; padding-top: clamp(3rem, 6vw, 5rem); }
 .proof__card { background: var(--bg); width: min(56%, 52rem); margin-inline: auto; padding: clamp(1.75rem, 3.5vw, 3.5rem); transform: rotate(-1.5deg); text-align: center; }
 .proof__h { font-size: 1.75rem; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1.05; max-width: none; margin-inline: auto; }
 .proof__demo { margin: 0.5rem auto 1.5rem; font-size: 1rem; color: var(--muted); }
@@ -340,13 +336,13 @@ thead .cmp__us { color: var(--accent); }
 .poster { background: var(--bg); padding: 5rem var(--edge); }
 .poster__list { display: grid; list-style: none; margin: 0; padding: 0; }
 .poster__list li { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0 2rem; color: var(--ink); transition: color var(--t-hover) ease; }
-.poster__list span { font-family: var(--font-display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.92; font-size: clamp(3rem, 9.6vw, 9.5rem); }
-.poster__list small { font-size: 1.125rem; font-variant-numeric: tabular-nums; max-width: 30ch; text-align: right; color: var(--muted); }
+.poster__list span { font-family: var(--font-display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 0.92; font-size: clamp(3rem, 8.2vw, 8.5rem); }
+.poster__list p { font-size: 1.125rem; font-variant-numeric: tabular-nums; max-width: 30ch; text-align: right; color: var(--muted); }
 .poster__list li:hover small { color: var(--ink); }
 .poster__list li:hover span { color: var(--muted); }
 @media (max-width: 50em) {
   .poster__list span { font-size: 12vw; }
-  .poster__list small { text-align: left; font-size: 0.9375rem; margin: 0.4rem 0 1.4rem; max-width: none; flex-basis: 100%; }
+  .poster__list p { text-align: left; font-size: 0.9375rem; margin: 0.4rem 0 1.4rem; max-width: none; flex-basis: 100%; }
 }
 
 /* ---------- Vergleich ---------- */
@@ -381,12 +377,12 @@ html:not(.js) .cmd__row { background: none; color: var(--ink); }
 
 /* ---------- Titel-Check ---------- */
 .typer .h2 { max-width: 20ch; }
-.typer__input { border-bottom-color: var(--ink); }
+.typer__input { font-family: var(--font-text); border-bottom-color: var(--ink); }
 .typer__label { margin-top: 2rem; }
 
 /* ---------- Über Nextfix: eingelassene Tafel ---------- */
 .about { position: relative; margin: clamp(3rem, 6vw, 6rem) 20px 20px; background: var(--ink); color: var(--bg); min-height: 110svh; overflow: hidden; padding: 3.5rem; }
-.about__h { max-width: 12ch; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; font-size: clamp(2rem, 4.2vw, 4rem); }
+.about__h { max-width: 52%; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; font-size: clamp(1.75rem, 3.3vw, 3.25rem); }
 .about__text { position: absolute; top: 3.5rem; left: 58%; right: 3.5rem; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 3rem; align-content: start; }
 .about__text h3 { font-size: 1.375rem; font-weight: 700; }
 .about__text p { margin-top: 0.5rem; font-size: 1rem; line-height: 1.55; }
@@ -401,7 +397,7 @@ html:not(.js) .cmd__row { background: none; color: var(--ink); }
 .about__plakette img { width: 100%; aspect-ratio: 1; object-fit: cover; object-position: 50% 62%; border-radius: 50%; background: var(--field-step); }
 @media (max-width: 50em) {
   .about { margin-inline: 10px; padding: 1.75rem; min-height: 0; display: grid; gap: 2rem; padding-bottom: 0; }
-  .about__h { font-size: 8.5vw; max-width: none; }
+  .about__h { font-size: 6.4vw; max-width: none; }
   .about__text { position: static; grid-template-columns: 1fr; gap: 1.75rem; }
   .about__plakette { position: static; width: 86%; margin: 1rem auto -22vw; }
 }

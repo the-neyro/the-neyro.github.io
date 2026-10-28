@@ -44,7 +44,7 @@
   --step-statement: clamp(1.5rem, 1rem + 1.6vw, 2.25rem);
   --step-h2: clamp(1.75rem, 1.1rem + 2.4vw, 3.5rem);
   --step-head: clamp(1.75rem, 0.9rem + 4.4vw, 4.75rem);   /* Seitentitel der Unterseiten */
-  --step-shout: clamp(4rem, 9.6vw, 9.5rem);               /* Held und Plakatzeilen der Startseite */
+  --step-shout: clamp(4rem, 7.8vw, 8rem);               /* Held und Plakatzeilen der Startseite */
 
   --margin: clamp(1rem, 1.4vw, 1.25rem);
   --max: 90rem;
@@ -415,7 +415,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .module__demo .link { display: inline-block; padding-block: 0.6rem; }
 @media (max-width: 37.5em) {
   html { scroll-padding-top: 4.5rem; }
-  .site-head { position: sticky; top: 0; z-index: 20; background: var(--bg); padding-block: 0.55rem; border-bottom: 1px solid var(--surface-2); } /* taste-skill-ignore: feste Kopfleiste auf dem Handy */
+  .site-head { position: sticky; top: 0; z-index: 20; background: var(--bg); padding-block: 0.55rem; } /* taste-skill-ignore: feste Kopfleiste auf dem Handy */
   .js .site-nav > a:not(.button) { display: none; }
   .js .nav-more { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 0; border: 0; background: none;
     color: inherit; font: inherit; font-size: var(--step-small); cursor: pointer; }

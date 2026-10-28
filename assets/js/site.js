@@ -450,7 +450,7 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   const zufall = () => (seed = (seed * 16807) % 2147483647) / 2147483647; // fester Samen: das Bild sieht bei jedem Laden gleich aus
   const rect = (x, y, s, klasse) => `<rect class="${klasse}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${s}" height="${s}"/>`;
   function bauen(hoch) {
-    const s = 14, p = 22, B = hoch ? 600 : 1200, H = hoch ? 800 : 270;
+    const s = 16, p = 24, B = hoch ? 600 : 1200, H = hoch ? 800 : 280, pro = 14; // pro: Quadrate je Zeile rechts
     const zone = hoch ? H / 3 : B / 3;
     let a = '', m = '', r = '';
     for (let i = 0; i < gesamt; i++) { // verstreut, in zwei hellen Tönen
@@ -466,13 +466,16 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
       const y = hoch ? zone + (zone - bandLang) / 2 + u * p : (H - bandBreit) / 2 + v * p;
       m += rect(x, y, s, 'dg-m');
     }
-    anzahl.forEach((n, g) => { // geordnete Zeilen: eine je Aufgabe, zuletzt der Feinschliff
+    let zeile = 0;
+    anzahl.forEach((n, g) => { // geordnete Zeilen: eine je Aufgabe, zuletzt der Feinschliff (bricht nach 14 um)
       for (let i = 0; i < n; i++) {
+        if (i && i % pro === 0) zeile++;
         const klasse = g === 0 ? 'dg-first' : g === anzahl.length - 1 ? 'dg-p' : 'dg-m';
-        const x = hoch ? 40 + i * p : 2 * zone + 40 + i * p;
-        const y = hoch ? 2 * zone + 24 + g * 26 : 12 + g * 26;
+        const x = (hoch ? 40 : 2 * zone + 40) + (i % pro) * p;
+        const y = (hoch ? 2 * zone + 20 : 8) + zeile * 26;
         r += rect(x, y, s, klasse);
       }
+      zeile++;
     });
     return `<svg viewBox="0 0 ${B} ${H}" aria-hidden="true" focusable="false"><g class="dg-grp">${a}</g><g class="dg-grp">${m}</g><g class="dg-grp">${r}</g></svg>`;
   }
