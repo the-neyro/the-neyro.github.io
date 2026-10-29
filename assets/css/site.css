@@ -438,3 +438,4 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 @media (hover: hover) and (pointer: fine) { .nav-menu a:hover { background: var(--surface); } }
 .wordmark { min-height: 44px; }
 
+.page-head--kurz { padding-bottom: 1.5rem; }
