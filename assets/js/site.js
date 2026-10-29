@@ -312,7 +312,12 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   reihe.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; zieht = true; startX = e.clientX; startLinks = reihe.scrollLeft; reihe.classList.add('is-drag'); });
   window.addEventListener('pointermove', (e) => { if (zieht) reihe.scrollLeft = startLinks - (e.clientX - startX); });
   window.addEventListener('pointerup', () => { if (!zieht) return; zieht = false; reihe.classList.remove('is-drag'); });
-  const ersteMitte = () => { reihe.scrollLeft = 0; pruefen(); };
+  // Desktop: Start bei der zweiten Tafel, damit links keine leere Fläche steht (die erste ist angeschnitten sichtbar)
+  const ersteMitte = () => {
+    const t = tafeln[window.innerWidth > 896 && tafeln.length > 1 ? 1 : 0];
+    reihe.scrollLeft = t.offsetLeft + t.offsetWidth / 2 - reihe.clientWidth / 2;
+    pruefen();
+  };
   ersteMitte();
 })();
 
