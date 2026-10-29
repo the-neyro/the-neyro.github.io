@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="de">
-<head>
+<html lang="de"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Demo · Suchbegriffe · Radhaus Elbe</title>
@@ -10,6 +9,7 @@
   </script>
   <link rel="stylesheet" href="static/app.css">
   <link rel="icon" href="static/logo.svg" type="image/svg+xml">
+    
 <link rel="stylesheet" href="static/demo.css"><meta name="robots" content="noindex"><link rel="stylesheet" href="demo-mobil.css">
 </head>
 <body><div class="demo-band" role="note">Demo mit der erfundenen Website <strong>Radhaus Elbe</strong> · So sieht Nextfix auf deinem Rechner aus · <a href="../">zurück zur Website</a></div><div id="demo-toast" role="status" aria-live="polite"></div>
@@ -21,12 +21,11 @@
   <aside class="leiste" id="leiste">
     <div class="leiste-oben">
       <a class="marke-tool" href="projekte.html">
-        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"/>
-          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"></rect>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         Nextfix
       </a>
-      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste"
-              onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
+      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste" onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
     </div>
     <div class="menue-inhalt">
       <details class="projektwahl">
@@ -46,30 +45,30 @@
 
       
       <nav aria-label="Module">
-        <a href="index.html" >Übersicht</a>
+        <a href="index.html">Übersicht</a>
         <div class="navgruppe">Website-Check</div>
         
-        <a href="crawls-1-issues.html" >Probleme
+        <a href="crawls-2-issues.html">Probleme
           <span class="zahl">8</span></a>
-        <a href="crawls-1-seiten.html" >Geprüfte Seiten</a>
-        <a href="crawls-1-vergleich.html" >Verlauf</a>
-        <a href="crawls-1-vitals.html" >Ladezeit</a>
+        <a href="crawls-2-seiten.html">Geprüfte Seiten</a>
+        <a href="crawls-2-vergleich.html">Verlauf</a>
+        <a href="crawls-2-vitals.html">Ladezeit</a>
         
         <div class="navgruppe">Bei Google gefunden werden</div>
-        <a href="projekte-1-positionen.html" >Positionen</a>
+        <a href="projekte-1-positionen.html">Positionen</a>
         <a href="projekte-1-keywords.html" aria-current="page">Suchbegriffe finden</a>
         <div class="navgruppe">Inhalt</div>
-        <a href="projekte-1-onpage.html" >Seite optimieren</a>
+        <a href="projekte-1-onpage.html">Seite optimieren</a>
         <div class="navgruppe"></div>
-        <a href="projekte-1-einstellungen.html" >Einstellungen</a>
+        <a href="projekte-1-einstellungen.html">Einstellungen</a>
       </nav>
       
 
       <div class="leiste-fuss">
         <div class="thema" role="group" aria-label="Darstellung">
-          <button type="button" data-thema="system">System</button>
-          <button type="button" data-thema="light">Hell</button>
-          <button type="button" data-thema="dark">Dunkel</button>
+          <button type="button" data-thema="system" aria-pressed="true">System</button>
+          <button type="button" data-thema="light" aria-pressed="false">Hell</button>
+          <button type="button" data-thema="dark" aria-pressed="false">Dunkel</button>
         </div>
       </div>
     </div>
@@ -78,22 +77,31 @@
 <div class="kopf"><div><h1>Suchbegriffe finden</h1><div class="unter">Worüber lohnt es sich zu schreiben? Ideen aus Google-Vorschlägen und deinen eigenen Daten.</div></div></div>
 <div class="karte">
   <h2>Neue Suche</h2>
-  <form onsubmit="return false" class="zeile">
-    <label>Hauptbegriff<input title="In der Demo gesperrt" disabled name="seed" size="34" placeholder="z. B. seo tool" required minlength="2" maxlength="80"></label>
+  <form class="zeile" onsubmit="return false">
+    <label>Hauptbegriff<input name="seed" size="34" placeholder="z. B. seo tool" required="" minlength="2" maxlength="80" title="In der Demo gesperrt" disabled=""></label>
     <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt">Suchbegriffe finden</button>
-  </form>
+  <p class="demo-hinweis">In der Demo gesperrt</p></form>
   <p class="klein" style="margin-top:10px">Ideen kommen aus Google-Vorschlägen (A–Z, W-Fragen, typische Zusätze; gedrosselt, 30 Tage gespeichert)
     und aus deinen eigenen Search-Console-Daten. Dauer etwa eine Minute. Suchvolumen (Bing) holst du danach in der Recherche per Knopf.</p>
 </div>
 
-<div id="recherchen" class="karte"
-     >
+<div id="recherchen" class="karte">
   
   <h2>Bisherige Suchen</h2>
   <div class="tabelle"><table>
-    <tr><th>Hauptbegriff</th><th>Ideen</th><th>Status</th><th>Gestartet</th></tr>
-    <tr><td colspan="4" class="klein">Noch keine Recherche.</td></tr>
-  </table></div>
+    <tbody><tr><th>Hauptbegriff</th><th>Ideen</th><th>Status</th><th>Gestartet</th></tr>
+    
+    <tr>
+      <td><a href="recherchen-1.html">fahrrad reparatur</a></td>
+      <td>31</td>
+      <td>
+        <span class="gut">fertig</span>
+        
+      </td>
+      <td class="klein">17.10.2026, 18:47</td>
+    </tr>
+    
+  </tbody></table></div>
 </div>
 
 <div class="karte">
@@ -126,5 +134,5 @@
     });
   })();
 </script>
-</body>
-</html>
+
+<script src="static/demo.js"></script></body></html>

@@ -87,7 +87,7 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
     rows.forEach((r) => { r.style.minHeight = 'auto'; h = Math.max(h, r.offsetHeight); r.style.minHeight = ''; });
     if (h) liste.style.setProperty('--row-h', `${h}px`);
   };
-  const zaehlen = () => { zaehler.textContent = `${erledigt} von ${vorlagen.length - 1} erledigt`; };
+  const zaehlen = () => { zaehler.textContent = `${erledigt} von 4 erledigt`; };
   const aktiv = (index = 0) => rows.forEach((r, i) => r.classList.toggle('is-active', i === index && !r.classList.contains('is-done') && !istSchluss(r)));
   const knopfZeigen = () => {
     if (ruhig) { knopf.textContent = 'Nächste abhaken'; knopf.removeAttribute('aria-pressed'); return; }
@@ -117,9 +117,9 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
   async function schritt() {
     if (beschaeftigt) return;
     beschaeftigt = true;
-    if (istSchluss(rows[0])) { // alle erledigt: erneut prüfen, der Zustand steigt (echte Nachprüfung der Demo-Website)
+    if (istSchluss(rows[0])) { // alle vier erledigt: erneut prüfen, der Zustand steigt (echte Nachprüfung der Demo-Website)
       const quelle = document.querySelector('[data-vn]');
-      const vorher = Number(quelle?.dataset.vorher || 64), nachher = Number(quelle?.dataset.nachher || vorher);
+      const vorher = Number(quelle?.dataset.vorher || 49), nachher = Number(quelle?.dataset.nachher || vorher);
       const zeile = rows[0].querySelector('p');
       const score = fig.querySelector('[data-score]');
       zeile.textContent = 'Prüfe erneut …';
@@ -136,7 +136,7 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
       });
       score.classList.add('is-up');
       score.insertAdjacentHTML('afterend', ` <span class="wjt__delta" data-delta>+${nachher - vorher} nach dem Nachprüfen</span>`);
-      zaehler.textContent = `${vorlagen.length - 1} von ${vorlagen.length - 1} erledigt · nachgeprüft`;
+      zaehler.textContent = '4 von 4 erledigt · nachgeprüft';
       await warte(2800);
       liste.style.transition = 'opacity 240ms ease'; liste.style.opacity = '0'; await warte(260);
       fig.querySelector('[data-delta]')?.remove(); score.classList.remove('is-up'); score.textContent = String(vorher);
@@ -405,18 +405,27 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   zeigen();
 })();
 
-// Diagramm „55 Fundstellen → 8 Aufgaben → eine zuerst“: ein Quadrat je echter Fundstelle der Demo-Prüfung.
-// Links verstreut, in der Mitte zu einem Band gebündelt, rechts in Aufgaben geordnet (die erste hervorgehoben).
+// Szene „43 Fundstellen → 8 Aufgaben“: die echten Fundstellen der Demo-Prüfung als Punkte.
+// Sie liegen erst verstreut, sortieren sich dann in 8 Aufgaben (plus Feinschliff), und eine Aufgabe nach der anderen wird zur Karte.
+// Canvas 2D ohne Bibliothek; pausiert außerhalb des Bildes, reduzierte Bewegung = Standbild.
 (() => {
-  const figur = document.querySelector('[data-diagram]');
-  if (!figur) return;
+  const buehne = document.querySelector('[data-fokus]');
+  if (!buehne) return;
+  const canvas = buehne.querySelector('canvas');
+  const ctx = canvas.getContext('2d', { alpha: false });
+  const elTask = buehne.querySelector('[data-task]');
+  const elMeta = buehne.querySelector('[data-meta]');
+  const elLabel = buehne.querySelector('[data-label]');
+  const hudL = buehne.querySelector('[data-hud-l]');
+  const knopf = buehne.querySelector('[data-fokus-ctrl]');
+
   // Fundstellen je Prüfung, wie Nextfix sie für „Radhaus Elbe“ gefunden hat (content/demo-fundstellen.json)
   const FUNDE = {
+    wenig_text: ["/angebote", "/blog", "/blog/winter-check", "/datenschutz", "/faq", "/impressum", "/kontakt", "/preise", "/ueber-uns"],
+    meta_desc_doppelt: ["/blog", "/blog/winter-check", "/preise", "/ueber-uns"],
     sitemap_falsche_seiten: ["/fahrradleasing"],
     status_4xx: ["/fruehjahrsaktion-2025"],
     interne_links_defekt: ["/angebote"],
-    wenig_text: ["/angebote", "/blog", "/blog/winter-check", "/faq", "/kontakt", "/preise", "/ueber-uns"],
-    meta_desc_doppelt: ["/blog", "/blog/winter-check", "/preise", "/ueber-uns"],
     bilder_ohne_alt: ["/", "/e-bikes", "/ueber-uns"],
     title_zu_lang: ["/blog/reifendruck", "/leihraeder"],
     meta_desc_fehlt: ["/kontakt"],
@@ -424,133 +433,252 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
     ki_fragen_ohne_faq: ["/blog/kette-oelen", "/faq", "/werkstatt"],
     nur_ein_eingehender_link: ["/blog/kette-oelen", "/blog/reifendruck", "/blog/winter-check"],
     orphan_sitemap: ["/angebote", "/ueber-uns"],
+    perm_redirect: ["/fahrradleasing"],
     ki_artikel_ohne_autor_datum: ["/blog/reifendruck"],
     ohne_last_modified: ["(ganze Website)"],
     llms_fehlt: ["(ganze Website)"],
-    bilder_ohne_masse: ["/", "/angebote", "/blog", "/blog/kette-oelen", "/blog/reifendruck", "/blog/winter-check", "/datenschutz", "/e-bikes", "/faq", "/impressum", "/kontakt", "/leihraeder", "/preise", "/ueber-uns", "/werkstatt"],
   };
   // Die 8 Aufgaben aus „Was jetzt tun“ in ihrer Reihenfolge; alles andere ist Feinschliff
   const AUFGABEN = [
+    { check: 'wenig_text', kurz: 'wenig Text', t: 'Bau 9 Seiten mit wenig Text aus', m: 'Wichtig · <span class="hoch">Wirkung hoch</span> · machst du selbst' },
+    { check: 'meta_desc_doppelt', kurz: 'Beschreibung doppelt', t: 'Gib 4 Seiten eigene Beschreibungen', m: 'Dringend · <span class="hoch">Wirkung hoch</span> · kurz je Seite' },
     { check: 'sitemap_falsche_seiten', kurz: 'falsch in der Sitemap', t: 'Entferne fehlerhafte Adressen aus der Sitemap', m: 'Dringend · Wirkung mittel · für deine Technik' },
     { check: 'status_4xx', kurz: 'nicht gefunden (404)', t: 'Behebe 1 Seite mit „nicht gefunden“ (404)', m: 'Dringend · Wirkung mittel · kurz je Seite' },
     { check: 'interne_links_defekt', kurz: 'defekter Link', t: 'Repariere defekte interne Links auf 1 Seite', m: 'Dringend · Wirkung mittel · kurz je Seite' },
-    { check: 'wenig_text', kurz: 'wenig Text', t: 'Bau 7 Seiten mit wenig Text aus', m: 'Wichtig · Wirkung mittel · machst du selbst' },
-    { check: 'meta_desc_doppelt', kurz: 'Beschreibung doppelt', t: 'Gib 4 Seiten eigene Beschreibungen', m: 'Wichtig · Wirkung gering · kurz je Seite' },
     { check: 'bilder_ohne_alt', kurz: 'Bild ohne alt-Text', t: 'Ergänze Bildbeschreibungen (alt) auf 3 Seiten', m: 'Wichtig · Wirkung gering · kurz je Seite' },
     { check: 'title_zu_lang', kurz: 'Titel zu lang', t: 'Kürze den Seitentitel von 2 Seiten auf 70 Zeichen', m: 'Wichtig · Wirkung gering · kurz je Seite' },
     { check: 'meta_desc_fehlt', kurz: 'Beschreibung fehlt', t: 'Schreib eine Beschreibung für 1 Seite', m: 'Wichtig · Wirkung gering · kurz je Seite' },
   ];
-  const FEIN = { bilder_ohne_masse: 'Bild ohne Maße', meta_desc_zu_kurz: 'Beschreibung kurz', ki_fragen_ohne_faq: 'Fragen ohne FAQ', nur_ein_eingehender_link: 'nur ein Link hierher',
-    orphan_sitemap: 'nur in der Sitemap', ki_artikel_ohne_autor_datum: 'ohne Autor/Datum',
+  const FEIN = { meta_desc_zu_kurz: 'Beschreibung kurz', ki_fragen_ohne_faq: 'Fragen ohne FAQ', nur_ein_eingehender_link: 'nur ein Link hierher',
+    orphan_sitemap: 'nur in der Sitemap', perm_redirect: 'Link auf alte Adresse', ki_artikel_ohne_autor_datum: 'ohne Autor/Datum',
     ohne_last_modified: 'kein Last-Modified', llms_fehlt: 'llms.txt fehlt' };
-  const anzahl = AUFGABEN.map((a) => FUNDE[a.check].length);
-  anzahl.push(Object.keys(FEIN).reduce((n, k) => n + FUNDE[k].length, 0)); // Feinschliff
-  const gesamt = anzahl.reduce((n, k) => n + k, 0);
-  let seed = 7;
-  const zufall = () => (seed = (seed * 16807) % 2147483647) / 2147483647; // fester Samen: das Bild sieht bei jedem Laden gleich aus
-  const rect = (x, y, s, klasse) => `<rect class="${klasse}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${s}" height="${s}"/>`;
-  function bauen(hoch) {
-    const s = 16, p = 24, B = hoch ? 600 : 1200, H = hoch ? 800 : 280, pro = 14; // pro: Quadrate je Zeile rechts
-    const zone = hoch ? H / 3 : B / 3;
-    let a = '', m = '', r = '';
-    for (let i = 0; i < gesamt; i++) { // verstreut, in zwei hellen Tönen
-      const x = hoch ? 20 + zufall() * (B - 60) : 20 + zufall() * (zone - 60);
-      const y = hoch ? 20 + zufall() * (zone - 60) : 20 + zufall() * (H - 60);
-      a += rect(x, y, s, i % 3 ? 'dg-a' : 'dg-b');
-    }
-    const spalten = Math.ceil(gesamt / 3);
-    for (let i = 0; i < gesamt; i++) { // Band, drei Quadrate hoch bzw. breit
-      const u = Math.floor(i / 3), v = i % 3;
-      const bandLang = spalten * p, bandBreit = 3 * p;
-      const x = hoch ? (B - bandBreit) / 2 + v * p : zone + (zone - bandLang) / 2 + u * p;
-      const y = hoch ? zone + (zone - bandLang) / 2 + u * p : (H - bandBreit) / 2 + v * p;
-      m += rect(x, y, s, 'dg-m');
-    }
-    let zeile = 0;
-    anzahl.forEach((n, g) => { // geordnete Zeilen: eine je Aufgabe, zuletzt der Feinschliff (bricht nach 14 um)
-      for (let i = 0; i < n; i++) {
-        if (i && i % pro === 0) zeile++;
-        const klasse = g === 0 ? 'dg-first' : g === anzahl.length - 1 ? 'dg-p' : 'dg-m';
-        const x = (hoch ? 40 : 2 * zone + 40) + (i % pro) * p;
-        const y = (hoch ? 2 * zone + 20 : 8) + zeile * 26;
-        r += rect(x, y, s, klasse);
-      }
-      zeile++;
-    });
-    return `<svg viewBox="0 0 ${B} ${H}" aria-hidden="true" focusable="false"><g class="dg-grp">${a}</g><g class="dg-grp">${m}</g><g class="dg-grp">${r}</g></svg>`;
+  const ZEICHEN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜabcdefghijklmnopqrstuvwxyz0123456789#%&/<>{}[]';
+  const MONO = '"Fira Mono", ui-monospace, monospace';
+
+  // Ein Punkt je Fundstelle: g = Aufgabe 0–7 oder 8 = Feinschliff
+  const punkte = [];
+  AUFGABEN.forEach((a, g) => FUNDE[a.check].forEach((pfad, i) => punkte.push({ g, i, text: `${pfad} · ${a.kurz}` })));
+  let fi = 0;
+  for (const [check, kurz] of Object.entries(FEIN)) FUNDE[check].forEach((pfad) => punkte.push({ g: 8, i: fi++, text: `${pfad} · ${kurz} · Feinschliff` }));
+  const staub = [];
+
+  let W = 0, H = 0, dpr = 1, schmal = false, maus = { x: -9999, y: -9999 }, sichtbar = true, laeuft = !ruhig;
+  let phase = 'streuen', phaseStart = 0, aufgabe = 0, mitten = [];
+
+  // Ziele: verstreut (zufällig, ohne Kopfzeile) oder sortiert (8 Häufchen in einer Reihe bzw. 2 × 4, Feinschliff als Zeile unten)
+  function streuziele() {
+    for (const q of punkte) { q.sx = W * (0.06 + Math.random() * 0.88); q.sy = H * (0.15 + Math.random() * 0.72); q.p = Math.random() * 6.3; q.verz = Math.random() * 500; }
   }
-  const mq = window.matchMedia('(max-width: 50em)');
-  const zeichne = () => { figur.innerHTML = bauen(mq.matches); };
-  zeichne();
-  mq.addEventListener('change', zeichne);
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { figur.classList.add('is-in'); io.disconnect(); } }, { threshold: 0.25 });
-    io.observe(figur);
-  } else figur.classList.add('is-in');
+  function sortierziele() {
+    mitten = AUFGABEN.map((_, g) => schmal
+      ? { x: W * (0.14 + (g % 4) * 0.24), y: H * (g < 4 ? 0.6 : 0.75) }
+      : { x: W * (0.07 + g * (0.86 / 7)), y: H * 0.68 });
+    const abst = schmal ? 7 : 12;
+    for (const q of punkte) {
+      if (q.g < 8) {
+        // Sonnenblumen-Anordnung: dicht und rund, egal wie viele Punkte
+        const r = abst * 0.62 * Math.sqrt(q.i + (q.i ? 0.5 : 0)), w = q.i * 2.39996;
+        q.tx = mitten[q.g].x + Math.cos(w) * r; q.ty = mitten[q.g].y + Math.sin(w) * r;
+      } else {
+        q.tx = W * (schmal ? 0.07 : 0.5) + (schmal ? q.i * abst : (q.i - 10) * abst); q.ty = H * (schmal ? 0.92 : 0.9);
+      }
+    }
+  }
+
+  function aufbauen() {
+    const r = buehne.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = Math.round(r.width); H = Math.round(r.height); schmal = W < 640;
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    staub.length = 0;
+    for (let i = 0; i < Math.round(W * H / 3200); i++) staub.push({ x: Math.random() * W, y: Math.random() * H, a: 0.08 + Math.random() * 0.2, p: Math.random() * 6.3, f: 0.1 + Math.random() * 0.3 });
+    streuziele(); sortierziele();
+    for (const q of punkte) if (q.x === undefined) { q.x = q.sx; q.y = q.sy; q.vx = q.vy = 0; q.hell = 0.75; }
+  }
+
+  // Text „entschlüsseln“: jedes Zeichen rauscht, bis es an der Reihe ist
+  function entschluesseln(el, html, dauer = 900) {
+    const id = (el._dec = (el._dec || 0) + 1), ziel = document.createElement('span'); ziel.innerHTML = html;
+    const klar = ziel.textContent, start = performance.now();
+    const schritt = (now) => {
+      if (id !== el._dec) return;
+      const t = Math.min(1, (now - start) / dauer);
+      const fertig = Math.floor(klar.length * t);
+      if (t >= 1) { el.innerHTML = html; return; }
+      let rest = '';
+      for (let i = fertig; i < klar.length; i++) rest += klar[i] === ' ' ? ' ' : ZEICHEN[(Math.random() * ZEICHEN.length) | 0];
+      el.textContent = klar.slice(0, fertig);
+      const s = document.createElement('span'); s.className = 'scr'; s.textContent = rest; el.append(s);
+      requestAnimationFrame(schritt);
+    };
+    requestAnimationFrame(schritt);
+  }
+  function zeigeAufgabe(i, sofort) {
+    const a = AUFGABEN[i];
+    elLabel.textContent = i === 0 ? 'Als Nächstes · 1 von 8' : `Danach · ${i + 1} von 8`;
+    if (sofort) { elTask.textContent = a.t; elMeta.innerHTML = a.m; return; }
+    entschluesseln(elTask, a.t, 700);
+    setTimeout(() => entschluesseln(elMeta, a.m, 450), 250);
+  }
+
+  function zeichnen(now) {
+    const t = now / 1000, sortiert = phase !== 'streuen', dt = now - phaseStart;
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#121117'; ctx.fillRect(0, 0, W, H);
+    // Staub: leiser Hintergrund, damit die Bühne nicht leer wirkt
+    ctx.fillStyle = '#8f86c9';
+    for (const s of staub) { ctx.globalAlpha = s.a * (0.7 + 0.3 * Math.sin(t * s.f + s.p)); ctx.fillRect(s.x, s.y, 1, 1); }
+    // Verbindung von der aktiven Gruppe zur Karte
+    const zeigt = phase === 'zeigen';
+    if (zeigt && mitten[aufgabe]) {
+      const m = mitten[aufgabe], kante = buehne.querySelector('.fokus__frame').getBoundingClientRect(), b = buehne.getBoundingClientRect();
+      const kx = Math.min(Math.max(m.x, kante.left - b.left + 16), kante.right - b.left - 16), ky = kante.bottom - b.top + 6, a = Math.min(1, dt / 400);
+      ctx.globalAlpha = 0.35 * a; ctx.strokeStyle = '#c7b9ff'; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+      ctx.beginPath(); ctx.moveTo(m.x, m.y - (schmal ? 20 : 30)); ctx.lineTo(kx, ky); ctx.stroke(); ctx.setLineDash([]);
+    }
+    // Punkte: federn zu ihrem Ziel; die aktive Aufgabe leuchtet weiß und hebt sich leicht
+    let nah = null, nahD = 196;
+    for (const q of punkte) {
+      // Beim Sortieren fliegen die Punkte leicht versetzt los, danach bleiben sie an ihrem Platz
+      const amZiel = sortiert && (phase !== 'sortieren' || dt > q.verz);
+      let zx = amZiel ? q.tx : q.sx, zy = amZiel ? q.ty : q.sy;
+      if (!sortiert) { zx += Math.cos(t * 0.5 + q.p) * 6; zy += Math.sin(t * 0.4 + q.p) * 5; }
+      const aktiv = zeigt && q.g === aufgabe;
+      if (aktiv) zy -= 6;
+      q.vx = (q.vx + (zx - q.x) * 0.05) * 0.8; q.vy = (q.vy + (zy - q.y) * 0.05) * 0.8;
+      q.x += q.vx; q.y += q.vy;
+      const ziel = !sortiert ? 0.85 : q.g === 8 ? 0.4 : !zeigt ? 0.8 : aktiv ? 1 : 0.45;
+      q.hell += (ziel - q.hell) * 0.08;
+      const d2 = (q.x - maus.x) ** 2 + (q.y - maus.y) ** 2;
+      if (d2 < nahD) { nahD = d2; nah = q; }
+    }
+    for (const q of punkte) {
+      const aktiv = zeigt && q.g === aufgabe, r = (schmal ? 2.6 : 4) * (aktiv ? 1.25 : 1) * (q === nah ? 1.4 : 1);
+      ctx.globalAlpha = q.hell;
+      if (aktiv) { ctx.fillStyle = 'rgba(199,185,255,0.14)'; ctx.beginPath(); ctx.arc(q.x, q.y, r * 2.2, 0, 6.29); ctx.fill(); }
+      ctx.fillStyle = q.g === 8 ? '#9f9bb0' : aktiv || !sortiert ? '#ffffff' : '#c7b9ff';
+      ctx.beginPath(); ctx.arc(q.x, q.y, r, 0, 6.29); ctx.fill();
+    }
+    // Beschriftung: Nummer unter jeder Aufgabe, „Feinschliff“ an der Zeile
+    if (sortiert) {
+      const a = Math.min(1, dt / 700);
+      ctx.font = `500 ${schmal ? 10 : 11}px ${MONO}`; ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+      const mitNamen = W >= 1150, anzahl = (g) => FUNDE[AUFGABEN[g].check].length;
+      mitten.forEach((m, g) => {
+        const an = zeigt && g === aufgabe, y = m.y + (schmal ? 20 : 34);
+        ctx.globalAlpha = a * (an ? 1 : 0.75); ctx.fillStyle = an ? '#ffffff' : '#9f9bb0';
+        ctx.fillText(mitNamen ? `${g + 1} · ${anzahl(g)}×` : String(g + 1), m.x, y);
+        if (mitNamen) ctx.fillText(AUFGABEN[g].kurz, m.x, y + 17);
+      });
+      ctx.globalAlpha = a * 0.8; ctx.fillStyle = '#9f9bb0'; ctx.textBaseline = 'bottom';
+      const fein = punkte.find((q) => q.g === 8 && q.i === 0);
+      ctx.textAlign = 'left';
+      ctx.fillText('Feinschliff · zählt nicht in den Zustand', fein.tx - 4, fein.ty - 9);
+    }
+    // Maus über einem Punkt: welche Seite, welches Problem
+    if (nah) {
+      ctx.font = `500 12px ${MONO}`; ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+      const w = ctx.measureText(nah.text).width + 16, x = Math.min(Math.max(8, nah.x - w / 2), W - w - 8), y = nah.y - 30 < 40 ? nah.y + 16 : nah.y - 34;
+      ctx.globalAlpha = 0.94; ctx.fillStyle = '#26242f'; ctx.fillRect(x, y, w, 22);
+      ctx.globalAlpha = 1; ctx.fillStyle = '#ffffff'; ctx.fillText(nah.text, x + 8, y + 11.5);
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // Ablauf: verstreut → sortieren → Aufgabe 1 bis 8 als Karte → lösen → von vorn
+  const DAUER = { streuen: 2600, sortieren: 1500, zeigen: 2700, loesen: 900 };
+  function takt(now) {
+    const dt = now - phaseStart;
+    if (phase === 'streuen' && dt > DAUER.streuen) {
+      phase = 'sortieren'; phaseStart = now; sortierziele();
+      hudL.innerHTML = '<b>43</b> Fundstellen → <b>8</b> Aufgaben + Feinschliff';
+    } else if (phase === 'sortieren' && dt > DAUER.sortieren) {
+      phase = 'zeigen'; phaseStart = now; aufgabe = 0; buehne.classList.add('is-focus'); zeigeAufgabe(0);
+    } else if (phase === 'zeigen' && dt > DAUER.zeigen * (aufgabe === 0 ? 1.4 : 1)) {
+      if (aufgabe < AUFGABEN.length - 1) { aufgabe++; phaseStart = now; zeigeAufgabe(aufgabe); }
+      else { phase = 'loesen'; phaseStart = now; buehne.classList.remove('is-focus'); }
+    } else if (phase === 'loesen' && dt > DAUER.loesen) {
+      phase = 'streuen'; phaseStart = now; streuziele();
+      hudL.innerHTML = '<b>43</b> Fundstellen · 16 Prüfungen · 17 Seiten';
+    }
+  }
+
+  let rafId = 0, pauseAb = 0;
+  function schleife(now) {
+    rafId = 0;
+    if (!laeuft || !sichtbar || document.hidden) { if (!pauseAb) pauseAb = now; return; }
+    if (!phaseStart) phaseStart = now;
+    if (pauseAb) { phaseStart += now - pauseAb; pauseAb = 0; } // nach einer Pause dort weiter, wo es war
+    takt(now); zeichnen(now);
+    rafId = requestAnimationFrame(schleife);
+  }
+  const weiter = () => { if (!rafId && laeuft && sichtbar && !document.hidden) rafId = requestAnimationFrame(schleife); };
+
+  // Standbild: sortiert, erste Aufgabe als Karte
+  function standbild() {
+    phase = 'zeigen'; aufgabe = Math.min(aufgabe, AUFGABEN.length - 1); phaseStart = performance.now() - 1000;
+    buehne.classList.add('is-focus'); zeigeAufgabe(aufgabe, true); sortierziele();
+    hudL.innerHTML = '<b>43</b> Fundstellen → <b>8</b> Aufgaben + Feinschliff';
+    for (const q of punkte) { q.x = q.tx; q.y = q.ty; q.vx = q.vy = 0; q.hell = q.g === 8 ? 0.4 : q.g === aufgabe ? 1 : 0.45; q.verz = 0; }
+    zeichnen(phaseStart + 1000);
+  }
+  const ruhend = () => !laeuft || ruhig;
+
+  aufbauen();
+  ctx.fillStyle = '#121117'; ctx.fillRect(0, 0, W, H);
+  new ResizeObserver(() => { aufbauen(); if (ruhend()) standbild(); }).observe(buehne);
+  new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; weiter(); }).observe(buehne);
+  document.addEventListener('visibilitychange', weiter);
+  buehne.addEventListener('pointermove', (e) => {
+    const r = buehne.getBoundingClientRect(); maus.x = e.clientX - r.left; maus.y = e.clientY - r.top;
+    if (ruhend()) zeichnen(performance.now());
+  });
+  buehne.addEventListener('pointerleave', () => { maus.x = maus.y = -9999; if (ruhend()) zeichnen(performance.now()); });
+  const knopfZeigen = () => { knopf.innerHTML = laeuft ? `${ICON_PAUSE}Anhalten` : `${ICON_PLAY}Abspielen`; knopf.setAttribute('aria-pressed', String(!laeuft)); };
+  knopf.addEventListener('click', () => { laeuft = !laeuft; knopfZeigen(); if (laeuft) weiter(); });
+  knopf.hidden = false;
+  knopfZeigen();
+  if (ruhig) standbild();
+  else rafId = requestAnimationFrame(schleife);
+  if (document.fonts) document.fonts.load(`500 11px ${MONO}`).then(() => { if (ruhend()) standbild(); });
 })();
 
-// Showcase: nur die Tafel in der Mitte leuchtet; Name und Text darunter wechseln mit ihr. Mit der Maus ziehbar.
+// Durchlauf-Video: läuft stumm in Schleife, sobald es im Bild ist (bei reduzierter Bewegung nur auf Klick).
+// Eigener Knopf statt Browser-Steuerung; Kapitel springen an die Stelle und zeigen, wo das Video gerade ist.
 (() => {
-  const reihe = document.querySelector('[data-showcase]');
-  if (!reihe) return;
-  const tafeln = [...reihe.querySelectorAll('[data-sp]')];
-  const name = document.querySelector('[data-show-name]'), text = document.querySelector('[data-show-text]');
-  let aktiv = -1;
-  const pruefen = () => {
-    const mitte = reihe.scrollLeft + reihe.clientWidth / 2;
-    let best = 0, abstand = Infinity;
-    tafeln.forEach((t, i) => { const d = Math.abs(t.offsetLeft + t.offsetWidth / 2 - mitte); if (d < abstand) { abstand = d; best = i; } });
-    if (best === aktiv) return;
-    aktiv = best;
-    tafeln.forEach((t, i) => { t.classList.toggle('is-center', i === best); t.toggleAttribute('inert', i !== best); });
-    name.textContent = tafeln[best].dataset.name; text.textContent = tafeln[best].dataset.text;
+  const v = document.querySelector('[data-video]');
+  const knopf = document.querySelector('[data-video-ctrl]');
+  if (!v || !knopf) return;
+  const kapitel = [...document.querySelectorAll('[data-zeit]')];
+  v.controls = false;
+  v.loop = true;
+  knopf.hidden = false;
+  let vonHand = false; // Wer selbst anhält, dem startet das Scrollen nichts neu
+  const zeigen = () => {
+    const pausiert = v.paused;
+    knopf.innerHTML = pausiert ? `${ICON_PLAY}<span class="video__ctrl-text">Abspielen</span>` : `${ICON_PAUSE}<span class="video__ctrl-text">Anhalten</span>`;
+    knopf.setAttribute('aria-label', pausiert ? 'Video abspielen' : 'Video anhalten');
   };
-  let wartet = false;
-  reihe.addEventListener('scroll', () => { if (!wartet) { wartet = true; requestAnimationFrame(() => { wartet = false; pruefen(); }); } }, { passive: true });
-  window.addEventListener('resize', pruefen);
-  // Ziehen mit der Maus (Touch scrollt von selbst)
-  let startX = 0, startLinks = 0, zieht = false;
-  reihe.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; zieht = true; startX = e.clientX; startLinks = reihe.scrollLeft; reihe.classList.add('is-drag'); });
-  window.addEventListener('pointermove', (e) => { if (zieht) reihe.scrollLeft = startLinks - (e.clientX - startX); });
-  window.addEventListener('pointerup', () => { if (!zieht) return; zieht = false; reihe.classList.remove('is-drag'); });
-  const ersteMitte = () => { reihe.scrollLeft = 0; pruefen(); };
-  ersteMitte();
+  const abspielen = () => { v.preload = 'auto'; v.play().catch(() => {}); };
+  v.addEventListener('play', zeigen);
+  v.addEventListener('pause', zeigen);
+  v.addEventListener('timeupdate', () => {
+    let aktiv = kapitel[0];
+    kapitel.forEach((k) => { if (v.currentTime >= Number(k.dataset.zeit)) aktiv = k; });
+    kapitel.forEach((k) => k.toggleAttribute('aria-current', k === aktiv && v.currentTime > 0));
+  });
+  knopf.addEventListener('click', () => {
+    if (v.paused) { vonHand = false; abspielen(); } else { vonHand = true; v.pause(); }
+  });
+  v.addEventListener('click', () => knopf.click());
+  kapitel.forEach((k) => k.addEventListener('click', () => { v.currentTime = Number(k.dataset.zeit); vonHand = false; abspielen(); }));
+  zeigen();
+  if (ruhig || !('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { if (!vonHand) abspielen(); } else if (!v.paused) v.pause();
+  }, { threshold: 0.5 }).observe(v);
 })();
-
-// Funktionen: Befehlsliste. Tippen filtert, Pfeiltasten und Antippen wählen, die gewählte Zeile klappt auf.
-(() => {
-  const wurzel = document.querySelector('[data-cmd-list]');
-  if (!wurzel) return;
-  const eingabe = wurzel.querySelector('.cmd__input');
-  const zeilen = [...wurzel.querySelectorAll('.cmd__row')];
-  const leer = wurzel.querySelector('.cmd__empty');
-  const waehle = (z) => zeilen.forEach((r) => {
-    const an = r === z; r.classList.toggle('is-selected', an);
-    r.querySelector('.cmd__name').setAttribute('aria-expanded', String(an));
-  });
-  const sichtbar = () => zeilen.filter((r) => !r.hidden);
-  zeilen.forEach((r) => {
-    const knopf = r.querySelector('.cmd__name');
-    knopf.addEventListener('click', () => waehle(r));
-    r.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') waehle(r); });
-  });
-  eingabe.addEventListener('input', () => {
-    const q = eingabe.value.trim().toLowerCase();
-    zeilen.forEach((r) => { r.hidden = q && !(r.dataset.cmd + ' ' + r.textContent.toLowerCase()).includes(q); });
-    const s = sichtbar();
-    leer.hidden = s.length > 0;
-    if (s.length && !s.some((r) => r.classList.contains('is-selected'))) waehle(s[0]);
-  });
-  wurzel.addEventListener('keydown', (e) => {
-    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
-    const s = sichtbar(); if (!s.length) return;
-    e.preventDefault();
-    const i = Math.max(0, s.findIndex((r) => r.classList.contains('is-selected')));
-    const n = s[(i + (e.key === 'ArrowDown' ? 1 : s.length - 1)) % s.length];
-    waehle(n); n.querySelector('.cmd__name').focus();
-  });
-})();
-
 
 // E-Mail an den Webbetreuer: Text auch zum Kopieren (falls kein Mailprogramm eingerichtet ist)
 (() => {

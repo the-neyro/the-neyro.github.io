@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="de">
-<head>
+<html lang="de"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Demo · Positionen · Radhaus Elbe</title>
@@ -10,6 +9,7 @@
   </script>
   <link rel="stylesheet" href="static/app.css">
   <link rel="icon" href="static/logo.svg" type="image/svg+xml">
+    
 <link rel="stylesheet" href="static/demo.css"><meta name="robots" content="noindex"><link rel="stylesheet" href="demo-mobil.css">
 </head>
 <body><div class="demo-band" role="note">Demo mit der erfundenen Website <strong>Radhaus Elbe</strong> · So sieht Nextfix auf deinem Rechner aus · <a href="../">zurück zur Website</a></div><div id="demo-toast" role="status" aria-live="polite"></div>
@@ -21,12 +21,11 @@
   <aside class="leiste" id="leiste">
     <div class="leiste-oben">
       <a class="marke-tool" href="projekte.html">
-        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"/>
-          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"></rect>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         Nextfix
       </a>
-      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste"
-              onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
+      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste" onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
     </div>
     <div class="menue-inhalt">
       <details class="projektwahl">
@@ -46,30 +45,30 @@
 
       
       <nav aria-label="Module">
-        <a href="index.html" >Übersicht</a>
+        <a href="index.html">Übersicht</a>
         <div class="navgruppe">Website-Check</div>
         
-        <a href="crawls-1-issues.html" >Probleme
+        <a href="crawls-2-issues.html">Probleme
           <span class="zahl">8</span></a>
-        <a href="crawls-1-seiten.html" >Geprüfte Seiten</a>
-        <a href="crawls-1-vergleich.html" >Verlauf</a>
-        <a href="crawls-1-vitals.html" >Ladezeit</a>
+        <a href="crawls-2-seiten.html">Geprüfte Seiten</a>
+        <a href="crawls-2-vergleich.html">Verlauf</a>
+        <a href="crawls-2-vitals.html">Ladezeit</a>
         
         <div class="navgruppe">Bei Google gefunden werden</div>
         <a href="projekte-1-positionen.html" aria-current="page">Positionen</a>
-        <a href="projekte-1-keywords.html" >Suchbegriffe finden</a>
+        <a href="projekte-1-keywords.html">Suchbegriffe finden</a>
         <div class="navgruppe">Inhalt</div>
-        <a href="projekte-1-onpage.html" >Seite optimieren</a>
+        <a href="projekte-1-onpage.html">Seite optimieren</a>
         <div class="navgruppe"></div>
-        <a href="projekte-1-einstellungen.html" >Einstellungen</a>
+        <a href="projekte-1-einstellungen.html">Einstellungen</a>
       </nav>
       
 
       <div class="leiste-fuss">
         <div class="thema" role="group" aria-label="Darstellung">
-          <button type="button" data-thema="system">System</button>
-          <button type="button" data-thema="light">Hell</button>
-          <button type="button" data-thema="dark">Dunkel</button>
+          <button type="button" data-thema="system" aria-pressed="true">System</button>
+          <button type="button" data-thema="light" aria-pressed="false">Hell</button>
+          <button type="button" data-thema="dark" aria-pressed="false">Dunkel</button>
         </div>
       </div>
     </div>
@@ -79,7 +78,7 @@
 
 <div class="kopf">
   <div><h1>Positionen</h1><div class="unter">Wo du bei Google und Bing gefunden wirst – und wo du Plätze gewinnst oder verlierst.</div></div>
-  <div class="klein" style="text-align:right">Daten vom 28.07.2026 bis 25.10.2026<br>
+  <div class="klein" style="text-align:right">Daten vom 17.07.2026 bis 14.10.2026<br>
     Testdaten Google</div>
 </div>
 
@@ -90,49 +89,46 @@
 
 
 
-<details class="karte" >
+<details class="karte">
   <summary><h2 style="margin:0">Datenquelle und Zugang</h2>
-    <span class="klein">8.552 Zeilen</span></summary>
-  <form onsubmit="return false" class="zeile">
-    <label>Quelle<select title="In der Demo gesperrt" disabled name="quelle">
+    <span class="klein">8.547 Zeilen</span></summary>
+  <form class="zeile" onsubmit="return false">
+    <label>Quelle<select name="quelle" title="In der Demo gesperrt" disabled="">
       
-      <option value="gsc" disabled>Search Console</option>
+      <option value="gsc" disabled="">Search Console</option>
       
-      <option value="bing" disabled>Bing Webmaster</option>
+      <option value="bing" disabled="">Bing Webmaster</option>
       
-      <option value="mock" selected>Testdaten Google</option>
+      <option value="mock" selected="">Testdaten Google</option>
       <option value="bing_mock">Testdaten Bing</option>
     </select></label>
-    <label>Tage<input title="In der Demo gesperrt" disabled name="tage" type="number" min="1" max="480" value="90" style="width:6rem"></label>
+    <label>Tage<input name="tage" type="number" min="1" max="480" value="90" style="width:6rem" title="In der Demo gesperrt" disabled=""></label>
     <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt">Daten abrufen</button>
     
-    <button type="button" class="gefahr"
-           
-            hx-on::after-request="location.reload()">Testdaten Google löschen</button>
+    <button type="button" class="gefahr demo-gesperrt" title="In der Demo gesperrt" aria-disabled="true">Testdaten Google löschen</button>
     
   <p class="demo-hinweis">In der Demo gesperrt</p></form>
   <div class="zeile" style="display:flex; gap:12px; align-items:end; flex-wrap:wrap; margin-top:12px">
     
     <form onsubmit="return false">
-      <input type="hidden" name="suchmaschine" value="google">
-      <label>Täglich automatisch: Google<select title="In der Demo gesperrt" disabled name="quelle">
-        <option value="" selected>aus</option>
-        <option value="gsc" >Search Console</option><option value="mock" >Testdaten</option>
+      <input type="hidden" name="suchmaschine" value="google" title="In der Demo gesperrt" disabled="">
+      <label>Täglich automatisch: Google<select name="quelle" title="In der Demo gesperrt" disabled="">
+        <option value="" selected="">aus</option>
+        <option value="gsc">Search Console</option><option value="mock">Testdaten</option>
       </select></label>
     <p class="demo-hinweis">In der Demo gesperrt</p></form>
     
     <form onsubmit="return false">
-      <input type="hidden" name="suchmaschine" value="bing">
-      <label>Täglich automatisch: Bing<select title="In der Demo gesperrt" disabled name="quelle">
-        <option value="" selected>aus</option>
-        <option value="bing" >Bing Webmaster</option><option value="bing_mock" >Testdaten</option>
+      <input type="hidden" name="suchmaschine" value="bing" title="In der Demo gesperrt" disabled="">
+      <label>Täglich automatisch: Bing<select name="quelle" title="In der Demo gesperrt" disabled="">
+        <option value="" selected="">aus</option>
+        <option value="bing">Bing Webmaster</option><option value="bing_mock">Testdaten</option>
       </select></label>
     <p class="demo-hinweis">In der Demo gesperrt</p></form>
     
     <span id="auto-meldung" class="klein"></span>
   </div>
-  <div style="margin-top:10px"><div id="import-status" class="klein" style="width:100%"
-     >
+  <div style="margin-top:10px"><div id="import-status" class="klein" style="width:100%">
   
   
 </div></div>
@@ -144,16 +140,14 @@
     
     <p class="klein">
       Schlüsseldatei des Service-Accounts hier ablegen:
-      <code>/Users/the_neyro/.config/seo-tool/gsc-service-account.json</code>. Schritt für Schritt: <code>docs/anleitung-gsc.md</code></p>
+      <code>~/.config/seo-tool/gsc-service-account.json</code>. Schritt für Schritt: <code>docs/anleitung-gsc.md</code></p>
     
-    <form onsubmit="return false" class="zeile">
-      <input type="hidden" name="quelle" value="gsc">
-      <label>Property (leer = automatisch)<input title="In der Demo gesperrt" disabled name="property" value="" size="34"
-        placeholder="sc-domain:radhaus-elbe.de"></label>
-      <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt" class="zweit">Speichern</button>
-      <button type="button" class="zweit"
-              disabled>Verbindung testen</button>
-    </form>
+    <form class="zeile" onsubmit="return false">
+      <input type="hidden" name="quelle" value="gsc" title="In der Demo gesperrt" disabled="">
+      <label>Property (leer = automatisch)<input name="property" value="" size="34" placeholder="sc-domain:radhaus-elbe.de" title="In der Demo gesperrt" disabled=""></label>
+      <button class="zweit demo-gesperrt" title="In der Demo gesperrt" aria-disabled="true">Speichern</button>
+      <button type="button" class="zweit demo-gesperrt" disabled="" title="In der Demo gesperrt" aria-disabled="true">Verbindung testen</button>
+    <p class="demo-hinweis">In der Demo gesperrt</p></form>
     <div id="gsc-meldung" class="klein" style="margin-top:8px"></div>
   </div>
   
@@ -163,16 +157,14 @@
     
     <p class="klein">
       Textdatei mit dem API-Schlüssel hier ablegen:
-      <code>/Users/the_neyro/.config/seo-tool/bing-api-key.txt</code>. Schritt für Schritt: <code>docs/anleitung-bing.md</code></p>
+      <code>~/.config/seo-tool/bing-api-key.txt</code>. Schritt für Schritt: <code>docs/anleitung-bing.md</code></p>
     
-    <form onsubmit="return false" class="zeile">
-      <input type="hidden" name="quelle" value="bing">
-      <label>Website (leer = automatisch)<input title="In der Demo gesperrt" disabled name="property" value="" size="34"
-        placeholder="https://radhaus-elbe.de/"></label>
-      <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt" class="zweit">Speichern</button>
-      <button type="button" class="zweit"
-              disabled>Verbindung testen</button>
-    </form>
+    <form class="zeile" onsubmit="return false">
+      <input type="hidden" name="quelle" value="bing" title="In der Demo gesperrt" disabled="">
+      <label>Website (leer = automatisch)<input name="property" value="" size="34" placeholder="https://radhaus-elbe.de/" title="In der Demo gesperrt" disabled=""></label>
+      <button class="zweit demo-gesperrt" title="In der Demo gesperrt" aria-disabled="true">Speichern</button>
+      <button type="button" class="zweit demo-gesperrt" disabled="" title="In der Demo gesperrt" aria-disabled="true">Verbindung testen</button>
+    <p class="demo-hinweis">In der Demo gesperrt</p></form>
     <div id="bing-meldung" class="klein" style="margin-top:8px"></div>
   </div>
   
@@ -181,11 +173,11 @@
 
 <nav class="tabs">
   
-  <a href="?suchmaschine=google&tage=28" class="aktiv">Google
-    </a>
+  <span class="aktiv demo-aus" title="In der Demo nicht enthalten">Google
+    </span>
   
-  <a href="?suchmaschine=bing&tage=28" >Bing
-    <span class="klein">(keine Daten)</span></a>
+  <span class="demo-aus" title="In der Demo nicht enthalten">Bing
+    <span class="klein">(keine Daten)</span></span>
   
 </nav>
 
@@ -194,46 +186,46 @@
 
 
 
-<form onsubmit="return false" class="zeile" style="margin-bottom:16px">
-  <input type="hidden" name="suchmaschine" value="google">
-  <label>Zeitraum<select title="In der Demo gesperrt" disabled name="tage" onchange="this.form.submit()">
-    <option value="7" >letzte 7 Tage</option><option value="28" selected>letzte 28 Tage</option><option value="90" >letzte 90 Tage</option>
+<form class="zeile" method="get" style="margin-bottom:16px" onsubmit="return false">
+  <input type="hidden" name="suchmaschine" value="google" title="In der Demo gesperrt" disabled="">
+  <label>Zeitraum<select name="tage" onchange="this.form.submit()" title="In der Demo gesperrt" disabled="">
+    <option value="7">letzte 7 Tage</option><option value="28" selected="">letzte 28 Tage</option><option value="90">letzte 90 Tage</option>
   </select></label>
-  <label>Suchbegriffe<select title="In der Demo gesperrt" disabled name="auswahl" onchange="this.form.submit()">
-    <option value="tracking" >beobachtete (0)</option>
-    <option value="alle" selected>alle mit Daten</option>
+  <label>Suchbegriffe<select name="auswahl" onchange="this.form.submit()" title="In der Demo gesperrt" disabled="">
+    <option value="tracking">beobachtete (0)</option>
+    <option value="alle" selected="">alle mit Daten</option>
   </select></label>
   
   
-  <label>Land<select title="In der Demo gesperrt" disabled name="land" onchange="this.form.submit()">
+  <label>Land<select name="land" onchange="this.form.submit()" title="In der Demo gesperrt" disabled="">
     <option value="">alle</option>
-    <option value="aut" >Österreich</option><option value="che" >Schweiz</option><option value="deu" >Deutschland</option>
+    <option value="aut">Österreich</option><option value="che">Schweiz</option><option value="deu">Deutschland</option>
   </select></label>
-  <label>Gerät<select title="In der Demo gesperrt" disabled name="geraet" onchange="this.form.submit()">
+  <label>Gerät<select name="geraet" onchange="this.form.submit()" title="In der Demo gesperrt" disabled="">
     <option value="">alle</option>
     
-    <option value="MOBILE" >Mobil</option>
-    <option value="DESKTOP" >Desktop</option>
-    <option value="TABLET" >Tablet</option>
+    <option value="MOBILE">Mobil</option>
+    <option value="DESKTOP">Desktop</option>
+    <option value="TABLET">Tablet</option>
   </select></label>
   
-  <span class="klein" style="margin-left:auto">28.09.2026 bis 25.10.2026, verglichen mit 31.08.2026 bis 27.09.2026</span>
+  <span class="klein" style="margin-left:auto">17.09.2026 bis 14.10.2026, verglichen mit 20.08.2026 bis 16.09.2026</span>
   
 <p class="demo-hinweis">In der Demo gesperrt</p></form>
 
 <div class="kennzahlen">
   <div><span class="klein erklaer" title="Wie präsent du bei deinen Suchbegriffen bist. 100 % = überall Platz 1.">Sichtbarkeit</span>
-    <span class="wert">14,0 %</span>
-    <span class="klein"><span class="error">-0,7 %</span> · 17 Suchbegriffe</span></div>
+    <span class="wert">15,0 %</span>
+    <span class="klein"><span class="gut">+0,5 %</span> · 17 Suchbegriffe</span></div>
   <div><span class="klein erklaer" title="Durchschnittlicher Platz im Suchergebnis. Kleiner ist besser.">Ø Platz</span>
-    <span class="wert">24,7</span>
-    <span class="klein"><span class="gut">-0,4</span> · kleiner = besser</span></div>
+    <span class="wert">24,8</span>
+    <span class="klein"><span class="gut">-0,1</span> · kleiner = besser</span></div>
   <div><span class="klein">Klicks</span>
-    <span class="wert">3.480</span>
-    <span class="klein"><span class="error">-253</span> zum Vorzeitraum</span></div>
+    <span class="wert">3.697</span>
+    <span class="klein"><span class="error">-628</span> zum Vorzeitraum</span></div>
   <div><span class="klein erklaer" title="Wie oft du im Suchergebnis zu sehen warst.">Einblendungen</span>
-    <span class="wert">42.295</span>
-    <span class="klein">Klickrate 8,2 %</span></div>
+    <span class="wert">42.324</span>
+    <span class="klein">Klickrate 8,7 %</span></div>
 </div>
 
 <div class="spalten">
@@ -244,30 +236,27 @@
       <thead><tr><th>Suchbegriff</th><th class="zahl">Platz</th><th class="zahl">Einblendungen</th><th></th></tr></thead>
       <tbody>
       
-      <tr><td>rennrad service</td><td class="zahl">10,3</td><td class="zahl">2.869</td>
-        <td class="zahl"><a class="klein" href="projekte-1-onpage.html">Seite optimieren</a></td></tr>
-      
-      <tr><td>fahrradladen altona</td><td class="zahl">19,4</td><td class="zahl">140</td>
-        <td class="zahl"><a class="klein" href="projekte-1-onpage.html">Seite optimieren</a></td></tr>
+      <tr><td>fahrradladen altona</td><td class="zahl">19,5</td><td class="zahl">132</td>
+        <td class="zahl"><span class="klein demo-aus" title="In der Demo nicht enthalten">Seite optimieren</span></td></tr>
       
       </tbody>
     </table></div>
   </section>
   <aside>
     <section class="karte"><h2>Aufsteiger</h2>
-      <div class="bereiche"><div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>e-bike akku test</span><span class="wert">5,6</span><span class="zahl"><span class="gut">▲ 6.4</span></span></div>
-      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>bremsen einstellen fahrrad</span><span class="wert">37,3</span><span class="zahl"><span class="gut">▲ 4.7</span></span></div>
-      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrradladen altona</span><span class="wert">19,4</span><span class="zahl"><span class="gut">▲ 4.7</span></span></div>
-      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrradkette ölen</span><span class="wert">29,1</span><span class="zahl"><span class="gut">▲ 4.1</span></span></div>
-      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>e-bike service hamburg</span><span class="wert">40,4</span><span class="zahl"><span class="gut">▲ 1.8</span></span></div>
+      <div class="bereiche"><div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrradladen altona</span><span class="wert">19,5</span><span class="zahl"><span class="gut">▲ 7.6</span></span></div>
+      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>e-bike akku test</span><span class="wert">5,9</span><span class="zahl"><span class="gut">▲ 4.3</span></span></div>
+      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>e-bike service hamburg</span><span class="wert">40,4</span><span class="zahl"><span class="gut">▲ 3.8</span></span></div>
+      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrradkette ölen</span><span class="wert">30,6</span><span class="zahl"><span class="gut">▲ 3.7</span></span></div>
+      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>lastenrad reparatur</span><span class="wert">37,6</span><span class="zahl"><span class="gut">▲ 3.3</span></span></div>
       </div>
     </section>
     <section class="karte"><h2>Absteiger</h2>
-      <div class="bereiche"><div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>rennrad service</span><span class="wert">10,3</span><span class="zahl"><span class="error">▼ 6.5</span></span></div>
-      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrrad inspektion kosten</span><span class="wert">33,9</span><span class="zahl"><span class="error">▼ 4.4</span></span></div>
-      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrrad reparatur altona</span><span class="wert">43,9</span><span class="zahl"><span class="error">▼ 2.4</span></span></div>
-      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>radhaus-elbe erfahrungen</span><span class="wert">4,4</span><span class="zahl"><span class="error">▼ 2.1</span></span></div>
-      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrrad leihen hamburg</span><span class="wert">3,8</span><span class="zahl"><span class="error">▼ 1.3</span></span></div>
+      <div class="bereiche"><div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>rennrad service</span><span class="wert">7,7</span><span class="zahl"><span class="error">▼ 5.8</span></span></div>
+      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrrad reparatur altona</span><span class="wert">44,2</span><span class="zahl"><span class="error">▼ 5.2</span></span></div>
+      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>bremsen einstellen fahrrad</span><span class="wert">42,0</span><span class="zahl"><span class="error">▼ 4.9</span></span></div>
+      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>fahrrad inspektion kosten</span><span class="wert">32,2</span><span class="zahl"><span class="error">▼ 3.8</span></span></div>
+      <div class="bereich" style="grid-template-columns:minmax(0,1fr) 44px 48px"><span>schlauch wechseln fahrrad</span><span class="wert">41,2</span><span class="zahl"><span class="error">▼ 2.3</span></span></div>
       </div>
     </section>
   </aside>
@@ -276,21 +265,21 @@
 <div class="raster">
   <section class="karte"><h2>Klicks pro Tag</h2>
     <svg viewBox="0 0 600 120" preserveAspectRatio="none" style="width:100%; height:120px" role="img" aria-label="Verlauf der Klicks">
-      <polyline class="reihe" points="0.0,58.6 22.2,78.7 44.4,27.7 66.7,46.8 88.9,56.8 111.1,43.2 133.3,51.3 155.6,42.2 177.8,68.7 200.0,4.0 222.2,45.0 244.4,26.8 266.7,39.5 288.9,44.1 311.1,79.6 333.3,54.1 355.6,57.7 377.8,53.2 400.0,85.0 422.2,73.2 444.4,91.4 466.7,55.9 488.9,82.3 511.1,48.6 533.3,71.4 555.6,108.7 577.8,100.5 600.0,116.0" vector-effect="non-scaling-stroke"/></svg>
+      <polyline class="reihe" points="0.0,25.7 22.2,116.0 44.4,81.2 66.7,77.9 88.9,77.9 111.1,89.9 133.3,75.8 155.6,58.4 177.8,96.4 200.0,45.3 222.2,69.2 244.4,69.2 266.7,93.2 288.9,32.3 311.1,55.1 333.3,67.1 355.6,50.8 377.8,60.5 400.0,49.7 422.2,81.2 444.4,4.0 466.7,52.9 488.9,31.2 511.1,46.4 533.3,51.8 555.6,94.3 577.8,63.8 600.0,68.2" vector-effect="non-scaling-stroke"></polyline></svg>
   </section>
   <section class="karte"><h2>Ø Platz pro Tag <span class="klein" style="font-weight:400">oben = besser</span></h2>
     <svg viewBox="0 0 600 120" preserveAspectRatio="none" style="width:100%; height:120px" role="img" aria-label="Verlauf des durchschnittlichen Platzes">
-      <polyline class="reihe" points="0.0,43.0 22.2,43.0 44.4,33.2 66.7,28.3 88.9,21.0 111.1,6.4 133.3,38.1 155.6,8.9 177.8,40.5 200.0,4.0 222.2,21.0 244.4,4.0 266.7,28.3 288.9,16.2 311.1,57.6 333.3,25.9 355.6,21.0 377.8,57.6 400.0,23.5 422.2,40.5 444.4,47.8 466.7,40.5 488.9,43.0 511.1,50.3 533.3,79.5 555.6,116.0 577.8,86.8 600.0,106.3" vector-effect="non-scaling-stroke"/></svg>
+      <polyline class="reihe" points="0.0,70.6 22.2,100.9 44.4,116.0 66.7,94.8 88.9,94.8 111.1,82.7 133.3,76.6 155.6,79.7 177.8,79.7 200.0,46.4 222.2,46.4 244.4,52.4 266.7,52.4 288.9,40.3 311.1,34.3 333.3,25.2 355.6,7.0 377.8,46.4 400.0,10.1 422.2,49.4 444.4,4.0 466.7,25.2 488.9,4.0 511.1,34.3 533.3,19.1 555.6,70.6 577.8,31.2 600.0,25.2" vector-effect="non-scaling-stroke"></polyline></svg>
   </section>
   <section class="karte"><h2>Verteilung</h2>
     <div class="tabelle"><table>
       <thead><tr><th></th><th class="zahl">jetzt</th><th class="zahl">vorher</th></tr></thead>
       
-      <tr><td>Platz 1–3</td><td class="zahl">2</td><td class="zahl">4
-        <span class="error">-2</span></td></tr>
+      <tbody><tr><td>Platz 1–3</td><td class="zahl">3</td><td class="zahl">4
+        <span class="error">-1</span></td></tr>
       
-      <tr><td>Platz 1–10</td><td class="zahl">5</td><td class="zahl">5
-        </td></tr>
+      <tr><td>Platz 1–10</td><td class="zahl">6</td><td class="zahl">5
+        <span class="gut">+1</span></td></tr>
       
       <tr><td>Platz 1–20</td><td class="zahl">7</td><td class="zahl">6
         <span class="gut">+1</span></td></tr>
@@ -298,7 +287,7 @@
       <tr><td>Platz 1–100</td><td class="zahl">17</td><td class="zahl">17
         </td></tr>
       
-    </table></div>
+    </tbody></table></div>
     
     
   </section>
@@ -309,21 +298,22 @@
   <p class="klein">Konkurrieren zwei eigene Seiten um denselben Begriff, weiß Google nicht, welche gemeint ist. Meist hilft es, eine davon zu stärken und die andere darauf zu verlinken.</p>
   
   <p style="margin:8px 0"><strong>e-bike service hamburg</strong> <span class="klein">Platz 40,4</span><br>
-    <span class="klein">67 % · Platz 38,5 · /e-bike-service-hamburg/</span><br><span class="klein">33 % · Platz 44,1 · /blog/e-bike-service-hamburg-tipps/</span><br></p>
+    <span class="klein">68 % · Platz 38,7 · /e-bike-service-hamburg/</span><br><span class="klein">32 % · Platz 43,9 · /blog/e-bike-service-hamburg-tipps/</span><br></p>
   
-  <p style="margin:8px 0"><strong>fahrradwerkstatt hamburg</strong> <span class="klein">Platz 45,8</span><br>
-    <span class="klein">84 % · Platz 45,0 · /fahrradwerkstatt-hamburg/</span><br><span class="klein">16 % · Platz 50,4 · /blog/fahrradwerkstatt-hamburg-tipps/</span><br></p>
+  <p style="margin:8px 0"><strong>fahrradwerkstatt hamburg</strong> <span class="klein">Platz 45,9</span><br>
+    <span class="klein">84 % · Platz 45,0 · /fahrradwerkstatt-hamburg/</span><br><span class="klein">16 % · Platz 50,3 · /blog/fahrradwerkstatt-hamburg-tipps/</span><br></p>
   
 </details>
 
-<details class="karte" open>
+<details class="karte" open="">
   <summary><h2 style="margin:0">Beobachtete Suchbegriffe</h2><span class="klein">0 · leer, darum zählen gerade alle Suchbegriffe mit Daten</span></summary>
-  <form onsubmit="return false" class="zeile">
-    <input type="hidden" name="zurueck" value="/projekte/1/positionen">
-    <label>Suchbegriffe (einer pro Zeile)<textarea title="In der Demo gesperrt" disabled name="neu" rows="3" cols="34" placeholder="seo tool&#10;website prüfen"></textarea></label>
-    <label>Tags (mit Komma)<input title="In der Demo gesperrt" disabled name="tags" placeholder="ratgeber, marke"></label>
-    <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt" name="aktion" value="neu">Beobachten</button>
-  </form>
+  <form class="zeile" method="post" onsubmit="return false">
+    <input type="hidden" name="zurueck" value="/projekte/1/positionen" title="In der Demo gesperrt" disabled="">
+    <label>Suchbegriffe (einer pro Zeile)<textarea name="neu" rows="3" cols="34" placeholder="seo tool
+website prüfen" title="In der Demo gesperrt" disabled=""></textarea></label>
+    <label>Tags (mit Komma)<input name="tags" placeholder="ratgeber, marke" title="In der Demo gesperrt" disabled=""></label>
+    <button name="aktion" value="neu" title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt">Beobachten</button>
+  <p class="demo-hinweis">In der Demo gesperrt</p></form>
   <p class="klein" style="margin-top:8px">Oder unten in der Tabelle ankreuzen. Ist die Liste gefüllt, zählen nur diese Begriffe
     in Sichtbarkeit und Kennzahlen – auch solche ohne Daten.</p>
   
@@ -335,240 +325,223 @@
     <h2>Alle Suchbegriffe</h2>
     <span class="knopf zweit klein-knopf demo-aus" title="In der Demo nicht enthalten">Als CSV herunterladen</span>
   </div>
-  <form onsubmit="return false" class="zeile" style="margin-bottom:12px">
-    <input type="hidden" name="tage" value="28"><input type="hidden" name="geraet" value="">
-    <input type="hidden" name="land" value=""><input type="hidden" name="suchmaschine" value="google">
-    <input type="hidden" name="sortierung" value="impressionen">
-    <input type="hidden" name="auswahl" value="alle"><input type="hidden" name="tag" value="">
-    <input title="In der Demo gesperrt" disabled name="suche" value="" placeholder="Suchbegriff filtern" aria-label="Suchbegriff filtern"><button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt" class="zweit">Filtern</button>
-  </form>
+  <form class="zeile" method="get" style="margin-bottom:12px" onsubmit="return false">
+    <input type="hidden" name="tage" value="28" title="In der Demo gesperrt" disabled=""><input type="hidden" name="geraet" value="" title="In der Demo gesperrt" disabled="">
+    <input type="hidden" name="land" value="" title="In der Demo gesperrt" disabled=""><input type="hidden" name="suchmaschine" value="google" title="In der Demo gesperrt" disabled="">
+    <input type="hidden" name="sortierung" value="impressionen" title="In der Demo gesperrt" disabled="">
+    <input type="hidden" name="auswahl" value="alle" title="In der Demo gesperrt" disabled=""><input type="hidden" name="tag" value="" title="In der Demo gesperrt" disabled="">
+    <input name="suche" value="" placeholder="Suchbegriff filtern" aria-label="Suchbegriff filtern" title="In der Demo gesperrt" disabled=""><button class="zweit demo-gesperrt" title="In der Demo gesperrt" aria-disabled="true">Filtern</button>
+  <p class="demo-hinweis">In der Demo gesperrt</p></form>
   <div id="kw-verlauf"></div>
   
-  <form onsubmit="return false" id="kw-form" class="zeile" style="margin-bottom:12px">
-    <input type="hidden" name="zurueck" value="/projekte/1/positionen">
-    <label>Tags für die Auswahl<input title="In der Demo gesperrt" disabled name="tags" placeholder="ratgeber, marke"></label>
-    <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt" name="aktion" value="hinzufuegen">Auswahl beobachten</button>
-    <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt" class="zweit" name="aktion" value="tag_weg">Tag entfernen</button>
-    <button title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt" class="zweit" name="aktion" value="entfernen">Nicht mehr beobachten</button>
-  </form>
+  <form id="kw-form" method="post" class="zeile" style="margin-bottom:12px" onsubmit="return false">
+    <input type="hidden" name="zurueck" value="/projekte/1/positionen" title="In der Demo gesperrt" disabled="">
+    <label>Tags für die Auswahl<input name="tags" placeholder="ratgeber, marke" title="In der Demo gesperrt" disabled=""></label>
+    <button name="aktion" value="hinzufuegen" title="In der Demo gesperrt" aria-disabled="true" class="demo-gesperrt">Auswahl beobachten</button>
+    <button class="zweit demo-gesperrt" name="aktion" value="tag_weg" title="In der Demo gesperrt" aria-disabled="true">Tag entfernen</button>
+    <button class="zweit demo-gesperrt" name="aktion" value="entfernen" title="In der Demo gesperrt" aria-disabled="true">Nicht mehr beobachten</button>
+  <p class="demo-hinweis">In der Demo gesperrt</p></form>
   <div class="tabelle"><table>
     <thead><tr>
-      <th><input title="In der Demo gesperrt" disabled type="checkbox" aria-label="alle auswählen" onclick="document.querySelectorAll('input[form=kw-form][name=query]').forEach(c => c.checked = this.checked)"></th>
+      <th><input type="checkbox" aria-label="alle auswählen" onclick="document.querySelectorAll('input[form=kw-form][name=query]').forEach(c =&gt; c.checked = this.checked)"></th>
       
-      <th class=""><a href="?suchmaschine=google&amp;tage=28&amp;geraet=&amp;land=&amp;auswahl=alle&amp;tag=&amp;suche=&amp;sortierung=query" style="color:inherit">Suchbegriff</a></th>
+      <th class=""><span class="demo-aus" title="In der Demo nicht enthalten">Suchbegriff</span></th>
       
-      <th class="zahl"><a href="?suchmaschine=google&amp;tage=28&amp;geraet=&amp;land=&amp;auswahl=alle&amp;tag=&amp;suche=&amp;sortierung=position" style="color:inherit">Platz</a></th>
+      <th class="zahl"><span class="demo-aus" title="In der Demo nicht enthalten">Platz</span></th>
       
-      <th class="zahl"><a href="?suchmaschine=google&amp;tage=28&amp;geraet=&amp;land=&amp;auswahl=alle&amp;tag=&amp;suche=&amp;sortierung=aenderung" style="color:inherit">Änderung</a></th>
+      <th class="zahl"><span class="demo-aus" title="In der Demo nicht enthalten">Änderung</span></th>
       
-      <th class="zahl"><a href="?suchmaschine=google&amp;tage=28&amp;geraet=&amp;land=&amp;auswahl=alle&amp;tag=&amp;suche=&amp;sortierung=klicks" style="color:inherit">Klicks</a></th>
+      <th class="zahl"><span class="demo-aus" title="In der Demo nicht enthalten">Klicks</span></th>
       
-      <th class="zahl"><a href="?suchmaschine=google&amp;tage=28&amp;geraet=&amp;land=&amp;auswahl=alle&amp;tag=&amp;suche=&amp;sortierung=impressionen" style="color:inherit; font-weight:600">Einblendungen ↓</a></th>
+      <th class="zahl"><span class="demo-aus" title="In der Demo nicht enthalten">Einblendungen ↓</span></th>
       
       <th class="zahl">Klickrate</th><th>Seite</th>
     </tr></thead>
     <tbody>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="e-bike akku test" aria-label="e-bike akku test auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >e-bike akku test</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="e-bike akku test" aria-label="e-bike akku test auswählen"></td>
+      <td><a href="#kw-verlauf">e-bike akku test</a>
         
         
         </td>
-      <td class="zahl">5,6</td><td class="zahl"><span class="gut">▲ 6.4</span></td>
-      <td class="zahl">796</td><td class="zahl">13.000</td><td class="zahl">6,1 %</td>
+      <td class="zahl">5,9</td><td class="zahl"><span class="gut">▲ 4.3</span></td>
+      <td class="zahl">698</td><td class="zahl">11.621</td><td class="zahl">6,0 %</td>
       <td class="url klein">/e-bike-akku-test/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="radhaus-elbe" aria-label="radhaus-elbe auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >radhaus-elbe</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="radhaus-elbe" aria-label="radhaus-elbe auswählen"></td>
+      <td><a href="#kw-verlauf">radhaus-elbe</a>
         
         
         </td>
-      <td class="zahl">1,8</td><td class="zahl"><span class="error">▼ 0.1</span></td>
-      <td class="zahl">2.197</td><td class="zahl">10.262</td><td class="zahl">21,4 %</td>
+      <td class="zahl">1,7</td><td class="zahl"><span class="klein">0</span></td>
+      <td class="zahl">2.305</td><td class="zahl">10.368</td><td class="zahl">22,2 %</td>
       <td class="url klein">/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="rennrad service" aria-label="rennrad service auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >rennrad service</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="rennrad service" aria-label="rennrad service auswählen"></td>
+      <td><a href="#kw-verlauf">rennrad service</a>
         
         
         </td>
-      <td class="zahl">10,3</td><td class="zahl"><span class="error">▼ 6.5</span></td>
-      <td class="zahl">46</td><td class="zahl">2.869</td><td class="zahl">1,6 %</td>
+      <td class="zahl">7,7</td><td class="zahl"><span class="error">▼ 5.8</span></td>
+      <td class="zahl">156</td><td class="zahl">4.196</td><td class="zahl">3,7 %</td>
       <td class="url klein">/rennrad-service/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="fahrrad winterfest machen" aria-label="fahrrad winterfest machen auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >fahrrad winterfest machen</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="fahrrad winterfest machen" aria-label="fahrrad winterfest machen auswählen"></td>
+      <td><a href="#kw-verlauf">fahrrad winterfest machen</a>
         
         
         </td>
-      <td class="zahl">26,0</td><td class="zahl"><span class="error">▼ 0.2</span></td>
-      <td class="zahl">0</td><td class="zahl">2.573</td><td class="zahl">0,0 %</td>
+      <td class="zahl">26,2</td><td class="zahl"><span class="error">▼ 0.9</span></td>
+      <td class="zahl">0</td><td class="zahl">2.547</td><td class="zahl">0,0 %</td>
       <td class="url klein">/fahrrad-winterfest-machen/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="schlauch wechseln fahrrad" aria-label="schlauch wechseln fahrrad auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >schlauch wechseln fahrrad</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="reifendruck fahrrad" aria-label="reifendruck fahrrad auswählen"></td>
+      <td><a href="#kw-verlauf">reifendruck fahrrad</a>
         
         
         </td>
-      <td class="zahl">39,8</td><td class="zahl"><span class="gut">▲ 0.9</span></td>
-      <td class="zahl">0</td><td class="zahl">2.425</td><td class="zahl">0,0 %</td>
-      <td class="url klein">/schlauch-wechseln-fahrrad/</td>
-    </tr>
-    
-    <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="reifendruck fahrrad" aria-label="reifendruck fahrrad auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >reifendruck fahrrad</a>
-        
-        
-        </td>
-      <td class="zahl">38,1</td><td class="zahl"><span class="gut">▲ 1.2</span></td>
-      <td class="zahl">0</td><td class="zahl">2.410</td><td class="zahl">0,0 %</td>
+      <td class="zahl">38,8</td><td class="zahl"><span class="gut">▲ 0.4</span></td>
+      <td class="zahl">0</td><td class="zahl">2.450</td><td class="zahl">0,0 %</td>
       <td class="url klein">/reifendruck-fahrrad/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="radhaus-elbe erfahrungen" aria-label="radhaus-elbe erfahrungen auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >radhaus-elbe erfahrungen</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="schlauch wechseln fahrrad" aria-label="schlauch wechseln fahrrad auswählen"></td>
+      <td><a href="#kw-verlauf">schlauch wechseln fahrrad</a>
         
         
         </td>
-      <td class="zahl">4,4</td><td class="zahl"><span class="error">▼ 2.1</span></td>
-      <td class="zahl">153</td><td class="zahl">2.079</td><td class="zahl">7,4 %</td>
+      <td class="zahl">41,2</td><td class="zahl"><span class="error">▼ 2.3</span></td>
+      <td class="zahl">0</td><td class="zahl">2.403</td><td class="zahl">0,0 %</td>
+      <td class="url klein">/schlauch-wechseln-fahrrad/</td>
+    </tr>
+    
+    <tr>
+      <td><input type="checkbox" form="kw-form" name="query" value="radhaus-elbe erfahrungen" aria-label="radhaus-elbe erfahrungen auswählen"></td>
+      <td><a href="#kw-verlauf">radhaus-elbe erfahrungen</a>
+        
+        
+        </td>
+      <td class="zahl">3,6</td><td class="zahl"><span class="error">▼ 1.1</span></td>
+      <td class="zahl">200</td><td class="zahl">2.068</td><td class="zahl">9,7 %</td>
       <td class="url klein">/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="e-bike service hamburg" aria-label="e-bike service hamburg auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >e-bike service hamburg</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="e-bike service hamburg" aria-label="e-bike service hamburg auswählen"></td>
+      <td><a href="#kw-verlauf">e-bike service hamburg</a>
         
         <span class="klein">(2 Seiten)</span>
         </td>
-      <td class="zahl">40,4</td><td class="zahl"><span class="gut">▲ 1.8</span></td>
-      <td class="zahl">0</td><td class="zahl">1.691</td><td class="zahl">0,0 %</td>
+      <td class="zahl">40,4</td><td class="zahl"><span class="gut">▲ 3.8</span></td>
+      <td class="zahl">0</td><td class="zahl">1.719</td><td class="zahl">0,0 %</td>
       <td class="url klein">/e-bike-service-hamburg/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="fahrrad leihen hamburg" aria-label="fahrrad leihen hamburg auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >fahrrad leihen hamburg</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="fahrrad leihen hamburg" aria-label="fahrrad leihen hamburg auswählen"></td>
+      <td><a href="#kw-verlauf">fahrrad leihen hamburg</a>
         
         
         </td>
-      <td class="zahl">3,8</td><td class="zahl"><span class="error">▼ 1.3</span></td>
-      <td class="zahl">125</td><td class="zahl">1.437</td><td class="zahl">8,7 %</td>
+      <td class="zahl">3,0</td><td class="zahl"><span class="error">▼ 0.1</span></td>
+      <td class="zahl">164</td><td class="zahl">1.425</td><td class="zahl">11,5 %</td>
       <td class="url klein">/fahrrad-leihen-hamburg/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="fahrradkette ölen" aria-label="fahrradkette ölen auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >fahrradkette ölen</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="fahrradkette ölen" aria-label="fahrradkette ölen auswählen"></td>
+      <td><a href="#kw-verlauf">fahrradkette ölen</a>
         
         
         </td>
-      <td class="zahl">29,1</td><td class="zahl"><span class="gut">▲ 4.1</span></td>
-      <td class="zahl">0</td><td class="zahl">1.135</td><td class="zahl">0,0 %</td>
+      <td class="zahl">30,6</td><td class="zahl"><span class="gut">▲ 3.7</span></td>
+      <td class="zahl">0</td><td class="zahl">1.125</td><td class="zahl">0,0 %</td>
       <td class="url klein">/fahrradkette-ölen/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="e-bike inspektion kosten" aria-label="e-bike inspektion kosten auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >e-bike inspektion kosten</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="e-bike inspektion kosten" aria-label="e-bike inspektion kosten auswählen"></td>
+      <td><a href="#kw-verlauf">e-bike inspektion kosten</a>
         
         
         </td>
-      <td class="zahl">1,4</td><td class="zahl"><span class="gut">▲ 0.3</span></td>
-      <td class="zahl">163</td><td class="zahl">698</td><td class="zahl">23,4 %</td>
+      <td class="zahl">1,2</td><td class="zahl"><span class="gut">▲ 1.9</span></td>
+      <td class="zahl">174</td><td class="zahl">709</td><td class="zahl">24,5 %</td>
       <td class="url klein">/e-bike-inspektion-kosten/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="fahrrad reparatur altona" aria-label="fahrrad reparatur altona auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >fahrrad reparatur altona</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="fahrrad reparatur altona" aria-label="fahrrad reparatur altona auswählen"></td>
+      <td><a href="#kw-verlauf">fahrrad reparatur altona</a>
         
         
         </td>
-      <td class="zahl">43,9</td><td class="zahl"><span class="error">▼ 2.4</span></td>
-      <td class="zahl">0</td><td class="zahl">455</td><td class="zahl">0,0 %</td>
+      <td class="zahl">44,2</td><td class="zahl"><span class="error">▼ 5.2</span></td>
+      <td class="zahl">0</td><td class="zahl">442</td><td class="zahl">0,0 %</td>
       <td class="url klein">/fahrrad-reparatur-altona/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="lastenrad reparatur" aria-label="lastenrad reparatur auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >lastenrad reparatur</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="bremsen einstellen fahrrad" aria-label="bremsen einstellen fahrrad auswählen"></td>
+      <td><a href="#kw-verlauf">bremsen einstellen fahrrad</a>
         
         
         </td>
-      <td class="zahl">39,2</td><td class="zahl"><span class="error">▼ 0.5</span></td>
-      <td class="zahl">0</td><td class="zahl">432</td><td class="zahl">0,0 %</td>
-      <td class="url klein">/lastenrad-reparatur/</td>
-    </tr>
-    
-    <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="bremsen einstellen fahrrad" aria-label="bremsen einstellen fahrrad auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >bremsen einstellen fahrrad</a>
-        
-        
-        </td>
-      <td class="zahl">37,3</td><td class="zahl"><span class="gut">▲ 4.7</span></td>
-      <td class="zahl">0</td><td class="zahl">430</td><td class="zahl">0,0 %</td>
+      <td class="zahl">42,0</td><td class="zahl"><span class="error">▼ 4.9</span></td>
+      <td class="zahl">0</td><td class="zahl">434</td><td class="zahl">0,0 %</td>
       <td class="url klein">/bremsen-einstellen-fahrrad/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="fahrrad inspektion kosten" aria-label="fahrrad inspektion kosten auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >fahrrad inspektion kosten</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="lastenrad reparatur" aria-label="lastenrad reparatur auswählen"></td>
+      <td><a href="#kw-verlauf">lastenrad reparatur</a>
         
         
         </td>
-      <td class="zahl">33,9</td><td class="zahl"><span class="error">▼ 4.4</span></td>
-      <td class="zahl">0</td><td class="zahl">195</td><td class="zahl">0,0 %</td>
+      <td class="zahl">37,6</td><td class="zahl"><span class="gut">▲ 3.3</span></td>
+      <td class="zahl">0</td><td class="zahl">430</td><td class="zahl">0,0 %</td>
+      <td class="url klein">/lastenrad-reparatur/</td>
+    </tr>
+    
+    <tr>
+      <td><input type="checkbox" form="kw-form" name="query" value="fahrrad inspektion kosten" aria-label="fahrrad inspektion kosten auswählen"></td>
+      <td><a href="#kw-verlauf">fahrrad inspektion kosten</a>
+        
+        
+        </td>
+      <td class="zahl">32,2</td><td class="zahl"><span class="error">▼ 3.8</span></td>
+      <td class="zahl">0</td><td class="zahl">191</td><td class="zahl">0,0 %</td>
       <td class="url klein">/fahrrad-inspektion-kosten/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="fahrradladen altona" aria-label="fahrradladen altona auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >fahrradladen altona</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="fahrradladen altona" aria-label="fahrradladen altona auswählen"></td>
+      <td><a href="#kw-verlauf">fahrradladen altona</a>
         
         
         </td>
-      <td class="zahl">19,4</td><td class="zahl"><span class="gut">▲ 4.7</span></td>
-      <td class="zahl">0</td><td class="zahl">140</td><td class="zahl">0,0 %</td>
+      <td class="zahl">19,5</td><td class="zahl"><span class="gut">▲ 7.6</span></td>
+      <td class="zahl">0</td><td class="zahl">132</td><td class="zahl">0,0 %</td>
       <td class="url klein">/fahrradladen-altona/</td>
     </tr>
     
     <tr>
-      <td><input title="In der Demo gesperrt" disabled type="checkbox" form="kw-form" name="query" value="fahrradwerkstatt hamburg" aria-label="fahrradwerkstatt hamburg auswählen"></td>
-      <td><a href="#kw-verlauf"
-            >fahrradwerkstatt hamburg</a>
+      <td><input type="checkbox" form="kw-form" name="query" value="fahrradwerkstatt hamburg" aria-label="fahrradwerkstatt hamburg auswählen"></td>
+      <td><a href="#kw-verlauf">fahrradwerkstatt hamburg</a>
         
         <span class="klein">(2 Seiten)</span>
         </td>
-      <td class="zahl">45,8</td><td class="zahl"><span class="gut">▲ 0.4</span></td>
+      <td class="zahl">45,9</td><td class="zahl"><span class="gut">▲ 0.3</span></td>
       <td class="zahl">0</td><td class="zahl">64</td><td class="zahl">0,0 %</td>
       <td class="url klein">/fahrradwerkstatt-hamburg/</td>
     </tr>
@@ -604,5 +577,5 @@
     });
   })();
 </script>
-</body>
-</html>
+
+<script src="static/demo.js"></script></body></html>

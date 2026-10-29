@@ -31,7 +31,3 @@ Der Website-Zustand misst, wie gepflegt eine Website ist. Wie sie danach bei Goo
 Die Aufgabe sagt „Bau die Seiten aus **oder nimm sie aus dem Index**“. Nextfix hat Seiten auf „noindex“ aber trotzdem weiter als „wenig Text“ gezählt. Im ersten Lauf standen Impressum und Datenschutz deshalb nachher noch auf der Liste, und der Zustand lag bei 82,1.
 
 Das ist jetzt behoben und seit Version 0.1.0 drin. Ehrlich dazu: Für Google bringt „noindex“ auf Impressum und Datenschutz nichts, kurze Pflichtseiten sind völlig normal. Wir haben es nur gemacht, um die Aufgabe an der Demo abzuschließen. Mit dem Fix haben wir beide Fassungen noch einmal geprüft: 48,7 vorher, **90,6 nachher**. Die Zahlen oben sind die aus diesem zweiten Lauf.
-
-## Nachtrag, 28. Oktober 2026: neue Bewertung seit Version 0.2.3
-
-Die Zahlen oben stammen vom 17. Oktober und bleiben so stehen. Seit Version 0.2.3 bewertet Nextfix ehrlicher, nach dem, was Google Search Central und web.dev tatsächlich sagen: „Wenig Text“ zählt nur noch als Warnung, weil Google nicht nach Länge rankt, und Impressum und Datenschutz zählen dort nicht mehr. Dieselbe Demo-Website steht deshalb heute bei **64,0 vorher** und **90,6 nachher** (gerundet 91). Aus acht Aufgaben werden drei, fünf davon sind erledigt. Der Weg ist derselbe, nur der Startwert ist gerechter. Was sich geändert hat, steht im Changelog zu 0.2.3.

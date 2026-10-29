@@ -7,7 +7,7 @@
 <meta name="description" content="Drei Durchläufe an dieser Website: von 64 auf 98. Was davon echte Verbesserung war, was Fehlalarme von Nextfix selbst und was wir daraus gelernt haben.">
 <!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
 <link rel="canonical" href="https://the-neyro.github.io/blog/nextfix-prueft-seine-eigene-website/">
-<meta name="theme-color" content="#f7f9f8">
+<meta name="theme-color" content="#f7f6f3">
 <link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Nextfix">
@@ -25,7 +25,7 @@
 <!-- seo:ende -->
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../../blog/feed.xml">
-<link rel="preload" href="../../assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/css/site.css">
 <script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
 </head>
@@ -68,49 +68,31 @@
 <p>Ein Prüfwerkzeug muss sich selbst prüfen lassen. Die eigene Website hat Nextfix drei echte Schwächen gezeigt: noindex-Seiten zählten mit (behoben in 0.2.1), ein einzelner langsamer Abruf zählte als Ausfall, und manche Links werden mit Bot-Kennung falsch eingeschätzt (beides in Arbeit). Jede davon hätte auch bei dir zu falschen Aufgaben geführt.</p>
 <p>Für dich heißt das: Wenn Nextfix etwas meldet, schau kurz nach, ob es stimmt. Ist es Absicht, blendest du es mit „Bewusst so“ aus, dann zählt es nicht mehr. Und wenn Nextfix sich irrt, freut sich das Projekt über ein <a href="https://github.com/the-neyro/nextfix/issues">Issue auf GitHub</a>.</p>
 <p>Gemessen am 17. und 18. Oktober 2026, zuerst mit dem Stand vor 0.2.1, dann mit 0.2.2, Projekt „the-neyro.github.io“, Standardeinstellungen (500 Seiten, robots.txt beachten).</p>
-<h2>Nachtrag, 28. Oktober 2026: neue Bewertung seit Version 0.2.3</h2>
-<p>Gemessen wurde mit 0.2.1 und 0.2.2. Seit 0.2.3 gewichtet Nextfix ehrlicher, nach Google Search Central und web.dev: „Wenig Text“ ist nur noch eine Warnung, Rechtsseiten zählen dort nicht mehr, und eine langsame Serverantwort beginnt erst bei 1,8 Sekunden. Zustand und Aufgaben einer Website können sich dadurch gegenüber den Zahlen oben verschieben. Die Messung oben bleibt, wie sie war. Die Demo-Website „Radhaus Elbe“ steht mit der neuen Bewertung bei 64,0 und nach den Aufgaben bei 90,6.</p>
     </div>
     <nav class="prose post__nav" aria-label="Weitere Beiträge"><a class="link" href="../version-0-2-0/">← Nextfix 0.2: Lösungen in Klartext</a></nav>
   </article>
 </main>
 
 <footer class="site-foot site-foot--short">
-  <div class="foot-cols">
-    <nav class="foot-col" aria-label="Fußmenü">
-      <p class="foot-h">Nextfix</p>
+  <div class="foot-top">
+    <div class="foot-invite">
+      <h2>Fang mit der ersten Aufgabe an.</h2>
+      <a class="button button--light" href="../../installation/">Installieren</a>
+    </div>
+    <nav class="foot-links" aria-label="Fußmenü">
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
       <a href="../../funktionen/">Funktionen</a>
       <a href="../../pruefungen/">Alle Prüfungen</a>
       <a href="../../installation/">Installation</a>
       <a href="../../faq/">FAQ</a>
       <a href="../../blog/">Blog</a>
     </nav>
-    <div class="foot-col">
-      <p class="foot-h">Projekt</p>
-      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
-      <a href="https://github.com/the-neyro/nextfix/releases/latest">Version 0.2.3, was ist neu</a>
-      <span>MIT-Lizenz, quelloffen</span>
-      <a href="../../faq/#weiter">Wie es weitergeht</a>
-    </div>
-    <div class="foot-col" data-blog-teaser>
-      <p class="foot-h">Neu im Blog</p>
-      <!-- blog:start -->
-      <a href="../../blog/nextfix-prueft-seine-eigene-website/">Nextfix prüft seine eigene Website</a>
-      <a href="../../blog/version-0-2-0/">Nextfix 0.2: Lösungen in Klartext</a>
-      <a href="../../blog/google-findet-meine-website-nicht/">Warum findet Google meine Website nicht?</a>
-      <!-- blog:ende -->
-    </div>
-    <div class="foot-col">
-      <p class="foot-h">Rechtliches</p>
-      <a href="../../datenschutz/">Datenschutz</a>
-      <a href="../../#bildnachweis">Bildnachweise</a>
-      <span>Privates Projekt von the-neyro</span>
-    </div>
   </div>
-  <svg class="foot-name" viewBox="0 0 1000 140" aria-hidden="true" focusable="false"><text x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs" font-size="178">NEXTFIX</text></svg>
   <div class="foot-legal">
-    <p>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</p>
+    <span>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</span>
+    <a href="../../datenschutz/">Datenschutz</a>
   </div>
+  <p class="foot-name" aria-hidden="true">Nextfix</p>
 </footer>
 
 <script src="../../assets/js/site.js" defer></script>

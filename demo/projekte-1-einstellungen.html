@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="de">
-<head>
+<html lang="de"><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Demo · Einstellungen · Radhaus Elbe</title>
@@ -10,6 +9,7 @@
   </script>
   <link rel="stylesheet" href="static/app.css">
   <link rel="icon" href="static/logo.svg" type="image/svg+xml">
+    
 <link rel="stylesheet" href="static/demo.css"><meta name="robots" content="noindex"><link rel="stylesheet" href="demo-mobil.css">
 </head>
 <body><div class="demo-band" role="note">Demo mit der erfundenen Website <strong>Radhaus Elbe</strong> · So sieht Nextfix auf deinem Rechner aus · <a href="../">zurück zur Website</a></div><div id="demo-toast" role="status" aria-live="polite"></div>
@@ -21,12 +21,11 @@
   <aside class="leiste" id="leiste">
     <div class="leiste-oben">
       <a class="marke-tool" href="projekte.html">
-        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"/>
-          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"></rect>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         Nextfix
       </a>
-      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste"
-              onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
+      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste" onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
     </div>
     <div class="menue-inhalt">
       <details class="projektwahl">
@@ -46,20 +45,20 @@
 
       
       <nav aria-label="Module">
-        <a href="index.html" >Übersicht</a>
+        <a href="index.html">Übersicht</a>
         <div class="navgruppe">Website-Check</div>
         
-        <a href="crawls-1-issues.html" >Probleme
+        <a href="crawls-2-issues.html">Probleme
           <span class="zahl">8</span></a>
-        <a href="crawls-1-seiten.html" >Geprüfte Seiten</a>
-        <a href="crawls-1-vergleich.html" >Verlauf</a>
-        <a href="crawls-1-vitals.html" >Ladezeit</a>
+        <a href="crawls-2-seiten.html">Geprüfte Seiten</a>
+        <a href="crawls-2-vergleich.html">Verlauf</a>
+        <a href="crawls-2-vitals.html">Ladezeit</a>
         
         <div class="navgruppe">Bei Google gefunden werden</div>
-        <a href="projekte-1-positionen.html" >Positionen</a>
-        <a href="projekte-1-keywords.html" >Suchbegriffe finden</a>
+        <a href="projekte-1-positionen.html">Positionen</a>
+        <a href="projekte-1-keywords.html">Suchbegriffe finden</a>
         <div class="navgruppe">Inhalt</div>
-        <a href="projekte-1-onpage.html" >Seite optimieren</a>
+        <a href="projekte-1-onpage.html">Seite optimieren</a>
         <div class="navgruppe"></div>
         <a href="projekte-1-einstellungen.html" aria-current="page">Einstellungen</a>
       </nav>
@@ -67,9 +66,9 @@
 
       <div class="leiste-fuss">
         <div class="thema" role="group" aria-label="Darstellung">
-          <button type="button" data-thema="system">System</button>
-          <button type="button" data-thema="light">Hell</button>
-          <button type="button" data-thema="dark">Dunkel</button>
+          <button type="button" data-thema="system" aria-pressed="true">System</button>
+          <button type="button" data-thema="light" aria-pressed="false">Hell</button>
+          <button type="button" data-thema="dark" aria-pressed="false">Dunkel</button>
         </div>
       </div>
     </div>
@@ -86,31 +85,31 @@
   <div class="karte">
     <h2>Website-Prüfung</h2>
     <div class="zeile" style="display:flex; gap:16px; flex-wrap:wrap">
-      <label style="flex:2 1 320px">Start-Adresse<input title="In der Demo gesperrt" disabled name="start_url" value="https://radhaus-elbe.de/"></label>
-      <label style="flex:0 1 140px">Höchstens Seiten<input title="In der Demo gesperrt" disabled name="seitenlimit" type="number" min="1" value="500"></label>
-      <label style="flex:0 1 160px">Pause je Seite (Sek.)<input title="In der Demo gesperrt" disabled name="crawl_delay" type="number" step="0.1" min="0" max="30" value="0.0"></label>
+      <label style="flex:2 1 320px">Start-Adresse<input name="start_url" value="https://radhaus-elbe.de/" title="In der Demo gesperrt" disabled=""></label>
+      <label style="flex:0 1 140px">Höchstens Seiten<input name="seitenlimit" type="number" min="1" value="500" title="In der Demo gesperrt" disabled=""></label>
+      <label style="flex:0 1 160px">Pause je Seite (Sek.)<input name="crawl_delay" type="number" step="0.1" min="0" max="30" value="0.0" title="In der Demo gesperrt" disabled=""></label>
     </div>
     <p class="klein" style="margin-top:8px">Mehr Pause schont den Server. Liegen mehrere Websites auf einem Server, prüft das Tool sie nacheinander.</p>
     <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:16px">
       <label style="flex:1 1 280px">Welche Seiten prüfen
-        <select title="In der Demo gesperrt" disabled name="quelle">
-          <option value="website" >Links auf der Website folgen</option>
-          <option value="sitemap" >Nur Seiten aus der Sitemap</option>
-          <option value="beides" selected>Beides (findet auch nicht verlinkte Seiten)</option>
+        <select name="quelle" title="In der Demo gesperrt" disabled="">
+          <option value="website">Links auf der Website folgen</option>
+          <option value="sitemap">Nur Seiten aus der Sitemap</option>
+          <option value="beides" selected="">Beides (findet auch nicht verlinkte Seiten)</option>
         </select></label>
       <label style="flex:1 1 220px">robots.txt
-        <select title="In der Demo gesperrt" disabled name="robots_beachten">
-          <option value="1" selected>beachten</option>
-          <option value="0" >ignorieren (nur eigene Websites)</option>
+        <select name="robots_beachten" title="In der Demo gesperrt" disabled="">
+          <option value="1" selected="">beachten</option>
+          <option value="0">ignorieren (nur eigene Websites)</option>
         </select></label>
-      <label style="flex:1 1 260px">Kennung (User-Agent)<input title="In der Demo gesperrt" disabled name="user_agent" value="SeoToolBot/0.1 (+lokal)"></label>
+      <label style="flex:1 1 260px">Kennung (User-Agent)<input name="user_agent" value="SeoToolBot/0.1 (+lokal)" title="In der Demo gesperrt" disabled=""></label>
     </div>
     <label style="margin-top:16px; display:flex; gap:8px; align-items:center">
-      <input title="In der Demo gesperrt" disabled type="checkbox" name="ladezeit_auto" value="1" >
+      <input type="checkbox" name="ladezeit_auto" value="1" title="In der Demo gesperrt" disabled="">
       Nach jeder Prüfung auch die Ladezeit messen <span class="klein">(dauert 1–2 Minuten länger, zählt in den Website-Zustand)</span>
     </label>
     <label style="margin-top:8px; display:flex; gap:8px; align-items:center">
-      <input title="In der Demo gesperrt" disabled type="checkbox" name="js_rendern" value="1" >
+      <input type="checkbox" name="js_rendern" value="1" title="In der Demo gesperrt" disabled="">
       JavaScript ausführen <span class="klein">(für Websites mit React, Vue o. Ä.; deutlich langsamer, zeigt auch, was Crawler ohne JavaScript sehen)</span>
     </label>
   </div>
@@ -118,9 +117,11 @@
   <details class="karte">
     <summary><h2 style="margin:0">Nur bestimmte Bereiche prüfen</h2></summary>
     <div style="display:flex; gap:16px; flex-wrap:wrap">
-      <label style="flex:1 1 200px">Nur diese Pfade<textarea title="In der Demo gesperrt" disabled name="erlauben" rows="3" placeholder="/blog/"></textarea></label>
-      <label style="flex:1 1 200px">Diese Pfade auslassen<textarea title="In der Demo gesperrt" disabled name="sperren" rows="3" placeholder="/shop/*/details&#10;sort="></textarea></label>
-      <label style="flex:1 1 200px">Diese URL-Parameter ignorieren<textarea title="In der Demo gesperrt" disabled name="parameter_entfernen" rows="3" placeholder="utm_source&#10;sessionid"></textarea></label>
+      <label style="flex:1 1 200px">Nur diese Pfade<textarea name="erlauben" rows="3" placeholder="/blog/" title="In der Demo gesperrt" disabled=""></textarea></label>
+      <label style="flex:1 1 200px">Diese Pfade auslassen<textarea name="sperren" rows="3" placeholder="/shop/*/details
+sort=" title="In der Demo gesperrt" disabled=""></textarea></label>
+      <label style="flex:1 1 200px">Diese URL-Parameter ignorieren<textarea name="parameter_entfernen" rows="3" placeholder="utm_source
+sessionid" title="In der Demo gesperrt" disabled=""></textarea></label>
     </div>
     <p class="klein" style="margin-top:8px">Ein Eintrag pro Zeile. Wie in robots.txt: Anfang des Pfads, <code>*</code> = beliebig, <code>$</code> = Ende. Parameter <code>*</code> = alle entfernen.</p>
   </details>
@@ -133,67 +134,61 @@
     <fieldset style="margin:12px 0 4px"><legend><strong>Crawlbarkeit</strong></legend>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:4px 16px; margin-top:6px">
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="status_4xx" >
+        <label><input type="checkbox" name="checks_aus" value="status_4xx" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Seiten mit 4xx-Statuscode</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="status_5xx" >
+        <label><input type="checkbox" name="checks_aus" value="status_5xx" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Seiten mit 5xx-Statuscode</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="nicht_erreichbar" >
+        <label><input type="checkbox" name="checks_aus" value="nicht_erreichbar" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Seiten laden nicht oder zu langsam</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="redirect_kette" >
+        <label><input type="checkbox" name="checks_aus" value="redirect_kette" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Redirect-Ketten und -Schleifen</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="temp_redirect" >
+        <label><input type="checkbox" name="checks_aus" value="temp_redirect" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Temporäre Weiterleitungen</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="perm_redirect" >
+        <label><input type="checkbox" name="checks_aus" value="perm_redirect" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Interne Links auf alte Adressen (dauerhafte Weiterleitung)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="robots_fehlt" >
+        <label><input type="checkbox" name="checks_aus" value="robots_fehlt" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> robots.txt nicht gefunden</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="sitemap_fehlt" >
-          <span class="symbol feinschliff" aria-label="Feinschliff">●</span> sitemap.xml nicht gefunden</label>
+        <label><input type="checkbox" name="checks_aus" value="sitemap_fehlt" title="In der Demo gesperrt" disabled="">
+          <span class="symbol wichtig" aria-label="Wichtig">▲</span> sitemap.xml nicht gefunden</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="sitemap_nicht_in_robots" >
+        <label><input type="checkbox" name="checks_aus" value="sitemap_nicht_in_robots" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Sitemap nicht in robots.txt</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="blockiert" >
+        <label><input type="checkbox" name="checks_aus" value="blockiert" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Seiten für Google gesperrt</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="x_robots_noindex" >
+        <label><input type="checkbox" name="checks_aus" value="x_robots_noindex" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> noindex per X-Robots-Tag</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="klicktiefe" >
+        <label><input type="checkbox" name="checks_aus" value="klicktiefe" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Mehr als 3 Klicks von der Startseite</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="js_app_ohne_rendern" >
+        <label><input type="checkbox" name="checks_aus" value="js_app_ohne_rendern" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Seite baut sich per JavaScript auf – ohne JavaScript geprüft</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="inhalt_nur_per_js" >
+        <label><input type="checkbox" name="checks_aus" value="inhalt_nur_per_js" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Inhalt entsteht erst per JavaScript</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="js_rendern_fehlgeschlagen" >
-          <span class="symbol wichtig" aria-label="Wichtig">▲</span> JavaScript ließ sich nicht ausführen – Inhalt ungeprüft</label>
-      
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="robots_formatfehler" >
+        <label><input type="checkbox" name="checks_aus" value="robots_formatfehler" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Formatfehler in robots.txt</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="robots_unbekannte_felder" >
-          <span class="symbol wichtig" aria-label="Wichtig">▲</span> Unbekannte Felder in robots.txt</label>
-      
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="www_aufloesung" >
+        <label><input type="checkbox" name="checks_aus" value="www_aufloesung" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> WWW-Auflösung uneinheitlich</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="sitemap_formatfehler" >
+        <label><input type="checkbox" name="checks_aus" value="sitemap_formatfehler" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Formatfehler in sitemap.xml</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="sitemap_zu_gross" >
+        <label><input type="checkbox" name="checks_aus" value="sitemap_zu_gross" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> sitemap.xml zu groß</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="sitemap_falsche_seiten" >
+        <label><input type="checkbox" name="checks_aus" value="sitemap_falsche_seiten" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Falsche Seiten in sitemap.xml</label>
       
       </div>
@@ -202,34 +197,34 @@
     <fieldset style="margin:12px 0 4px"><legend><strong>HTTPS</strong></legend>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:4px 16px; margin-top:6px">
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="mixed_content" >
+        <label><input type="checkbox" name="checks_aus" value="mixed_content" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Unsichere Inhalte auf sicheren Seiten (Mixed Content)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="startseite_ohne_https" checked>
+        <label><input type="checkbox" name="checks_aus" value="startseite_ohne_https" checked="" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Startseite nutzt kein HTTPS</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="https_verlinkt_http" >
+        <label><input type="checkbox" name="checks_aus" value="https_verlinkt_http" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> HTTPS-Seiten verlinken auf HTTP</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="kein_hsts" checked>
+        <label><input type="checkbox" name="checks_aus" value="kein_hsts" checked="" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Browser erzwingen keine sichere Verbindung (HSTS)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="passwort_ohne_https" >
+        <label><input type="checkbox" name="checks_aus" value="passwort_ohne_https" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Passwortfeld auf HTTP-Seite</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="http_nicht_auf_https" checked>
+        <label><input type="checkbox" name="checks_aus" value="http_nicht_auf_https" checked="" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> HTTP leitet nicht auf HTTPS um</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="zertifikat_ablauf" >
+        <label><input type="checkbox" name="checks_aus" value="zertifikat_ablauf" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Zertifikat abgelaufen oder läuft bald ab</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="zertifikat_name" >
+        <label><input type="checkbox" name="checks_aus" value="zertifikat_name" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Falscher Zertifikatsname</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="tls_veraltet" >
+        <label><input type="checkbox" name="checks_aus" value="tls_veraltet" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Veraltetes Sicherheitsprotokoll (TLS 1.0/1.1)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="sitemap_http_bei_https" >
+        <label><input type="checkbox" name="checks_aus" value="sitemap_http_bei_https" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> HTTP-URLs in sitemap.xml einer HTTPS-Website</label>
       
       </div>
@@ -238,46 +233,46 @@
     <fieldset style="margin:12px 0 4px"><legend><strong>Interne Verlinkung</strong></legend>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:4px 16px; margin-top:6px">
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="externe_links_defekt" >
+        <label><input type="checkbox" name="checks_aus" value="externe_links_defekt" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Defekte externe Links</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="interne_links_defekt" >
+        <label><input type="checkbox" name="checks_aus" value="interne_links_defekt" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Defekte interne Links</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="interne_links_nofollow" >
+        <label><input type="checkbox" name="checks_aus" value="interne_links_nofollow" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Interne Links mit nofollow</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="zu_viele_links" >
+        <label><input type="checkbox" name="checks_aus" value="zu_viele_links" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Zu viele Links auf der Seite (&gt; 3000)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="link_url_zu_lang" >
+        <label><input type="checkbox" name="checks_aus" value="link_url_zu_lang" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Link-URL zu lang (&gt; 2.000 Zeichen)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="links_ohne_anker" >
+        <label><input type="checkbox" name="checks_aus" value="links_ohne_anker" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Links ohne Anchor-Text</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="nichtssagender_anker" >
+        <label><input type="checkbox" name="checks_aus" value="nichtssagender_anker" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Nicht aussagekräftiger Anchor-Text</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="externe_nofollow" >
+        <label><input type="checkbox" name="checks_aus" value="externe_nofollow" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Externe Links mit nofollow</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="nur_ein_eingehender_link" >
+        <label><input type="checkbox" name="checks_aus" value="nur_ein_eingehender_link" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Nur ein eingehender interner Link</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="zu_viele_parameter" >
+        <label><input type="checkbox" name="checks_aus" value="zu_viele_parameter" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Zu viele URL-Parameter (&gt; 4)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="unterstriche_url" >
+        <label><input type="checkbox" name="checks_aus" value="unterstriche_url" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Unterstriche in der URL</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="url_zu_lang" >
+        <label><input type="checkbox" name="checks_aus" value="url_zu_lang" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> URL länger als 200 Zeichen</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="link_syntax_fehler" >
+        <label><input type="checkbox" name="checks_aus" value="link_syntax_fehler" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Links mit fehlerhafter Syntax</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="orphan_sitemap" >
+        <label><input type="checkbox" name="checks_aus" value="orphan_sitemap" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Verwaiste Seiten (nur in der Sitemap)</label>
       
       </div>
@@ -286,50 +281,50 @@
     <fieldset style="margin:12px 0 4px"><legend><strong>Inhalt &amp; Meta</strong></legend>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:4px 16px; margin-top:6px">
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="title_fehlt" >
+        <label><input type="checkbox" name="checks_aus" value="title_fehlt" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Title-Tag fehlt oder ist leer</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="title_doppelt" >
+        <label><input type="checkbox" name="checks_aus" value="title_doppelt" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Doppelte Title-Tags</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="meta_desc_doppelt" >
-          <span class="symbol wichtig" aria-label="Wichtig">▲</span> Doppelte Meta-Descriptions</label>
+        <label><input type="checkbox" name="checks_aus" value="meta_desc_doppelt" title="In der Demo gesperrt" disabled="">
+          <span class="symbol dringend" aria-label="Dringend">◆</span> Doppelte Meta-Descriptions</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="title_zu_lang" >
+        <label><input type="checkbox" name="checks_aus" value="title_zu_lang" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Title zu lang (&gt; 70 Zeichen)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="title_zu_kurz" >
+        <label><input type="checkbox" name="checks_aus" value="title_zu_kurz" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Title zu kurz (≤ 10 Zeichen)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="meta_desc_zu_lang" >
+        <label><input type="checkbox" name="checks_aus" value="meta_desc_zu_lang" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Meta-Description zu lang (&gt; 160 Zeichen)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="meta_desc_zu_kurz" >
+        <label><input type="checkbox" name="checks_aus" value="meta_desc_zu_kurz" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Meta-Description zu kurz (&lt; 70 Zeichen)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="meta_desc_fehlt" >
+        <label><input type="checkbox" name="checks_aus" value="meta_desc_fehlt" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Meta-Description fehlt</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="h1_fehlt" >
+        <label><input type="checkbox" name="checks_aus" value="h1_fehlt" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> H1-Überschrift fehlt</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="h1_gleich_title" >
-          <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Überschrift (H1) und Seitentitel identisch</label>
+        <label><input type="checkbox" name="checks_aus" value="h1_gleich_title" title="In der Demo gesperrt" disabled="">
+          <span class="symbol wichtig" aria-label="Wichtig">▲</span> Überschrift (H1) und Seitentitel identisch</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="mehrere_h1" >
+        <label><input type="checkbox" name="checks_aus" value="mehrere_h1" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Mehr als eine H1</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="wenig_text" >
+        <label><input type="checkbox" name="checks_aus" value="wenig_text" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Wenig Text (&lt; 200 Wörter im Hauptinhalt)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="text_html_niedrig" >
-          <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Viel Code, wenig Text (≤ 10 % Text)</label>
+        <label><input type="checkbox" name="checks_aus" value="text_html_niedrig" title="In der Demo gesperrt" disabled="">
+          <span class="symbol wichtig" aria-label="Wichtig">▲</span> Viel Code, wenig Text (≤ 10 % Text)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="bilder_ohne_alt" >
+        <label><input type="checkbox" name="checks_aus" value="bilder_ohne_alt" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Bilder ohne alt-Attribut</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="duplicate_content" >
-          <span class="symbol wichtig" aria-label="Wichtig">▲</span> Doppelter Inhalt (≥ 85% ähnlich)</label>
+        <label><input type="checkbox" name="checks_aus" value="duplicate_content" title="In der Demo gesperrt" disabled="">
+          <span class="symbol dringend" aria-label="Dringend">◆</span> Doppelter Inhalt (≥ 85% ähnlich)</label>
       
       </div>
     </fieldset>
@@ -337,50 +332,41 @@
     <fieldset style="margin:12px 0 4px"><legend><strong>Performance</strong></legend>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:4px 16px; margin-top:6px">
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="html_zu_gross" >
+        <label><input type="checkbox" name="checks_aus" value="html_zu_gross" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> HTML zu groß (&gt; 2 MB)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="langsame_seite" >
-          <span class="symbol wichtig" aria-label="Wichtig">▲</span> Langsame Server-Antwort (HTML &gt; 1,8 s)</label>
+        <label><input type="checkbox" name="checks_aus" value="langsame_seite" title="In der Demo gesperrt" disabled="">
+          <span class="symbol dringend" aria-label="Dringend">◆</span> Langsame Seite (HTML &gt; 1 s)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="unkomprimiert" checked>
+        <label><input type="checkbox" name="checks_aus" value="unkomprimiert" checked="" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Unkomprimierte Seiten</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="bilder_ohne_masse" >
-          <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Bilder ohne Breite und Höhe</label>
-      
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ladezeit_lcp" >
+        <label><input type="checkbox" name="checks_aus" value="ladezeit_lcp" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Hauptinhalt lädt langsam (LCP mobil über 4 s)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ladezeit_cls" >
+        <label><input type="checkbox" name="checks_aus" value="ladezeit_cls" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Layout springt beim Laden (CLS mobil über 0,25)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ladezeit_tbt" >
+        <label><input type="checkbox" name="checks_aus" value="ladezeit_tbt" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Seite reagiert träge (TBT mobil über 600 ms)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="js_css_zu_gross" >
+        <label><input type="checkbox" name="checks_aus" value="js_css_zu_gross" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> JS und CSS zusammen zu groß (&gt; 2 MB)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="zu_viele_js_css" >
+        <label><input type="checkbox" name="checks_aus" value="zu_viele_js_css" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Zu viele JS- und CSS-Dateien (&gt; 100)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="js_css_unkomprimiert" checked>
+        <label><input type="checkbox" name="checks_aus" value="js_css_unkomprimiert" checked="" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Unkomprimierte JS- und CSS-Dateien</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="js_css_ohne_cache" checked>
+        <label><input type="checkbox" name="checks_aus" value="js_css_ohne_cache" checked="" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> JS- und CSS-Dateien ohne Browser-Caching</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="js_css_nicht_minifiziert" >
+        <label><input type="checkbox" name="checks_aus" value="js_css_nicht_minifiziert" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Skript- und Style-Dateien nicht verkleinert</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="skripte_blockierend" >
+        <label><input type="checkbox" name="checks_aus" value="skripte_blockierend" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Skripte bremsen den Seitenaufbau</label>
-      
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="js_css_cache_kurz" >
-          <span class="symbol feinschliff" aria-label="Feinschliff">●</span> JS und CSS nur kurz gecacht (&lt; 7 Tage)</label>
-      
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="css_blockierend" >
-          <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Viele oder große Stylesheets bremsen den Seitenaufbau</label>
       
       </div>
     </fieldset>
@@ -388,52 +374,52 @@
     <fieldset style="margin:12px 0 4px"><legend><strong>Technik &amp; Markup</strong></legend>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:4px 16px; margin-top:6px">
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="markup_fehlerhaft" >
+        <label><input type="checkbox" name="checks_aus" value="markup_fehlerhaft" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Fehlerhafte strukturierte Daten</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="interne_bilder_defekt" >
+        <label><input type="checkbox" name="checks_aus" value="interne_bilder_defekt" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Defekte interne Bilder</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="interne_js_css_defekt" >
+        <label><input type="checkbox" name="checks_aus" value="interne_js_css_defekt" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Defekte interne JS- und CSS-Dateien</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="viewport_fehlt" >
+        <label><input type="checkbox" name="checks_aus" value="viewport_fehlt" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Viewport-Tag fehlt</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="viewport_unvollstaendig" >
+        <label><input type="checkbox" name="checks_aus" value="viewport_unvollstaendig" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Viewport ohne width/initial-scale</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="meta_refresh" >
-          <span class="symbol wichtig" aria-label="Wichtig">▲</span> Seite mit Meta-Refresh</label>
+        <label><input type="checkbox" name="checks_aus" value="meta_refresh" title="In der Demo gesperrt" disabled="">
+          <span class="symbol dringend" aria-label="Dringend">◆</span> Seite mit Meta-Refresh</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="mehrere_canonicals" >
+        <label><input type="checkbox" name="checks_aus" value="mehrere_canonicals" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Mehrere Canonical-URLs</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="canonical_defekt" >
+        <label><input type="checkbox" name="checks_aus" value="canonical_defekt" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Hauptversion (Canonical) zeigt auf eine kaputte Seite</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ohne_lang" >
+        <label><input type="checkbox" name="checks_aus" value="ohne_lang" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Kein lang-Attribut</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ohne_charset" >
+        <label><input type="checkbox" name="checks_aus" value="ohne_charset" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Keine Zeichenkodierung</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ohne_doctype" >
+        <label><input type="checkbox" name="checks_aus" value="ohne_doctype" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Kein Doctype</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="frames" >
+        <label><input type="checkbox" name="checks_aus" value="frames" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Seite mit Frames</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="veraltete_plugins" >
+        <label><input type="checkbox" name="checks_aus" value="veraltete_plugins" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Veraltete Browser-Plugins (Flash, Java, Silverlight)</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ohne_last_modified" >
-          <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Weder Last-Modified noch ETag</label>
+        <label><input type="checkbox" name="checks_aus" value="ohne_last_modified" title="In der Demo gesperrt" disabled="">
+          <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Kein Last-Modified-Header</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="externe_bilder_defekt" >
+        <label><input type="checkbox" name="checks_aus" value="externe_bilder_defekt" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Defekte externe Bilder</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="externe_js_css_defekt" >
+        <label><input type="checkbox" name="checks_aus" value="externe_js_css_defekt" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Defekte externe JS- und CSS-Dateien</label>
       
       </div>
@@ -442,25 +428,25 @@
     <fieldset style="margin:12px 0 4px"><legend><strong>Internationales SEO</strong></legend>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:4px 16px; margin-top:6px">
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="hreflang_code_ungueltig" >
+        <label><input type="checkbox" name="checks_aus" value="hreflang_code_ungueltig" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> Ungültiger Sprachcode in hreflang</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="hreflang_relativ" >
+        <label><input type="checkbox" name="checks_aus" value="hreflang_relativ" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Relative URL in hreflang</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="hreflang_ohne_selbstbezug" >
+        <label><input type="checkbox" name="checks_aus" value="hreflang_ohne_selbstbezug" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> hreflang ohne Verweis auf sich selbst</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="hreflang_doppelt" >
+        <label><input type="checkbox" name="checks_aus" value="hreflang_doppelt" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> Sprachcode mehrfach mit verschiedenen URLs</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="hreflang_ziel_defekt" >
+        <label><input type="checkbox" name="checks_aus" value="hreflang_ziel_defekt" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> hreflang zeigt auf fehlerhafte Seite</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="hreflang_ohne_rueckverweis" >
+        <label><input type="checkbox" name="checks_aus" value="hreflang_ohne_rueckverweis" title="In der Demo gesperrt" disabled="">
           <span class="symbol dringend" aria-label="Dringend">◆</span> hreflang ohne Rückverweis</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="hreflang_lang_konflikt" >
+        <label><input type="checkbox" name="checks_aus" value="hreflang_lang_konflikt" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> hreflang und lang-Attribut widersprechen sich</label>
       
       </div>
@@ -469,43 +455,43 @@
     <fieldset style="margin:12px 0 4px"><legend><strong>KI-Suche</strong></legend>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:4px 16px; margin-top:6px">
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_ohne_hauptbereich" >
+        <label><input type="checkbox" name="checks_aus" value="ki_ohne_hauptbereich" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Kein &lt;main&gt; oder &lt;article&gt;</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_schwer_lesbar" >
+        <label><input type="checkbox" name="checks_aus" value="ki_schwer_lesbar" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Inhalt schwer zu erfassen</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_fragen_ohne_faq" >
+        <label><input type="checkbox" name="checks_aus" value="ki_fragen_ohne_faq" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Fragen ohne FAQ-Markup</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_ohne_belege" >
+        <label><input type="checkbox" name="checks_aus" value="ki_ohne_belege" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Text ohne Zahlen und Quellen</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_textwand" >
+        <label><input type="checkbox" name="checks_aus" value="ki_textwand" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Langer Text ohne Gliederung</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_artikel_ohne_autor_datum" >
+        <label><input type="checkbox" name="checks_aus" value="ki_artikel_ohne_autor_datum" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Artikel ohne Autor oder Datum</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_ohne_entitaet" >
+        <label><input type="checkbox" name="checks_aus" value="ki_ohne_entitaet" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> Startseite ohne Organisations-Markup</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="llms_fehlt" >
+        <label><input type="checkbox" name="checks_aus" value="llms_fehlt" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> llms.txt nicht gefunden</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="llms_format" >
+        <label><input type="checkbox" name="checks_aus" value="llms_format" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> llms.txt mit Formatfehlern</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_bots_blockiert" >
+        <label><input type="checkbox" name="checks_aus" value="ki_bots_blockiert" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> KI-Suchcrawler per robots.txt gesperrt</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="ki_training_bots_blockiert" >
+        <label><input type="checkbox" name="checks_aus" value="ki_training_bots_blockiert" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> KI-Trainingscrawler per robots.txt gesperrt</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="llms_duenn" >
+        <label><input type="checkbox" name="checks_aus" value="llms_duenn" title="In der Demo gesperrt" disabled="">
           <span class="symbol feinschliff" aria-label="Feinschliff">●</span> llms.txt ohne Kurzbeschreibung oder Links</label>
       
-        <label><input title="In der Demo gesperrt" disabled type="checkbox" name="checks_aus" value="llms_tote_links" >
+        <label><input type="checkbox" name="checks_aus" value="llms_tote_links" title="In der Demo gesperrt" disabled="">
           <span class="symbol wichtig" aria-label="Wichtig">▲</span> llms.txt verlinkt fehlerhafte Seiten</label>
       
       </div>
@@ -543,5 +529,5 @@
     });
   })();
 </script>
-</body>
-</html>
+
+<script src="static/demo.js"></script></body></html>

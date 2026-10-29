@@ -38,7 +38,3 @@ Ein Prüfwerkzeug muss sich selbst prüfen lassen. Die eigene Website hat Nextfi
 Für dich heißt das: Wenn Nextfix etwas meldet, schau kurz nach, ob es stimmt. Ist es Absicht, blendest du es mit „Bewusst so“ aus, dann zählt es nicht mehr. Und wenn Nextfix sich irrt, freut sich das Projekt über ein [Issue auf GitHub](https://github.com/the-neyro/nextfix/issues).
 
 Gemessen am 17. und 18. Oktober 2026, zuerst mit dem Stand vor 0.2.1, dann mit 0.2.2, Projekt „the-neyro.github.io“, Standardeinstellungen (500 Seiten, robots.txt beachten).
-
-## Nachtrag, 28. Oktober 2026: neue Bewertung seit Version 0.2.3
-
-Gemessen wurde mit 0.2.1 und 0.2.2. Seit 0.2.3 gewichtet Nextfix ehrlicher, nach Google Search Central und web.dev: „Wenig Text“ ist nur noch eine Warnung, Rechtsseiten zählen dort nicht mehr, und eine langsame Serverantwort beginnt erst bei 1,8 Sekunden. Zustand und Aufgaben einer Website können sich dadurch gegenüber den Zahlen oben verschieben. Die Messung oben bleibt, wie sie war. Die Demo-Website „Radhaus Elbe“ steht mit der neuen Bewertung bei 64,0 und nach den Aufgaben bei 90,6.

@@ -38,7 +38,7 @@ Auf unserer Startseite kannst du Titel und Beschreibung eintippen und siehst sof
 
 ## Nextfix findet das für dich
 
-Nextfix prüft die Beschreibung jeder Seite und meldet, wo sie [fehlt](../../pruefungen/#p-meta_desc_fehlt), [doppelt vorkommt](../../pruefungen/#p-meta_desc_doppelt), [zu kurz](../../pruefungen/#p-meta_desc_zu_kurz) oder [zu lang](../../pruefungen/#p-meta_desc_zu_lang) ist. Doppelte Beschreibungen stuft Nextfix hoch ein, weil sie im Suchergebnis die Wahl zwischen deinen Seiten verwischen; zu kurze gelten als Feinschliff. Bei der erfundenen Demo-Website teilen sich vier Seiten dieselbe Beschreibung: [So sieht das in Nextfix aus](../../demo/crawls-1-issues-meta-desc-doppelt-seite.html).
+Nextfix prüft die Beschreibung jeder Seite und meldet, wo sie [fehlt](../../pruefungen/#p-meta_desc_fehlt), [doppelt vorkommt](../../pruefungen/#p-meta_desc_doppelt), [zu kurz](../../pruefungen/#p-meta_desc_zu_kurz) oder [zu lang](../../pruefungen/#p-meta_desc_zu_lang) ist. Doppelte Beschreibungen stuft Nextfix hoch ein, weil sie im Suchergebnis die Wahl zwischen deinen Seiten verwischen; zu kurze gelten als Feinschliff. Bei der erfundenen Demo-Website teilen sich vier Seiten dieselbe Beschreibung: [So sieht das in Nextfix aus](../../demo/crawls-2-issues-meta-desc-doppelt-seite.html).
 
 ## Quellen
 

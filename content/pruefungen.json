@@ -4,8 +4,8 @@
   "name": "Seiten mit 4xx-Statuscode",
   "schwere": "error",
   "kategorie": "crawlbarkeit",
-  "warum": "Die Adresse führt ins Leere („Seite nicht gefunden“). Besucher brechen ab, und Google nimmt die Seite aus den Suchergebnissen.",
-  "beheben": "Gibt es den Inhalt unter einer neuen Adresse, leite die alte Adresse dorthin weiter (eine dauerhafte Weiterleitung, auch „301“ genannt). Ist er ganz weg, entferne die Links, die noch auf die alte Adresse zeigen; welche das sind, zeigt die Aufgabe „Defekte interne Links“."
+  "warum": "Seite existiert nicht oder ist gesperrt; Nutzer und Suchmaschinen landen im Leeren.",
+  "beheben": "Seite wiederherstellen, per 301 umleiten oder Links darauf entfernen."
  },
  {
   "id": "status_5xx",
@@ -28,7 +28,7 @@
   "name": "Redirect-Ketten und -Schleifen",
   "schwere": "error",
   "kategorie": "crawlbarkeit",
-  "warum": "Mehr als 3 Weiterleitungen hintereinander oder eine Schleife: Jede Station kostet Ladezeit, Schleifen enden nie. Googlebot folgt bis zu 10 Weiterleitungen, andere Crawler oft weniger.",
+  "warum": "Mehr als 3 Weiterleitungen hintereinander oder eine Schleife: Crawler brechen ab, Ladezeit steigt.",
   "beheben": "Jede Weiterleitung direkt auf das endgültige Ziel zeigen lassen."
  },
  {
@@ -36,7 +36,7 @@
   "name": "Temporäre Weiterleitungen",
   "schwere": "warning",
   "kategorie": "crawlbarkeit",
-  "warum": "302/307 signalisieren nur einen vorübergehenden Umzug. Google wertet das als schwächeres Signal für die neue Adresse; bei einem dauerhaften Umzug ist 301 eindeutiger.",
+  "warum": "302/307 signalisieren nur vorübergehenden Umzug; Ranking-Signale gehen evtl. nicht über.",
   "beheben": "Bei dauerhaftem Umzug 301 verwenden."
  },
  {
@@ -58,9 +58,9 @@
  {
   "id": "sitemap_fehlt",
   "name": "sitemap.xml nicht gefunden",
-  "schwere": "notice",
+  "schwere": "warning",
   "kategorie": "crawlbarkeit",
-  "warum": "Die Sitemap hilft Suchmaschinen, alle wichtigen Seiten zu finden. Laut Google brauchen kleine, gut verlinkte Websites (bis etwa 500 Seiten) nicht unbedingt eine; schaden tut sie nie.",
+  "warum": "Die Sitemap hilft Suchmaschinen, alle wichtigen Seiten zu finden.",
   "beheben": "sitemap.xml erzeugen und in robots.txt eintragen."
  },
  {
@@ -76,8 +76,8 @@
   "name": "Seiten für Google gesperrt",
   "schwere": "notice",
   "kategorie": "crawlbarkeit",
-  "warum": "„noindex“: Die Seite erscheint nicht im Suchergebnis. robots.txt: Google darf die Seite nicht abrufen; sie kann trotzdem auftauchen, dann ohne Beschreibung. Geprüft wird die robots.txt so, wie Googlebot sie liest.",
-  "beheben": "Geh die Liste durch: Login, Warenkorb und Danke-Seiten dürfen gesperrt sein. Alles andere entsperren lassen. Soll eine Seite sicher nicht erscheinen, nimm „noindex“ statt robots.txt."
+  "warum": "Diese Seiten erscheinen nie im Suchergebnis, weil robots.txt oder „noindex“ sie sperrt.",
+  "beheben": "Geh die Liste durch: Login, Warenkorb und Danke-Seiten dürfen gesperrt sein. Alles andere entsperren lassen."
  },
  {
   "id": "x_robots_noindex",
@@ -112,76 +112,12 @@
   "beheben": "Wichtige Inhalte schon im HTML ausliefern: Server-Rendering oder statische Seiten (z. B. Next.js/Nuxt mit SSR/SSG, Prerendering). Nur Komfort-Funktionen per JavaScript nachladen."
  },
  {
-  "id": "js_rendern_fehlgeschlagen",
-  "name": "JavaScript ließ sich nicht ausführen – Inhalt ungeprüft",
-  "schwere": "warning",
-  "kategorie": "crawlbarkeit",
-  "warum": "Nextfix konnte die Seite nicht im Browser laden (z. B. Zeitlimit oder abgebrochene Verbindung) und hat nur das Roh-HTML gesehen. Titel, Text, Überschriften und Duplikate prüft Nextfix dort deshalb nicht, sonst gäbe es Fehlalarme aus dem leeren HTML. Scheitert es wiederholt, kann auch Googles Renderer Probleme haben.",
-  "beheben": "Erneut prüfen. Scheitert es wieder: Seite im Browser öffnen und auf Fehler oder sehr langes Laden achten. Dauerhaft robuster: Inhalte schon im HTML ausliefern (Server-Rendering oder statische Seiten)."
- },
- {
-  "id": "ki_ohne_hauptbereich",
-  "name": "Kein <main> oder <article>",
-  "schwere": "notice",
-  "kategorie": "ki",
-  "warum": "Ohne klar markierten Hauptbereich müssen Crawler und KI-Systeme raten, welcher Text der eigentliche Inhalt ist.",
-  "beheben": "Den Hauptinhalt in <main> (oder <article>) fassen, Navigation und Fußzeile außerhalb lassen."
- },
- {
-  "id": "ki_schwer_lesbar",
-  "name": "Inhalt schwer zu erfassen",
-  "schwere": "notice",
-  "kategorie": "ki",
-  "warum": "Sehr lange Absätze und Sätze oder übersprungene Überschriften-Ebenen erschweren Lesern und KI das Zusammenfassen.",
-  "beheben": "Absätze kürzen, Sätze teilen, Überschriften ohne Sprünge (H2 → H3) gliedern."
- },
- {
-  "id": "ki_fragen_ohne_faq",
-  "name": "Fragen ohne FAQ-Markup",
-  "schwere": "notice",
-  "kategorie": "ki",
-  "warum": "Die Seite beantwortet mehrere Fragen (Zwischenüberschriften mit „?“), markiert sie aber nicht als FAQ. Frage-Antwort-Paare mit Markup sind für KI-Systeme leicht als Antwort zu übernehmen. Hinweis: Google zeigt seit Mai 2026 gar keine FAQ-Rich-Results mehr; ob andere KI-Dienste das Markup nutzen, ist nicht belegt. Deshalb nur Feinschliff.",
-  "beheben": "Fragen und Antworten als FAQPage (JSON-LD) auszeichnen, jede Antwort direkt unter der Frage in 1–3 Sätzen."
- },
- {
-  "id": "ki_ohne_belege",
-  "name": "Text ohne Zahlen und Quellen",
-  "schwere": "notice",
-  "kategorie": "ki",
-  "warum": "Längerer Text ohne konkrete Zahlen und ohne Links auf externe Quellen. Laut GEO-Studie (Princeton 2024) werden Inhalte mit Statistiken und Quellenangaben deutlich häufiger in KI-Antworten zitiert.",
-  "beheben": "Konkrete Zahlen (%, €, Mengen) ergänzen und Aussagen mit Links auf vertrauenswürdige Quellen belegen."
- },
- {
-  "id": "ki_textwand",
-  "name": "Langer Text ohne Gliederung",
-  "schwere": "notice",
-  "kategorie": "ki",
-  "warum": "Langer Text ohne Listen oder Tabellen und mit kaum Zwischenüberschriften. KI-Systeme zitieren einzelne Abschnitte – ohne Gliederung finden sie keine klar abgegrenzte Antwort.",
-  "beheben": "Mit H2/H3 in Abschnitte teilen, Aufzählungen und Vergleiche als Liste oder Tabelle darstellen."
- },
- {
-  "id": "ki_artikel_ohne_autor_datum",
-  "name": "Artikel ohne Autor oder Datum",
-  "schwere": "notice",
-  "kategorie": "ki",
-  "warum": "Ohne Datum und Autor wirkt ein Artikel weniger vertrauenswürdig, für Leser wie für KI-Systeme. Ein direkter Rankingfaktor bei Google ist das nicht, Google empfiehlt beides aber für Artikel.",
-  "beheben": "datePublished/dateModified und author im Article-Markup angeben, Datum auch sichtbar mit <time datetime>."
- },
- {
-  "id": "ki_ohne_entitaet",
-  "name": "Startseite ohne Organisations-Markup",
-  "schwere": "notice",
-  "kategorie": "ki",
-  "warum": "Ohne Organization- oder Person-Markup müssen KI-Systeme raten, wer hinter der Website steht. Eine klar beschriebene Marke (Name, Logo, Profile) wird eher erkannt und genannt.",
-  "beheben": "Auf der Startseite Organization (bzw. LocalBusiness/Person) als JSON-LD einbinden: name, url, logo, sameAs."
- },
- {
   "id": "title_fehlt",
   "name": "Title-Tag fehlt oder ist leer",
   "schwere": "error",
   "kategorie": "inhalt",
-  "warum": "Der Seitentitel ist die blaue Überschrift im Suchergebnis und das stärkste Signal, worum es auf der Seite geht.",
-  "beheben": "Gib jeder Seite einen eigenen Titel, der in wenigen Wörtern sagt, worum es geht, z. B. „Fahrradreparatur in Hamburg | Radhaus Elbe“."
+  "warum": "Der Title ist das wichtigste On-Page-Signal und erscheint als Überschrift im Suchergebnis.",
+  "beheben": "Jeder Seite einen eindeutigen, beschreibenden Title geben."
  },
  {
   "id": "title_doppelt",
@@ -194,10 +130,10 @@
  {
   "id": "meta_desc_doppelt",
   "name": "Doppelte Meta-Descriptions",
-  "schwere": "warning",
+  "schwere": "error",
   "kategorie": "inhalt",
-  "warum": "Die Beschreibung zeigt Google oft unter dem Titel im Suchergebnis. Steht überall derselbe Text, erfährt niemand, warum sich gerade diese Seite lohnt.",
-  "beheben": "Schreib für jede Seite eine eigene Beschreibung in ein, zwei Sätzen: was auf der Seite steht und was der Leser davon hat."
+  "warum": "Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.",
+  "beheben": "Für jede Seite eine eigene Beschreibung schreiben."
  },
  {
   "id": "title_zu_lang",
@@ -205,7 +141,7 @@
   "schwere": "warning",
   "kategorie": "inhalt",
   "warum": "Lange Titles werden im Suchergebnis abgeschnitten.",
-  "beheben": "Kürze den Seitentitel auf höchstens 70 Zeichen, sonst schneidet Google das Ende ab. Das Wichtigste nach vorn, den Firmennamen ans Ende, Füllwörter wie „Willkommen bei“ weglassen."
+  "beheben": "Title auf höchstens 70 Zeichen kürzen, Wichtiges nach vorn."
  },
  {
   "id": "title_zu_kurz",
@@ -229,7 +165,7 @@
   "schwere": "notice",
   "kategorie": "inhalt",
   "warum": "Sehr kurze Beschreibungen nutzen den Platz im Suchergebnis nicht; Google ersetzt sie oft durch eigenen Text.",
-  "beheben": "Bau die Beschreibung auf etwa 120 bis 160 Zeichen aus: ein Satz zum Inhalt, ein Satz zum Nutzen, gern mit Ort oder Preis."
+  "beheben": "Auf ca. 120–160 Zeichen ausbauen: Inhalt der Seite und Nutzen für den Leser."
  },
  {
   "id": "meta_desc_fehlt",
@@ -237,7 +173,7 @@
   "schwere": "warning",
   "kategorie": "inhalt",
   "warum": "Ohne Beschreibung wählt die Suchmaschine selbst einen Textausschnitt.",
-  "beheben": "Schreib eine kurze Beschreibung (etwa 120 bis 160 Zeichen, also zwei Sätze): Worum geht es, und was hat der Leser davon?"
+  "beheben": "Kurze, einladende Beschreibung (ca. 120–160 Zeichen) ergänzen."
  },
  {
   "id": "h1_fehlt",
@@ -250,9 +186,9 @@
  {
   "id": "h1_gleich_title",
   "name": "Überschrift (H1) und Seitentitel identisch",
-  "schwere": "notice",
+  "schwere": "warning",
   "kategorie": "inhalt",
-  "warum": "Kein Fehler, Google stört sich nicht daran. Unterschiedliche Formulierungen können aber mehr Suchvarianten abdecken.",
+  "warum": "Kein Fehler, aber verschenkt: Unterschiedliche Formulierungen decken mehr Suchvarianten ab.",
   "beheben": "Formuliere die Überschrift auf der Seite etwas anders als den Seitentitel."
  },
  {
@@ -260,7 +196,7 @@
   "name": "Mehr als eine H1",
   "schwere": "notice",
   "kategorie": "inhalt",
-  "warum": "Für Google kein Problem, mehrere H1 sind erlaubt. Eine klare Hauptüberschrift hilft aber Lesern und Screenreadern, sich zurechtzufinden.",
+  "warum": "Mehrere H1 verwässern die Struktur der Seite.",
   "beheben": "Eine H1 behalten, weitere zu H2 machen."
  },
  {
@@ -268,15 +204,15 @@
   "name": "Wenig Text (< 200 Wörter im Hauptinhalt)",
   "schwere": "warning",
   "kategorie": "inhalt",
-  "warum": "Faustregel, kein Google-Grenzwert: Google wertet die Länge allein nicht, es zählt, ob die Seite eine Frage wirklich beantwortet. Mit sehr wenig Text gelingt das aber selten. Gezählt wird nur der Hauptinhalt – Menü, Fußzeile und Cookie-Hinweis machen eine Seite nicht gehaltvoller. Rechtsseiten wie Impressum zählen nicht.",
-  "beheben": "Schreib mehr zu dem, was Besucher hier wissen wollen: Fragen von Kunden, Preise, Ablauf, Beispiele. Ist die Seite nur für den Betrieb da (Impressum, Login, Danke-Seite), sag Google, dass es sie nicht anzeigen soll (das heißt „noindex“), dann zählt sie hier nicht mehr. Zwei fast gleiche dünne Seiten kannst du auch zu einer zusammenlegen."
+  "warum": "Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben. Gezählt wird nur der Hauptinhalt – Menü, Fußzeile und Cookie-Hinweis machen eine Seite nicht gehaltvoller.",
+  "beheben": "Inhalt ausbauen, mit einer ähnlichen Seite zusammenlegen oder (z. B. dünne Glossar-Seiten) auf noindex setzen."
  },
  {
   "id": "text_html_niedrig",
   "name": "Viel Code, wenig Text (≤ 10 % Text)",
-  "schwere": "notice",
+  "schwere": "warning",
   "kategorie": "inhalt",
-  "warum": "Faustregel anderer SEO-Tools, für Google kein Kriterium: Weniger als 10 % der Seite ist lesbarer Text. Das kann auf dünnen Inhalt oder viel überflüssigen Code hinweisen.",
+  "warum": "Weniger als 10 % der Seite ist lesbarer Text, der Rest ist Code. Oft ist der Inhalt dünn oder die Seite lädt unnötig viel.",
   "beheben": "Ergänze Text. Bleibt der Wert niedrig, lass prüfen, welche eingebetteten Skripte und Styles überflüssig sind."
  },
  {
@@ -284,15 +220,15 @@
   "name": "Bilder ohne alt-Attribut",
   "schwere": "warning",
   "kategorie": "inhalt",
-  "warum": "Der Alternativtext beschreibt ein Bild in Worten: Screenreader lesen ihn blinden Menschen vor, und Google versteht damit, was das Bild zeigt.",
-  "beheben": "Beschreib jedes Bild, das etwas zeigt, in ein paar Wörtern, z. B. „Mechaniker stellt die Bremse am E-Bike ein“. Reine Schmuckbilder (Linien, Hintergründe) lässt du leer."
+  "warum": "alt-Texte helfen Screenreadern und der Bildersuche.",
+  "beheben": "Jedem inhaltlichen Bild einen beschreibenden alt-Text geben (dekorative: alt=\"\")."
  },
  {
   "id": "duplicate_content",
   "name": "Doppelter Inhalt (≥ 85% ähnlich)",
-  "schwere": "warning",
+  "schwere": "error",
   "kategorie": "inhalt",
-  "warum": "Fast gleicher Haupttext auf mehreren URLs: Google wählt selbst eine Version, die anderen erscheinen meist nicht. Eine Strafe gibt es dafür nicht, aber du verschenkst Seiten.",
+  "warum": "Fast gleicher Haupttext auf mehreren URLs: Suchmaschinen wählen selbst eine Version, die anderen ranken kaum.",
   "beheben": "Inhalte zusammenführen, deutlich unterscheiden oder per Canonical auf die Hauptversion verweisen."
  },
  {
@@ -345,10 +281,10 @@
  },
  {
   "id": "langsame_seite",
-  "name": "Langsame Server-Antwort (HTML > 1,8 s)",
-  "schwere": "warning",
+  "name": "Langsame Seite (HTML > 1 s)",
+  "schwere": "error",
   "kategorie": "performance",
-  "warum": "Gemessen wird nur, wie lange das HTML braucht. Laut web.dev ist eine Server-Antwort über 1,8 Sekunden schlecht; alles danach (Bilder, Skripte) kommt noch obendrauf.",
+  "warum": "Nur die HTML-Antwortzeit gemessen; über 1 Sekunde ist für Nutzer spürbar.",
   "beheben": "Server-Antwortzeit verbessern: Caching, schnellere Datenbank-Abfragen, CDN."
  },
  {
@@ -394,9 +330,9 @@
  {
   "id": "meta_refresh",
   "name": "Seite mit Meta-Refresh",
-  "schwere": "warning",
+  "schwere": "error",
   "kategorie": "technik",
-  "warum": "Google behandelt einen sofortigen Meta-Refresh wie eine Weiterleitung. Für Besucher ist er trotzdem langsam und irritierend, und andere Suchmaschinen verstehen ihn schlechter.",
+  "warum": "Meta-Refresh ist eine schlechte Weiterleitung: langsam und für Suchmaschinen unklar.",
   "beheben": "Durch serverseitige 301-Weiterleitung ersetzen."
  },
  {
@@ -420,7 +356,7 @@
   "name": "Kein lang-Attribut",
   "schwere": "warning",
   "kategorie": "technik",
-  "warum": "Ohne Sprachangabe lesen Screenreader den Text womöglich in der falschen Aussprache vor, und Browser bieten unnötig eine Übersetzung an. Google selbst erkennt die Sprache am Text und nutzt lang nicht.",
+  "warum": "Ohne Sprachangabe raten Suchmaschinen und Screenreader die Sprache.",
   "beheben": "<html lang=\"de\"> setzen."
  },
  {
@@ -465,19 +401,11 @@
  },
  {
   "id": "ohne_last_modified",
-  "name": "Weder Last-Modified noch ETag",
+  "name": "Kein Last-Modified-Header",
   "schwere": "notice",
   "kategorie": "technik",
-  "warum": "Ohne Änderungsdatum (Last-Modified) oder Versionskennung (ETag) können Crawler nicht gezielt nur geänderte Seiten neu abrufen. Google kommt mit beidem zurecht und bevorzugt ETag.",
+  "warum": "Ohne Änderungsdatum können Crawler nicht gezielt nur geänderte Seiten neu abrufen.",
   "beheben": "Server so einstellen, dass er den Header 'Last-Modified' (oder ein ETag) mitsendet."
- },
- {
-  "id": "bilder_ohne_masse",
-  "name": "Bilder ohne Breite und Höhe",
-  "schwere": "notice",
-  "kategorie": "performance",
-  "warum": "Ohne width und height kennt der Browser den Platz eines Bildes erst nach dem Laden, und der Text darunter springt. Das verschlechtert den Wert für Layout-Sprünge (CLS).",
-  "beheben": "Jedem Bild width und height mitgeben (die echten Pixelmaße reichen, per CSS darf es trotzdem skalieren). WordPress macht das bei Bildern aus der Mediathek automatisch."
  },
  {
   "id": "externe_links_defekt",
@@ -560,11 +488,67 @@
   "beheben": "Sprache im lang-Attribut und im hreflang-Selbstverweis angleichen."
  },
  {
+  "id": "ki_ohne_hauptbereich",
+  "name": "Kein <main> oder <article>",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Ohne klar markierten Hauptbereich müssen Crawler und KI-Systeme raten, welcher Text der eigentliche Inhalt ist.",
+  "beheben": "Den Hauptinhalt in <main> (oder <article>) fassen, Navigation und Fußzeile außerhalb lassen."
+ },
+ {
+  "id": "ki_schwer_lesbar",
+  "name": "Inhalt schwer zu erfassen",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Sehr lange Absätze und Sätze oder übersprungene Überschriften-Ebenen erschweren Lesern und KI das Zusammenfassen.",
+  "beheben": "Absätze kürzen, Sätze teilen, Überschriften ohne Sprünge (H2 → H3) gliedern."
+ },
+ {
+  "id": "ki_fragen_ohne_faq",
+  "name": "Fragen ohne FAQ-Markup",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Die Seite beantwortet mehrere Fragen (Zwischenüberschriften mit „?“), markiert sie aber nicht als FAQ. Frage-Antwort-Paare mit Markup sind für KI-Systeme leicht als Antwort zu übernehmen. Hinweis: Google zeigt FAQ-Rich-Results nur noch für Behörden- und Gesundheitsseiten.",
+  "beheben": "Fragen und Antworten als FAQPage (JSON-LD) auszeichnen, jede Antwort direkt unter der Frage in 1–3 Sätzen."
+ },
+ {
+  "id": "ki_ohne_belege",
+  "name": "Text ohne Zahlen und Quellen",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Längerer Text ohne konkrete Zahlen und ohne Links auf externe Quellen. Laut GEO-Studie (Princeton 2024) werden Inhalte mit Statistiken und Quellenangaben deutlich häufiger in KI-Antworten zitiert.",
+  "beheben": "Konkrete Zahlen (%, €, Mengen) ergänzen und Aussagen mit Links auf vertrauenswürdige Quellen belegen."
+ },
+ {
+  "id": "ki_textwand",
+  "name": "Langer Text ohne Gliederung",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Langer Text ohne Listen oder Tabellen und mit kaum Zwischenüberschriften. KI-Systeme zitieren einzelne Abschnitte – ohne Gliederung finden sie keine klar abgegrenzte Antwort.",
+  "beheben": "Mit H2/H3 in Abschnitte teilen, Aufzählungen und Vergleiche als Liste oder Tabelle darstellen."
+ },
+ {
+  "id": "ki_artikel_ohne_autor_datum",
+  "name": "Artikel ohne Autor oder Datum",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Bei Artikeln achten Suchmaschinen und KI-Systeme auf Aktualität und Urheber (E-E-A-T). Ohne Datum und Autor wirkt der Inhalt weniger vertrauenswürdig.",
+  "beheben": "datePublished/dateModified und author im Article-Markup angeben, Datum auch sichtbar mit <time datetime>."
+ },
+ {
+  "id": "ki_ohne_entitaet",
+  "name": "Startseite ohne Organisations-Markup",
+  "schwere": "notice",
+  "kategorie": "ki",
+  "warum": "Ohne Organization- oder Person-Markup müssen KI-Systeme raten, wer hinter der Website steht. Eine klar beschriebene Marke (Name, Logo, Profile) wird eher erkannt und genannt.",
+  "beheben": "Auf der Startseite Organization (bzw. LocalBusiness/Person) als JSON-LD einbinden: name, url, logo, sameAs."
+ },
+ {
   "id": "ladezeit_lcp",
   "name": "Hauptinhalt lädt langsam (LCP mobil über 4 s)",
   "schwere": "warning",
   "kategorie": "performance",
-  "warum": "Der größte sichtbare Inhalt erscheint auf dem Handy erst nach über 4 Sekunden. LCP gehört zu den Core Web Vitals. Google wertet dafür Messungen bei echten Besuchern (Search Console), Nextfix misst im Labor; die Richtung stimmt meist, die Zahl kann abweichen. Viele Besucher springen vorher ab.",
+  "warum": "Der größte sichtbare Inhalt erscheint auf dem Handy erst nach über 4 Sekunden. LCP gehört zu den Core Web Vitals, die Google fürs Ranking nutzt, und viele Besucher springen vorher ab.",
   "beheben": "Hauptbild verkleinern (WebP/AVIF, passende Größe) und nicht lazy laden, sondern vorladen; Server-Antwort beschleunigen und render-blockierende Skripte und Styles reduzieren."
  },
  {
@@ -588,8 +572,8 @@
   "name": "Defekte interne Links",
   "schwere": "error",
   "kategorie": "links",
-  "warum": "Ein Link auf deiner Website führt auf eine Seite, die es nicht gibt. Besucher landen auf „Seite nicht gefunden“, und Google folgt dem Link umsonst.",
-  "beheben": "Öffne die Seite, auf der der Link steht (siehe Liste), und trag die richtige Adresse ein oder lösch den Link. Gibt es das Ziel unter neuer Adresse, hilft zusätzlich eine Weiterleitung von der alten Adresse."
+  "warum": "Links ins Leere frustrieren Nutzer und verschwenden Crawl-Budget.",
+  "beheben": "Link korrigieren oder entfernen, Zielseite ggf. umleiten."
  },
  {
   "id": "interne_links_nofollow",
@@ -728,36 +712,12 @@
   "beheben": "Lade Chat-Widget, Tracking und ähnliche Skripte später (Attribut „defer“) oder am Ende der Seite. Das kann deine Technik in Minuten."
  },
  {
-  "id": "js_css_cache_kurz",
-  "name": "JS und CSS nur kurz gecacht (< 7 Tage)",
-  "schwere": "notice",
-  "kategorie": "performance",
-  "warum": "Der Browser darf die Dateien behalten, aber nur kurz. Wer nach ein paar Tagen wiederkommt, lädt alles neu. Lighthouse empfiehlt für statische Dateien lange Cache-Zeiten.",
-  "beheben": "Cache-Control mit langem max-age setzen (z. B. ein Jahr) und Dateinamen bei Änderungen wechseln. Manche Hoster (z. B. GitHub Pages) lassen das nicht zu, dann ist es kein Handlungsbedarf."
- },
- {
-  "id": "css_blockierend",
-  "name": "Viele oder große Stylesheets bremsen den Seitenaufbau",
-  "schwere": "notice",
-  "kategorie": "performance",
-  "warum": "Stylesheets im <head> halten den Aufbau an, bis sie geladen sind. Bei ein, zwei kleinen Dateien ist das normal und nötig. Ab 3 Dateien oder 100 KB CSS sehen Besucher spürbar länger eine leere Fläche.",
-  "beheben": "CSS zusammenfassen, Ungenutztes entfernen und nur das für den ersten Bildschirm nötige CSS direkt laden. Bei WordPress hilft ein Optimierungs-Plugin."
- },
- {
   "id": "robots_formatfehler",
   "name": "Formatfehler in robots.txt",
   "schwere": "error",
   "kategorie": "crawlbarkeit",
-  "warum": "Zeilen ohne Doppelpunkt oder Regeln vor dem ersten User-agent werden ignoriert, Sperren greifen dann nicht.",
-  "beheben": "Jede Regel im Format 'Feld: Wert' schreiben und unter einen User-agent stellen."
- },
- {
-  "id": "robots_unbekannte_felder",
-  "name": "Unbekannte Felder in robots.txt",
-  "schwere": "warning",
-  "kategorie": "crawlbarkeit",
-  "warum": "Google übergeht Felder, die es nicht kennt. Bei einem Tippfehler wie „Disalow“ versteht Google die Regel zwar meist trotzdem, andere Suchmaschinen aber nicht. „noindex“ in der robots.txt wirkt bei Google gar nicht.",
-  "beheben": "Feldnamen korrigieren (User-agent, Allow, Disallow, Sitemap). Statt „noindex“ in der robots.txt das Meta-Tag noindex auf der Seite verwenden."
+  "warum": "Fehlerhafte Zeilen werden von Suchmaschinen ignoriert, Sperren greifen evtl. nicht.",
+  "beheben": "Nur gültige Felder (User-agent, Allow, Disallow, Sitemap …) im Format 'Feld: Wert' verwenden."
  },
  {
   "id": "http_nicht_auf_https",
@@ -804,7 +764,7 @@
   "name": "llms.txt nicht gefunden",
   "schwere": "notice",
   "kategorie": "ki",
-  "warum": "llms.txt gibt KI-Assistenten eine kompakte Übersicht der wichtigsten Inhalte. Ein junger, freiwilliger Vorschlag: Google nutzt die Datei nicht, ob andere KI-Dienste sie lesen, ist kaum belegt.",
+  "warum": "llms.txt gibt KI-Assistenten eine kompakte Übersicht der wichtigsten Inhalte.",
   "beheben": "llms.txt im Root anlegen: '# Name', Kurzbeschreibung, Links zu wichtigen Seiten."
  },
  {
@@ -868,8 +828,8 @@
   "name": "Falsche Seiten in sitemap.xml",
   "schwere": "error",
   "kategorie": "crawlbarkeit",
-  "warum": "Die Sitemap ist die Liste, mit der du Google deine Seiten meldest. Stehen dort Adressen, die weiterleiten, fehlen, doppelt sind oder für Google ausgeblendet sind, verschwendet Google Zeit und vertraut der Liste weniger.",
-  "beheben": "Nimm diese Adressen aus der Sitemap: Weiterleitungen ersetzt du durch die Adresse, auf die sie zeigen, fehlende und ausgeblendete Seiten kommen ganz raus. Meist baut ein Plugin die Sitemap selbst, dann reicht es, die Ursache zu beheben (alte Seite löschen oder richtig weiterleiten)."
+  "warum": "Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten – keine Weiterleitungen, Fehler, Duplikate oder noindex.",
+  "beheben": "Weiterleitungen durch Ziel-URLs ersetzen, Fehlerseiten, Duplikate und noindex-Seiten entfernen."
  },
  {
   "id": "sitemap_http_bei_https",

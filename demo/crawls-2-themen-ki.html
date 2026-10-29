@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="de"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo · KI-Suche · Radhaus Elbe</title>
+  <script>
+    /* Theme vor dem ersten Zeichnen setzen (kein Aufblitzen) */
+    try { var t = localStorage.getItem("thema"); if (t === "light" || t === "dark") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="static/app.css">
+  <link rel="icon" href="static/logo.svg" type="image/svg+xml">
+    
+<link rel="stylesheet" href="static/demo.css"><meta name="robots" content="noindex"><link rel="stylesheet" href="demo-mobil.css">
+</head>
+<body><div class="demo-band" role="note">Demo mit der erfundenen Website <strong>Radhaus Elbe</strong> · So sieht Nextfix auf deinem Rechner aus · <a href="../">zurück zur Website</a></div><div id="demo-toast" role="status" aria-live="polite"></div>
+
+
+
+
+<div class="app">
+  <aside class="leiste" id="leiste">
+    <div class="leiste-oben">
+      <a class="marke-tool" href="projekte.html">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"></rect>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        Nextfix
+      </a>
+      <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste" onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
+    </div>
+    <div class="menue-inhalt">
+      <details class="projektwahl">
+        <summary>
+          <span style="min-width:0">
+            <span class="name">Radhaus Elbe</span><span class="domain">radhaus-elbe.de</span>
+            
+          </span>
+        </summary>
+        <ul>
+          
+          <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
+          
+          <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
+        </ul>
+      </details>
+
+      
+      <nav aria-label="Module">
+        <a href="index.html">Übersicht</a>
+        <div class="navgruppe">Website-Check</div>
+        
+        <a href="crawls-2-issues.html" aria-current="page">Probleme
+          <span class="zahl">8</span></a>
+        <a href="crawls-2-seiten.html">Geprüfte Seiten</a>
+        <a href="crawls-2-vergleich.html">Verlauf</a>
+        <a href="crawls-2-vitals.html">Ladezeit</a>
+        
+        <div class="navgruppe">Bei Google gefunden werden</div>
+        <a href="projekte-1-positionen.html">Positionen</a>
+        <a href="projekte-1-keywords.html">Suchbegriffe finden</a>
+        <div class="navgruppe">Inhalt</div>
+        <a href="projekte-1-onpage.html">Seite optimieren</a>
+        <div class="navgruppe"></div>
+        <a href="projekte-1-einstellungen.html">Einstellungen</a>
+      </nav>
+      
+
+      <div class="leiste-fuss">
+        <div class="thema" role="group" aria-label="Darstellung">
+          <button type="button" data-thema="system" aria-pressed="true">System</button>
+          <button type="button" data-thema="light" aria-pressed="false">Hell</button>
+          <button type="button" data-thema="dark" aria-pressed="false">Dunkel</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="inhalt">
+<div class="kopf"><div><h1>KI-Suche</h1><div class="unter">Bereich der Prüfung vom 17.10.2026</div></div></div>
+<nav class="tabs klein">
+  <a href="crawls-2-themen-crawlbarkeit.html">Crawlbarkeit</a><a href="crawls-2-themen-https.html">HTTPS</a><a href="crawls-2-themen-links.html">Interne Verlinkung</a><a href="crawls-2-themen-inhalt.html">Inhalt &amp; Meta</a><a href="crawls-2-themen-performance.html">Performance</a><a href="crawls-2-themen-technik.html">Technik &amp; Markup</a><a href="crawls-2-themen-international.html">Internationales SEO</a><a class="aktiv" href="crawls-2-themen-ki.html">KI-Suche</a>
+</nav>
+
+<div class="raster">
+  <div class="karte">
+    <div class="klein">KI-Suche</div>
+    <div class="gross gut">
+      83%</div>
+    <div class="klein">5 Issues in 3 Checks</div>
+  </div>
+  
+  
+  
+  <div class="karte">
+    <div class="klein"><strong>Für KI-Crawler</strong></div>
+    <table>
+      
+      <tbody><tr><td>llms.txt</td>
+          <td style="width:40%"></td>
+          <td style="text-align:right">fehlt</td></tr>
+      
+      <tr><td>Links in llms.txt</td>
+          <td style="width:40%"></td>
+          <td style="text-align:right">–</td></tr>
+      
+    </tbody></table>
+  </div>
+  
+  
+  
+  <div class="karte">
+    <div class="klein"><strong>Antwort-Signale</strong></div>
+    <table>
+      
+      <tbody><tr><td>Seiten mit Zahlen/Statistiken</td>
+          <td style="width:40%"><div class="balken"><div style="width:100.0%"></div></div></td>
+          <td style="text-align:right">5</td></tr>
+      
+      <tr><td>Seiten mit externen Quellen</td>
+          <td style="width:40%"><div class="balken"><div style="width:0.0%"></div></div></td>
+          <td style="text-align:right">0</td></tr>
+      
+      <tr><td>Seiten mit Fragen als Überschrift</td>
+          <td style="width:40%"><div class="balken"><div style="width:60.0%"></div></div></td>
+          <td style="text-align:right">3</td></tr>
+      
+    </tbody></table>
+  </div>
+  
+  
+  
+  <div class="karte">
+    <div class="klein"><strong>Struktur</strong></div>
+    <table>
+      
+      <tbody><tr><td>Seiten mit &lt;main&gt;/&lt;article&gt;</td>
+          <td style="width:40%"><div class="balken"><div style="width:100.0%"></div></div></td>
+          <td style="text-align:right">15</td></tr>
+      
+      <tr><td>Seiten ohne</td>
+          <td style="width:40%"><div class="balken"><div style="width:0.0%"></div></div></td>
+          <td style="text-align:right">0</td></tr>
+      
+    </tbody></table>
+  </div>
+  
+  
+  
+  <div class="karte">
+    <div class="klein"><strong>Lesbarkeit</strong></div>
+    <table>
+      
+      <tbody><tr><td>ohne Auffälligkeiten</td>
+          <td style="width:40%"><div class="balken"><div style="width:100.0%"></div></div></td>
+          <td style="text-align:right">15</td></tr>
+      
+      <tr><td>mit Auffälligkeiten</td>
+          <td style="width:40%"><div class="balken"><div style="width:0.0%"></div></div></td>
+          <td style="text-align:right">0</td></tr>
+      
+    </tbody></table>
+  </div>
+  
+</div>
+
+<div class="karte">
+  <h2>Probleme</h2>
+  
+  <details style="border-bottom:1px solid var(--line); padding:.6rem 0">
+    <summary><span class="badge notice">Feinschliff</span>
+      <strong>Fragen ohne FAQ-Markup</strong> – 3 Treffer auf 3 Seiten</summary>
+    <p><strong>Warum:</strong> Die Seite beantwortet mehrere Fragen (Zwischenüberschriften mit „?“), markiert sie aber nicht als FAQ. Frage-Antwort-Paare mit Markup sind für KI-Systeme leicht als Antwort zu übernehmen. Hinweis: Google zeigt FAQ-Rich-Results nur noch für Behörden- und Gesundheitsseiten.<br><strong>Beheben:</strong> Fragen und Antworten als FAQPage (JSON-LD) auszeichnen, jede Antwort direkt unter der Frage in 1–3 Sätzen.</p>
+    <div class="treffer klein">lädt …</div>
+  </details>
+  
+  <details style="border-bottom:1px solid var(--line); padding:.6rem 0">
+    <summary><span class="badge notice">Feinschliff</span>
+      <strong>Artikel ohne Autor oder Datum</strong> – 1 Treffer auf 1 Seite</summary>
+    <p><strong>Warum:</strong> Bei Artikeln achten Suchmaschinen und KI-Systeme auf Aktualität und Urheber (E-E-A-T). Ohne Datum und Autor wirkt der Inhalt weniger vertrauenswürdig.<br><strong>Beheben:</strong> datePublished/dateModified und author im Article-Markup angeben, Datum auch sichtbar mit &lt;time datetime&gt;.</p>
+    <div class="treffer klein">lädt …</div>
+  </details>
+  
+  <details style="border-bottom:1px solid var(--line); padding:.6rem 0">
+    <summary><span class="badge notice">Feinschliff</span>
+      <strong>llms.txt nicht gefunden</strong> – ganze Site</summary>
+    <p><strong>Warum:</strong> llms.txt gibt KI-Assistenten eine kompakte Übersicht der wichtigsten Inhalte.<br><strong>Beheben:</strong> llms.txt im Root anlegen: '# Name', Kurzbeschreibung, Links zu wichtigen Seiten.</p>
+    <div class="treffer klein">lädt …</div>
+  </details>
+  
+</div>
+</main>
+</div>
+<script>
+  (function () {
+    var knoepfe = document.querySelectorAll("[data-thema]");
+    function zeigen() {
+      var t = document.documentElement.dataset.theme || "system";
+      knoepfe.forEach(function (k) { k.setAttribute("aria-pressed", k.dataset.thema === t); });
+    }
+    knoepfe.forEach(function (k) {
+      k.addEventListener("click", function () {
+        var t = k.dataset.thema;
+        if (t === "system") delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
+        try { t === "system" ? localStorage.removeItem("thema") : localStorage.setItem("thema", t); } catch (e) {}
+        zeigen();
+      });
+    });
+    zeigen();
+    /* Projektwahl schließen beim Klick daneben */
+    document.addEventListener("click", function (e) {
+      var d = document.querySelector(".projektwahl[open]");
+      if (d && !d.contains(e.target)) d.removeAttribute("open");
+    });
+  })();
+</script>
+
+<script src="static/demo.js"></script></body></html>

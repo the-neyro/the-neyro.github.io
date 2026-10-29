@@ -2,15 +2,15 @@
 
 > Kostenloses Open-Source-SEO-Tool für deinen Rechner: prüft deine Website und sagt dir, was du zuerst verbesserst, warum und wie. Ohne Abo, ohne Konto.
 
-Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf dem eigenen Rechner läuft. Es crawlt eine Website, bewertet 111 Prüfungen in acht Bereichen zu einem Website-Zustand von 0 bis 100 und macht daraus die Liste „Was jetzt tun“: Aufgaben in der Reihenfolge ihrer Wirkung, mit Begründung, Anleitung und dem Hinweis, wer sie erledigt. Dazu Ladezeit im Labor (LCP, CLS, TBT), Positionen aus Google Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Sichtbarkeit. Keine bezahlten Schnittstellen, kein Konto, kein Tracking. Claude kann Nextfix über 51 MCP-Werkzeuge bedienen. Die Website ist auf Deutsch.
+Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf dem eigenen Rechner läuft. Es crawlt eine Website, bewertet 106 Prüfungen in acht Bereichen zu einem Website-Zustand von 0 bis 100 und macht daraus die Liste „Was jetzt tun“: Aufgaben in der Reihenfolge ihrer Wirkung, mit Begründung, Anleitung und dem Hinweis, wer sie erledigt. Dazu Ladezeit im Labor (LCP, CLS, TBT), Positionen aus Google Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Sichtbarkeit. Keine bezahlten Schnittstellen, kein Konto, kein Tracking. Claude kann Nextfix über 51 MCP-Werkzeuge bedienen. Die Website ist auf Deutsch.
 
-Aktuelle Version: 0.2.3 vom 28.10.2026. Läuft auf macOS und Linux; Windows funktioniert, ist aber noch nicht offiziell unterstützt. Installation: eine Zeile im Terminal, sie holt die neueste veröffentlichte Version (https://github.com/the-neyro/nextfix/releases).
+Aktuelle Version: 0.2.2 vom 18.10.2026. Läuft auf macOS und Linux; Windows funktioniert, ist aber noch nicht offiziell unterstützt. Installation: eine Zeile im Terminal, sie holt die neueste veröffentlichte Version (https://github.com/the-neyro/nextfix/releases).
 
 ## Seiten
 
 - [Nextfix: kostenloser SEO-Check, der lokal läuft](https://the-neyro.github.io/): Kostenloses Open-Source-SEO-Tool für deinen Rechner: prüft deine Website und sagt dir, was du zuerst verbesserst, warum und wie. Ohne Abo, ohne Konto.
-- [Funktionen: Website-Check, Ladezeit, Positionen | Nextfix](https://the-neyro.github.io/funktionen/): Was Nextfix prüft und misst: 111 Prüfungen, Website-Zustand, Ladezeit, Positionen aus Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Suche.
-- [Alle 111 SEO-Prüfungen von Nextfix, mit Anleitung](https://the-neyro.github.io/pruefungen/): Die 111 Prüfungen des kostenlosen SEO-Tools Nextfix: von kaputten Links bis KI-Suche, je mit Begründung und Anleitung zum Beheben.
+- [Funktionen: Website-Check, Ladezeit, Positionen | Nextfix](https://the-neyro.github.io/funktionen/): Was Nextfix prüft und misst: 106 Prüfungen, Website-Zustand, Ladezeit, Positionen aus Search Console und Bing, Suchbegriffe, Seite optimieren und KI-Suche.
+- [Alle 106 SEO-Prüfungen von Nextfix, mit Anleitung](https://the-neyro.github.io/pruefungen/): Die 106 Prüfungen des kostenlosen SEO-Tools Nextfix: von kaputten Links bis KI-Suche, je mit Begründung und Anleitung zum Beheben.
 - [Kostenlose Alternative zu Screaming Frog und Semrush | Nextfix](https://the-neyro.github.io/alternative/): Wofür Nextfix als kostenloses SEO-Tool reicht und wofür nicht: ehrlicher Vergleich mit Screaming Frog, Semrush und freien Werkzeugen wie SEOnaut.
 - [SEO-Tool installieren: Nextfix auf Mac, Linux und Windows](https://the-neyro.github.io/installation/): So installierst du das kostenlose SEO-Tool Nextfix: eine Zeile ins Terminal auf Mac oder Linux, danach Start per Doppelklick. Auch Schritt für Schritt erklärt.
 - [Fragen zu Nextfix: Kosten, Installation, Datenschutz, Grenzen](https://the-neyro.github.io/faq/): Antworten zu Nextfix: was es kostet, was du zum Installieren brauchst, wohin deine Daten gehen, was der Website-Zustand bedeutet und was das Tool nicht kann.

@@ -1,12 +1,5 @@
 # Gestaltung der Nextfix-Website
 
-> **Fassung 3 (2026-10-28, Redesign „Werkstattauftrag“):**
-> - Richtung „Dressed as something else“ (Seed 1269361443), geliehene Kategorie Kfz-Werkstatt / Hauptuntersuchung. Idee: Die Liste „Was jetzt tun“ wird zum Werkstattauftrag, die Website kommt auf den Prüfstand wie ein Auto. Das lebendige Ding bleibt der Titel-Check mit Google-Vorschau.
-> - Farbe „Teal on paper“: Papier #f7f9f8, ein Petrol #06525c für Schrift, Flächen und Knöpfe, kein Schwarz. Violett nur noch im Logo-Zeichen und in den echten Screenshots.
-> - Schrift: Archivo variabel, lokal (Titel Breite 125, Gewicht 800, Versalien; Text Breite 100). Fira Sans raus, Fira Mono nur für Code. Eine Ecke für alles: eckig, rund nur die Plakette.
-> - Held: „NÄCHSTER FIX.“ im Feld, der Werkstattauftrag 5° gedreht über der Naht, Signatur Rollladen. Danach Showcase, gestufte Zahlenkacheln, Diagramm 55 Fundstellen → 8 Aufgaben (aus FUNDE/AUFGABEN in site.js), Prüfprotokoll mit 49 → 91, Plakatzeilen, Vergleich, Befehlsliste, Titel-Check, Tafel, FAQ-Bänder, Fuß mit Wortmarke.
-> - Bilder: Screenshots, Video und zwei Werkstattfotos (CC BY 2.0, Shixart1985, Nachweis im Fuß). Blogtitel bleiben in Satzschrift (zu lang für Versalien).
-
 > **Fassung 2 (2026-10-17, nach Review mit 7 Prüfern, siehe `.review/ZUSAMMENFASSUNG.md`):**
 > - Farbe: Graphit-Text (#1c1b22) auf hellem Papier (#f7f6f3), **Markenviolett #5B3FBF als einziger Akzent**, tiefes Violett (#2a1f5c) für Prüfungen und Fuß. Oxblood ist raus: wirkte wie Mahnung/„Dringend“ und brach mit dem Produkt.
 > - Logo-Zeichen (violettes Quadrat) vor der Wortmarke. Radius 6 px wie im Produkt.
@@ -38,7 +31,7 @@ Stand: 2026-10-17. Gebaut mit Taste-Skill v2 (Richtung gezogen), geprüft mit Im
 3. Überschrift zum Eintippen: Seitentitel-Prüfung (das lebendige Ding).
 4. Ablauf als ein Balken (Installieren, Prüfen, Reparieren, Nachprüfen).
 5. Absatz mit Bildwörtern (Module).
-6. 111 Prüfungen als ein Satz (Namen aus dem echten Katalog).
+6. 106 Prüfungen als ein Satz (Namen aus dem echten Katalog).
 7. FAQ mit breiter Überschrift.
 8. Fuß als Einladung über dem angeschnittenen Namen.
 - CTA-Abschnitt „Satz mit Lücke“ gestrichen: kein Formular, kein Newsletter; die Einladung steht im Fuß.
