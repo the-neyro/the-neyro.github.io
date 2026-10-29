@@ -1,8 +1,6 @@
 /* Startseite (Fassung 4: The quiet instrument). Tokens und Grundlagen in site.css.
-   Held, Showcase und „So läuft es“ sind neu; Zahlen, Beweis, Funktionen, Titel-Check, Über und Fragen folgen in Block 2. */
+   Reihenfolge: Held, Showcase, So läuft es, Beweis (Vergleich), Funktionen, Titel-Check, Zahlen, Fragen, Fuß. */
 
-/* Übergang bis Block 2: Werte, die die noch alten Abschnitte lesen */
-:root { --field: var(--ink); --field-ink: var(--bg); --field-dim: var(--muted); --field-step: var(--surface-2); }
 .home { --colx: var(--edge); } /* eine Kante für die ganze Seite: die des Kopfs */
 
 /* ---------- Fragment der App (data-ui): Aufgabenliste wie in Nextfix, Werte der App ---------- */
@@ -172,8 +170,6 @@ html:not(.js) .how__stage { position: static; }
   .check { grid-template-columns: 1fr; gap: 0.2rem; }
   .example { min-height: 2.75rem; }
 }
-.modules__more { margin-top: 2.5rem; max-width: 60ch; color: var(--muted); }
-.modules__more .link { font-weight: 500; }
 /* ---------- Google-Vorschau im Titel-Check ---------- */
 .typer .typer__answer { grid-column: 1; }
 .typer .serp { grid-column: 2; grid-row: 3 / span 2; align-self: start; margin: 1.5rem 0 0; }
@@ -300,6 +296,7 @@ html:not(.js) .how__stage { position: static; }
 @media (max-width: 50em) {
   .foot-line { margin-top: 20svh; padding-bottom: 1.5rem; font-size: 0.875rem; }
   .foot-line__main { display: block; }
+  .foot-line__blog span { flex-basis: 100%; }
   .foot-line__main nav { justify-content: flex-start; }
   .foot-line__main > p:last-child { text-align: left; }
 }
@@ -308,12 +305,8 @@ html:not(.js) .how__stage { position: static; }
 @media (prefers-reduced-motion: no-preference) {
   .js .hero [data-rise] { opacity: 0; transform: translateY(22px); animation: rise var(--t-reveal) var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 90ms + 120ms); }
   .typer__line.is-over::after { animation: nudge 320ms var(--ease-out); }
-  .cmd__row.is-selected .cmd__more { animation: rise-in 420ms var(--ease-out); }
-  .poster__list li { transition: color var(--t-hover) ease, transform var(--t-ui) var(--ease-out); }
-  .poster__list li:hover { transform: translateX(0.6vw); }
 }
 @keyframes nudge { 30% { transform: translateX(10px); } 60% { transform: translateX(-6px); } }
-@keyframes rise-in { from { opacity: 0; transform: translateY(10px); } }
 @media (prefers-reduced-motion: reduce) {
   .ui .mehr, .ui-aufgabe, .ui-swap > *, .ui-skala__voll, .ui-erledigt, .sp { transition: none; }
 }
