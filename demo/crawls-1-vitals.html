@@ -21,13 +21,28 @@
   <aside class="leiste" id="leiste">
     <div class="leiste-oben">
       <a class="marke-tool" href="projekte.html">
-        <img src="static/logo.svg" width="28" height="28" alt="">
+        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"/>
+          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
         Nextfix
       </a>
       <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste"
               onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
     </div>
     <div class="menue-inhalt">
+      <details class="projektwahl">
+        <summary>
+          <span style="min-width:0">
+            <span class="name">Radhaus Elbe</span><span class="domain">radhaus-elbe.de</span>
+            
+          </span>
+        </summary>
+        <ul>
+          
+          <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
+          
+          <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
+        </ul>
+      </details>
 
       
       <nav aria-label="Module">
@@ -59,25 +74,6 @@
       </div>
     </div>
   </aside>
-  <header class="oben">
-    <div class="oben-objekt">
-      <span class="name">radhaus-elbe.de</span>
-    </div>
-  <details class="projektwahl">
-    <summary>
-      <span style="min-width:0">
-        <span class="name">Radhaus Elbe</span><span class="domain">1 Website</span>
-        
-      </span>
-    </summary>
-    <ul>
-      
-      <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
-      
-      <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
-    </ul>
-  </details>
-  </header>
   <main class="inhalt">
 <div class="kopf"><div><h1>Ladezeit</h1><div class="unter">Wie schnell laden deine wichtigsten Seiten? Gemessen wie bei Googles Lighthouse (Core Web Vitals).</div></div></div>
 <div class="karte">
@@ -89,7 +85,7 @@
       >
   
   
-    Gemessen am 28.10.2026, 20:15 (10 Messungen)
+    Gemessen am 28.10.2026, 19:34 (10 Messungen)
   
 </span>
   </form>
@@ -116,7 +112,7 @@
     <div class="gross gut">
       100</div>
     <div class="klein">Performance-Score (Median) · 5 von 5 Seiten bestehen LCP, CLS und TBT</div>
-    <div class="klein">LCP <span class="">104 ms</span> ·
+    <div class="klein">LCP <span class="">108 ms</span> ·
       CLS 0.000 · TBT 0 ms (Median)</div>
   </div>
   
@@ -143,8 +139,8 @@
       <td class="url klein">https://radhaus-elbe.de/</td><td>Desktop</td>
       
       <td>100</td>
-      <td><span class="gut">112 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
-      <td><span class="gut">112 ms</span></td><td><span class="gut">1 ms</span></td>
+      <td><span class="gut">108 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
+      <td><span class="gut">108 ms</span></td><td><span class="gut">1 ms</span></td>
       <td class="klein">4 KB · 5 Anfr.</td>
       
     </tr>
@@ -164,7 +160,7 @@
       
       <td>100</td>
       <td><span class="gut">104 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
-      <td><span class="gut">104 ms</span></td><td><span class="gut">1 ms</span></td>
+      <td><span class="gut">104 ms</span></td><td><span class="gut">2 ms</span></td>
       <td class="klein">1 KB · 3 Anfr.</td>
       
     </tr>
@@ -183,8 +179,8 @@
       <td class="url klein">https://radhaus-elbe.de/datenschutz</td><td>Desktop</td>
       
       <td>100</td>
-      <td><span class="gut">104 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
-      <td><span class="gut">104 ms</span></td><td><span class="gut">1 ms</span></td>
+      <td><span class="gut">112 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
+      <td><span class="gut">112 ms</span></td><td><span class="gut">1 ms</span></td>
       <td class="klein">1 KB · 3 Anfr.</td>
       
     </tr>
@@ -193,8 +189,8 @@
       <td class="url klein">https://radhaus-elbe.de/e-bikes</td><td>Mobil</td>
       
       <td>100</td>
-      <td><span class="gut">1.2 s</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
-      <td><span class="gut">1.2 s</span></td><td><span class="gut">1 ms</span></td>
+      <td><span class="gut">1.3 s</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
+      <td><span class="gut">1.3 s</span></td><td><span class="gut">6 ms</span></td>
       <td class="klein">3 KB · 4 Anfr.</td>
       
     </tr>
@@ -203,8 +199,8 @@
       <td class="url klein">https://radhaus-elbe.de/e-bikes</td><td>Desktop</td>
       
       <td>100</td>
-      <td><span class="gut">120 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
-      <td><span class="gut">120 ms</span></td><td><span class="gut">1 ms</span></td>
+      <td><span class="gut">108 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
+      <td><span class="gut">108 ms</span></td><td><span class="gut">1 ms</span></td>
       <td class="klein">3 KB · 4 Anfr.</td>
       
     </tr>
@@ -214,7 +210,7 @@
       
       <td>100</td>
       <td><span class="gut">1.2 s</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
-      <td><span class="gut">1.2 s</span></td><td><span class="gut">1 ms</span></td>
+      <td><span class="gut">1.2 s</span></td><td><span class="gut">5 ms</span></td>
       <td class="klein">2 KB · 3 Anfr.</td>
       
     </tr>
@@ -223,8 +219,8 @@
       <td class="url klein">https://radhaus-elbe.de/faq</td><td>Desktop</td>
       
       <td>100</td>
-      <td><span class="gut">104 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
-      <td><span class="gut">104 ms</span></td><td><span class="gut">1 ms</span></td>
+      <td><span class="gut">112 ms</span></td><td><span class="gut">0.000</span></td><td><span class="gut">0 ms</span></td>
+      <td><span class="gut">112 ms</span></td><td><span class="gut">5 ms</span></td>
       <td class="klein">2 KB · 3 Anfr.</td>
       
     </tr>

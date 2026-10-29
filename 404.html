@@ -25,9 +25,12 @@
 </header>
 
 <main id="inhalt">
-  <div class="page-head page-head--kurz">
+  <div class="page-head">
     <h1 data-reveal>Diese Seite gibt es nicht.</h1>
-    <p class="statement" data-reveal style="--i:2">In Nextfix stünde jetzt die Aufgabe „Behebe 1 Seite mit ‚nicht gefunden‘ (404)“. Sie liegt bei uns, für dich geht es hier weiter:</p>
+    <figure class="shot shot--task" data-reveal style="--i:1">
+      <img src="/assets/img/aufgabe-404.webp" width="1200" height="137" alt="Aufgabe in Nextfix: Behebe 1 Seite mit „nicht gefunden“ (404), Dringend, kurz je Seite, Wirkung mittel">
+    </figure>
+    <p class="statement" data-reveal style="--i:2">So stünde das in Nextfix. Die Aufgabe liegt bei uns, für dich geht es hier weiter:</p>
   </div>
   <div class="prose">
     <ul>
@@ -39,27 +42,42 @@
   </div>
 </main>
 
-<footer class="foot-line">
-  <p class="foot-line__blog" data-blog-teaser><span>Neu im Blog</span>
-    <!-- blog:start -->
-    <a href="/blog/nextfix-prueft-seine-eigene-website/">Nextfix prüft seine eigene Website</a>
-    <a href="/blog/version-0-2-0/">Nextfix 0.2: Lösungen in Klartext</a>
-    <a href="/blog/google-findet-meine-website-nicht/">Warum findet Google meine Website nicht?</a>
-    <!-- blog:ende -->
-  </p>
-  <div class="foot-line__main">
-    <p>Privates Projekt von the-neyro</p>
-    <nav aria-label="Fußmenü">
+<footer class="site-foot site-foot--short">
+  <div class="foot-cols">
+    <nav class="foot-col" aria-label="Fußmenü">
+      <p class="foot-h">Nextfix</p>
       <a href="/funktionen/">Funktionen</a>
       <a href="/pruefungen/">Alle Prüfungen</a>
       <a href="/installation/">Installation</a>
       <a href="/faq/">FAQ</a>
       <a href="/blog/">Blog</a>
-      <a href="https://github.com/the-neyro/nextfix">GitHub</a>
     </nav>
-    <p>2026 · <a href="/datenschutz/">Datenschutz</a></p>
+    <div class="foot-col">
+      <p class="foot-h">Projekt</p>
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+      <a href="https://github.com/the-neyro/nextfix/releases/latest">Version 0.2.3, was ist neu</a>
+      <span>MIT-Lizenz, quelloffen</span>
+      <a href="/faq/#weiter">Wie es weitergeht</a>
+    </div>
+    <div class="foot-col" data-blog-teaser>
+      <p class="foot-h">Neu im Blog</p>
+      <!-- blog:start -->
+      <a href="/blog/nextfix-prueft-seine-eigene-website/">Nextfix prüft seine eigene Website</a>
+      <a href="/blog/version-0-2-0/">Nextfix 0.2: Lösungen in Klartext</a>
+      <a href="/blog/google-findet-meine-website-nicht/">Warum findet Google meine Website nicht?</a>
+      <!-- blog:ende -->
+    </div>
+    <div class="foot-col">
+      <p class="foot-h">Rechtliches</p>
+      <a href="/datenschutz/">Datenschutz</a>
+      <a href="/#bildnachweis">Bildnachweise</a>
+      <span>Privates Projekt von the-neyro</span>
+    </div>
   </div>
-  <p>Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</p>
+  <svg class="foot-name" viewBox="0 0 1000 140" aria-hidden="true" focusable="false"><text x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs" font-size="178">NEXTFIX</text></svg>
+  <div class="foot-legal">
+    <p>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</p>
+  </div>
 </footer>
 <script src="/assets/js/site.js" defer></script>
 </body>

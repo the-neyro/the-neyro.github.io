@@ -1,7 +1,6 @@
-DM Sans (dm-sans-latin-var.woff2, dm-sans-latin-ext-var.woff2): Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts),
-lizenziert unter der SIL Open Font License 1.1 (eigener Text: OFL-DM-Sans.txt). Der Lizenztext unten gilt auch für DM Sans.
+Archivo (archivo-latin-var.woff2, archivo-latin-ext-var.woff2): Copyright 2019 The Archivo Project Authors (https://github.com/Omnibus-Type/Archivo),
+lizenziert unter der SIL Open Font License 1.1. Der Lizenztext unten gilt auch für Archivo.
 
-Fira Mono (fira-mono-*.woff2):
 Copyright (c) 2012-2015, The Mozilla Foundation and Telefonica S.A.
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.

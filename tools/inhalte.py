@@ -63,7 +63,7 @@ def seite(tiefe: int, titel: str, beschreibung: str, inhalt: str, aktiv: str = "
 <meta name="description" content="{e(beschreibung)}">
 <link rel="icon" href="{p}favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="{p}blog/feed.xml">
-<link rel="preload" href="{p}assets/fonts/dm-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{p}assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{p}assets/css/site.css">
 <script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){{if(!window.nextfixOk)document.documentElement.classList.remove('js')}},2500)</script>
 </head>
@@ -93,38 +93,59 @@ def seite(tiefe: int, titel: str, beschreibung: str, inhalt: str, aktiv: str = "
 """
 
 
-# ---------- Fuß: eine leise Zeile, auf jeder Seite gleich (Fassung 4) ----------
+# ---------- Fuß (gleich auf jeder Seite, auch auf der Startseite) ----------
 
 FUSS_BEITRAEGE: list[dict] = []  # wird in main() gefüllt; drei neueste Beiträge für „Neu im Blog“
 GITHUB = "https://github.com/the-neyro/nextfix"
+BILDNACHWEIS = ('Fotos: „Mechanic works in garage with car on lift“ und „Classic car restoration project taking place in a garage with focus on an '
+                'orange Beetle car“ von Shixart1985, <a href="https://creativecommons.org/licenses/by/2.0">CC BY 2.0</a>, über '
+                '<a href="https://commons.wikimedia.org/wiki/File:Mechanic_works_in_garage_with_car_on_lift.jpg">Wikimedia Commons</a> '
+                'und <a href="https://commons.wikimedia.org/wiki/File:Classic_car_restoration_project_taking_place_in_a_garage_with_focus_on_an_orange_Beetle_car.jpg">Wikimedia Commons</a>. '
+                'Sie zeigen Werkstätten, nicht Nextfix oder seine Nutzer.')
 
 
-def fuss(p: str) -> str:
-    blog = "\n".join(f'    <a href="{p}blog/{b["slug"]}/">{e(b["titel"])}</a>' for b in FUSS_BEITRAEGE[:3])
-    return f"""<footer class="foot-line">
-  <p class="foot-line__blog" data-blog-teaser><span>Neu im Blog</span>
-    <!-- blog:start -->
-{blog}
-    <!-- blog:ende -->
-  </p>
-  <div class="foot-line__main">
-    <p>Privates Projekt von the-neyro</p>
-    <nav aria-label="Fußmenü">
+def fuss(p: str, kurz: bool = True, start: bool = False) -> str:
+    blog = "\n".join(f'      <a href="{p}blog/{b["slug"]}/">{e(b["titel"])}</a>' for b in FUSS_BEITRAEGE[:3])
+    nachweis = f'\n    <p id="bildnachweis">{BILDNACHWEIS}</p>' if start else ""
+    return f"""<footer class="site-foot{' site-foot--short' if kurz else ''}">
+  <div class="foot-cols">
+    <nav class="foot-col" aria-label="Fußmenü">
+      <p class="foot-h">Nextfix</p>
       <a href="{p}funktionen/">Funktionen</a>
       <a href="{p}pruefungen/">Alle Prüfungen</a>
       <a href="{p}installation/">Installation</a>
       <a href="{p}faq/">FAQ</a>
       <a href="{p}blog/">Blog</a>
-      <a href="{GITHUB}">GitHub</a>
     </nav>
-    <p>2026 · <a href="{p}datenschutz/">Datenschutz</a></p>
+    <div class="foot-col">
+      <p class="foot-h">Projekt</p>
+      <a href="{GITHUB}">Quellcode auf GitHub</a>
+      <a href="{GITHUB}/releases/latest">Version 0.2.3, was ist neu</a>
+      <span>MIT-Lizenz, quelloffen</span>
+      <a href="{p}faq/#weiter">Wie es weitergeht</a>
+    </div>
+    <div class="foot-col" data-blog-teaser>
+      <p class="foot-h">Neu im Blog</p>
+      <!-- blog:start -->
+{blog}
+      <!-- blog:ende -->
+    </div>
+    <div class="foot-col">
+      <p class="foot-h">Rechtliches</p>
+      <a href="{p}datenschutz/">Datenschutz</a>
+      <a href="{p}#bildnachweis">Bildnachweise</a>
+      <span>Privates Projekt von the-neyro</span>
+    </div>
   </div>
-  <p>Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</p>
+  <svg class="foot-name" viewBox="0 0 1000 140" aria-hidden="true" focusable="false"><text x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs" font-size="178">NEXTFIX</text></svg>
+  <div class="foot-legal">
+    <p>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</p>{nachweis}
+  </div>
 </footer>"""
 
 
 def fuss_ueberall() -> int:
-    """Ersetzt den Fuß in jeder statischen Seite durch den aus der Vorlage (Startseite relativ, 404 mit absoluten Pfaden)."""
+    """Ersetzt den Fuß in jeder statischen Seite durch den aus der Vorlage (Startseite mit Bildnachweis, 404 mit absoluten Pfaden)."""
     n = 0
     for datei in sorted(WURZEL.rglob("*.html")):
         rel = datei.relative_to(WURZEL).as_posix()
@@ -132,7 +153,7 @@ def fuss_ueberall() -> int:
             continue
         p = "/" if rel == "404.html" else "../" * rel.count("/")
         text = datei.read_text(encoding="utf-8")
-        neu, k = re.subn(r"<footer class=\"(?:site-foot|foot-line).*?</footer>", lambda _m: fuss(p), text, flags=re.S)
+        neu, k = re.subn(r"<footer class=\"site-foot.*?</footer>", lambda _m: fuss(p, kurz=rel != "index.html", start=rel == "index.html"), text, flags=re.S)
         if k != 1:
             raise ValueError(f"{rel}: kein Fuß gefunden")
         if neu != text:
@@ -257,9 +278,9 @@ def blog_bauen(alle: list[dict]) -> dict[str, str]:
             nachbar.append(f'<a class="link" href="../{alle[i - 1]["slug"]}/">{e(alle[i - 1]["titel"])} →</a>')
         inhalt = f"""  <article class="post">
     <header class="page-head post__head">
+      <p class="post__date"><a class="link" href="../">Blog</a> · {RUBRIKEN[b["rubrik"]]} · <time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time> · von <a class="link" href="https://github.com/the-neyro">the-neyro</a></p>
       <h1>{e(b["titel"])}</h1>
       <p class="statement">{e(b["beschreibung"])}</p>
-      <p class="post__date"><a class="link" href="../">Blog</a> · {RUBRIKEN[b["rubrik"]]} · <time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time> · von <a class="link" href="https://github.com/the-neyro">the-neyro</a></p>
     </header>
     <div class="prose post__body">
 {b["html"]}

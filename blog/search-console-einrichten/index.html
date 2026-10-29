@@ -7,8 +7,7 @@
 <meta name="description" content="Mit der kostenlosen Search Console siehst du, wofür Google deine Website zeigt und welche Seiten fehlen. So richtest du sie ein, auch ohne Technikkenntnisse.">
 <!-- seo:start (erzeugt von tools/seo_dateien.py, nicht von Hand ändern) -->
 <link rel="canonical" href="https://the-neyro.github.io/blog/search-console-einrichten/">
-<meta name="theme-color" content="#fbf7f8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e0e0f" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7f9f8">
 <link rel="apple-touch-icon" href="https://the-neyro.github.io/assets/img/apple-touch-icon.png">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Nextfix">
@@ -26,7 +25,7 @@
 <!-- seo:ende -->
 <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
 <link rel="alternate" type="application/atom+xml" title="Nextfix-Blog" href="../../blog/feed.xml">
-<link rel="preload" href="../../assets/fonts/dm-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/css/site.css">
 <script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
 </head>
@@ -47,9 +46,9 @@
 <main id="inhalt">
   <article class="post">
     <header class="page-head post__head">
+      <p class="post__date"><a class="link" href="../">Blog</a> · Ratgeber · <time datetime="2026-10-17">17. Oktober 2026</time> · von <a class="link" href="https://github.com/the-neyro">the-neyro</a></p>
       <h1>Google Search Console einrichten, Schritt für Schritt</h1>
       <p class="statement">Mit der kostenlosen Search Console siehst du, wofür Google deine Website zeigt und welche Seiten fehlen. So richtest du sie ein, auch ohne Technikkenntnisse.</p>
-      <p class="post__date"><a class="link" href="../">Blog</a> · Ratgeber · <time datetime="2026-10-17">17. Oktober 2026</time> · von <a class="link" href="https://github.com/the-neyro">the-neyro</a></p>
     </header>
     <div class="prose post__body">
 <p>Die Search Console ist ein kostenloses Werkzeug von Google. Sie zeigt dir, bei welchen Suchbegriffen deine Website erscheint, wie oft jemand klickt und welche Seiten Google nicht aufgenommen hat, samt Grund. Es ist die einzige Quelle, die dir das direkt von Google sagt.</p>
@@ -75,7 +74,7 @@
 <p>Bing hat mit den Bing Webmaster Tools ein ähnliches kostenloses Werkzeug, und es kann deine Website direkt aus der Search Console übernehmen. Das kostet nur ein paar Minuten.</p>
 <h2>Und was hat Nextfix damit zu tun?</h2>
 <p>Suchergebnisse liest Nextfix nicht aus, das verbieten Googles Nutzungsbedingungen. Stattdessen holt es auf Wunsch einmal am Tag deine Daten aus der Search Console und zeigt sie unter „Positionen“: Sichtbarkeit, Aufsteiger und Absteiger und Suchbegriffe, bei denen du fast auf Seite 1 stehst. Die Verbindung richtest du einmal über ein Dienstkonto bei Google Cloud ein: ein technisches Konto, dem du in der Search Console Zugriff auf deine Website gibst. Das ist kostenlos, aber eher etwas für deinen Webbetreuer; die <a href="https://github.com/the-neyro/nextfix/blob/main/docs/anleitung-gsc.md">Anleitung</a> liegt im Projekt auf GitHub.</p>
-<figure class="post__bild"><img src="../../assets/img/shot-positionen-breit-1300.webp" width="1300" height="1263" loading="lazy" alt="Positionen mit Sichtbarkeit, durchschnittlichem Platz, „Fast auf Seite 1“ und Aufsteigern"><figcaption>„Positionen“ in Nextfix, hier mit Testdaten der erfundenen Demo-Website. <a href="../../demo/projekte-1-positionen.html">In der Demo ansehen</a></figcaption></figure>
+<figure class="post__bild"><img src="../../assets/img/shot-positionen-breit-1300.webp" width="1300" height="1093" loading="lazy" alt="Positionen mit Sichtbarkeit, durchschnittlichem Platz, „Fast auf Seite 1“ und Aufsteigern"><figcaption>„Positionen“ in Nextfix, hier mit Testdaten der erfundenen Demo-Website. <a href="../../demo/projekte-1-positionen.html">In der Demo ansehen</a></figcaption></figure>
 <h2>Quellen</h2>
 <ul><li>Google-Hilfe: <a href="https://support.google.com/webmasters/answer/34592?hl=de">Property hinzufügen</a></li><li>Google Search Central: <a href="https://developers.google.com/search/docs/appearance/core-web-vitals">Core Web Vitals</a></li></ul>
     </div>
@@ -83,27 +82,42 @@
   </article>
 </main>
 
-<footer class="foot-line">
-  <p class="foot-line__blog" data-blog-teaser><span>Neu im Blog</span>
-    <!-- blog:start -->
-    <a href="../../blog/nextfix-prueft-seine-eigene-website/">Nextfix prüft seine eigene Website</a>
-    <a href="../../blog/version-0-2-0/">Nextfix 0.2: Lösungen in Klartext</a>
-    <a href="../../blog/google-findet-meine-website-nicht/">Warum findet Google meine Website nicht?</a>
-    <!-- blog:ende -->
-  </p>
-  <div class="foot-line__main">
-    <p>Privates Projekt von the-neyro</p>
-    <nav aria-label="Fußmenü">
+<footer class="site-foot site-foot--short">
+  <div class="foot-cols">
+    <nav class="foot-col" aria-label="Fußmenü">
+      <p class="foot-h">Nextfix</p>
       <a href="../../funktionen/">Funktionen</a>
       <a href="../../pruefungen/">Alle Prüfungen</a>
       <a href="../../installation/">Installation</a>
       <a href="../../faq/">FAQ</a>
       <a href="../../blog/">Blog</a>
-      <a href="https://github.com/the-neyro/nextfix">GitHub</a>
     </nav>
-    <p>2026 · <a href="../../datenschutz/">Datenschutz</a></p>
+    <div class="foot-col">
+      <p class="foot-h">Projekt</p>
+      <a href="https://github.com/the-neyro/nextfix">Quellcode auf GitHub</a>
+      <a href="https://github.com/the-neyro/nextfix/releases/latest">Version 0.2.3, was ist neu</a>
+      <span>MIT-Lizenz, quelloffen</span>
+      <a href="../../faq/#weiter">Wie es weitergeht</a>
+    </div>
+    <div class="foot-col" data-blog-teaser>
+      <p class="foot-h">Neu im Blog</p>
+      <!-- blog:start -->
+      <a href="../../blog/nextfix-prueft-seine-eigene-website/">Nextfix prüft seine eigene Website</a>
+      <a href="../../blog/version-0-2-0/">Nextfix 0.2: Lösungen in Klartext</a>
+      <a href="../../blog/google-findet-meine-website-nicht/">Warum findet Google meine Website nicht?</a>
+      <!-- blog:ende -->
+    </div>
+    <div class="foot-col">
+      <p class="foot-h">Rechtliches</p>
+      <a href="../../datenschutz/">Datenschutz</a>
+      <a href="../../#bildnachweis">Bildnachweise</a>
+      <span>Privates Projekt von the-neyro</span>
+    </div>
   </div>
-  <p>Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</p>
+  <svg class="foot-name" viewBox="0 0 1000 140" aria-hidden="true" focusable="false"><text x="0" y="132" textLength="1000" lengthAdjust="spacingAndGlyphs" font-size="178">NEXTFIX</text></svg>
+  <div class="foot-legal">
+    <p>Nextfix ist kostenlos und quelloffen (MIT-Lizenz). Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“. Diese Website ist ein privates Projekt von the-neyro und dient vor allem dazu, Nextfix an einer echten Website zu erproben.</p>
+  </div>
 </footer>
 
 <script src="../../assets/js/site.js" defer></script>

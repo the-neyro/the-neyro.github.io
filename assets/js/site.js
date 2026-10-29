@@ -3,6 +3,10 @@
 
 window.nextfixOk = true; // Gegenstück zum Sicherheitsnetz im <head>
 const ruhig = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+// Symbole für Anhalten/Abspielen (Held-Panel und Video)
+const ICON_PAUSE = '<svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2" y="1.5" width="2.6" height="9" fill="currentColor"/><rect x="7.4" y="1.5" width="2.6" height="9" fill="currentColor"/></svg>';
+const ICON_PLAY = '<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z" fill="currentColor"/></svg>';
+
 // Handy: Die Kopfzeile hat nur Platz für „Mehr“ und „Installieren“; „Mehr“ klappt die übrigen Links auf
 (() => {
   const nav = document.querySelector('.site-nav');
@@ -50,40 +54,153 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
   }, 2000));
 })();
 
-// So läuft es: das Fragment der App wechselt mit dem Text links den Zustand (64 / 8 Aufgaben → 91 / 3 Aufgaben).
-// Ohne JavaScript bleibt Zustand 1 stehen und der Text daneben ist ganz lesbar.
+// Held: „Was jetzt tun“-Panel. Oberste Aufgabe wird an Ort und Stelle abgehakt und durchgestrichen,
+// dann rücken die anderen nach; am Ende steht „Erneut prüfen“. Konzept: .review/hero-modul.md.
+// Ohne JavaScript und bei reduzierter Bewegung bleibt das Standbild aus dem HTML stehen (1 erledigt, 2 aktiv).
 (() => {
-  const buehne = document.querySelector('[data-stage]');
-  if (!buehne) return;
-  const schritte = [...document.querySelectorAll('[data-step]')];
-  const zeilen = [...buehne.querySelectorAll('[data-r]')];
-  const LEAD = [0, 0, 1, 6]; // je Zustand: welche Aufgabe die große ist
-  const handy = window.matchMedia('(max-width: 50em)');
-  let zustand = 0;
-  const setze = (z) => {
-    if (z === zustand) return;
-    zustand = z;
-    buehne.dataset.state = String(z);
-    zeilen.forEach((r) => {
-      const n = Number(r.dataset.r);
-      r.classList.toggle('is-lead', n === LEAD[z]);
-      r.classList.toggle('is-weg', z === 3 && n <= 5);
+  const fig = document.querySelector('[data-wjt]');
+  if (!fig) return;
+  const liste = fig.querySelector('.wjt__list');
+  const knopf = fig.querySelector('.wjt__toggle');
+  const zaehler = fig.querySelector('.wjt__done');
+  const vorlagen = [...liste.children].map((li) => li.cloneNode(true));
+  const warte = (ms) => new Promise((ok) => setTimeout(ok, ms));
+  const istSchluss = (r) => r.classList.contains('row--recheck');
+  let rows = [];
+  let erledigt = 0;
+  let laeuft = !ruhig;
+  let beschaeftigt = false;
+  let schwebt = false;
+  let fokus = false;
+  let sichtbar = true;
+
+  const slot = (el, s) => {
+    el.dataset.slot = String(s);
+    el.style.setProperty('--slot', s);
+    const versteckt = s > 2;
+    el.toggleAttribute('inert', versteckt);
+    el.setAttribute('aria-hidden', String(versteckt));
+  };
+  // Alle Zeilen so hoch wie die höchste: nie halbe Zeilen, nichts springt
+  const messen = () => {
+    let h = 0;
+    rows.forEach((r) => { r.style.minHeight = 'auto'; h = Math.max(h, r.offsetHeight); r.style.minHeight = ''; });
+    if (h) liste.style.setProperty('--row-h', `${h}px`);
+  };
+  const zaehlen = () => { zaehler.textContent = `${erledigt} von ${vorlagen.length - 1} erledigt`; };
+  const aktiv = (index = 0) => rows.forEach((r, i) => r.classList.toggle('is-active', i === index && !r.classList.contains('is-done') && !istSchluss(r)));
+  const knopfZeigen = () => {
+    if (ruhig) { knopf.textContent = 'Nächste abhaken'; knopf.removeAttribute('aria-pressed'); return; }
+    knopf.innerHTML = laeuft ? `${ICON_PAUSE}Anhalten` : `${ICON_PLAY}Abspielen`;
+    knopf.setAttribute('aria-pressed', String(!laeuft));
+  };
+  const neuAufbauen = () => {
+    liste.replaceChildren(...vorlagen.map((v) => v.cloneNode(true)));
+    rows = [...liste.children];
+    rows.forEach((r, i) => {
+      slot(r, Math.min(i, 3));
+      const check = r.querySelector('.row__check');
+      if (check) {
+        check.disabled = false;
+        check.addEventListener('click', () => { if (r === rows[0] && !r.classList.contains('is-done')) { laeuft = false; knopfZeigen(); schritt(); } });
+      }
     });
-    schritte.forEach((s, i) => s.classList.toggle('is-active', i === z - 1));
   };
-  let wartet = false;
-  const pruefen = () => {
-    wartet = false;
-    // Am Handy klebt die Bühne oben: gemessen wird in der Mitte des Rests darunter
-    const y = handy.matches ? (buehne.getBoundingClientRect().bottom + innerHeight) / 2 : innerHeight / 2;
-    let best = 0, abstand = Infinity;
-    schritte.forEach((s, i) => { const r = s.getBoundingClientRect(); const d = Math.abs((r.top + r.bottom) / 2 - y); if (d < abstand) { abstand = d; best = i; } });
-    setze(best + 1);
+  // Startzustand: Bewegt = noch nichts erledigt; ruhig = Standbild aus dem HTML (1 erledigt, 2 aktiv)
+  const reset = () => {
+    neuAufbauen();
+    if (ruhig) { erledigt = 1; aktiv(1); } else { rows[0].classList.remove('is-done'); erledigt = 0; aktiv(0); }
+    zaehlen();
+    messen();
   };
-  const plane = () => { if (!wartet) { wartet = true; requestAnimationFrame(pruefen); } };
-  window.addEventListener('scroll', plane, { passive: true });
-  window.addEventListener('resize', plane);
-  pruefen();
+
+  async function schritt() {
+    if (beschaeftigt) return;
+    beschaeftigt = true;
+    if (istSchluss(rows[0])) { // alle erledigt: erneut prüfen, der Zustand steigt (echte Nachprüfung der Demo-Website)
+      const quelle = document.querySelector('[data-vn]');
+      const vorher = Number(quelle?.dataset.vorher || 64), nachher = Number(quelle?.dataset.nachher || vorher);
+      const zeile = rows[0].querySelector('p');
+      const score = fig.querySelector('[data-score]');
+      zeile.textContent = 'Prüfe erneut …';
+      await warte(900);
+      zeile.textContent = 'Nachgeprüft.';
+      const start = performance.now();
+      await new Promise((ok) => {
+        const lauf = (now) => {
+          const k = Math.min(1, (now - start) / 900), e = 1 - (1 - k) ** 3;
+          score.textContent = String(Math.round(vorher + (nachher - vorher) * e));
+          if (k < 1) requestAnimationFrame(lauf); else ok();
+        };
+        requestAnimationFrame(lauf);
+      });
+      score.classList.add('is-up');
+      score.insertAdjacentHTML('afterend', ` <span class="wjt__delta" data-delta>+${nachher - vorher} nach dem Nachprüfen</span>`);
+      zaehler.textContent = `${vorlagen.length - 1} von ${vorlagen.length - 1} erledigt · nachgeprüft`;
+      await warte(2800);
+      liste.style.transition = 'opacity 240ms ease'; liste.style.opacity = '0'; await warte(260);
+      fig.querySelector('[data-delta]')?.remove(); score.classList.remove('is-up'); score.textContent = String(vorher);
+      reset(); liste.style.opacity = '1'; await warte(320); liste.style.transition = '';
+      beschaeftigt = false;
+      return;
+    }
+    const fertig = rows[0];
+    fertig.classList.remove('is-active');
+    fertig.classList.add('is-done');                      // Haken springt auf, Strich wischt, Zeile wird blass
+    erledigt += 1; zaehlen();
+    await warte(850);                                       // der Moment, den man sehen soll
+    fertig.classList.add('is-leaving'); await warte(150);
+    rows.shift();
+    rows.forEach((r, i) => {
+      if (i === 2) {
+        r.classList.add('is-entering'); slot(r, 2); void r.offsetWidth;
+        r.style.transitionDelay = '200ms'; r.classList.remove('is-entering');
+      } else if (i < 2) { r.style.transitionDelay = `${i * 40}ms`; slot(r, i); }
+    });
+    await warte(650);
+    fertig.remove();
+    rows.forEach((r) => { r.style.transitionDelay = ''; });
+    // „Erneut prüfen“ sagt, wann es dran ist
+    rows.forEach((r, i) => { if (istSchluss(r)) r.querySelector('p').textContent = i === 0 ? 'Alles erledigt? Dann prüf noch mal.' : 'Danach: erneut prüfen.'; });
+    aktiv(0);
+    beschaeftigt = false;
+  }
+  // Ruhig: nur Deckkraft, keine Wege; die nächste oberste wird sofort abgehakt
+  async function schrittRuhig() {
+    if (beschaeftigt) return;
+    beschaeftigt = true;
+    if (istSchluss(rows[1])) { reset(); beschaeftigt = false; return; }
+    const alt = rows.shift();
+    alt.classList.add('is-leaving'); await warte(220); alt.remove();
+    rows.forEach((r, i) => slot(r, Math.min(i, 3)));
+    if (!istSchluss(rows[0])) { rows[0].classList.add('is-done'); erledigt += 1; zaehlen(); }
+    aktiv(1);
+    beschaeftigt = false;
+  }
+
+  knopf.hidden = false;
+  knopf.addEventListener('click', () => {
+    if (ruhig) { schrittRuhig(); return; }
+    laeuft = !laeuft; knopfZeigen();
+  });
+  fig.addEventListener('pointerenter', () => { schwebt = true; });
+  fig.addEventListener('pointerleave', () => { schwebt = false; });
+  fig.addEventListener('focusin', () => { fokus = true; });
+  fig.addEventListener('focusout', () => { fokus = false; });
+  if ('IntersectionObserver' in window) new IntersectionObserver(([e]) => { sichtbar = e.isIntersecting; }).observe(fig);
+  if ('ResizeObserver' in window) new ResizeObserver(messen).observe(liste);
+  document.fonts?.ready.then(messen);
+  reset();
+  knopfZeigen();
+  if (!ruhig) {
+    let erster = true;
+    const takt = async () => {
+      if (laeuft && !schwebt && !fokus && sichtbar && !document.hidden) await schritt();
+      setTimeout(takt, erster ? 900 : 1100);
+      erster = false;
+    };
+    setTimeout(takt, 900);
+  }
 })();
 
 // Seitentitel prüfen: Regeln aus „Seite optimieren“ (app/onpage/abgleich.py), hier im Browser gerechnet
@@ -288,6 +405,90 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   zeigen();
 })();
 
+// Diagramm „55 Fundstellen → 8 Aufgaben → eine zuerst“: ein Quadrat je echter Fundstelle der Demo-Prüfung.
+// Links verstreut, in der Mitte zu einem Band gebündelt, rechts in Aufgaben geordnet (die erste hervorgehoben).
+(() => {
+  const figur = document.querySelector('[data-diagram]');
+  if (!figur) return;
+  // Fundstellen je Prüfung, wie Nextfix sie für „Radhaus Elbe“ gefunden hat (content/demo-fundstellen.json)
+  const FUNDE = {
+    sitemap_falsche_seiten: ["/fahrradleasing"],
+    status_4xx: ["/fruehjahrsaktion-2025"],
+    interne_links_defekt: ["/angebote"],
+    wenig_text: ["/angebote", "/blog", "/blog/winter-check", "/faq", "/kontakt", "/preise", "/ueber-uns"],
+    meta_desc_doppelt: ["/blog", "/blog/winter-check", "/preise", "/ueber-uns"],
+    bilder_ohne_alt: ["/", "/e-bikes", "/ueber-uns"],
+    title_zu_lang: ["/blog/reifendruck", "/leihraeder"],
+    meta_desc_fehlt: ["/kontakt"],
+    meta_desc_zu_kurz: ["/angebote", "/blog", "/blog/kette-oelen", "/blog/winter-check", "/datenschutz", "/faq", "/impressum", "/preise", "/ueber-uns"],
+    ki_fragen_ohne_faq: ["/blog/kette-oelen", "/faq", "/werkstatt"],
+    nur_ein_eingehender_link: ["/blog/kette-oelen", "/blog/reifendruck", "/blog/winter-check"],
+    orphan_sitemap: ["/angebote", "/ueber-uns"],
+    ki_artikel_ohne_autor_datum: ["/blog/reifendruck"],
+    ohne_last_modified: ["(ganze Website)"],
+    llms_fehlt: ["(ganze Website)"],
+    bilder_ohne_masse: ["/", "/angebote", "/blog", "/blog/kette-oelen", "/blog/reifendruck", "/blog/winter-check", "/datenschutz", "/e-bikes", "/faq", "/impressum", "/kontakt", "/leihraeder", "/preise", "/ueber-uns", "/werkstatt"],
+  };
+  // Die 8 Aufgaben aus „Was jetzt tun“ in ihrer Reihenfolge; alles andere ist Feinschliff
+  const AUFGABEN = [
+    { check: 'sitemap_falsche_seiten', kurz: 'falsch in der Sitemap', t: 'Entferne fehlerhafte Adressen aus der Sitemap', m: 'Dringend · Wirkung mittel · für deine Technik' },
+    { check: 'status_4xx', kurz: 'nicht gefunden (404)', t: 'Behebe 1 Seite mit „nicht gefunden“ (404)', m: 'Dringend · Wirkung mittel · kurz je Seite' },
+    { check: 'interne_links_defekt', kurz: 'defekter Link', t: 'Repariere defekte interne Links auf 1 Seite', m: 'Dringend · Wirkung mittel · kurz je Seite' },
+    { check: 'wenig_text', kurz: 'wenig Text', t: 'Bau 7 Seiten mit wenig Text aus', m: 'Wichtig · Wirkung mittel · machst du selbst' },
+    { check: 'meta_desc_doppelt', kurz: 'Beschreibung doppelt', t: 'Gib 4 Seiten eigene Beschreibungen', m: 'Wichtig · Wirkung gering · kurz je Seite' },
+    { check: 'bilder_ohne_alt', kurz: 'Bild ohne alt-Text', t: 'Ergänze Bildbeschreibungen (alt) auf 3 Seiten', m: 'Wichtig · Wirkung gering · kurz je Seite' },
+    { check: 'title_zu_lang', kurz: 'Titel zu lang', t: 'Kürze den Seitentitel von 2 Seiten auf 70 Zeichen', m: 'Wichtig · Wirkung gering · kurz je Seite' },
+    { check: 'meta_desc_fehlt', kurz: 'Beschreibung fehlt', t: 'Schreib eine Beschreibung für 1 Seite', m: 'Wichtig · Wirkung gering · kurz je Seite' },
+  ];
+  const FEIN = { bilder_ohne_masse: 'Bild ohne Maße', meta_desc_zu_kurz: 'Beschreibung kurz', ki_fragen_ohne_faq: 'Fragen ohne FAQ', nur_ein_eingehender_link: 'nur ein Link hierher',
+    orphan_sitemap: 'nur in der Sitemap', ki_artikel_ohne_autor_datum: 'ohne Autor/Datum',
+    ohne_last_modified: 'kein Last-Modified', llms_fehlt: 'llms.txt fehlt' };
+  const anzahl = AUFGABEN.map((a) => FUNDE[a.check].length);
+  anzahl.push(Object.keys(FEIN).reduce((n, k) => n + FUNDE[k].length, 0)); // Feinschliff
+  const gesamt = anzahl.reduce((n, k) => n + k, 0);
+  let seed = 7;
+  const zufall = () => (seed = (seed * 16807) % 2147483647) / 2147483647; // fester Samen: das Bild sieht bei jedem Laden gleich aus
+  const rect = (x, y, s, klasse) => `<rect class="${klasse}" x="${x.toFixed(1)}" y="${y.toFixed(1)}" width="${s}" height="${s}"/>`;
+  function bauen(hoch) {
+    const s = 16, p = 24, B = hoch ? 600 : 1200, H = hoch ? 800 : 280, pro = 14; // pro: Quadrate je Zeile rechts
+    const zone = hoch ? H / 3 : B / 3;
+    let a = '', m = '', r = '';
+    for (let i = 0; i < gesamt; i++) { // verstreut, in zwei hellen Tönen
+      const x = hoch ? 20 + zufall() * (B - 60) : 20 + zufall() * (zone - 60);
+      const y = hoch ? 20 + zufall() * (zone - 60) : 20 + zufall() * (H - 60);
+      a += rect(x, y, s, i % 3 ? 'dg-a' : 'dg-b');
+    }
+    const spalten = Math.ceil(gesamt / 3);
+    for (let i = 0; i < gesamt; i++) { // Band, drei Quadrate hoch bzw. breit
+      const u = Math.floor(i / 3), v = i % 3;
+      const bandLang = spalten * p, bandBreit = 3 * p;
+      const x = hoch ? (B - bandBreit) / 2 + v * p : zone + (zone - bandLang) / 2 + u * p;
+      const y = hoch ? zone + (zone - bandLang) / 2 + u * p : (H - bandBreit) / 2 + v * p;
+      m += rect(x, y, s, 'dg-m');
+    }
+    let zeile = 0;
+    anzahl.forEach((n, g) => { // geordnete Zeilen: eine je Aufgabe, zuletzt der Feinschliff (bricht nach 14 um)
+      for (let i = 0; i < n; i++) {
+        if (i && i % pro === 0) zeile++;
+        const klasse = g === 0 ? 'dg-first' : g === anzahl.length - 1 ? 'dg-p' : 'dg-m';
+        const x = (hoch ? 40 : 2 * zone + 40) + (i % pro) * p;
+        const y = (hoch ? 2 * zone + 20 : 8) + zeile * 26;
+        r += rect(x, y, s, klasse);
+      }
+      zeile++;
+    });
+    return `<svg viewBox="0 0 ${B} ${H}" aria-hidden="true" focusable="false"><g class="dg-grp">${a}</g><g class="dg-grp">${m}</g><g class="dg-grp">${r}</g></svg>`;
+  }
+  const mq = window.matchMedia('(max-width: 50em)');
+  const zeichne = () => { figur.innerHTML = bauen(mq.matches); };
+  zeichne();
+  mq.addEventListener('change', zeichne);
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { figur.classList.add('is-in'); io.disconnect(); } }, { threshold: 0.25 });
+    io.observe(figur);
+  } else figur.classList.add('is-in');
+})();
+
 // Showcase: nur die Tafel in der Mitte leuchtet; Name und Text darunter wechseln mit ihr. Mit der Maus ziehbar.
 (() => {
   const reihe = document.querySelector('[data-showcase]');
@@ -312,14 +513,44 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   reihe.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; zieht = true; startX = e.clientX; startLinks = reihe.scrollLeft; reihe.classList.add('is-drag'); });
   window.addEventListener('pointermove', (e) => { if (zieht) reihe.scrollLeft = startLinks - (e.clientX - startX); });
   window.addEventListener('pointerup', () => { if (!zieht) return; zieht = false; reihe.classList.remove('is-drag'); });
-  // Desktop: Start bei der zweiten Tafel, damit links keine leere Fläche steht (die erste ist angeschnitten sichtbar)
-  const ersteMitte = () => {
-    const t = tafeln[window.innerWidth > 896 && tafeln.length > 1 ? 1 : 0];
-    reihe.scrollLeft = t.offsetLeft + t.offsetWidth / 2 - reihe.clientWidth / 2;
-    pruefen();
-  };
+  const ersteMitte = () => { reihe.scrollLeft = 0; pruefen(); };
   ersteMitte();
 })();
+
+// Funktionen: Befehlsliste. Tippen filtert, Pfeiltasten und Antippen wählen, die gewählte Zeile klappt auf.
+(() => {
+  const wurzel = document.querySelector('[data-cmd-list]');
+  if (!wurzel) return;
+  const eingabe = wurzel.querySelector('.cmd__input');
+  const zeilen = [...wurzel.querySelectorAll('.cmd__row')];
+  const leer = wurzel.querySelector('.cmd__empty');
+  const waehle = (z) => zeilen.forEach((r) => {
+    const an = r === z; r.classList.toggle('is-selected', an);
+    r.querySelector('.cmd__name').setAttribute('aria-expanded', String(an));
+  });
+  const sichtbar = () => zeilen.filter((r) => !r.hidden);
+  zeilen.forEach((r) => {
+    const knopf = r.querySelector('.cmd__name');
+    knopf.addEventListener('click', () => waehle(r));
+    r.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') waehle(r); });
+  });
+  eingabe.addEventListener('input', () => {
+    const q = eingabe.value.trim().toLowerCase();
+    zeilen.forEach((r) => { r.hidden = q && !(r.dataset.cmd + ' ' + r.textContent.toLowerCase()).includes(q); });
+    const s = sichtbar();
+    leer.hidden = s.length > 0;
+    if (s.length && !s.some((r) => r.classList.contains('is-selected'))) waehle(s[0]);
+  });
+  wurzel.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    const s = sichtbar(); if (!s.length) return;
+    e.preventDefault();
+    const i = Math.max(0, s.findIndex((r) => r.classList.contains('is-selected')));
+    const n = s[(i + (e.key === 'ArrowDown' ? 1 : s.length - 1)) % s.length];
+    waehle(n); n.querySelector('.cmd__name').focus();
+  });
+})();
+
 
 // E-Mail an den Webbetreuer: Text auch zum Kopieren (falls kein Mailprogramm eingerichtet ist)
 (() => {
