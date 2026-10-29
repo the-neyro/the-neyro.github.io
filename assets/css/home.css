@@ -272,25 +272,21 @@ html:not(.js) .how__stage { position: static; }
   .stat dd { font-size: 1rem; }
 }
 
-/* ---------- Fragen: ein Band je Frage ---------- */
-.faq__head { background: var(--ink); color: var(--bg); min-height: 40svh; display: flex; align-items: flex-end; padding: 2rem var(--edge); max-width: none; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em; line-height: 1; font-size: clamp(2rem, 5.6vw, 5.5rem); }
-.band { padding: 3.5rem var(--edge); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
-.band--a { background: var(--surface); }
-.band--b { background: var(--bg); }
-.band__q { grid-column: 1 / span 5; align-self: start; font-size: clamp(1.375rem, 2.2vw, 2rem); font-weight: 800; line-height: 1.15; }
-.band__a { grid-column: 7 / -1; font-size: 1.125rem; line-height: 1.5; }
-.band__a p, .band__a ul { max-width: 60ch; }
-.band__a p + p, .band__a ul + p { margin-top: 0.8em; }
-.band__a ul { padding-left: 1.2rem; display: grid; gap: 0.5rem; }
-.band__a code { font-family: var(--font-code); font-size: 0.9em; }
-.faq-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
-.faq__more { padding: 2rem var(--edge) 4rem; }
-@media (max-width: 50em) {
-  .faq__head { min-height: 30svh; font-size: 11vw; padding-inline: 20px; }
-  .band { display: block; padding: 2rem 20px; }
-  .band__q { font-size: 1.375rem; }
-  .band__a { margin-top: 0.75rem; font-size: 1.0625rem; }
-}
+/* ---------- Fragen: Antworten als Lesetext, Frage als Anlauf ---------- */
+.faq { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); padding: var(--section) var(--edge) 0; }
+.faq__head { grid-column: 1 / span 3; align-self: start; font-size: var(--step-h2); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; max-width: none; }
+.faq__text { grid-column: 5 / -1; columns: 2; column-gap: 3.5rem; font-size: 1.0625rem; line-height: 1.55; }
+.fq { break-inside: avoid; margin-bottom: 1.25rem; }
+.fq--long { break-inside: auto; }
+.fq p { max-width: none; }
+.fq p + p { margin-top: 0.6rem; }
+.fq__q { font-weight: 600; }
+.fq code { font-family: var(--font-code); font-size: 0.9em; }
+.fq .faq-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.75rem; }
+.fq a:not(.button) { color: var(--ink); }
+.faq__more { grid-column: 5 / -1; margin-top: 1.25rem; }
+@media (max-width: 64em) { .faq__head { grid-column: 1 / -1; margin-bottom: 2rem; } .faq__text, .faq__more { grid-column: 1 / -1; } }
+@media (max-width: 50em) { .faq__text { columns: 1; font-size: 1rem; } .fq { margin-bottom: 1.125rem; } .faq__head { font-size: 1.5rem; } }
 
 /* ---------- Einblenden der Abschnittsteile ---------- */
 @media (prefers-reduced-motion: no-preference) {
