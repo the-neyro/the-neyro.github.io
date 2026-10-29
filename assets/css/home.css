@@ -121,7 +121,7 @@ html:not(.js) .ui-erledigt { display: none; }
   .how { display: block; }
   .how__side { display: contents; }
   .how__stage { position: sticky; top: 3.75rem; z-index: 3; width: 100%; height: 46svh; margin-top: 1rem; padding: 1rem; }
-  .how__step { min-height: 60svh; justify-content: flex-start; padding-top: 1.5rem; }
+  .how__step { min-height: 40svh; justify-content: flex-start; padding-top: 1.5rem; }
   .how__say { font-size: 1.375rem; }
   .ui-zustand { gap: 0 1rem; }
   .ui-aufgabe > .wirkung { display: none; }
@@ -249,7 +249,12 @@ html:not(.js) .how__stage { position: static; }
 .mini__tab th:first-child, .mini__tab td:first-child { text-align: left; }
 .mini__feld { margin-top: 0.4rem; padding: 0.55rem 0.75rem; border: 1px solid var(--line-strong); border-radius: var(--radius); color: var(--muted); }
 .mini__aktion { display: flex; gap: 0.5rem; margin-top: 0.9rem; }
-.mini__code { list-style: none; margin: 0.6rem 0 0; padding: 0; font-family: var(--font-code); font-size: 0.875rem; line-height: 1.8; } /* taste-skill-ignore: echte Werkzeugnamen */
+.mini__code { list-style: none; margin: 0.6rem 0 0; padding: 0; line-height: 1.8; }
+@media (min-width: 80em) {
+  .feat { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 3rem; }
+  .feat__h, .feat__more { grid-column: 1 / -1; }
+  .mod { grid-template-columns: minmax(0, 20rem) minmax(0, 1fr); max-width: none; margin-top: 4rem; }
+}
 @media (max-width: 40em) {
   .mod { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; margin-top: 4rem; }
   .mod__text h3 { font-size: 1.1875rem; }
@@ -259,7 +264,8 @@ html:not(.js) .how__stage { position: static; }
 /* ---------- Zahlen: leise Zeilen, Zahl rechtsbündig, Satz auf einer Kante ---------- */
 .stats { padding: max(var(--section), 18svh) var(--edge) 0; }
 .stats__h { font-size: var(--step-h2); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; max-width: none; padding-left: calc(8.25rem + 1.5rem); }
-.stats__list { margin: 3.5rem 0 0; display: grid; gap: 1.75rem; }
+.stats__list { margin: 3.5rem 0 0; display: grid; gap: 1.75rem 4rem; }
+@media (min-width: 64em) { .stats__list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .stat:nth-child(5) { grid-column: 1; } }
 .stat { display: grid; grid-template-columns: 8.25rem minmax(0, 40ch); column-gap: 1.5rem; align-items: baseline; }
 .stat dt { font-size: 1.875rem; line-height: 1.2; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .stat dd { margin: 0; font-size: 1.0625rem; color: var(--muted); }
