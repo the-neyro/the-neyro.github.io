@@ -23,7 +23,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://the-neyro.github.io/#website","url":"https://the-neyro.github.io/","name":"Nextfix","inLanguage":"de","publisher":{"@id":"https://the-neyro.github.io/#autor"}},{"@type":"Person","name":"the-neyro","url":"https://github.com/the-neyro","@id":"https://the-neyro.github.io/#autor","sameAs":["https://github.com/the-neyro","https://github.com/the-neyro/nextfix"]},{"@type":"SoftwareApplication","@id":"https://the-neyro.github.io/#software","name":"Nextfix","url":"https://the-neyro.github.io/","description":"Kostenloses Open-Source-SEO-Tool für deinen Rechner: prüft deine Website und sagt dir, was du zuerst verbesserst, warum und wie. Ohne Abo, ohne Konto.","applicationCategory":"BusinessApplication","applicationSubCategory":"SEO-Tool","operatingSystem":"macOS, Linux","softwareVersion":"0.2.3","datePublished":"2026-10-28","isAccessibleForFree":true,"license":"https://opensource.org/licenses/MIT","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"installUrl":"https://the-neyro.github.io/installation/","sameAs":["https://github.com/the-neyro/nextfix"],"author":{"@id":"https://the-neyro.github.io/#autor"},"image":"https://the-neyro.github.io/assets/img/og.png","screenshot":"https://the-neyro.github.io/assets/img/shot-uebersicht-breit-1200.webp","inLanguage":"de"}]}</script>
 <!-- seo:ende -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="preload" href="assets/fonts/archivo-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/dm-sans-latin-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/home.css">
 <script>/* Einblenden nur, wenn site.js wirklich läuft; sonst nach 2,5 s alles sichtbar */document.documentElement.classList.add('js');setTimeout(function(){if(!window.nextfixOk)document.documentElement.classList.remove('js')},2500)</script>
@@ -45,117 +45,118 @@
 
 <main id="inhalt">
 <section class="hero" aria-labelledby="hero-h">
-  <div class="hero__field">
-    <h1 id="hero-h" class="hero__title" data-mask><span>Nächster</span> <span>Fix.</span></h1>
-    <p class="hero__lead" data-rise style="--i:1"><strong>Nextfix ist ein kostenloser SEO-Check, der lokal auf deinem Rechner läuft.</strong> Er prüft deine Website und macht daraus eine kurze Liste: was zuerst dran ist, warum und wie.</p>
+  <h1 id="hero-h" class="hero__title" data-rise><span>Der SEO-Check,</span> <span>der lokal läuft.</span></h1>
+  <p class="hero__lead" data-rise style="--i:1"><strong>Nextfix ist ein kostenloser SEO-Check, der lokal auf deinem Rechner läuft.</strong> Er prüft deine Website und macht daraus eine kurze Liste: was zuerst dran ist, warum und wie.</p>
+  <p class="hero__actions" data-rise style="--i:2"><a class="button" href="installation/">Kostenlos installieren</a><a class="link hero__link" href="demo/">Demo ansehen</a></p>
+  <div class="ui hero__ui" data-ui data-rise style="--i:3" role="group" aria-label="Ausschnitt aus Nextfix: die ersten zwei Aufgaben der Demo-Website Radhaus Elbe">
+    <p class="ui__title">Was jetzt tun</p>
+    <ol class="ui-aufgaben">
+      <li class="ui-aufgabe is-lead is-open" data-nr="1">
+        <p class="was">Entferne fehlerhafte Adressen aus der Sitemap</p>
+        <div class="mehr"><div>
+          <p class="warum">Die Sitemap ist die Liste, mit der du Google deine Seiten meldest.</p>
+          <p class="info"><span class="marke dringend">Dringend</span><span class="marke leise">einmal einstellen</span><span class="marke leise">für deine Technik</span></p>
+          <p class="aktion"><span class="ui-knopf">Ansehen</span><span class="wirkung mittel">Wirkung mittel</span></p>
+        </div></div>
+      </li>
+      <li class="ui-aufgabe is-open" data-nr="2">
+        <p class="was">Behebe 1 Seite mit „nicht gefunden“ (404)</p>
+        <p class="wirkung mittel">Wirkung mittel</p>
+        <div class="mehr"><div>
+          <p class="warum">Die Adresse führt ins Leere („Seite nicht gefunden“).</p>
+          <p class="info"><span class="marke dringend">Dringend</span><span class="marke leise">kurz je Seite</span><span class="marke leise">machst du selbst</span></p>
+        </div></div>
+      </li>
+    </ol>
   </div>
-  <div class="hero__band">
-    <a class="button hero__cta" href="installation/" data-rise style="--i:3">Kostenlos installieren</a>
-    <p class="hero__links" data-rise style="--i:2"><a class="link" href="demo/">Demo ansehen</a><a class="link" href="https://github.com/the-neyro/nextfix/releases/latest">Version 0.2.3 vom 28.10.2026, was ist neu</a></p>
-  </div>
-  <figure class="wjt" data-wjt>
-    <div class="wjt__window" data-ui>
-      <div class="wjt__chrome" aria-hidden="true"><span class="wjt__dots"><i></i><i></i><i></i></span><span class="wjt__addr">localhost:8000 · Radhaus Elbe</span></div>
-    <div class="wjt__panel">
-      <div class="wjt__head">
-        <p class="wjt__title">Was jetzt tun</p>
-        <p class="wjt__done" aria-live="polite">1 von 5 erledigt</p>
-        <button class="wjt__toggle" type="button" hidden>Anhalten</button>
-      </div>
-      <ol class="wjt__list" aria-label="Aufgaben der Demo-Website Radhaus Elbe, sortiert nach Wirkung">
-        <li class="row is-done" data-slot="0" style="--slot:0">
-          <button class="row__check" type="button" aria-label="Als erledigt markieren: Entferne fehlerhafte Adressen aus der Sitemap" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="row__body">
-            <p class="row__title"><span class="row__nr">1</span>Entferne fehlerhafte Adressen aus der Sitemap<span class="row__strike" aria-hidden="true"><span><span class="row__nr">1</span>Entferne fehlerhafte Adressen aus der Sitemap</span></span></p>
-            <p class="row__why">Die Sitemap soll nur indexierbare Seiten mit Status 200 enthalten.</p>
-            <p class="row__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">einmal einstellen</span><span class="tag">für deine Technik</span></p>
-          </div>
-          <p class="row__effect row__effect--mittel">Wirkung mittel</p>
-        </li>
-        <li class="row is-active" data-slot="1" style="--slot:1">
-          <button class="row__check" type="button" aria-label="Als erledigt markieren: Behebe 1 Seite mit „nicht gefunden“ (404)" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="row__body">
-            <p class="row__title"><span class="row__nr">2</span>Behebe 1 Seite mit „nicht gefunden“ (404)<span class="row__strike" aria-hidden="true"><span><span class="row__nr">2</span>Behebe 1 Seite mit „nicht gefunden“ (404)</span></span></p>
-            <p class="row__why">Die Adresse führt ins Leere: Besucher brechen ab, Google nimmt die Seite aus den Ergebnissen.</p>
-            <p class="row__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
-          </div>
-          <p class="row__effect row__effect--mittel">Wirkung mittel</p>
-        </li>
-        <li class="row" data-slot="2" style="--slot:2">
-          <button class="row__check" type="button" aria-label="Als erledigt markieren: Repariere defekte interne Links auf 1 Seite" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="row__body">
-            <p class="row__title"><span class="row__nr">3</span>Repariere defekte interne Links auf 1 Seite<span class="row__strike" aria-hidden="true"><span><span class="row__nr">3</span>Repariere defekte interne Links auf 1 Seite</span></span></p>
-            <p class="row__why">Ein Link führt auf eine Seite, die es nicht gibt: Besucher und Google laufen ins Leere.</p>
-            <p class="row__tags"><span class="tag tag--dringend">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
-          </div>
-          <p class="row__effect row__effect--mittel">Wirkung mittel</p>
-        </li>
-        <li class="row" data-slot="3" style="--slot:3">
-          <button class="row__check" type="button" aria-label="Als erledigt markieren: Bau 7 Seiten mit wenig Text aus oder nimm sie aus dem Index" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="row__body">
-            <p class="row__title"><span class="row__nr">4</span>Bau 7 Seiten mit wenig Text aus oder nimm sie aus dem Index<span class="row__strike" aria-hidden="true"><span><span class="row__nr">4</span>Bau 7 Seiten mit wenig Text aus oder nimm sie aus dem Index</span></span></p>
-            <p class="row__why">Dünne Seiten ranken schlecht, weil sie wenig Antwort auf Suchanfragen geben.</p>
-            <p class="row__tags"><span class="tag tag--wichtig">Wichtig</span><span class="tag">Text schreiben</span><span class="tag">machst du selbst</span></p>
-          </div>
-          <p class="row__effect row__effect--mittel">Wirkung mittel</p>
-        </li>
-        <li class="row" data-slot="3" style="--slot:3">
-          <button class="row__check" type="button" aria-label="Als erledigt markieren: Gib 4 Seiten eigene Beschreibungen" disabled><span class="row__tick"><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M3 7.4l2.6 2.6L11 4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-          <div class="row__body">
-            <p class="row__title"><span class="row__nr">5</span>Gib 4 Seiten eigene Beschreibungen<span class="row__strike" aria-hidden="true"><span><span class="row__nr">5</span>Gib 4 Seiten eigene Beschreibungen</span></span></p>
-            <p class="row__why">Gleiche Beschreibungen verschenken die Chance, im Suchergebnis zu überzeugen.</p>
-            <p class="row__tags"><span class="tag tag--wichtig">Wichtig</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></p>
-          </div>
-          <p class="row__effect row__effect--gering">Wirkung gering</p>
-        </li>
-        <li class="row row--recheck" data-slot="3" style="--slot:3">
-          <p>Erledigt? Dann prüf noch mal.</p><span class="row__btn" aria-hidden="true">Erneut prüfen</span>
-        </li>
-      </ol>
-      <div class="wjt__foot">Website-Zustand <span class="wjt__score" data-score>64</span> von 100</div>
-    </div>
-    </div>
-    <figcaption class="wjt__cap">Beispiel aus „Was jetzt tun“ für eine erfundene Demo-Website. Erledigtes wird abgehakt, die nächste Aufgabe rückt nach. <a class="link" href="faq/#begriffe">Was heißt Sitemap, Index und 404?</a></figcaption>
-  </figure>
 </section>
 
 <section class="showcase" aria-labelledby="show-h">
-  <div class="showcase__row" data-showcase tabindex="0" role="region" aria-label="Ausschnitte aus Nextfix, seitlich wischbar">
+  <div class="showcase__stage">
+    <div class="showcase__row" data-showcase tabindex="0" role="region" aria-label="Ausschnitte aus Nextfix, seitlich wischbar">
       <figure class="sp" data-sp data-name="Zustand der Website" data-text="Eine Zahl von 0 bis 100, dazu Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit." data-ui>
-        <div class="sp__crop"><img width="760" height="1182" src="assets/img/shot-zustand-schmal-760.webp" srcset="assets/img/shot-zustand-schmal-760.webp 760w, assets/img/shot-zustand-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Website-Zustand mit Gesamtzahl und Teilnoten" loading="lazy"></div>
+        <div class="sp__crop"><img width="760" height="1452" src="assets/img/shot-zustand-schmal-760.webp" srcset="assets/img/shot-zustand-schmal-760.webp 760w, assets/img/shot-zustand-schmal-1140.webp 1140w" sizes="(max-width: 40em) 86vw, 28rem" alt="Website-Zustand 64 von 100 mit Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit" loading="lazy"></div>
         <figcaption><strong>Zustand der Website.</strong> Eine Zahl von 0 bis 100, dazu Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit.</figcaption>
       </figure>
-      <figure class="sp" data-sp data-name="Was jetzt tun" data-text="Die Aufgaben nach Wirkung sortiert, mit „wer macht es“: du selbst oder deine Technik." data-ui>
-        <div class="sp__crop"><img width="760" height="1091" src="assets/img/shot-aufgaben-schmal-760.webp" srcset="assets/img/shot-aufgaben-schmal-760.webp 760w, assets/img/shot-aufgaben-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Liste „Was jetzt tun“ mit Aufgaben, Dringlichkeit und Wirkung" loading="lazy"></div>
-        <figcaption><strong>Was jetzt tun.</strong> Die Aufgaben nach Wirkung sortiert, mit „wer macht es“: du selbst oder deine Technik.</figcaption>
-      </figure>
       <figure class="sp" data-sp data-name="Problem im Detail" data-text="Warum es zählt, was du ändern musst, und welche Seiten betroffen sind." data-ui>
-        <div class="sp__crop"><img width="760" height="1251" src="assets/img/shot-problem-schmal-760.webp" srcset="assets/img/shot-problem-schmal-760.webp 760w, assets/img/shot-problem-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Detailansicht eines Problems mit Begründung und betroffenen Seiten" loading="lazy"></div>
+        <div class="sp__crop"><img width="760" height="1791" src="assets/img/shot-problem-schmal-760.webp" srcset="assets/img/shot-problem-schmal-760.webp 760w, assets/img/shot-problem-schmal-1140.webp 1140w" sizes="(max-width: 40em) 86vw, 28rem" alt="Detailansicht eines Problems mit Begründung und Anleitung" loading="lazy"></div>
         <figcaption><strong>Problem im Detail.</strong> Warum es zählt, was du ändern musst, und welche Seiten betroffen sind.</figcaption>
       </figure>
       <figure class="sp" data-sp data-name="Seite optimieren" data-text="Für eine Seite und einen Suchbegriff: was an Titel und Text fehlt, mit Vorschlag zum Kopieren." data-ui>
-        <div class="sp__crop"><img width="760" height="1594" src="assets/img/shot-seite-optimieren-schmal-760.webp" srcset="assets/img/shot-seite-optimieren-schmal-760.webp 760w, assets/img/shot-seite-optimieren-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Seite optimieren mit „Zuerst diese 3“ und Vorschlag zum Kopieren" loading="lazy"></div>
+        <div class="sp__crop"><img width="760" height="1713" src="assets/img/shot-seite-optimieren-schmal-760.webp" srcset="assets/img/shot-seite-optimieren-schmal-760.webp 760w, assets/img/shot-seite-optimieren-schmal-1140.webp 1140w" sizes="(max-width: 40em) 86vw, 28rem" alt="Seite optimieren mit „Zuerst diese 3“ und Vorschlag zum Kopieren" loading="lazy"></div>
         <figcaption><strong>Seite optimieren.</strong> Für eine Seite und einen Suchbegriff: was an Titel und Text fehlt, mit Vorschlag zum Kopieren.</figcaption>
       </figure>
       <figure class="sp" data-sp data-name="Google-Positionen" data-text="Plätze und Klicks aus Search Console und Bing, hier mit Testdaten." data-ui>
-        <div class="sp__crop"><img width="760" height="930" src="assets/img/shot-positionen-schmal-760.webp" srcset="assets/img/shot-positionen-schmal-760.webp 760w, assets/img/shot-positionen-schmal-1140.webp 1140w" sizes="(max-width: 40em) 80vw, 24vw" alt="Positionen mit Sichtbarkeit, Platz, Klicks und „Fast auf Seite 1“, Testdaten" loading="lazy"></div>
+        <div class="sp__crop"><img width="760" height="1168" src="assets/img/shot-positionen-schmal-760.webp" srcset="assets/img/shot-positionen-schmal-760.webp 760w, assets/img/shot-positionen-schmal-1140.webp 1140w" sizes="(max-width: 40em) 86vw, 28rem" alt="Positionen mit Sichtbarkeit, Platz, Klicks und „Fast auf Seite 1“, Testdaten" loading="lazy"></div>
         <figcaption><strong>Google-Positionen.</strong> Plätze und Klicks aus Search Console und Bing, hier mit Testdaten.</figcaption>
       </figure>
-      <figure class="sp" data-sp data-name="Mit Claude" data-text="Claude ruft die Werkzeuge von Nextfix auf, lokal auf deinem Rechner und ohne Kosten pro Abfrage." data-ui>
-        <div class="sp__crop sp__crop--chat">
-          <div class="chat">
-            <div class="chat__msg chat__msg--du"><span class="chat__who">Du</span><p>Was soll ich auf radhaus-elbe.de als Nächstes tun?</p></div>
-            <div class="chat__tool"><span class="chat__who">Werkzeug</span><code>seo-tool · was_jetzt_tun(projekt_id=1)</code><span class="chat__res">8 Aufgaben, sortiert nach Wirkung</span></div>
-            <div class="chat__msg"><span class="chat__who">Claude</span><p>Zuerst diese drei:</p>
-              <ol><li><strong>Bau 9 Seiten mit wenig Text aus</strong> (Wirkung hoch, machst du selbst).</li><li><strong>Gib 4 Seiten eigene Beschreibungen</strong> (Wirkung hoch).</li><li><strong>Entferne fehlerhafte Adressen aus der Sitemap</strong> (Wirkung mittel).</li></ol></div>
-          </div>
-        </div>
-        <figcaption><strong>Mit Claude.</strong> Claude ruft die Werkzeuge von Nextfix auf, lokal auf deinem Rechner und ohne Kosten pro Abfrage. Beispiel mit der Demo-Website, die Antwort hat Claude formuliert.</figcaption>
+      <figure class="sp" data-sp data-name="Neue Website" data-text="Domain eintragen, ein Name ist optional. Mehr braucht der Start nicht." data-ui>
+        <div class="sp__crop"><img width="760" height="667" src="assets/img/shot-projekte-schmal-760.webp" srcset="assets/img/shot-projekte-schmal-760.webp 760w, assets/img/shot-projekte-schmal-1140.webp 1140w" sizes="(max-width: 40em) 86vw, 28rem" alt="Formular „Neue Website“ mit Domain, Name und Knopf „Projekt anlegen“" loading="lazy"></div>
+        <figcaption><strong>Neue Website.</strong> Domain eintragen, ein Name ist optional. Mehr braucht der Start nicht.</figcaption>
       </figure>
+    </div>
+    <div class="showcase__label" aria-live="polite">
+      <h2 id="show-h" class="showcase__name" data-show-name>Zustand der Website</h2>
+      <p class="showcase__text" data-show-text>Eine Zahl von 0 bis 100, dazu Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit.</p>
+    </div>
   </div>
-  <div class="showcase__label">
-    <h2 id="show-h" class="showcase__name" data-show-name>Zustand der Website</h2>
-    <p class="showcase__text" data-show-text>Eine Zahl von 0 bis 100, dazu Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit.</p>
+</section>
+
+<section class="how wrap grid" aria-labelledby="ablauf-h" id="durchlauf">
+  <h2 id="ablauf-h" class="how__head h2" data-reveal>8&nbsp;Aufgaben. Eine&nbsp;zuerst.</h2>
+  <div class="how__side">
+    <figure class="how__stage ui" data-ui data-stage data-state="1" aria-label="Ausschnitt aus „Was jetzt tun“ in Nextfix, Demo-Website Radhaus Elbe. Er wechselt mit dem Text links.">
+      <div class="ui-zustand">
+        <div>
+          <p class="ui-zustand__titel">Website-Zustand</p>
+          <p class="ui-zustand__zahl"><span class="ui-swap nums"><span class="a">64</span><span class="b">91</span></span><small>von 100</small></p>
+        </div>
+        <div>
+          <p class="ui-zustand__satz ui-swap"><span class="a">Noch 16 Punkte bis „gut“.</span><span class="b">Gut gepflegt. Letzte Prüfung: 64 <span class="gut">(▲ 26,6)</span></span></p>
+          <div class="ui-skala" aria-hidden="true"><div class="ui-skala__spur"><div class="ui-skala__voll"></div></div><span class="ui-skala__vorher"></span></div>
+        </div>
+      </div>
+      <div class="ui-kopf"><p class="ui__title">Was jetzt tun</p><p class="ui-swap nums"><span class="a">8 Aufgaben</span><span class="b">3 Aufgaben</span></p></div>
+      <ol class="ui-aufgaben">
+        <li class="ui-aufgabe" data-r="1" data-nr="1">
+          <p class="was">Entferne fehlerhafte Adressen aus der Sitemap</p>
+          <p class="wirkung mittel">Wirkung mittel</p>
+          <div class="mehr"><div>
+            <p class="warum">Die Sitemap ist die Liste, mit der du Google deine Seiten meldest.</p>
+            <p class="info"><span class="marke dringend">Dringend</span><span class="marke leise">einmal einstellen</span><span class="marke leise">für deine Technik</span></p>
+          </div></div>
+        </li>
+        <li class="ui-aufgabe" data-r="2" data-nr="2"><p class="was">Behebe 1 Seite mit „nicht gefunden“ (404)</p><p class="wirkung mittel">Wirkung mittel</p></li>
+        <li class="ui-aufgabe" data-r="3" data-nr="3"><p class="was">Repariere defekte interne Links auf 1 Seite</p><p class="wirkung mittel">Wirkung mittel</p></li>
+        <li class="ui-aufgabe" data-r="4" data-nr="4"><p class="was">Bau 7 Seiten mit wenig Text aus oder nimm sie aus dem Index</p><p class="wirkung mittel">Wirkung mittel</p></li>
+        <li class="ui-aufgabe" data-r="5" data-nr="5"><p class="was">Gib 4 Seiten eigene Beschreibungen</p><p class="wirkung gering">Wirkung gering</p></li>
+        <li class="ui-aufgabe" data-r="6" data-nr="6" data-nr3="1">
+          <p class="was">Ergänze Bildbeschreibungen (alt) auf 3 Seiten</p>
+          <p class="wirkung gering">Wirkung gering</p>
+          <div class="mehr"><div>
+            <p class="warum">Der Alternativtext beschreibt ein Bild in Worten: Screenreader lesen ihn blinden Menschen vor, und Google versteht damit, was das Bild zeigt.</p>
+            <p class="info"><span class="marke wichtig">Wichtig</span><span class="marke leise">kurz je Seite</span><span class="marke leise">machst du selbst</span></p>
+          </div></div>
+        </li>
+        <li class="ui-aufgabe" data-r="7" data-nr="7" data-nr3="2"><p class="was">Kürze den Seitentitel von 2 Seiten auf 70 Zeichen</p><p class="wirkung gering">Wirkung gering</p></li>
+        <li class="ui-aufgabe" data-r="8" data-nr="8" data-nr3="3"><p class="was">Schreib eine Beschreibung für 1 Seite</p><p class="wirkung gering">Wirkung gering</p></li>
+      </ol>
+      <p class="ui-erledigt"><span class="gut ui-haken" aria-hidden="true"></span> Seit der letzten Prüfung erledigt: Falsche Seiten in sitemap.xml, Seiten mit 4xx-Statuscode, Defekte interne Links, Wenig Text (&lt; 200 Wörter im Hauptinhalt), Doppelte Meta-Descriptions</p>
+    </figure>
+  </div>
+  <div class="how__steps">
+    <div class="how__step" data-step="1">
+      <h3 class="how__say">Erst prüft Nextfix deine Website.</h3>
+      <p>Die Demo „Radhaus Elbe“ hat 17 Seiten. 16 Prüfungen schlagen an, zusammen 55 Fundstellen. Der Website-Zustand liegt bei 64 von 100.</p>
+    </div>
+    <div class="how__step" data-step="2">
+      <h3 class="how__say">Dann ordnet es 55 Fundstellen zu 8 Aufgaben.</h3>
+      <p>Nach Wirkung sortiert: Die wichtigste steht oben, mit dem Grund dazu. Große SEO-Tools zeigen dir das Rauschen, Nextfix zeigt dir den Anfang.</p>
+    </div>
+    <div class="how__step" data-step="3">
+      <h3 class="how__say">Zuletzt prüfst du nach: 91 statt 64.</h3>
+      <p>Nach fünf erledigten Aufgaben bleiben drei mit geringer Wirkung. Gemessen am 28.10.2026 mit Version 0.2.3, beide Fassungen lokal. <a class="link" href="blog/vier-aufgaben-spaeter/">So haben wir gemessen</a></p>
+    </div>
   </div>
 </section>
 
@@ -166,23 +167,10 @@
   <div class="stat stat--c" data-reveal style="--i:2"><strong>0 €</strong><span>kein Abo, keine Guthaben, keine bezahlten Schnittstellen</span></div>
 </section>
 
-<section class="section wrap how" aria-labelledby="ablauf-h" id="durchlauf">
-  <h2 id="ablauf-h" class="h2" data-reveal>8&nbsp;Aufgaben. Eine&nbsp;zuerst.</h2>
-  <p class="how__lead" data-reveal>So sieht die erfundene Demo-Website „Radhaus Elbe“ nach einer Prüfung aus: 17 Seiten, 16 Prüfungen schlagen an, zusammen 55 Fundstellen. Große SEO-Tools zeigen dir dieses Rauschen. Nextfix fasst gleiche Probleme zusammen, sortiert sie nach Wirkung und holt heraus, was als Nächstes zählt.</p>
-  <figure class="how__diagram" data-diagram role="img" aria-label="Diagramm: 55 verstreute Fundstellen werden zu einem Band gebündelt und dann in 8 Aufgaben und Feinschliff geordnet, die erste Aufgabe ist hervorgehoben">
-  </figure>
-  <div class="how__cols">
-    <div data-reveal><h3>Prüfen</h3><p>Nextfix ruft deine Seiten nacheinander ab, ein paar Minuten, und findet hier 55 Stellen.</p></div>
-    <div data-reveal style="--i:1"><h3>Bündeln</h3><p>Gleiche Probleme werden zu 8 Aufgaben zusammengefasst, alles Kleine bleibt als Feinschliff.</p></div>
-    <div data-reveal style="--i:2"><h3>Reparieren</h3><p>Du gehst die Liste von oben ab, in deinem Tempo, im CMS oder mit Hilfe. Der Verlauf zeigt, was besser wurde.</p></div>
-  </div>
-</section>
-
 <section class="proof" aria-labelledby="proof-h">
   <article class="proof__card" data-vn data-vorher="64" data-nachher="91">
     <h2 id="proof-h" class="proof__h">Prüfprotokoll Radhaus Elbe</h2>
     <p class="proof__demo">Erfundene Demo-Website, echte Messung mit Nextfix.</p>
-    <figure class="proof__photo"><img src="assets/img/pruefhalle-900.webp" srcset="assets/img/pruefhalle-900.webp 900w, assets/img/pruefhalle-1600.webp 1600w" sizes="(max-width: 50em) 80vw, 46vw" width="1600" height="900" loading="lazy" alt="Eine Autowerkstatt: ein orangefarbener Käfer ohne Räder auf der Hebebühne, Werkzeug auf dem Boden"><figcaption>Archivbild einer Werkstatt, Symbolbild für das Protokoll. Nachweis im Fuß.</figcaption></figure>
     <div class="proof__slip" data-reveal>
       <div><strong class="vn__zahl">64</strong><span class="vn__label">vorher, von 100</span><small>8 Aufgaben, Technik 79, Inhalt 81, 17 Seiten</small></div>
       <div aria-hidden="true" class="proof__pfeil">→</div>
@@ -237,27 +225,27 @@
     <ul class="cmd__list">
       <li class="cmd__row is-selected" data-cmd="website-check">
         <button class="cmd__name" type="button" aria-expanded="true" aria-controls="cmd-0">Website-Check</button>
-        <div class="cmd__more" id="cmd-0"><p>111 Prüfungen zu Technik und Inhalt, eine Zahl für den Zustand und die Liste „Was jetzt tun“.</p><img src="assets/img/tile-website-check-600.webp" srcset="assets/img/tile-website-check-600.webp 600w, assets/img/tile-website-check-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Website-Zustand 49 von 100 mit Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit"></div>
+        <div class="cmd__more" id="cmd-0"><p>111 Prüfungen zu Technik und Inhalt, eine Zahl für den Zustand und die Liste „Was jetzt tun“.</p><img src="assets/img/shot-uebersicht-breit-800.webp" srcset="assets/img/shot-uebersicht-breit-800.webp 800w, assets/img/shot-uebersicht-breit-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="683" loading="lazy" alt="Website-Zustand 64 von 100 mit Teilnoten für Technik, Inhalt, KI-Suche und Ladezeit"></div>
       </li>
       <li class="cmd__row" data-cmd="ladezeit">
         <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-1">Ladezeit</button>
-        <div class="cmd__more" id="cmd-1"><p>Wie schnell deine Seiten auf einem simulierten Handy laden, gemessen auf deinem Rechner.</p><img src="assets/img/tile-ladezeit-600.webp" srcset="assets/img/tile-ladezeit-600.webp 600w, assets/img/tile-ladezeit-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Ladezeit der Demo-Website: mobil 100, Desktop 100"></div>
+        <div class="cmd__more" id="cmd-1"><p>Wie schnell deine Seiten auf einem simulierten Handy laden, gemessen auf deinem Rechner.</p><img src="assets/img/shot-ladezeit-breit-800.webp" srcset="assets/img/shot-ladezeit-breit-800.webp 800w, assets/img/shot-ladezeit-breit-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="694" loading="lazy" alt="Ladezeit der Demo-Website: mobil 100, Desktop 100"></div>
       </li>
       <li class="cmd__row" data-cmd="google-positionen">
         <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-2">Google-Positionen</button>
-        <div class="cmd__more" id="cmd-2"><p>Plätze und Klicks aus der Search Console und von Bing, sobald du sie einrichtest.</p><img src="assets/img/tile-positionen-600.webp" srcset="assets/img/tile-positionen-600.webp 600w, assets/img/tile-positionen-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Positionen mit Sichtbarkeit, durchschnittlichem Platz, Klicks und „Fast auf Seite 1“, mit Testdaten"></div>
+        <div class="cmd__more" id="cmd-2"><p>Plätze und Klicks aus der Search Console und von Bing, sobald du sie einrichtest.</p><img src="assets/img/shot-positionen-breit-800.webp" srcset="assets/img/shot-positionen-breit-800.webp 800w, assets/img/shot-positionen-breit-1300.webp 1300w" sizes="(max-width: 40em) 80vw, 20rem" width="1300" height="1263" loading="lazy" alt="Positionen mit Sichtbarkeit, durchschnittlichem Platz, Klicks und „Fast auf Seite 1“, mit Testdaten"></div>
       </li>
       <li class="cmd__row" data-cmd="suchbegriffe finden">
         <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-3">Suchbegriffe finden</button>
-        <div class="cmd__more" id="cmd-3"><p>Ideen, wonach deine Kunden suchen, aus den Vorschlägen beim Tippen.</p><img src="assets/img/tile-suchbegriffe-600.webp" srcset="assets/img/tile-suchbegriffe-600.webp 600w, assets/img/tile-suchbegriffe-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Suchbegriff-Ideen mit Suchabsicht, Gruppe und Volumen, mit Testdaten"></div>
+        <div class="cmd__more" id="cmd-3"><p>Ideen, wonach deine Kunden suchen, aus den Vorschlägen beim Tippen.</p><img src="assets/img/shot-suchbegriffe-breit-800.webp" srcset="assets/img/shot-suchbegriffe-breit-800.webp 800w, assets/img/shot-suchbegriffe-breit-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="542" loading="lazy" alt="Suchbegriff-Ideen mit Suchabsicht, Gruppe und Volumen, mit Testdaten"></div>
       </li>
       <li class="cmd__row" data-cmd="seite optimieren">
         <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-4">Seite optimieren</button>
-        <div class="cmd__more" id="cmd-4"><p>Für eine Seite und einen Suchbegriff: was du an Titel und Text änderst, mit Vorschlag zum Kopieren.</p><img src="assets/img/tile-seite-optimieren-600.webp" srcset="assets/img/tile-seite-optimieren-600.webp 600w, assets/img/tile-seite-optimieren-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="„Zuerst diese 3“ mit einem Vorschlag zum Kopieren"></div>
+        <div class="cmd__more" id="cmd-4"><p>Für eine Seite und einen Suchbegriff: was du an Titel und Text änderst, mit Vorschlag zum Kopieren.</p><img src="assets/img/shot-seite-optimieren-breit-800.webp" srcset="assets/img/shot-seite-optimieren-breit-800.webp 800w, assets/img/shot-seite-optimieren-breit-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="1795" loading="lazy" alt="„Zuerst diese 3“ mit einem Vorschlag zum Kopieren"></div>
       </li>
       <li class="cmd__row" data-cmd="ki-suche">
         <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-5">KI-Suche</button>
-        <div class="cmd__more" id="cmd-5"><p>Ob ChatGPT, Claude und Co. deine Seite lesen und verstehen können.</p><img src="assets/img/tile-ki-suche-600.webp" srcset="assets/img/tile-ki-suche-600.webp 600w, assets/img/tile-ki-suche-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="900" loading="lazy" alt="Bereich KI-Suche mit 83 Prozent, fehlender llms.txt und Antwort-Signalen"></div>
+        <div class="cmd__more" id="cmd-5"><p>Ob ChatGPT, Claude und Co. deine Seite lesen und verstehen können.</p><img src="assets/img/shot-ki-suche-breit-800.webp" srcset="assets/img/shot-ki-suche-breit-800.webp 800w, assets/img/shot-ki-suche-breit-1200.webp 1200w" sizes="(max-width: 40em) 80vw, 20rem" width="1200" height="1125" loading="lazy" alt="Bereich KI-Suche mit 83 Prozent, fehlender llms.txt und Antwort-Signalen"></div>
       </li>
       <li class="cmd__row" data-cmd="berichte">
         <button class="cmd__name" type="button" aria-expanded="false" aria-controls="cmd-6">Berichte</button>
@@ -351,7 +339,6 @@
       </details></div>
     <div class="about__cta"><a class="button button--light" href="installation/">Kostenlos installieren</a><a class="link" href="installation/#claude">So richtest du Claude ein</a></div>
   </div>
-  <figure class="about__plakette"><img src="assets/img/werkstatt-hebebuehne-640.webp" srcset="assets/img/werkstatt-hebebuehne-640.webp 640w, assets/img/werkstatt-hebebuehne-1000.webp 1000w" sizes="(max-width: 50em) 86vw, 38vw" width="1000" height="1498" loading="lazy" alt="Ein Mechaniker in Arbeitskleidung geht durch eine Werkstatthalle, links ein Auto auf der Hebebühne"></figure>
 </section>
 
 <section class="faq" aria-labelledby="faq-h">
