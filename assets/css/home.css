@@ -288,6 +288,22 @@ html:not(.js) .how__stage { position: static; }
 @media (max-width: 64em) { .faq__head { grid-column: 1 / -1; margin-bottom: 2rem; } .faq__text, .faq__more { grid-column: 1 / -1; } }
 @media (max-width: 50em) { .faq__text { columns: 1; font-size: 1rem; } .fq { margin-bottom: 1.125rem; } .faq__head { font-size: 1.5rem; } }
 
+/* ---------- Fuß: eine leise Zeile ---------- */
+.foot-line { margin-top: max(30svh, var(--section)); padding: 0 var(--edge) 1.875rem; font-size: var(--step-small); line-height: 1.5; color: var(--muted); }
+.foot-line p { max-width: none; }
+.foot-line a { color: var(--ink); text-decoration: none; display: inline-block; padding-block: 0.7rem; }
+.foot-line__blog { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 1.5rem; }
+.foot-line__main { display: grid; grid-template-columns: 1fr auto 1fr; align-items: baseline; gap: 0 1.5rem; }
+.foot-line__main nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1.5rem; }
+.foot-line__main > p:last-child { text-align: right; }
+@media (hover: hover) and (pointer: fine) { .foot-line a:hover { text-decoration: underline; text-underline-offset: 0.25em; } }
+@media (max-width: 50em) {
+  .foot-line { margin-top: 20svh; padding-bottom: 1.5rem; font-size: 0.875rem; }
+  .foot-line__main { display: block; }
+  .foot-line__main nav { justify-content: flex-start; }
+  .foot-line__main > p:last-child { text-align: left; }
+}
+
 /* ---------- Einblenden der Abschnittsteile ---------- */
 @media (prefers-reduced-motion: no-preference) {
   .js .hero [data-rise] { opacity: 0; transform: translateY(22px); animation: rise var(--t-reveal) var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 90ms + 120ms); }
