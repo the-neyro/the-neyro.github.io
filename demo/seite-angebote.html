@@ -21,28 +21,13 @@
   <aside class="leiste" id="leiste">
     <div class="leiste-oben">
       <a class="marke-tool" href="projekte.html">
-        <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="var(--akzent)"/>
-          <path d="M7.5 16.5l5.2 5.2L24.5 9.9M18.4 9.6h6.4v6.4" fill="none" stroke="var(--auf-akzent)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <img src="static/logo.svg" width="28" height="28" alt="">
         Nextfix
       </a>
       <button class="zweit klein-knopf menue-knopf" type="button" aria-expanded="false" aria-controls="leiste"
               onclick="var l=document.getElementById('leiste');var o=l.classList.toggle('offen');this.setAttribute('aria-expanded',o)">Menü</button>
     </div>
     <div class="menue-inhalt">
-      <details class="projektwahl">
-        <summary>
-          <span style="min-width:0">
-            <span class="name">Radhaus Elbe</span><span class="domain">radhaus-elbe.de</span>
-            
-          </span>
-        </summary>
-        <ul>
-          
-          <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
-          
-          <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
-        </ul>
-      </details>
 
       
       <nav aria-label="Module">
@@ -74,6 +59,25 @@
       </div>
     </div>
   </aside>
+  <header class="oben">
+    <div class="oben-objekt">
+      <span class="name">radhaus-elbe.de</span>
+    </div>
+  <details class="projektwahl">
+    <summary>
+      <span style="min-width:0">
+        <span class="name">Radhaus Elbe</span><span class="domain">1 Website</span>
+        
+      </span>
+    </summary>
+    <ul>
+      
+      <li><a href="index.html" aria-current="true">Radhaus Elbe<br><span class="klein">radhaus-elbe.de</span></a></li>
+      
+      <li class="neu"><a href="projekte.html">Alle Projekte und neues anlegen</a></li>
+    </ul>
+  </details>
+  </header>
   <main class="inhalt">
 <div class="brotkrumen"><a href="crawls-1-seiten.html">Geprüfte Seiten</a></div><div class="kopf"><div><h1 class="url" style="font-family:var(--schrift)">/angebote</h1><div class="unter">https://radhaus-elbe.de/angebote</div></div><div style="display:flex; gap:8px; flex-wrap:wrap">
   <form onsubmit="return false">
