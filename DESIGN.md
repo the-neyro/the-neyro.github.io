@@ -1,11 +1,12 @@
 # Gestaltung der Nextfix-Website
 
-> **Fassung 3 (2026-10-28, Redesign „Werkstattauftrag“):**
-> - Richtung „Dressed as something else“ (Seed 1269361443), geliehene Kategorie Kfz-Werkstatt / Hauptuntersuchung. Idee: Die Liste „Was jetzt tun“ wird zum Werkstattauftrag, die Website kommt auf den Prüfstand wie ein Auto. Das lebendige Ding bleibt der Titel-Check mit Google-Vorschau.
-> - Farbe „Teal on paper“: Papier #f7f9f8, ein Petrol #06525c für Schrift, Flächen und Knöpfe, kein Schwarz. Violett nur noch im Logo-Zeichen und in den echten Screenshots.
-> - Schrift: Archivo variabel, lokal (Titel Breite 125, Gewicht 800, Versalien; Text Breite 100). Fira Sans raus, Fira Mono nur für Code. Eine Ecke für alles: eckig, rund nur die Plakette.
-> - Held: „NÄCHSTER FIX.“ im Feld, der Werkstattauftrag 5° gedreht über der Naht, Signatur Rollladen. Danach Showcase, gestufte Zahlenkacheln, Diagramm 55 Fundstellen → 8 Aufgaben (aus FUNDE/AUFGABEN in site.js), Prüfprotokoll mit 49 → 91, Plakatzeilen, Vergleich, Befehlsliste, Titel-Check, Tafel, FAQ-Bänder, Fuß mit Wortmarke.
-> - Bilder: Screenshots, Video und zwei Werkstattfotos (CC BY 2.0, Shixart1985, Nachweis im Fuß). Blogtitel bleiben in Satzschrift (zu lang für Versalien).
+> **Fassung 4 (2026-10-29, ein Design für App und Website):**
+> - Idee: Wo alle SEO-Tools mit Dashboards schreien, zeigt die Seite leise eine Sache: die eine nächste Aufgabe, wie die App. Richtung „The quiet instrument“.
+> - Tokens 1:1 aus der App (`app/web/static/app.css`): Grund #fbf7f8, Text #111827, Himbeere #b8336a (Leiter bis #6b1d3e), Radius 8 px; dunkel per `prefers-color-scheme` (Grund #0e0e0f, Akzent #e2759f). `theme-color` je Schema. Ein Akzent je Bildschirm, Knöpfe nur Himbeere.
+> - Schrift: DM Sans variabel, lokal (Gewicht 500 für Titel, 600 für Knöpfe und Namen). Fira Mono nur für echten Code.
+> - Kante: eine linke Kante `--edge` für Kopf, Held, Text, Module und Fuß, auf allen Seiten gleich. Lesespalte höchstens 62ch, linksbündig an der Kante.
+> - Regeln: keine Eyebrows, keine Haarlinien und keine Seitenstreifen außerhalb von Tabellen und Fragmenten, keine Schatten in Ruhe. Bilder sind echte App-Screenshots oder HTML-Fragmente (`data-ui`), keine Fotos.
+> - Fuß: eine leise Zeile mit „Neu im Blog“ darüber, auf jeder Seite aus `tools/inhalte.py`. Logo `favicon.svg`, OG-Bilder aus `tools/og-*.html`.
 
 > **Fassung 2 (2026-10-17, nach Review mit 7 Prüfern, siehe `.review/ZUSAMMENFASSUNG.md`):**
 > - Farbe: Graphit-Text (#1c1b22) auf hellem Papier (#f7f6f3), **Markenviolett #5B3FBF als einziger Akzent**, tiefes Violett (#2a1f5c) für Prüfungen und Fuß. Oxblood ist raus: wirkte wie Mahnung/„Dringend“ und brach mit dem Produkt.
