@@ -341,25 +341,15 @@
   <p class="typer__cta"><a class="button" href="installation/">Das für jede Seite deiner Website: Nextfix installieren</a></p>
 </section>
 
-<section class="about" aria-labelledby="wer-h">
-  <h2 id="wer-h" class="about__h">Deine Daten bleiben bei dir.</h2>
-  <div class="about__text">
-    <div><h3>Für wen</h3><p>Für Handwerksbetriebe, Freiberufler, Vereine und alle, die eine Website betreuen. Ohne Fachwissen: die Liste sagt, was du selbst schaffst und was dein Webbetreuer macht.</p></div>
-    <div><h3>Auf deinem Rechner</h3><p>Ergebnisse, Verlauf und Zugangsdaten liegen in einer Datei bei dir. Raus geht nur der Abruf deiner Website und, wenn du es einrichtest, Search Console, Bing und Open PageRank.</p></div>
-    <div><h3>Mit Claude</h3><p>Nextfix bringt einen MCP-Server mit 51 Werkzeugen mit. So trägst du ihn in Claude Code ein:</p>
-      <details class="about__dev"><summary>Für Entwickler: Konfiguration</summary>
-      <div class="code"><pre><code>{
-  "mcpServers": {
-    "seo-tool": {
-      "command": "/pfad/zu/nextfix/.venv/bin/python",
-      "args": ["-m", "app.mcp_server"],
-      "env": { "PYTHONPATH": "/pfad/zu/nextfix" }
-    }
-  }
-}</code></pre><button class="code__copy" type="button" hidden>Kopieren</button></div>
-      </details></div>
-    <div class="about__cta"><a class="button button--light" href="installation/">Kostenlos installieren</a><a class="link" href="installation/#claude">So richtest du Claude ein</a></div>
-  </div>
+<section class="stats" aria-labelledby="stats-h">
+  <h2 id="stats-h" class="stats__h" data-reveal>Nextfix in Zahlen</h2>
+  <dl class="stats__list">
+    <div class="stat" data-reveal><dt>111</dt><dd>Prüfungen zu Technik und Inhalt. <a class="link" href="pruefungen/">Alle ansehen</a></dd></div>
+    <div class="stat" data-reveal style="--i:1"><dt>8</dt><dd>Bereiche, von Crawlbarkeit bis KI-Suche.</dd></div>
+    <div class="stat" data-reveal style="--i:2"><dt>0 €</dt><dd>Kein Abo, keine Guthaben, keine bezahlten Schnittstellen.</dd></div>
+    <div class="stat" data-reveal style="--i:3"><dt>51</dt><dd>Werkzeuge im MCP-Server, mit dem Claude Nextfix bedient.</dd></div>
+    <div class="stat" data-reveal style="--i:4"><dt>64 → 91</dt><dd>Zustand der Demo-Website Radhaus Elbe nach fünf erledigten Aufgaben, gemessen am 28.10.2026. <a class="link" href="blog/vier-aufgaben-spaeter/">So haben wir gemessen</a>. Was das bei Google bringt, kann niemand versprechen.</dd></div>
+  </dl>
 </section>
 
 <section class="faq" aria-labelledby="faq-h">
