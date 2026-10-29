@@ -196,22 +196,36 @@ html:not(.js) .how__stage { position: static; }
 @media (max-width: 56em) { .typer { grid-template-columns: minmax(0, 1fr); } .typer .typer__answer, .typer .serp { grid-column: 1; } .typer .serp { margin-top: 2rem; } }
 
 
-.cmp { margin-top: 2rem; overflow-x: auto; border: 1px solid var(--surface-2); border-radius: 10px; background: #fff; }
-.cmp:focus-visible { outline-offset: 2px; }
-.cmp__table { width: 100%; min-width: 56rem; border-collapse: collapse; font-size: 0.9375rem; line-height: 1.4; }
-.cmp__table th, .cmp__table td { padding: 0.8rem 1rem; text-align: left; vertical-align: top; border-top: 1px solid var(--surface); } /* taste-skill-ignore: echte Tabelle */
-.cmp__table thead th { border-top: 0; font-weight: 600; font-size: 1rem; }
-.cmp__table thead th span { font-weight: 400; color: var(--muted); font-size: 0.8125rem; }
-.cmp__table tbody th { font-weight: 500; color: var(--muted); width: 15rem; }
-.cmp__us { background: rgb(6 82 92 / 0.08); font-weight: 600; color: var(--ink); }
-thead .cmp__us { color: var(--accent); }
-.cmp__no { color: var(--muted); font-weight: 500; }
-.cmp__src { margin-top: 0.85rem; font-size: var(--step-small); color: var(--muted); max-width: 90ch; }
+
+/* ---------- Beweis: der faire Vergleich als Tabelle, ohne Linien ---------- */
+.proof { padding: var(--section) var(--edge) 0; }
+.proof__h { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 500; line-height: 1.08; letter-spacing: -0.02em; max-width: none; }
+.proof__h span { display: block; }
+.proof__h span + span { padding-left: 16.6667%; } /* zwei von zwölf Spalten eingerückt */
+.proof__lead { margin-top: 1.5rem; max-width: 56ch; color: var(--muted); }
+.cmp { margin-top: 4.5rem; overflow-x: auto; }
+.cmp:focus-visible { outline-offset: 4px; }
+.cmp__table { width: 100%; border-collapse: collapse; font-size: 1rem; line-height: 1.45; }
+.cmp__table th, .cmp__table td { padding: 0.875rem 1rem; text-align: left; vertical-align: top; border: 0; }
+.cmp__table tbody tr:nth-child(odd) { background: var(--surface); } /* Zebra-Ton statt Linien */
+.cmp__table thead th { font-weight: 600; padding-bottom: 1rem; }
+.cmp__table thead th span { font-weight: 400; color: var(--muted); font-size: var(--step-small); }
+.cmp__table tbody th { font-weight: 500; width: 12rem; }
+.cmp__table td { color: var(--muted); }
+.cmp__table td.cmp__us { color: var(--ink); font-weight: 500; }
+.cmp__src { margin-top: 1.25rem; font-size: var(--step-small); color: var(--muted); max-width: 90ch; }
 .cmp__src a { color: inherit; }
-.claude__dev { margin-top: 1.25rem; }
-.claude__dev summary { cursor: pointer; font-weight: 600; color: #fff; padding-block: 0.4rem; }
-.claude__dev summary:focus-visible { outline-color: var(--field-ink); }
-.claude__dev[open] summary { margin-bottom: 0.25rem; }
+@media (max-width: 50em) {
+  .proof__h { font-size: 11vw; }
+  .cmp { margin-top: 2.5rem; }
+  .cmp__table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .cmp__table, .cmp__table tbody, .cmp__table tr, .cmp__table th, .cmp__table td { display: block; }
+  .cmp__table tbody tr { padding: 0.875rem 1rem; }
+  .cmp__table th, .cmp__table td { padding: 0; }
+  .cmp__table tbody th { width: auto; font-weight: 600; }
+  .cmp__table td { margin-top: 0.3rem; }
+  .cmp__table td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--ink); }
+}
 
 /* ---------- Funktionen: Befehlsliste ---------- */
 .cmd__input { width: 100%; min-height: 4.5rem; font-size: clamp(1.5rem, 3vw, 2.75rem); font-weight: 700; padding: 0 1.25rem; background: var(--surface); border: 0; color: var(--ink); }
