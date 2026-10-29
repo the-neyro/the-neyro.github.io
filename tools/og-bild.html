@@ -1,39 +1,34 @@
 <!doctype html>
-<!-- Vorlage für das Vorschaubild beim Teilen (1200 × 630). Erzeugen: tools/og_bild.py -->
+<!-- Vorlage für das Vorschaubild beim Teilen (1200 × 630), Fassung 4. Erzeugen: tools/og_bild.py -->
 <html lang="de">
 <head>
 <meta charset="utf-8">
 <style>
-  @font-face { font-family: "Fira Sans Condensed"; font-weight: 500; src: url("../assets/fonts/fira-sans-condensed-latin-500-normal.woff2") format("woff2"); }
-  @font-face { font-family: "Fira Sans"; font-weight: 400; src: url("../assets/fonts/fira-sans-latin-400-normal.woff2") format("woff2"); }
-  @font-face { font-family: "Fira Sans"; font-weight: 600; src: url("../assets/fonts/fira-sans-latin-600-normal.woff2") format("woff2"); }
+  @font-face { font-family: "DM Sans"; font-weight: 400 700; src: url("../assets/fonts/dm-sans-latin-var.woff2") format("woff2"); }
   html, body { margin: 0; }
-  body { width: 1200px; height: 630px; background: #f7f6f3; color: #1c1b22; font-family: "Fira Sans", sans-serif;
-    display: grid; grid-template-rows: auto 1fr auto; padding: 44px 56px; box-sizing: border-box; overflow: hidden; }
-  .kopf { display: flex; justify-content: space-between; align-items: baseline; font-size: 26px; }
-  .marke { display: inline-flex; align-items: center; gap: 12px; font-family: "Fira Sans Condensed"; font-weight: 500; font-size: 40px; letter-spacing: -0.01em; }
-  .satz { align-self: center; display: grid; grid-template-columns: 1fr 470px; column-gap: 48px; align-items: center; }
-  .wort { color: #1c1b22; font-family: "Fira Sans Condensed"; font-weight: 500; font-size: 92px; line-height: 0.96; letter-spacing: -0.025em; }
-  .karte { box-shadow: 0 2px 6px rgb(28 27 34 / 0.12); background: #fff; color: #1B1F2A; border-radius: 6px; padding: 26px 30px; display: grid; gap: 12px; }
-  .karte b { font-size: 30px; line-height: 1.2; font-weight: 600; }
-  .tags { display: flex; gap: 8px; font-size: 19px; color: #596070; }
-  .tag { border: 1px solid #DCDFE4; border-radius: 4px; padding: 2px 9px; }
-  .tag--d { background: #FBEAE8; color: #C0261A; border-color: #FBEAE8; }
-  .wirkung { color: #1D7544; font-weight: 600; font-size: 21px; }
-  .zwei { grid-column: 1 / -1; justify-self: end; }
-  .fuss { font-size: 24px; color: #5c5a66; }
+  body { width: 1200px; height: 630px; background: #fbf7f8; color: #111827; font-family: "DM Sans", sans-serif;
+    display: grid; grid-template-rows: auto 1fr auto; padding: 52px 64px; box-sizing: border-box; overflow: hidden; }
+  .marke { display: inline-flex; align-items: center; gap: 14px; font-weight: 600; font-size: 38px; letter-spacing: -0.02em; }
+  .satz { align-self: center; display: grid; grid-template-columns: 1fr 440px; column-gap: 56px; align-items: center; }
+  .wort { font-weight: 500; font-size: 80px; line-height: 1.04; letter-spacing: -0.03em; }
+  .karte { background: #fdf2f7; box-shadow: inset 0 0 0 1px #f8dbe8; border-radius: 8px; padding: 26px 28px; display: grid; gap: 14px; }
+  .karte b { font-size: 28px; line-height: 1.25; font-weight: 600; color: #6b1d3e; }
+  .tags { display: flex; gap: 8px; font-size: 18px; color: #5f6672; }
+  .tag { border-radius: 999px; padding: 2px 12px; background: #fff; }
+  .wirkung { font-weight: 600; font-size: 20px; }
+  .fuss { font-size: 24px; color: #5f6672; }
 </style>
 </head>
 <body>
-  <div class="kopf"><span class="marke"><svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#5B3FBF"/><path d="M7.5 16.5l5.2 5.2L24.5 9.9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.4 9.6h6.4v6.4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Nextfix</span><span style="color:#5B3FBF;font-weight:600">kostenloses SEO-Tool</span></div>
+  <div><span class="marke"><svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#b8336a"/><path d="M9.5 24.5V7.5" fill="none" stroke="#f2b8cf" stroke-width="3.6" stroke-linecap="round"/><path d="M9.5 8l9.5 15 6.2-14.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Nextfix</span></div>
   <div class="satz">
     <span class="wort">Was deine Website als Nächstes braucht.</span>
     <div class="karte">
-      <b>Gib 4 Seiten eigene Beschreibungen</b>
-      <div class="tags"><span class="tag tag--d">Dringend</span><span class="tag">kurz je Seite</span><span class="tag">machst du selbst</span></div>
-      <span class="wirkung">Wirkung hoch</span>
+      <b>Entferne fehlerhafte Adressen aus der Sitemap</b>
+      <div class="tags"><span class="tag">einmal einstellen</span><span class="tag">für deine Technik</span></div>
+      <span class="wirkung">Wirkung mittel</span>
     </div>
   </div>
-  <div class="fuss">Prüft deine Website, sagt dir, was zuerst dran ist. Läuft auf deinem Rechner, quelloffen.</div>
+  <div class="fuss">Kostenloses SEO-Tool. Läuft auf deinem Rechner, quelloffen.</div>
 </body>
 </html>

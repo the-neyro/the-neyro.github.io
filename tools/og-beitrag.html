@@ -1,26 +1,22 @@
 <!doctype html>
-<!-- Vorlage für das Vorschaubild eines Blogbeitrags (1200 × 630). Titel und Rubrik setzt tools/og_bild.py. -->
+<!-- Vorlage für das Vorschaubild eines Blogbeitrags (1200 × 630), Fassung 4. Titel und Rubrik setzt tools/og_bild.py. -->
 <html lang="de">
 <head>
 <meta charset="utf-8">
 <style>
-  @font-face { font-family: "Fira Sans Condensed"; font-weight: 500; src: url("../assets/fonts/fira-sans-condensed-latin-500-normal.woff2") format("woff2"); }
-  @font-face { font-family: "Fira Sans"; font-weight: 400; src: url("../assets/fonts/fira-sans-latin-400-normal.woff2") format("woff2"); }
-  @font-face { font-family: "Fira Sans"; font-weight: 600; src: url("../assets/fonts/fira-sans-latin-600-normal.woff2") format("woff2"); }
-  @font-face { font-family: "Fira Mono"; font-weight: 500; src: url("../assets/fonts/fira-mono-latin-500-normal.woff2") format("woff2"); }
+  @font-face { font-family: "DM Sans"; font-weight: 400 700; src: url("../assets/fonts/dm-sans-latin-var.woff2") format("woff2"); }
   html, body { margin: 0; }
-  body { width: 1200px; height: 630px; background: #f7f6f3; color: #1c1b22; font-family: "Fira Sans", sans-serif;
-    display: grid; grid-template-rows: auto 1fr auto; padding: 44px 56px; box-sizing: border-box; overflow: hidden;
-    border-left: 16px solid #5B3FBF; }
+  body { width: 1200px; height: 630px; background: #fbf7f8; color: #111827; font-family: "DM Sans", sans-serif;
+    display: grid; grid-template-rows: auto 1fr auto; padding: 52px 64px; box-sizing: border-box; overflow: hidden; }
   .kopf { display: flex; justify-content: space-between; align-items: center; }
-  .marke { display: inline-flex; align-items: center; gap: 12px; font-family: "Fira Sans Condensed"; font-weight: 500; font-size: 40px; letter-spacing: -0.01em; }
-  .rubrik { font: 500 24px/1 "Fira Mono", monospace; text-transform: uppercase; letter-spacing: 0.08em; color: #5B3FBF; }
-  .titel { align-self: center; font-family: "Fira Sans Condensed"; font-weight: 500; font-size: 84px; line-height: 1.02; letter-spacing: -0.02em; max-width: 1020px; }
-  .fuss { font-size: 24px; color: #5c5a66; }
+  .marke { display: inline-flex; align-items: center; gap: 14px; font-weight: 600; font-size: 38px; letter-spacing: -0.02em; }
+  .rubrik { font-weight: 600; font-size: 26px; color: #b8336a; }
+  .titel { align-self: center; font-weight: 500; font-size: 84px; line-height: 1.05; letter-spacing: -0.03em; max-width: 1040px; }
+  .fuss { font-size: 24px; color: #5f6672; }
 </style>
 </head>
 <body>
-  <div class="kopf"><span class="marke"><svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#5B3FBF"/><path d="M7.5 16.5l5.2 5.2L24.5 9.9" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M18.4 9.6h6.4v6.4" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>Nextfix</span><span class="rubrik" id="rubrik">Ratgeber</span></div>
+  <div class="kopf"><span class="marke"><svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#b8336a"/><path d="M9.5 24.5V7.5" fill="none" stroke="#f2b8cf" stroke-width="3.6" stroke-linecap="round"/><path d="M9.5 8l9.5 15 6.2-14.5" fill="none" stroke="#fff" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Nextfix</span><span class="rubrik" id="rubrik">Ratgeber</span></div>
   <div class="titel" id="titel">Titel</div>
   <div class="fuss">the-neyro.github.io/blog · kostenloses SEO-Tool, läuft auf deinem Rechner</div>
 </body>
