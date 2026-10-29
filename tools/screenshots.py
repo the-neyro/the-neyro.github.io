@@ -61,9 +61,6 @@ MOTIVE = [
     ("zustand", "/projekte/1", [
         ("schmal", 390, 3, (".messung", ".teilnoten"), 900, (760, 1140)),
     ]),
-    ("lead", "/projekte/1", [
-        ("breit", 1440, 3.5, (".aufgaben:not(.lead) > li >> nth=0", ".aufgaben:not(.lead) > li >> nth=0"), 600, (800, 1300)),
-    ]),
     ("ki-suche", "/crawls/1/themen/ki", [
         ("breit", 1000, 3, ("h1", ".raster"), 800, (800, 1200)),
     ]),
