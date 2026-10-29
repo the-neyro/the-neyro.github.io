@@ -232,13 +232,16 @@ html:not(.js) .how__stage { position: static; }
 .mod__text a { color: var(--ink); }
 .mod__dev { grid-column: 1 / -1; margin-top: 1rem; }
 .mod__dev .code { max-width: 40rem; }
-.about__dev summary { cursor: pointer; font-weight: 500; padding-block: 0.75rem; }
+.about__dev summary { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 2.75rem; padding: 0 1rem; border: 1px solid var(--line-strong); border-radius: var(--radius); cursor: pointer; font-weight: 500; list-style: none; }
+.about__dev summary::-webkit-details-marker { display: none; }
+.about__dev summary::after { content: "+"; font-size: 1.25rem; line-height: 1; }
+.about__dev[open] summary::after { content: "\2212"; }
+.about__dev[open] summary { margin-bottom: 0.75rem; }
 .feat__more { margin-top: clamp(4rem, 7vw, 7rem); }
 .mini__label { font-size: 0.875rem; font-weight: 500; color: var(--muted); }
 .mini__zahl { display: flex; align-items: baseline; gap: 0.5rem; margin-top: 0.25rem; }
 .mini__zahl strong { font-size: 2.5rem; line-height: 2.75rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .mini__zahl small { font-size: 1rem; color: var(--muted); }
-.mini__zahl--gut strong { color: var(--good); }
 .mini__zeile { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin-top: 0.75rem; font-weight: 500; }
 .mini__tab { width: 100%; margin-top: 0.5rem; border-collapse: collapse; font-size: 0.875rem; font-variant-numeric: tabular-nums; }
 .mini__tab th { font-weight: 400; color: var(--muted); text-align: right; padding: 0.4rem 0; }
