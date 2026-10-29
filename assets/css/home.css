@@ -131,31 +131,29 @@ html:not(.js) .ui-erledigt { display: none; }
 }
 html:not(.js) .how__stage { position: static; }
 
-/* Überschrift zum Eintippen (Seitentitel-Prüfung) */
-.typer { display: flex; flex-direction: column; }
-.typer__head { max-width: 24ch; }
-.typer__label { display: block; margin-top: 2.5rem; font-size: var(--step-body); max-width: 52ch; }
-.typer__line { position: relative; margin-top: 0.75rem; }
-.typer__input { display: block; width: 100%; border: 0; border-bottom: 4px solid var(--ink); background: var(--surface); padding: 0.12em 0.3em 0.18em; margin: 0; border-radius: var(--radius) var(--radius) 0 0;
+/* Titel-Check: das lebendige Ding, ein Feld wie in der App; die Linie darunter füllt sich bis 70 Zeichen */
+.typer { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(2rem, 5vw, 5rem); padding: var(--section) var(--edge) 0; }
+.typer > * { grid-column: 1 / -1; }
+.typer__head { font-size: var(--step-h2); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; max-width: 24ch; }
+.typer__label { display: block; margin-top: 1.25rem; max-width: 52ch; color: var(--muted); }
+.typer__line { position: relative; margin-top: 1.5rem; max-width: 40rem; }
+.typer__input { display: block; width: 100%; border: 1px solid var(--line-strong); border-bottom: 4px solid var(--ink); background: var(--paper); padding: 0.75rem 1rem; margin: 0; border-radius: var(--radius) var(--radius) 0 0;
   resize: none; overflow: hidden; field-sizing: content;
-  font-weight: 700; font-size: var(--step-statement); line-height: 1.2; letter-spacing: -0.01em;
-  color: var(--ink); caret-color: var(--ink); caret-shape: block; text-overflow: clip; cursor: text; }
+  font-family: inherit; font-weight: 500; font-size: 1.25rem; line-height: 1.35; color: var(--ink); caret-color: var(--accent); text-overflow: clip; cursor: text; }
 .typer__input:focus { outline: none; }
 .typer__input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.typer__line:focus-within { outline: 3px solid var(--ink); outline-offset: 0.5rem; }
-/* Mit JavaScript wird die Linie unter dem Titel zur Längen-Anzeige: füllt sich bis 70 Zeichen */
 .js .typer__input { border-bottom-color: var(--surface-2); } /* Spur; die Füllung darüber zeigt die Länge */
 .js .typer__line::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--accent);
   transform: scaleX(var(--fill, 1)); transform-origin: left center; transition: transform var(--t-ui) var(--ease-out); pointer-events: none; }
 .typer__answer, .typer__results { max-width: 35rem; display: grid; gap: 0.5rem; }
-.typer__answer { margin-top: 3rem; }
-.check { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; padding: 0.9rem 1rem; background: var(--surface);
+.typer__answer { margin-top: 1.5rem; }
+.check { display: grid; grid-template-columns: 9.5rem 1fr; gap: 1rem; padding: 0.9rem 1rem; background: var(--surface); border-radius: var(--radius);
   font-size: 1rem; line-height: 1.45; align-items: baseline; }
 .check__name { color: var(--muted); font-size: var(--step-small); }
 .check__verdict strong { font-weight: 600; display: inline-block; }
 .check--kw > span { display: block; }
 .check__hint { display: block; margin-top: 0.35rem; font-size: var(--step-small); color: var(--muted); }
-.check--kw input { width: 100%; border: 0; border-bottom: 2px solid var(--muted); background: var(--bg); padding: 0.45rem 0.6rem; font-size: 1rem; border-radius: 4px 4px 0 0; }
+.check--kw input { width: 100%; font-family: inherit; border: 1px solid var(--line-strong); background: var(--paper); color: var(--ink); padding: 0.55rem 0.7rem; min-height: 2.75rem; font-size: 1rem; border-radius: var(--radius); }
 .check--kw input:focus-visible { outline-offset: 0; }
 .check__copy { margin-top: 0.4rem; font-size: var(--step-small); font-weight: 500; text-decoration: underline;
   text-underline-offset: 0.2em; transition: opacity var(--t-hover) ease; }
@@ -170,20 +168,19 @@ html:not(.js) .how__stage { position: static; }
 .typer__cta { margin-top: 2rem; }
 .typer__cta .button { white-space: normal; text-align: left; padding-block: 0.6rem; }
 @media (max-width: 40em) {
-  .typer__input { font-size: 9vw; }
+  .typer__input { font-size: 1.125rem; }
   .check { grid-template-columns: 1fr; gap: 0.2rem; }
   .example { min-height: 2.75rem; }
 }
 .modules__more { margin-top: 2.5rem; max-width: 60ch; color: var(--muted); }
 .modules__more .link { font-weight: 500; }
 /* ---------- Google-Vorschau im Titel-Check ---------- */
-.typer { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); column-gap: clamp(2rem, 5vw, 5rem); }
-.typer > * { grid-column: 1 / -1; }
 .typer .typer__answer { grid-column: 1; }
-.typer .serp { grid-column: 2; grid-row: span 1; align-self: start; margin: 3rem 0 0; }
+.typer .serp { grid-column: 2; grid-row: 3 / span 2; align-self: start; margin: 1.5rem 0 0; }
+.typer .typer__line { grid-column: 1; }
 .check__opt { color: var(--muted); font-weight: 400; }
 .serp__label { font-size: var(--step-small); color: var(--muted); margin-bottom: 0.6rem; }
-.serp__box { background: #fff; border: 1px solid #dfe1e5; border-radius: 10px; padding: 1rem 1.1rem; font-family: Arial, "Helvetica Neue", sans-serif; color: #202124; }
+.serp__box { background: #fff; border: 1px solid #dfe1e5; border-radius: var(--radius); padding: 1rem 1.1rem; font-family: Arial, "Helvetica Neue", sans-serif; color: #202124; }
 .serp__box p { max-width: none; }
 .serp__site { display: flex; align-items: center; gap: 0.6rem; font-size: 0.875rem; line-height: 1.3; }
 .serp__fav { flex: none; width: 1.75rem; height: 1.75rem; border-radius: 50%; background: #f1f3f4 url("../../favicon.svg") center / 1rem no-repeat; border: 1px solid #ecedef; }
@@ -227,36 +224,38 @@ html:not(.js) .how__stage { position: static; }
   .cmp__table td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--ink); }
 }
 
-/* ---------- Funktionen: Befehlsliste ---------- */
-.cmd__input { width: 100%; min-height: 4.5rem; font-size: clamp(1.5rem, 3vw, 2.75rem); font-weight: 700; padding: 0 1.25rem; background: var(--surface); border: 0; color: var(--ink); }
-.cmd__input:focus-visible { outline: 3px solid var(--ink); outline-offset: 2px; }
-.cmd__list { list-style: none; margin: 1.5rem 0 0; padding: 0; }
-.cmd__row { color: var(--ink); }
-.cmd__name { display: block; width: 100%; text-align: left; padding: 0.2em 0.35em; min-height: 44px; font-family: var(--font-display); font-stretch: 125%; font-weight: 800; text-transform: uppercase; letter-spacing: -0.02em;
-  line-height: 1.1; font-size: clamp(1.75rem, 4.6vw, 4.75rem); transition: background-color var(--t-hover) ease, color var(--t-hover) ease; }
-.cmd__more { display: none; padding: 0 0.35em 1.25rem; }
-.cmd__more p { font-size: 1.0625rem; max-width: 48ch; }
-.cmd__more img { margin-top: 1rem; width: min(20rem, 100%); height: auto; }
-.cmd__row.is-selected { background: var(--ink); color: var(--bg); }
-.cmd__row.is-selected .cmd__more { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem; align-items: start; }
-.cmd__row.is-selected .cmd__more img { margin-top: 0; }
-.cmd__row.is-selected .cmd__more a { color: var(--bg); }
-.cmd__row.is-selected :focus-visible { outline-color: var(--bg); }
-@media (hover: hover) and (pointer: fine) { .cmd__row:not(.is-selected) .cmd__name:hover { background: var(--surface); } }
-html:not(.js) .cmd__more { display: grid; }
-html:not(.js) .cmd__row { background: none; color: var(--ink); }
-.cmd__empty { margin-top: 1.5rem; font-size: 1.25rem; }
-.cmd__more-link { margin-top: 2rem; }
+/* ---------- Funktionen: kleine Belege neben dem Text ---------- */
+.feat { padding: var(--section) var(--edge) 0; }
+.feat__h { font-size: var(--step-h2); font-weight: 500; line-height: 1.15; letter-spacing: -0.02em; max-width: none; }
+.mod { display: grid; grid-template-columns: 22.5rem 15.625rem; column-gap: 1.25rem; align-items: start; margin-top: clamp(4rem, 7vw, 7rem); max-width: 40rem; }
+.feat__h + .mod { margin-top: 4rem; }
+.mod__panel { padding: 1.25rem; min-height: 7.5rem; }
+.mod__text h3 { font-size: 1.125rem; font-weight: 500; line-height: 1.3; letter-spacing: 0; }
+.mod__text p { margin-top: 0.75rem; font-size: var(--step-small); color: var(--muted); max-width: none; }
+.mod__text h3 + p { margin-top: 0.5rem; }
+.mod__text a { color: var(--ink); }
+.mod__dev { grid-column: 1 / -1; margin-top: 1rem; }
+.mod__dev .code { max-width: 40rem; }
+.about__dev summary { cursor: pointer; font-weight: 500; padding-block: 0.75rem; }
+.feat__more { margin-top: clamp(4rem, 7vw, 7rem); }
+.mini__label { font-size: 0.875rem; font-weight: 500; color: var(--muted); }
+.mini__zahl { display: flex; align-items: baseline; gap: 0.5rem; margin-top: 0.25rem; }
+.mini__zahl strong { font-size: 2.5rem; line-height: 2.75rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.mini__zahl small { font-size: 1rem; color: var(--muted); }
+.mini__zahl--gut strong { color: var(--good); }
+.mini__zeile { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin-top: 0.75rem; font-weight: 500; }
+.mini__tab { width: 100%; margin-top: 0.5rem; border-collapse: collapse; font-size: 0.875rem; font-variant-numeric: tabular-nums; }
+.mini__tab th { font-weight: 400; color: var(--muted); text-align: right; padding: 0.4rem 0; }
+.mini__tab td { text-align: right; padding: 0.4rem 0; border-top: 1px solid var(--surface-2); }
+.mini__tab th:first-child, .mini__tab td:first-child { text-align: left; }
+.mini__feld { margin-top: 0.4rem; padding: 0.55rem 0.75rem; border: 1px solid var(--line-strong); border-radius: var(--radius); color: var(--muted); }
+.mini__aktion { display: flex; gap: 0.5rem; margin-top: 0.9rem; }
+.mini__code { list-style: none; margin: 0.6rem 0 0; padding: 0; font-family: var(--font-code); font-size: 0.875rem; line-height: 1.8; } /* taste-skill-ignore: echte Werkzeugnamen */
 @media (max-width: 40em) {
-  .cmd__input { min-height: 3.5rem; font-size: 1.25rem; }
-  .cmd__name { font-size: 8.5vw; }
-  .cmd__row.is-selected .cmd__more { grid-template-columns: 1fr; }
+  .mod { grid-template-columns: minmax(0, 1fr); row-gap: 1rem; margin-top: 4rem; }
+  .mod__text h3 { font-size: 1.1875rem; }
+  .mod__text p { font-size: 1rem; }
 }
-
-/* ---------- Titel-Check ---------- */
-.typer .h2 { max-width: 20ch; }
-.typer__input { font-family: var(--font-text); border-bottom-color: var(--ink); }
-.typer__label { margin-top: 2rem; }
 
 /* ---------- Über Nextfix: eingelassene Tafel ---------- */
 .about { position: relative; margin: clamp(3rem, 6vw, 6rem) 20px 20px; background: var(--ink); color: var(--bg); min-height: 110svh; overflow: hidden; padding: 3.5rem; }

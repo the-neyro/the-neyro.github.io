@@ -316,41 +316,6 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   ersteMitte();
 })();
 
-// Funktionen: Befehlsliste. Tippen filtert, Pfeiltasten und Antippen wählen, die gewählte Zeile klappt auf.
-(() => {
-  const wurzel = document.querySelector('[data-cmd-list]');
-  if (!wurzel) return;
-  const eingabe = wurzel.querySelector('.cmd__input');
-  const zeilen = [...wurzel.querySelectorAll('.cmd__row')];
-  const leer = wurzel.querySelector('.cmd__empty');
-  const waehle = (z) => zeilen.forEach((r) => {
-    const an = r === z; r.classList.toggle('is-selected', an);
-    r.querySelector('.cmd__name').setAttribute('aria-expanded', String(an));
-  });
-  const sichtbar = () => zeilen.filter((r) => !r.hidden);
-  zeilen.forEach((r) => {
-    const knopf = r.querySelector('.cmd__name');
-    knopf.addEventListener('click', () => waehle(r));
-    r.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') waehle(r); });
-  });
-  eingabe.addEventListener('input', () => {
-    const q = eingabe.value.trim().toLowerCase();
-    zeilen.forEach((r) => { r.hidden = q && !(r.dataset.cmd + ' ' + r.textContent.toLowerCase()).includes(q); });
-    const s = sichtbar();
-    leer.hidden = s.length > 0;
-    if (s.length && !s.some((r) => r.classList.contains('is-selected'))) waehle(s[0]);
-  });
-  wurzel.addEventListener('keydown', (e) => {
-    if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
-    const s = sichtbar(); if (!s.length) return;
-    e.preventDefault();
-    const i = Math.max(0, s.findIndex((r) => r.classList.contains('is-selected')));
-    const n = s[(i + (e.key === 'ArrowDown' ? 1 : s.length - 1)) % s.length];
-    waehle(n); n.querySelector('.cmd__name').focus();
-  });
-})();
-
-
 // E-Mail an den Webbetreuer: Text auch zum Kopieren (falls kein Mailprogramm eingerichtet ist)
 (() => {
   const mail = document.querySelector('[data-mail]');
