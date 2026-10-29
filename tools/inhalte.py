@@ -108,7 +108,7 @@ def fuss(p: str) -> str:
     <!-- blog:ende -->
   </p>
   <div class="foot-line__main">
-    <p>Privates Projekt von the-neyro. Screenshots zeigen die erfundene Demo-Website.</p>
+    <p>Privates Projekt von the-neyro</p>
     <nav aria-label="Fußmenü">
       <a href="{p}funktionen/">Funktionen</a>
       <a href="{p}pruefungen/">Alle Prüfungen</a>
@@ -119,6 +119,7 @@ def fuss(p: str) -> str:
     </nav>
     <p>2026 · <a href="{p}datenschutz/">Datenschutz</a></p>
   </div>
+  <p>Screenshots zeigen die erfundene Demo-Website „Radhaus Elbe“.</p>
 </footer>"""
 
 
