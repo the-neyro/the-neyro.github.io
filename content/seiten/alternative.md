@@ -9,7 +9,7 @@ Nextfix prüft deine eigene Website und sagt dir, was du zuerst verbessern sollt
 
 ## Wofür Nextfix reicht
 
-- **Website-Check:** 106 Prüfungen in acht Bereichen, von kaputten Links über Seitentitel bis zur KI-Suche. Standardmäßig 500 Seiten je Durchlauf, einstellbar bis 100.000.
+- **Website-Check:** 111 Prüfungen in acht Bereichen, von kaputten Links über Seitentitel bis zur KI-Suche. Standardmäßig 500 Seiten je Durchlauf, einstellbar bis 100.000.
 - **Eine Aufgabenliste statt einer Fehlerliste:** „Was jetzt tun“ fasst gleiche Probleme zusammen, sortiert nach Wirkung und sagt, ob du es selbst im CMS erledigst oder deine Technik.
 - **Ladezeit im Labor:** LCP, CLS und TBT mit einem echten Chromium-Browser, mobil und am Desktop.
 - **Deine Positionen:** aus der Search Console und von Bing, also aus Daten, die dir als Website-Betreiber ohnehin zustehen.

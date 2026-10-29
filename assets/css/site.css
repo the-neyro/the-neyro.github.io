@@ -326,7 +326,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .modules__more { margin-top: 2.5rem; max-width: 60ch; color: var(--muted); }
 .modules__more .link { font-weight: 500; }
 
-/* Violette Fläche: 106 Prüfungen */
+/* Violette Fläche: 111 Prüfungen */
 /* feste Werte statt clamp(): der Impeccable-Detektor liest clamp() in padding nicht */
 .field-red { background: var(--field); color: var(--field-ink); padding: clamp(4.5rem, 9vw, 8rem) var(--edge); }
 .checks-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.25rem var(--gutter); margin-top: 2rem;

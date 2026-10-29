@@ -24,8 +24,8 @@ SITE_URL = "https://the-neyro.github.io"  # ohne Schrägstrich am Ende
 REPO_URL = "https://github.com/the-neyro/nextfix"
 NAME = "Nextfix"
 # Aktuelle Version des Programms; bei jedem Release mit der Startseite (Hero-Zeile) zusammen anheben
-VERSION = "0.2.2"
-VERSION_DATUM = "2026-10-18"
+VERSION = "0.2.3"
+VERSION_DATUM = "2026-10-28"
 # Autor der Beiträge: Pseudonym, wie es der Nutzer gewählt hat (kein Klarname)
 AUTOR = {"@type": "Person", "name": "the-neyro", "url": "https://github.com/the-neyro"}
 OG_BILD = "assets/img/og.png"
@@ -217,7 +217,7 @@ def llms() -> str:
         f"# {NAME}\n",
         f"> {start_beschr}\n",
         "Nextfix ist ein kostenloses, quelloffenes SEO-Tool (MIT-Lizenz), das lokal auf dem eigenen Rechner läuft. "
-        "Es crawlt eine Website, bewertet 106 Prüfungen in acht Bereichen zu einem Website-Zustand von 0 bis 100 und "
+        "Es crawlt eine Website, bewertet 111 Prüfungen in acht Bereichen zu einem Website-Zustand von 0 bis 100 und "
         "macht daraus die Liste „Was jetzt tun“: Aufgaben in der Reihenfolge ihrer Wirkung, mit Begründung, Anleitung "
         "und dem Hinweis, wer sie erledigt. Dazu Ladezeit im Labor (LCP, CLS, TBT), Positionen aus Google Search Console "
         "und Bing, Suchbegriffe, Seite optimieren und KI-Sichtbarkeit. Keine bezahlten Schnittstellen, kein Konto, "

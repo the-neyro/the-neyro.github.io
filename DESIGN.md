@@ -31,7 +31,7 @@ Stand: 2026-10-17. Gebaut mit Taste-Skill v2 (Richtung gezogen), geprüft mit Im
 3. Überschrift zum Eintippen: Seitentitel-Prüfung (das lebendige Ding).
 4. Ablauf als ein Balken (Installieren, Prüfen, Reparieren, Nachprüfen).
 5. Absatz mit Bildwörtern (Module).
-6. 106 Prüfungen als ein Satz (Namen aus dem echten Katalog).
+6. 111 Prüfungen als ein Satz (Namen aus dem echten Katalog).
 7. FAQ mit breiter Überschrift.
 8. Fuß als Einladung über dem angeschnittenen Namen.
 - CTA-Abschnitt „Satz mit Lücke“ gestrichen: kein Formular, kein Newsletter; die Einladung steht im Fuß.
