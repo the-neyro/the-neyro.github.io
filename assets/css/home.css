@@ -3,8 +3,7 @@
 
 /* Übergang bis Block 2: Werte, die die noch alten Abschnitte lesen */
 :root { --field: var(--ink); --field-ink: var(--bg); --field-dim: var(--muted); --field-step: var(--surface-2); }
-.home { --colx: max(var(--edge), 22vw); } /* die eine Kante der Startseite */
-@media (max-width: 56em) { .home { --colx: var(--edge); } }
+.home { --colx: var(--edge); } /* eine Kante für die ganze Seite: die des Kopfs */
 
 /* ---------- Fragment der App (data-ui): Aufgabenliste wie in Nextfix, Werte der App ---------- */
 .ui { background: var(--paper); color: var(--ink); border: 1px solid var(--surface-2); border-radius: var(--radius); padding: 1.5rem; /* taste-skill-ignore: Fragment der App */
