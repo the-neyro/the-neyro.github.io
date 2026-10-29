@@ -87,7 +87,7 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
     rows.forEach((r) => { r.style.minHeight = 'auto'; h = Math.max(h, r.offsetHeight); r.style.minHeight = ''; });
     if (h) liste.style.setProperty('--row-h', `${h}px`);
   };
-  const zaehlen = () => { zaehler.textContent = `${erledigt} von 4 erledigt`; };
+  const zaehlen = () => { zaehler.textContent = `${erledigt} von ${vorlagen.length - 1} erledigt`; };
   const aktiv = (index = 0) => rows.forEach((r, i) => r.classList.toggle('is-active', i === index && !r.classList.contains('is-done') && !istSchluss(r)));
   const knopfZeigen = () => {
     if (ruhig) { knopf.textContent = 'Nächste abhaken'; knopf.removeAttribute('aria-pressed'); return; }
@@ -117,9 +117,9 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
   async function schritt() {
     if (beschaeftigt) return;
     beschaeftigt = true;
-    if (istSchluss(rows[0])) { // alle vier erledigt: erneut prüfen, der Zustand steigt (echte Nachprüfung der Demo-Website)
+    if (istSchluss(rows[0])) { // alle erledigt: erneut prüfen, der Zustand steigt (echte Nachprüfung der Demo-Website)
       const quelle = document.querySelector('[data-vn]');
-      const vorher = Number(quelle?.dataset.vorher || 49), nachher = Number(quelle?.dataset.nachher || vorher);
+      const vorher = Number(quelle?.dataset.vorher || 64), nachher = Number(quelle?.dataset.nachher || vorher);
       const zeile = rows[0].querySelector('p');
       const score = fig.querySelector('[data-score]');
       zeile.textContent = 'Prüfe erneut …';
@@ -136,7 +136,7 @@ document.querySelectorAll('.prose > h2, .prose > p, .prose > ul > li, .prose > .
       });
       score.classList.add('is-up');
       score.insertAdjacentHTML('afterend', ` <span class="wjt__delta" data-delta>+${nachher - vorher} nach dem Nachprüfen</span>`);
-      zaehler.textContent = '4 von 4 erledigt · nachgeprüft';
+      zaehler.textContent = `${vorlagen.length - 1} von ${vorlagen.length - 1} erledigt · nachgeprüft`;
       await warte(2800);
       liste.style.transition = 'opacity 240ms ease'; liste.style.opacity = '0'; await warte(260);
       fig.querySelector('[data-delta]')?.remove(); score.classList.remove('is-up'); score.textContent = String(vorher);
@@ -405,7 +405,7 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   zeigen();
 })();
 
-// Szene „43 Fundstellen → 8 Aufgaben“: die echten Fundstellen der Demo-Prüfung als Punkte.
+// Szene „55 Fundstellen → 8 Aufgaben“: die echten Fundstellen der Demo-Prüfung als Punkte.
 // Sie liegen erst verstreut, sortieren sich dann in 8 Aufgaben (plus Feinschliff), und eine Aufgabe nach der anderen wird zur Karte.
 // Canvas 2D ohne Bibliothek; pausiert außerhalb des Bildes, reduzierte Bewegung = Standbild.
 (() => {
@@ -421,11 +421,11 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
 
   // Fundstellen je Prüfung, wie Nextfix sie für „Radhaus Elbe“ gefunden hat (content/demo-fundstellen.json)
   const FUNDE = {
-    wenig_text: ["/angebote", "/blog", "/blog/winter-check", "/datenschutz", "/faq", "/impressum", "/kontakt", "/preise", "/ueber-uns"],
-    meta_desc_doppelt: ["/blog", "/blog/winter-check", "/preise", "/ueber-uns"],
     sitemap_falsche_seiten: ["/fahrradleasing"],
     status_4xx: ["/fruehjahrsaktion-2025"],
     interne_links_defekt: ["/angebote"],
+    wenig_text: ["/angebote", "/blog", "/blog/winter-check", "/faq", "/kontakt", "/preise", "/ueber-uns"],
+    meta_desc_doppelt: ["/blog", "/blog/winter-check", "/preise", "/ueber-uns"],
     bilder_ohne_alt: ["/", "/e-bikes", "/ueber-uns"],
     title_zu_lang: ["/blog/reifendruck", "/leihraeder"],
     meta_desc_fehlt: ["/kontakt"],
@@ -433,24 +433,24 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
     ki_fragen_ohne_faq: ["/blog/kette-oelen", "/faq", "/werkstatt"],
     nur_ein_eingehender_link: ["/blog/kette-oelen", "/blog/reifendruck", "/blog/winter-check"],
     orphan_sitemap: ["/angebote", "/ueber-uns"],
-    perm_redirect: ["/fahrradleasing"],
     ki_artikel_ohne_autor_datum: ["/blog/reifendruck"],
     ohne_last_modified: ["(ganze Website)"],
     llms_fehlt: ["(ganze Website)"],
+    bilder_ohne_masse: ["/", "/angebote", "/blog", "/blog/kette-oelen", "/blog/reifendruck", "/blog/winter-check", "/datenschutz", "/e-bikes", "/faq", "/impressum", "/kontakt", "/leihraeder", "/preise", "/ueber-uns", "/werkstatt"],
   };
   // Die 8 Aufgaben aus „Was jetzt tun“ in ihrer Reihenfolge; alles andere ist Feinschliff
   const AUFGABEN = [
-    { check: 'wenig_text', kurz: 'wenig Text', t: 'Bau 9 Seiten mit wenig Text aus', m: 'Wichtig · <span class="hoch">Wirkung hoch</span> · machst du selbst' },
-    { check: 'meta_desc_doppelt', kurz: 'Beschreibung doppelt', t: 'Gib 4 Seiten eigene Beschreibungen', m: 'Dringend · <span class="hoch">Wirkung hoch</span> · kurz je Seite' },
     { check: 'sitemap_falsche_seiten', kurz: 'falsch in der Sitemap', t: 'Entferne fehlerhafte Adressen aus der Sitemap', m: 'Dringend · Wirkung mittel · für deine Technik' },
     { check: 'status_4xx', kurz: 'nicht gefunden (404)', t: 'Behebe 1 Seite mit „nicht gefunden“ (404)', m: 'Dringend · Wirkung mittel · kurz je Seite' },
     { check: 'interne_links_defekt', kurz: 'defekter Link', t: 'Repariere defekte interne Links auf 1 Seite', m: 'Dringend · Wirkung mittel · kurz je Seite' },
+    { check: 'wenig_text', kurz: 'wenig Text', t: 'Bau 7 Seiten mit wenig Text aus', m: 'Wichtig · Wirkung mittel · machst du selbst' },
+    { check: 'meta_desc_doppelt', kurz: 'Beschreibung doppelt', t: 'Gib 4 Seiten eigene Beschreibungen', m: 'Wichtig · Wirkung gering · kurz je Seite' },
     { check: 'bilder_ohne_alt', kurz: 'Bild ohne alt-Text', t: 'Ergänze Bildbeschreibungen (alt) auf 3 Seiten', m: 'Wichtig · Wirkung gering · kurz je Seite' },
     { check: 'title_zu_lang', kurz: 'Titel zu lang', t: 'Kürze den Seitentitel von 2 Seiten auf 70 Zeichen', m: 'Wichtig · Wirkung gering · kurz je Seite' },
     { check: 'meta_desc_fehlt', kurz: 'Beschreibung fehlt', t: 'Schreib eine Beschreibung für 1 Seite', m: 'Wichtig · Wirkung gering · kurz je Seite' },
   ];
-  const FEIN = { meta_desc_zu_kurz: 'Beschreibung kurz', ki_fragen_ohne_faq: 'Fragen ohne FAQ', nur_ein_eingehender_link: 'nur ein Link hierher',
-    orphan_sitemap: 'nur in der Sitemap', perm_redirect: 'Link auf alte Adresse', ki_artikel_ohne_autor_datum: 'ohne Autor/Datum',
+  const FEIN = { bilder_ohne_masse: 'Bild ohne Maße', meta_desc_zu_kurz: 'Beschreibung kurz', ki_fragen_ohne_faq: 'Fragen ohne FAQ', nur_ein_eingehender_link: 'nur ein Link hierher',
+    orphan_sitemap: 'nur in der Sitemap', ki_artikel_ohne_autor_datum: 'ohne Autor/Datum',
     ohne_last_modified: 'kein Last-Modified', llms_fehlt: 'llms.txt fehlt' };
   const ZEICHEN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜabcdefghijklmnopqrstuvwxyz0123456789#%&/<>{}[]';
   const MONO = '"Fira Mono", ui-monospace, monospace';
@@ -592,7 +592,7 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
     const dt = now - phaseStart;
     if (phase === 'streuen' && dt > DAUER.streuen) {
       phase = 'sortieren'; phaseStart = now; sortierziele();
-      hudL.innerHTML = '<b>43</b> Fundstellen → <b>8</b> Aufgaben + Feinschliff';
+      hudL.innerHTML = '<b>55</b> Fundstellen → <b>8</b> Aufgaben + Feinschliff';
     } else if (phase === 'sortieren' && dt > DAUER.sortieren) {
       phase = 'zeigen'; phaseStart = now; aufgabe = 0; buehne.classList.add('is-focus'); zeigeAufgabe(0);
     } else if (phase === 'zeigen' && dt > DAUER.zeigen * (aufgabe === 0 ? 1.4 : 1)) {
@@ -600,7 +600,7 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
       else { phase = 'loesen'; phaseStart = now; buehne.classList.remove('is-focus'); }
     } else if (phase === 'loesen' && dt > DAUER.loesen) {
       phase = 'streuen'; phaseStart = now; streuziele();
-      hudL.innerHTML = '<b>43</b> Fundstellen · 16 Prüfungen · 17 Seiten';
+      hudL.innerHTML = '<b>55</b> Fundstellen · 16 Prüfungen · 17 Seiten';
     }
   }
 
@@ -619,7 +619,7 @@ function esc(s) { return s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;
   function standbild() {
     phase = 'zeigen'; aufgabe = Math.min(aufgabe, AUFGABEN.length - 1); phaseStart = performance.now() - 1000;
     buehne.classList.add('is-focus'); zeigeAufgabe(aufgabe, true); sortierziele();
-    hudL.innerHTML = '<b>43</b> Fundstellen → <b>8</b> Aufgaben + Feinschliff';
+    hudL.innerHTML = '<b>55</b> Fundstellen → <b>8</b> Aufgaben + Feinschliff';
     for (const q of punkte) { q.x = q.tx; q.y = q.ty; q.vx = q.vy = 0; q.hell = q.g === 8 ? 0.4 : q.g === aufgabe ? 1 : 0.45; q.verz = 0; }
     zeichnen(phaseStart + 1000);
   }
