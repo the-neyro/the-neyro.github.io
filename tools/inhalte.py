@@ -255,9 +255,9 @@ def blog_bauen(alle: list[dict]) -> dict[str, str]:
             nachbar.append(f'<a class="link" href="../{alle[i - 1]["slug"]}/">{e(alle[i - 1]["titel"])} →</a>')
         inhalt = f"""  <article class="post">
     <header class="page-head post__head">
-      <p class="post__date"><a class="link" href="../">Blog</a> · {RUBRIKEN[b["rubrik"]]} · <time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time> · von <a class="link" href="https://github.com/the-neyro">the-neyro</a></p>
       <h1>{e(b["titel"])}</h1>
       <p class="statement">{e(b["beschreibung"])}</p>
+      <p class="post__date"><a class="link" href="../">Blog</a> · {RUBRIKEN[b["rubrik"]]} · <time datetime="{b["datum"]}">{datum_lang(b["datum"])}</time> · von <a class="link" href="https://github.com/the-neyro">the-neyro</a></p>
     </header>
     <div class="prose post__body">
 {b["html"]}

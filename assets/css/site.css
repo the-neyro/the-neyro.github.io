@@ -91,7 +91,7 @@ img { color-scheme: light; }
 
 h1, h2, h3 { font-weight: 600; letter-spacing: -0.01em; text-wrap: balance; hyphens: manual; }
 /* Titelschrift: DM Sans 600, Satzschrift */
-.display, .h2, .page-head h1, .wordmark { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+.display, .h2, .wordmark { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
 .display { font-size: var(--step-head); }
 .h2 { font-size: var(--step-h2); max-width: 22ch; }
 .statement { font-size: var(--step-statement); line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; max-width: 30ch; text-wrap: pretty; }
@@ -217,7 +217,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 
 /* ---------- Unterseiten (Lesen) ---------- */
 .page-head { padding: clamp(3rem, 9vw, 8rem) var(--edge) clamp(3rem, 7vw, 6rem); }
-.page-head h1 { font-size: clamp(1.75rem, 0.9rem + 4.2vw, 6rem); max-width: none; }
+.page-head h1 { font-size: clamp(1.875rem, 7.4vw, 4rem); font-weight: 500; letter-spacing: -0.025em; line-height: 1.08; max-width: 22ch; }
 .page-head .statement { margin-top: 2rem; max-width: 52ch; }
 .prose { padding-inline: var(--edge); }
 .prose h2 { font-size: var(--step-statement); line-height: 1.3; letter-spacing: -0.01em; margin-top: 4.5rem; max-width: 30ch; }
@@ -280,7 +280,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); }
 .pair__col { padding: clamp(1.5rem, 3vw, 2.5rem); border-radius: var(--radius); background: var(--surface); }
 .pair__col > p { margin-top: 1rem; max-width: 48ch; }
-.pair__col--quiet { background: transparent; border: 1px solid var(--surface-2); } /* taste-skill-ignore: Rahmen einer echten Karte */
+.pair__col--quiet { background: var(--paper); }
 .pair__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem !important; }
 .pair__pdf a { font-weight: 500; }
 @media (max-width: 56em) { .pair { grid-template-columns: minmax(0, 1fr); } }
@@ -303,7 +303,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .facts-card dd { margin: 0; font-weight: 500; line-height: 1.35; }
 .facts-card__alt { margin: 1rem 0 0.6rem; font-size: 1rem; }
 .page-head__shot { margin: 0; }
-.page-head__shot img { width: 100%; border-radius: 8px; background: #fff; }
+.page-head__shot img { width: 100%; border-radius: var(--radius); background: #fff; }
 @media (max-width: 56em) { .page-head--split { grid-template-columns: minmax(0, 1fr); align-items: start; } }
 
 
@@ -318,12 +318,12 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 
 /* Blog-Beitrag */
 .post__head { padding-bottom: clamp(2rem, 4vw, 3rem); }
-.post__date { font-size: var(--step-small); color: var(--muted); margin-bottom: 1.25rem; }
-.post__head h1 { max-width: 28ch; font-size: var(--step-h2); line-height: 1.05; letter-spacing: -0.015em; } /* lange Beitragstitel: Satzschrift statt Versalien */
+.post__date { font-size: var(--step-small); color: var(--muted); margin-top: 1.5rem; }
+.post__head h1 { max-width: 24ch; font-size: clamp(1.625rem, 5.2vw, 3.5rem); line-height: 1.08; letter-spacing: -0.025em; } /* lange Beitragstitel: Satzschrift, kleiner als Seitentitel */
 .post__body { max-width: calc(46rem + 2 * var(--edge)); }
-.post__body h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.75rem, 1.2rem + 1.4vw, 2.5rem); line-height: 1.1; margin-top: 3rem; }
+.post__body h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.375rem, 1.1rem + 1.4vw, 2.5rem); line-height: 1.15; margin-top: 3rem; }
 .post__body p, .post__body li { font-size: clamp(1.0625rem, 1rem + 0.2vw, 1.1875rem); line-height: 1.65; }
-.post__nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-block: 4rem var(--section); padding-top: 1.5rem; border-top: 1px solid var(--surface-2); } /* taste-skill-ignore: Navigationsleiste unter dem Beitrag */
+.post__nav { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-block: 4rem var(--section); }
 .post__feed { margin-top: 1.5rem; }
 .posts--all { margin-top: 0; }
 
@@ -404,8 +404,8 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .module__demo { margin-top: 1rem; font-weight: 500; }
 .module__demo .link::after { content: " →"; }
 /* Installation: was der Einzeiler tut */
-.prose--col { max-width: calc(46rem + 2 * var(--edge)); margin-inline: auto; }
-.zeile-info { max-width: 46rem; margin: 1.25rem 0 1.5rem; padding: 1.1rem 1.25rem; border-left: 4px solid var(--accent); background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; }
+.prose--col { max-width: calc(46rem + 2 * var(--edge)); }
+.zeile-info { max-width: 46rem; margin: 1.25rem 0 1.5rem; padding: 1.1rem 1.25rem; background: var(--surface); border-radius: var(--radius); }
 .zeile-info__h { font-weight: 600; margin-bottom: 0.4rem; }
 .zeile-info ul { padding-left: 1.1rem; display: grid; gap: 0.35rem; margin: 0 0 0.75rem; }
 .zeile-info p:last-child { margin-bottom: 0; font-size: var(--step-small); color: var(--muted); }
@@ -414,7 +414,7 @@ figcaption { margin-top: 0.75rem; font-size: var(--step-small); color: var(--mut
 .blog-rubrik .posts--all { margin-top: 1.5rem; }
 .post-card__rubrik { align-self: flex-start; margin-top: auto; font: 600 0.8125rem/1 var(--font-text); letter-spacing: 0.02em; color: var(--accent); }
 .post__bild { margin: 1.75rem 0; }
-.post__bild img { display: block; width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--surface-2); } /* taste-skill-ignore: Screenshot im Beitrag */
+.post__bild img { display: block; width: 100%; height: auto; border-radius: var(--radius); background: #fff; }
 .post__bild figcaption { margin-top: 0.5rem; font-size: var(--step-small); color: var(--muted); }
 /* Schmale Handys (280 px): lange Wörter und Code dürfen umbrechen */
 .page-head h1 { hyphens: auto; overflow-wrap: break-word; }
