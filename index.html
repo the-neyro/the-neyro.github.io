@@ -160,61 +160,28 @@
   </div>
 </section>
 
-<section class="stats" aria-labelledby="stats-h">
-  <h2 id="stats-h" class="stats__h" data-reveal>Nextfix in Zahlen</h2>
-  <div class="stat stat--a" data-reveal><strong>111</strong><span>Prüfungen zu Technik und Inhalt</span></div>
-  <div class="stat stat--b" data-reveal style="--i:1"><strong>8</strong><span>Bereiche, von Crawlbarkeit bis KI-Suche</span></div>
-  <div class="stat stat--c" data-reveal style="--i:2"><strong>0 €</strong><span>kein Abo, keine Guthaben, keine bezahlten Schnittstellen</span></div>
-</section>
-
-<section class="proof" aria-labelledby="proof-h">
-  <article class="proof__card" data-vn data-vorher="64" data-nachher="91">
-    <h2 id="proof-h" class="proof__h">Prüfprotokoll Radhaus Elbe</h2>
-    <p class="proof__demo">Erfundene Demo-Website, echte Messung mit Nextfix.</p>
-    <div class="proof__slip" data-reveal>
-      <div><strong class="vn__zahl">64</strong><span class="vn__label">vorher, von 100</span><small>8 Aufgaben, Technik 79, Inhalt 81, 17 Seiten</small></div>
-      <div aria-hidden="true" class="proof__pfeil">→</div>
-      <div><strong class="vn__zahl" data-vn-zahl>91</strong><span class="vn__label">nachher, von 100</span><small>3 Aufgaben mit geringer Wirkung, Technik 100, Inhalt 91, 15 Seiten</small></div>
-    </div>
-    <p class="proof__done">Fünf Aufgaben erledigt: Sitemap bereinigt · 404 behoben · defekte Links repariert · 7 Seiten mit wenig Text ausgebaut · 4 Seiten mit eigenen Beschreibungen.</p>
-    <p class="proof__src">Gemessen am 28.10.2026, beide Fassungen lokal geprüft: <a class="link" href="blog/vier-aufgaben-spaeter/">So haben wir gemessen</a> · <a class="link" href="pruefungen/">Alle 111 Prüfungen ansehen</a>. Was das bei Google bringt, kann niemand versprechen.</p>
-    <p class="proof__names">Seiten mit 4xx-Statuscode &nbsp;·&nbsp; Redirect-Ketten und -Schleifen &nbsp;·&nbsp; robots.txt nicht gefunden &nbsp;·&nbsp; Seiten für Google gesperrt &nbsp;·&nbsp; Seite baut sich per JavaScript auf – ohne JavaScript geprüft &nbsp;·&nbsp; Doppelte Title-Tags &nbsp;·&nbsp; Title zu kurz (≤ 10 Zeichen) &nbsp;·&nbsp; Meta-Description fehlt &nbsp;·&nbsp; Mehr als eine H1 &nbsp;·&nbsp; Bilder ohne alt-Attribut &nbsp;·&nbsp; Unsichere Inhalte auf sicheren Seiten (Mixed Content) &nbsp;·&nbsp; Browser erzwingen keine sichere Verbindung (HSTS) &nbsp;·&nbsp; Unkomprimierte Seiten &nbsp;·&nbsp; Viewport-Tag fehlt &nbsp;·&nbsp; Mehrere Canonical-URLs &nbsp;·&nbsp; Keine Zeichenkodierung &nbsp;·&nbsp; Passwortfeld auf HTTP-Seite &nbsp;·&nbsp; Defekte externe Links &nbsp;·&nbsp; Ungültiger Sprachcode in hreflang &nbsp;·&nbsp; Sprachcode mehrfach mit verschiedenen URLs &nbsp;·&nbsp; hreflang und lang-Attribut widersprechen sich &nbsp;·&nbsp; Fragen ohne FAQ-Markup &nbsp;·&nbsp; Artikel ohne Autor oder Datum &nbsp;·&nbsp; Layout springt beim Laden (CLS mobil über 0,25) &nbsp;·&nbsp; Interne Links mit nofollow &nbsp;·&nbsp; Links ohne Anchor-Text &nbsp;·&nbsp; Nur ein eingehender interner Link &nbsp;·&nbsp; URL länger als 200 Zeichen &nbsp;·&nbsp; Zu viele JS- und CSS-Dateien (> 100) &nbsp;·&nbsp; Skript- und Style-Dateien nicht verkleinert &nbsp;·&nbsp; HTTP leitet nicht auf HTTPS um &nbsp;·&nbsp; Falscher Zertifikatsname &nbsp;·&nbsp; llms.txt mit Formatfehlern &nbsp;·&nbsp; llms.txt ohne Kurzbeschreibung oder Links &nbsp;·&nbsp; sitemap.xml zu groß &nbsp;·&nbsp; Verwaiste Seiten (nur in der Sitemap)</p>
-  </article>
-</section>
-
-<section class="poster" aria-labelledby="poster-h">
-  <h2 id="poster-h" class="sr-only">Was Nextfix ausmacht</h2>
-  <ul class="poster__list">
-    <li><span>Kostenlos</span><p>0 €, kein Abo, keine Guthaben</p></li>
-    <li><span>Lokal</span><p>deine Daten bleiben auf deinem Rechner</p></li>
-    <li><span>Quelloffen</span><p>MIT-Lizenz, Code auf GitHub</p></li>
-    <li><span>Ohne Konto</span><p>kein Tracking, keine Telemetrie</p></li>
-    <li><span>Mit Claude</span><p>MCP-Server, 51 Werkzeuge</p></li>
-  </ul>
-</section>
-
-<section class="section wrap vergleich" aria-labelledby="vergleich-h">
-  <h2 id="vergleich-h" class="h2" data-reveal>Ehrlich verglichen.</h2>
-  <p class="lead-after" data-reveal>Mit den Lücken von Nextfix und mit den anderen freien Werkzeugen. Preise und Angaben laut Anbieter-Websites und GitHub, Stand Oktober 2026.</p>
+<section class="proof" aria-labelledby="vergleich-h">
+  <h2 id="vergleich-h" class="proof__h" data-reveal><span>Ehrlich</span> <span>verglichen.</span></h2>
+  <p class="proof__lead" data-reveal>Mit den Lücken von Nextfix und mit den anderen freien Werkzeugen. Preise und Angaben laut Anbieter-Websites und GitHub, Stand Oktober 2026.</p>
   <div class="cmp" data-reveal tabindex="0" role="region" aria-label="Vergleichstabelle, waagrecht scrollbar">
   <table class="cmp__table">
     <thead><tr><th scope="col"><span class="sr-only">Merkmal</span></th><th scope="col" class="cmp__us">Nextfix</th><th scope="col">OpenSEO<br><span>Open Source, Guthaben</span></th><th scope="col">SEO-Suiten<br><span>Semrush, Ahrefs, Sistrix</span></th><th scope="col">Desktop-Crawler<br><span>Screaming Frog</span></th><th scope="col">Freie Audit-Tools<br><span>SEOnaut, Unlighthouse</span></th></tr></thead>
     <tbody>
-      <tr><th scope="row">Kosten</th><td class="cmp__us">0 €</td><td>gehostet ab 10 $/Monat plus Verbrauch; selbst gehostet zahlst du DataForSEO pro Abfrage</td><td>ab ca. 119–134 €/Monat</td><td>kostenlos bis 500 URLs, sonst 199 £/Jahr</td><td>0 €, selbst gehostet; SEOnaut gibt es auch gehostet</td></tr>
-      <tr><th scope="row">Open Source</th><td class="cmp__us">ja (MIT)</td><td>ja (MIT)</td><td>nein</td><td>nein</td><td>ja (MIT)</td></tr>
-      <tr><th scope="row">Bezahlte Datenquelle nötig</th><td class="cmp__us">nein, nur deine Website, Search Console und Bing</td><td>ja, DataForSEO</td><td>im Preis enthalten</td><td>nein</td><td>nein</td></tr>
-      <tr><th scope="row">Konto nötig</th><td class="cmp__us">nein</td><td>gehostet ja; selbst gehostet ein DataForSEO-Konto</td><td>ja</td><td>nein</td><td>nein, selbst gehostet</td></tr>
-      <tr><th scope="row">Deine Daten liegen</th><td class="cmp__us">auf deinem Rechner</td><td>gehostet beim Anbieter, selbst gehostet bei dir</td><td>beim Anbieter</td><td>auf deinem Rechner</td><td>bei dir, selbst gehostet</td></tr>
-      <tr><th scope="row">Aufgaben nach Wirkung sortiert</th><td class="cmp__us">ja, mit „wer macht es“</td><td>teilweise</td><td>teilweise</td><td>teilweise, Funde mit Priorität hoch, mittel, gering</td><td>teilweise: SEOnaut nach Schweregrad, Unlighthouse nach Lighthouse-Wert</td></tr>
-      <tr><th scope="row">Eigene Google-Positionen</th><td class="cmp__us">ja, aus Search Console und Bing</td><td>ja</td><td>ja</td><td>teilweise, Search-Console-Daten je Seite</td><td>nein</td></tr>
-      <tr><th scope="row">Positionen der Konkurrenz</th><td class="cmp__us cmp__no">nein</td><td>ja</td><td>ja</td><td>nein</td><td>nein</td></tr>
-      <tr><th scope="row">Einzelne Backlinks</th><td class="cmp__us cmp__no">nein, nur Domain-Stärke</td><td>ja</td><td>ja</td><td>nein</td><td>nein</td></tr>
-      <tr><th scope="row">Für Claude (MCP)</th><td class="cmp__us">ja, 51 Werkzeuge, lokal</td><td>ja</td><td>je nach Anbieter</td><td>nein</td><td>kein MCP-Server; für Unlighthouse gibt es einen Skill für KI-Agenten</td></tr>
-      <tr><th scope="row">Installation</th><td class="cmp__us cmp__no">eine Zeile im Terminal, braucht Python 3.12 und git</td><td>keine (gehostet) oder Docker/Cloudflare</td><td>keine, im Browser</td><td>Programm installieren</td><td>SEOnaut: Docker mit MySQL; Unlighthouse: ein Befehl mit Node.js</td></tr>
+      <tr><th scope="row">Kosten</th><td data-label="Nextfix" class="cmp__us">0 €</td><td data-label="OpenSEO">gehostet ab 10 $/Monat plus Verbrauch; selbst gehostet zahlst du DataForSEO pro Abfrage</td><td data-label="SEO-Suiten">ab ca. 119–134 €/Monat</td><td data-label="Desktop-Crawler">kostenlos bis 500 URLs, sonst 199 £/Jahr</td><td data-label="Freie Audit-Tools">0 €, selbst gehostet; SEOnaut gibt es auch gehostet</td></tr>
+      <tr><th scope="row">Open Source</th><td data-label="Nextfix" class="cmp__us">ja (MIT)</td><td data-label="OpenSEO">ja (MIT)</td><td data-label="SEO-Suiten">nein</td><td data-label="Desktop-Crawler">nein</td><td data-label="Freie Audit-Tools">ja (MIT)</td></tr>
+      <tr><th scope="row">Bezahlte Datenquelle nötig</th><td data-label="Nextfix" class="cmp__us">nein, nur deine Website, Search Console und Bing</td><td data-label="OpenSEO">ja, DataForSEO</td><td data-label="SEO-Suiten">im Preis enthalten</td><td data-label="Desktop-Crawler">nein</td><td data-label="Freie Audit-Tools">nein</td></tr>
+      <tr><th scope="row">Konto nötig</th><td data-label="Nextfix" class="cmp__us">nein</td><td data-label="OpenSEO">gehostet ja; selbst gehostet ein DataForSEO-Konto</td><td data-label="SEO-Suiten">ja</td><td data-label="Desktop-Crawler">nein</td><td data-label="Freie Audit-Tools">nein, selbst gehostet</td></tr>
+      <tr><th scope="row">Deine Daten liegen</th><td data-label="Nextfix" class="cmp__us">auf deinem Rechner</td><td data-label="OpenSEO">gehostet beim Anbieter, selbst gehostet bei dir</td><td data-label="SEO-Suiten">beim Anbieter</td><td data-label="Desktop-Crawler">auf deinem Rechner</td><td data-label="Freie Audit-Tools">bei dir, selbst gehostet</td></tr>
+      <tr><th scope="row">Aufgaben nach Wirkung sortiert</th><td data-label="Nextfix" class="cmp__us">ja, mit „wer macht es“</td><td data-label="OpenSEO">teilweise</td><td data-label="SEO-Suiten">teilweise</td><td data-label="Desktop-Crawler">teilweise, Funde mit Priorität hoch, mittel, gering</td><td data-label="Freie Audit-Tools">teilweise: SEOnaut nach Schweregrad, Unlighthouse nach Lighthouse-Wert</td></tr>
+      <tr><th scope="row">Eigene Google-Positionen</th><td data-label="Nextfix" class="cmp__us">ja, aus Search Console und Bing</td><td data-label="OpenSEO">ja</td><td data-label="SEO-Suiten">ja</td><td data-label="Desktop-Crawler">teilweise, Search-Console-Daten je Seite</td><td data-label="Freie Audit-Tools">nein</td></tr>
+      <tr><th scope="row">Positionen der Konkurrenz</th><td data-label="Nextfix" class="cmp__us cmp__no">nein</td><td data-label="OpenSEO">ja</td><td data-label="SEO-Suiten">ja</td><td data-label="Desktop-Crawler">nein</td><td data-label="Freie Audit-Tools">nein</td></tr>
+      <tr><th scope="row">Einzelne Backlinks</th><td data-label="Nextfix" class="cmp__us cmp__no">nein, nur Domain-Stärke</td><td data-label="OpenSEO">ja</td><td data-label="SEO-Suiten">ja</td><td data-label="Desktop-Crawler">nein</td><td data-label="Freie Audit-Tools">nein</td></tr>
+      <tr><th scope="row">Für Claude (MCP)</th><td data-label="Nextfix" class="cmp__us">ja, 51 Werkzeuge, lokal</td><td data-label="OpenSEO">ja</td><td data-label="SEO-Suiten">je nach Anbieter</td><td data-label="Desktop-Crawler">nein</td><td data-label="Freie Audit-Tools">kein MCP-Server; für Unlighthouse gibt es einen Skill für KI-Agenten</td></tr>
+      <tr><th scope="row">Installation</th><td data-label="Nextfix" class="cmp__us cmp__no">eine Zeile im Terminal, braucht Python 3.12 und git</td><td data-label="OpenSEO">keine (gehostet) oder Docker/Cloudflare</td><td data-label="SEO-Suiten">keine, im Browser</td><td data-label="Desktop-Crawler">Programm installieren</td><td data-label="Freie Audit-Tools">SEOnaut: Docker mit MySQL; Unlighthouse: ein Befehl mit Node.js</td></tr>
     </tbody>
   </table>
   </div>
-  <p class="cmp__src"><a class="link" href="alternative/">Ausführlich: Wofür Nextfix als Alternative reicht und wofür nicht</a>. Quellen: <a href="https://github.com/StJudeWasHere/seonaut">SEOnaut</a>, <a href="https://github.com/harlan-zw/unlighthouse">Unlighthouse</a>, <a href="https://openseo.so/pricing">OpenSEO</a> (<a href="https://github.com/every-app/open-seo">Quellcode und Selbst-Hosting</a>), <a href="https://www.semrush.com/prices/">Semrush</a>, <a href="https://ahrefs.com/pricing">Ahrefs</a>, <a href="https://www.sistrix.de/preise/">Sistrix</a> (zzgl. MwSt.), <a href="https://www.screamingfrog.co.uk/seo-spider/pricing/">Screaming Frog</a>. Abgerufen am 17.10.2026, ohne Gewähr. Kostenlose Testphasen und Gratis-Stufen der Anbieter gibt es mit Einschränkungen.</p>
+  <p class="cmp__src" data-reveal><a class="link" href="alternative/">Ausführlich: Wofür Nextfix als Alternative reicht und wofür nicht</a>. Quellen: <a href="https://github.com/StJudeWasHere/seonaut">SEOnaut</a>, <a href="https://github.com/harlan-zw/unlighthouse">Unlighthouse</a>, <a href="https://openseo.so/pricing">OpenSEO</a> (<a href="https://github.com/every-app/open-seo">Quellcode und Selbst-Hosting</a>), <a href="https://www.semrush.com/prices/">Semrush</a>, <a href="https://ahrefs.com/pricing">Ahrefs</a>, <a href="https://www.sistrix.de/preise/">Sistrix</a> (zzgl. MwSt.), <a href="https://www.screamingfrog.co.uk/seo-spider/pricing/">Screaming Frog</a>. Abgerufen am 17.10.2026, ohne Gewähr. Kostenlose Testphasen und Gratis-Stufen der Anbieter gibt es mit Einschränkungen.</p>
 </section>
 
 <section class="section wrap cmd" aria-labelledby="cmd-h" data-cmd-list>
