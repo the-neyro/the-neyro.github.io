@@ -772,8 +772,8 @@ thead .cmp__us { color: var(--accent); }
 .prose .shot { margin-top: 2rem; max-width: 46rem; }
 .faq-side { grid-column: 1 / span 4; }
 .faq-side .shot { margin-top: 2rem; position: sticky; top: 2rem; }
-.faq-side + .faq-list--page { grid-column: 6 / -1; }
-@media (max-width: 50em) { .faq-side, .faq-side + .faq-list--page { grid-column: 1 / -1; } .faq-side .shot { position: static; } }
+.faq-side + .faq-list--page { grid-column: 6 / -1; grid-row: 1; } /* neben der Überschrift starten, nicht darunter */
+@media (max-width: 50em) { .faq-side, .faq-side + .faq-list--page { grid-column: 1 / -1; grid-row: auto; } .faq-side .shot { position: static; } }
 .module__demo { margin-top: 1rem; font-weight: 500; }
 .module__demo .link::after { content: " →"; }
 /* Installation: was der Einzeiler tut */
