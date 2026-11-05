@@ -710,3 +710,29 @@ document.querySelectorAll('.code').forEach((block) => {
     setTimeout(() => { knopf.textContent = 'Kopieren'; }, 2000);
   });
 });
+
+// FAQ: Fragen und Fachwörter beim Tippen filtern. Ohne JavaScript bleibt das Feld versteckt, alles ist offen lesbar.
+(() => {
+  const feld = document.getElementById('fq-suche');
+  if (!feld) return;
+  const form = feld.closest('form');
+  const status = document.getElementById('fq-status');
+  const eintraege = [...document.querySelectorAll('.fq .qa, .fq-glossar > div')];
+  const gruppen = [...document.querySelectorAll('[data-fq-gruppe]')];
+  const klein = (s) => s.toLocaleLowerCase('de');
+  const texte = new Map(eintraege.map((el) => [el, klein(el.textContent)]));
+  const anfang = status.textContent;
+  form.hidden = false;
+  form.addEventListener('submit', (e) => e.preventDefault());
+  feld.addEventListener('input', () => {
+    const suche = klein(feld.value.trim());
+    let treffer = 0;
+    for (const el of eintraege) {
+      const passt = !suche || texte.get(el).includes(suche);
+      el.hidden = !passt;
+      if (passt) { treffer++; el.classList.add('is-in'); } // nachrückende Einträge sofort zeigen
+    }
+    for (const g of gruppen) g.hidden = Boolean(suche) && !g.querySelector('.qa:not([hidden]), .fq-glossar > div:not([hidden])');
+    status.textContent = !suche ? anfang : treffer ? `${treffer} Treffer` : 'Nichts gefunden. Stell deine Frage unten auf GitHub oder per E-Mail.';
+  });
+})();

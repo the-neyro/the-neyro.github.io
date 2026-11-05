@@ -85,13 +85,13 @@ def text_ohne_tags(fragment: str) -> str:
 
 
 def faq_eintraege(quelltext: str) -> list[tuple[str, str]]:
-    """Fragen und Antworten aus den <details class="qa"> der Seite."""
+    """Fragen und Antworten aus den <article class="qa"> der Seite."""
     paare = []
-    for block in re.findall(r'<details class="qa"[^>]*>(.*?)</details>', quelltext, re.S):
-        frage = re.search(r"<summary>(.*?)</summary>", block, re.S)
+    for block in re.findall(r'<article class="qa"[^>]*>(.*?)</article>', quelltext, re.S):
+        frage = re.search(r'<h3 class="qa__q">(.*?)</h3>', block, re.S)
         antwort = re.search(r'<div class="qa__a">(.*?)</div>', block, re.S)
         if frage and antwort:
-            paare.append((text_ohne_tags(frage.group(1)), text_ohne_tags(antwort.group(1))))
+            paare.append((text_ohne_tags(frage.group(1)), text_ohne_tags(antwort.group(1).replace("</p>", "</p> "))))
     return paare
 
 

@@ -21,7 +21,7 @@
 <meta property="og:image:alt" content="Nextfix: „Was deine Website als Nächstes braucht.“ – mit der nächsten Aufgabe aus der Liste „Was jetzt tun“">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Nextfix","item":"https://the-neyro.github.io/"},{"@type":"ListItem","position":2,"name":"FAQ","item":"https://the-neyro.github.io/faq/"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"de","mainEntity":[{"@type":"Question","name":"Was ist Nextfix?","acceptedAnswer":{"@type":"Answer","text":"Ein SEO-Tool, das auf deinem eigenen Rechner läuft. Es prüft deine Website und macht aus den Ergebnissen eine kurze Liste: was du zuerst tust, warum, wie und wer es erledigt. Dazu kommen Ladezeit, Positionen bei Google und Bing, Suchbegriffe und Tipps für einzelne Seiten."}},{"@type":"Question","name":"Kostet Nextfix wirklich nichts?","acceptedAnswer":{"@type":"Answer","text":"Ja. Der Quellcode ist offen (MIT-Lizenz), es gibt kein Abo und keine bezahlten Schnittstellen. Die Daten kommen von deiner Website, aus der Google Search Console und von Bing; beide Dienste sind kostenlos. Für die Domain-Autorität brauchst du einen kostenlosen Schlüssel von Open PageRank."}},{"@type":"Question","name":"Für wen ist Nextfix gedacht?","acceptedAnswer":{"@type":"Answer","text":"Für alle, die ihre Website selbst pflegen oder pflegen lassen und kein Budget für SEO-Software haben: Freiberufler, Handwerker, kleine Firmen, Vereine. Fachbegriffe werden erklärt, Aufgaben stehen in ganzen Sätzen."}},{"@type":"Question","name":"Ersetzt Nextfix eine Agentur?","acceptedAnswer":{"@type":"Answer","text":"Nein. Nextfix sagt dir, was zu tun ist und ob du es selbst im CMS erledigen kannst oder dein Webbetreuer ran muss. Die Arbeit selbst bleibt bei euch. Dafür weißt du genau, was du beauftragst."}},{"@type":"Question","name":"Wer steckt dahinter?","acceptedAnswer":{"@type":"Answer","text":"Nextfix ist ein privates Open-Source-Projekt von the-neyro, entwickelt öffentlich auf GitHub. Kein Unternehmen, keine Werbung, kein Verkauf von Daten. Diese Website stellt das Programm vor und ist zugleich sein Testfall: An ihr wird Nextfix an einer echten Website erprobt. Kontakt: neyro.devs@gmail.com oder ein Issue auf GitHub."}},{"@type":"Question","name":"Muss ich programmieren können?","acceptedAnswer":{"@type":"Answer","text":"Nein. Zum Installieren fügst du eine Zeile ins Terminal ein, oder dein Webbetreuer macht das. Danach startest du Nextfix auf dem Mac und unter Windows per Doppelklick, unter Linux mit einem Befehl, und bedienst es im Browser. Die Anleitung erklärt jeden Schritt."}},{"@type":"Question","name":"Kann ich die Installationszeile bedenkenlos ausführen?","acceptedAnswer":{"@type":"Answer","text":"Die Zeile lädt ein Skript von GitHub und führt es aus. Das solltest du bei keinem Programm blind tun, deshalb kannst du es vorher komplett lesen. Es braucht keine Admin-Rechte, legt alles im Ordner nextfix ab (nur Chromium landet im Cache von Playwright), richtet nichts ein, das von selbst startet, und schickt nichts über dich irgendwohin. Was es Schritt für Schritt tut, steht auf der Seite Installation. Der ganze Quellcode ist öffentlich (MIT-Lizenz). Lieber nichts im Terminal ausführen? Dann gib die Anleitung deinem Webbetreuer."}},{"@type":"Question","name":"Läuft das auch unter Windows?","acceptedAnswer":{"@type":"Answer","text":"Nextfix wird auf dem Mac entwickelt. Unter Mac und Linux laufen alle 313 automatischen Tests durch. Unter Windows funktionieren Installation, Start per Doppelklick und Prüfen; das wird bei jeder Änderung automatisch geprüft. Offiziell unterstützt ist Windows trotzdem noch nicht, weil dort einzelne Tests gelegentlich scheitern. Wenn du es ausprobierst, freut sich das Projekt über eine Rückmeldung auf GitHub."}},{"@type":"Question","name":"Kann ich auch fremde Websites prüfen?","acceptedAnswer":{"@type":"Answer","text":"Ja, der Website-Check braucht keinen Zugang, nur die Adresse. Der Crawler ruft die Seiten nacheinander ab, nicht parallel, und hält sich standardmäßig an die robots.txt. Positionen gibt es nur für Websites, deren Search Console du verbunden hast."}},{"@type":"Question","name":"Was ist MCP, und brauche ich Claude?","acceptedAnswer":{"@type":"Answer","text":"Nein, die Oberfläche im Browser reicht. MCP ist eine Schnittstelle, über die Claude Programme bedienen kann. Nextfix bietet dort 51 Werkzeuge an. Wer Claude nutzt, kann dann im Chat sagen: „Prüf meine Website und erklär mir die drei wichtigsten Aufgaben.“"}},{"@type":"Question","name":"Wohin gehen meine Daten?","acceptedAnswer":{"@type":"Answer","text":"Deine Ergebnisse bleiben auf deinem Rechner, in einer einzigen Datei (data/seo.db). Nach außen geht nur, was für eine Abfrage nötig ist: Nextfix ruft deine Website ab, holt für Suchbegriff-Ideen die Vorschläge beim Tippen von Google und, wenn du es einrichtest, Daten von Search Console, Bing und Open PageRank. Kein Konto bei Nextfix, kein Tracking."}},{"@type":"Question","name":"Fragt Nextfix Google-Suchergebnisse ab?","acceptedAnswer":{"@type":"Answer","text":"Nein. Nextfix liest keine Suchergebnisse aus. Deine Positionen kommen aus der Search Console und von Bing, also aus den Daten, die dir als Website-Betreiber ohnehin zustehen. Für Suchbegriff-Ideen fragt es in kleinem Umfang die Vorschläge beim Tippen ab; das ist keine offizielle Schnittstelle von Google."}},{"@type":"Question","name":"Was bedeutet der Website-Zustand?","acceptedAnswer":{"@type":"Answer","text":"Eine Zahl von 0 bis 100, die zeigt, wie viele und wie schwere Probleme gefunden wurden. Ab 80 gilt eine Website als gut gepflegt, unter 50 gibt es mehrere grobe Fehler. Ein Fehler auf vielen Seiten wiegt schwerer als einer auf einer einzelnen Seite. Die Zahl sagt nichts darüber, auf welchem Platz du bei Google landest. Sie ist ein Maß für den Pflegezustand, nicht fürs Ranking."}},{"@type":"Question","name":"Warum gibt es keine Punkte je Aufgabe?","acceptedAnswer":{"@type":"Answer","text":"Weil niemand seriös vorhersagen kann, was eine Behebung bei Google bringt. Eine Angabe wie „+4,2 Punkte“ täuscht Genauigkeit vor. Nextfix sortiert die Aufgaben trotzdem nach ihrem Gewicht und zeigt die Wirkung in drei Stufen: hoch, mittel, gering."}},{"@type":"Question","name":"Was heißt „Bewusst so“?","acceptedAnswer":{"@type":"Answer","text":"Manches ist Absicht: eine Login-Seite ohne Text, ein Impressum ohne Beschreibung. Markierst du ein Problem, eine Seite oder eine einzelne Fundstelle als „Bewusst so“, zählt es nicht mehr im Zustand und taucht nicht in den Aufgaben auf. Du kannst es jederzeit zurücknehmen."}},{"@type":"Question","name":"Was kann Nextfix nicht?","acceptedAnswer":{"@type":"Answer","text":"Es zeigt keine Positionen deiner Konkurrenz und keine einzelnen Backlinks, dafür bräuchte es bezahlte Datenbanken. Die Ladezeit misst es im Labor auf deinem Rechner, nicht bei echten Besuchern."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","inLanguage":"de","mainEntity":[{"@type":"Question","name":"Was ist Nextfix?","acceptedAnswer":{"@type":"Answer","text":"Ein kostenloses SEO-Tool, das auf deinem Rechner läuft. Es prüft deine Website und macht aus den Ergebnissen eine kurze Liste: was du zuerst tust, warum, wie und wer es erledigt. Dazu kommen Ladezeit, Positionen bei Google und Bing, Suchbegriffe und Tipps für einzelne Seiten."}},{"@type":"Question","name":"Kostet Nextfix wirklich nichts?","acceptedAnswer":{"@type":"Answer","text":"Ja: 0 €, kein Abo, kein Konto. Der Quellcode ist offen (MIT-Lizenz), und es gibt keine bezahlten Schnittstellen. Die Daten kommen von deiner Website, aus der Google Search Console und von Bing; beide Dienste sind kostenlos. Für die Domain-Autorität brauchst du einen kostenlosen Schlüssel von Open PageRank."}},{"@type":"Question","name":"Für wen ist Nextfix gedacht?","acceptedAnswer":{"@type":"Answer","text":"Für alle ohne Budget für SEO-Software. Freiberufler, Handwerker, kleine Firmen, Vereine: wer die eigene Website selbst pflegt oder pflegen lässt. Fachbegriffe werden erklärt, Aufgaben stehen in ganzen Sätzen."}},{"@type":"Question","name":"Ersetzt Nextfix eine Agentur?","acceptedAnswer":{"@type":"Answer","text":"Nein. Aber du weißt genau, was du beauftragst. Nextfix sagt dir, was zu tun ist und ob du es selbst im CMS erledigen kannst oder dein Webbetreuer ran muss. Die Arbeit selbst bleibt bei euch."}},{"@type":"Question","name":"Wer steckt dahinter?","acceptedAnswer":{"@type":"Answer","text":"the-neyro, mit einem privaten Open-Source-Projekt. Nextfix wird öffentlich auf GitHub entwickelt. Kein Unternehmen, keine Werbung, kein Verkauf von Daten. Diese Website stellt das Programm vor und ist zugleich sein Testfall: An ihr wird Nextfix an einer echten Website erprobt. Kontakt: neyro.devs@gmail.com oder ein Issue auf GitHub."}},{"@type":"Question","name":"Muss ich programmieren können?","acceptedAnswer":{"@type":"Answer","text":"Nein. Zum Installieren fügst du eine Zeile ins Terminal ein, oder dein Webbetreuer macht das. Danach startest du Nextfix auf dem Mac und unter Windows per Doppelklick, unter Linux mit einem Befehl, und bedienst es im Browser. Die Anleitung erklärt jeden Schritt."}},{"@type":"Question","name":"Kann ich die Installationszeile bedenkenlos ausführen?","acceptedAnswer":{"@type":"Answer","text":"Lies das Skript vorher, es ist öffentlich. Die Zeile lädt ein Skript von GitHub und führt es aus. Das solltest du bei keinem Programm blind tun, deshalb kannst du es vorher komplett lesen. Es braucht keine Admin-Rechte, legt alles im Ordner nextfix ab (nur Chromium landet im Cache von Playwright), richtet nichts ein, das von selbst startet, und schickt nichts über dich irgendwohin. Was es Schritt für Schritt tut, steht auf der Seite Installation. Lieber nichts im Terminal ausführen? Dann gib die Anleitung deinem Webbetreuer."}},{"@type":"Question","name":"Läuft das auch unter Windows?","acceptedAnswer":{"@type":"Answer","text":"Ja, aber noch nicht offiziell unterstützt. Nextfix wird auf dem Mac entwickelt. Unter Mac und Linux laufen alle 313 automatischen Tests durch. Unter Windows funktionieren Installation, Start per Doppelklick und Prüfen; das wird bei jeder Änderung automatisch geprüft. Offiziell unterstützt ist Windows trotzdem noch nicht, weil dort einzelne Tests gelegentlich scheitern. Wenn du es ausprobierst, freut sich das Projekt über eine Rückmeldung auf GitHub."}},{"@type":"Question","name":"Kann ich auch fremde Websites prüfen?","acceptedAnswer":{"@type":"Answer","text":"Ja. Nur Positionen gibt es dafür nicht. Der Website-Check braucht keinen Zugang, nur die Adresse. Der Crawler ruft die Seiten nacheinander ab, nicht parallel, und hält sich standardmäßig an die robots.txt. Positionen gibt es nur für Websites, deren Search Console du verbunden hast."}},{"@type":"Question","name":"Was ist MCP, und brauche ich Claude?","acceptedAnswer":{"@type":"Answer","text":"Nein, die Oberfläche im Browser reicht. MCP ist eine Schnittstelle, über die Claude Programme bedienen kann. Nextfix bietet dort 51 Werkzeuge an. Wer Claude nutzt, kann dann im Chat sagen: „Prüf meine Website und erklär mir die drei wichtigsten Aufgaben.“"}},{"@type":"Question","name":"Wohin gehen meine Daten?","acceptedAnswer":{"@type":"Answer","text":"Nirgendwohin. Sie bleiben in einer Datei auf deinem Rechner. Alle Ergebnisse liegen in data/seo.db. Nach außen geht nur, was für eine Abfrage nötig ist: Nextfix ruft deine Website ab, holt für Suchbegriff-Ideen die Vorschläge beim Tippen von Google und, wenn du es einrichtest, Daten von Search Console, Bing und Open PageRank. Kein Konto bei Nextfix, kein Tracking."}},{"@type":"Question","name":"Fragt Nextfix Google-Suchergebnisse ab?","acceptedAnswer":{"@type":"Answer","text":"Nein. Nextfix liest keine Suchergebnisse aus. Deine Positionen kommen aus der Search Console und von Bing, also aus den Daten, die dir als Website-Betreiber ohnehin zustehen. Für Suchbegriff-Ideen fragt es in kleinem Umfang die Vorschläge beim Tippen ab; das ist keine offizielle Schnittstelle von Google."}},{"@type":"Question","name":"Was bedeutet der Website-Zustand?","acceptedAnswer":{"@type":"Answer","text":"Wie gepflegt deine Website ist, von 0 bis 100. Die Zahl zeigt, wie viele und wie schwere Probleme gefunden wurden. Ab 80 gilt eine Website als gut gepflegt, unter 50 gibt es mehrere grobe Fehler. Ein Fehler auf vielen Seiten wiegt schwerer als einer auf einer einzelnen Seite. Über deinen Platz bei Google sagt sie nichts. Sie ist ein Maß für den Pflegezustand, nicht fürs Ranking."}},{"@type":"Question","name":"Warum gibt es keine Punkte je Aufgabe?","acceptedAnswer":{"@type":"Answer","text":"Weil niemand das seriös vorhersagen kann. Eine Angabe wie „+4,2 Punkte“ täuscht Genauigkeit vor. Nextfix sortiert die Aufgaben trotzdem nach ihrem Gewicht und zeigt die Wirkung in drei Stufen: hoch, mittel, gering."}},{"@type":"Question","name":"Was heißt „Bewusst so“?","acceptedAnswer":{"@type":"Answer","text":"Es ist Absicht und zählt nicht mehr. Manches gehört so: eine Login-Seite ohne Text, ein Impressum ohne Beschreibung. Markierst du ein Problem, eine Seite oder eine einzelne Fundstelle als „Bewusst so“, zählt es nicht mehr im Zustand und taucht nicht in den Aufgaben auf. Du kannst es jederzeit zurücknehmen."}},{"@type":"Question","name":"Was kann Nextfix nicht?","acceptedAnswer":{"@type":"Answer","text":"Konkurrenz-Positionen und einzelne Backlinks. Dafür bräuchte es bezahlte Datenbanken. Die Ladezeit misst Nextfix im Labor auf deinem Rechner, nicht bei echten Besuchern."}}]}</script>
 <!-- seo:ende -->
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preload" href="../assets/fonts/fira-sans-condensed-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -42,173 +42,147 @@
   </nav>
 </header>
 
-<main id="inhalt">
-  <div class="page-head page-head--split">
-    <div class="page-head__main">
-    <h1 data-reveal>Häufige Fragen</h1>
-    <p class="statement" data-reveal style="--i:1">Kurze Antworten, auch auf die unbequemen Fragen.</p>
+<main id="inhalt" class="fq">
+  <div class="page-head fq-head">
+    <div class="fq-head__main">
+      <h1 data-reveal>Häufige Fragen</h1>
+      <p class="statement" data-reveal style="--i:1">16 ehrliche Antworten: was Nextfix kostet, wohin deine Daten gehen und was es nicht kann.</p>
+      <form class="fq-suche" role="search" data-reveal style="--i:2" hidden>
+        <label for="fq-suche">Frage suchen</label>
+        <input id="fq-suche" type="search" placeholder="z. B. Windows, Kosten, Sitemap" autocomplete="off" aria-describedby="fq-status">
+        <p id="fq-status" class="fq-suche__status" aria-live="polite">16 Fragen und 10 Fachwörter</p>
+      </form>
     </div>
-    <aside class="page-head__side" data-reveal style="--i:2" aria-label="Kurz gesagt">
-      <dl class="facts-card">
-        <div><dt>Kosten</dt><dd>0 €, kein Konto, kein Abo</dd></div>
-        <div><dt>Läuft auf</dt><dd>Mac und Linux (automatisch getestet); Windows funktioniert, ist aber noch nicht offiziell unterstützt</dd></div>
-        <div><dt>Deine Daten</dt><dd>bleiben auf deinem Rechner</dd></div>
-        <div><dt>Hilfe</dt><dd><a class="link" href="../installation/">Anleitung</a> · <a class="link" href="https://github.com/the-neyro/nextfix/issues">Problem melden</a></dd></div>
-      </dl>
-    </aside>
+    <nav class="fq-themen" aria-label="Themen" data-reveal style="--i:3">
+      <ul>
+        <li><a href="#grundsaetzliches">Grundsätzliches <span>5</span></a></li>
+        <li><a href="#technik">Installation und Technik <span>5</span></a></li>
+        <li><a href="#daten">Daten und Datenschutz <span>2</span></a></li>
+        <li><a href="#begriffe">Fachwörter <span>10</span></a></li>
+        <li><a href="#ergebnisse">Ergebnisse verstehen <span>4</span></a></li>
+      </ul>
+    </nav>
   </div>
 
-  <section class="section wrap" aria-labelledby="g1">
-    <div class="grid">
-      <div class="faq-side">
-        <h2 id="g1" class="faq-group" data-reveal>Grundsätzliches</h2>
-        <figure class="shot" data-reveal>
-          <img src="../assets/img/shot-aufgaben-schmal-1140.webp"
-               srcset="../assets/img/shot-aufgaben-schmal-760.webp 760w, ../assets/img/shot-aufgaben-schmal-1140.webp 1140w"
-               sizes="(max-width: 50em) calc(100vw - 2rem), 31vw" width="1140" height="1636" loading="lazy"
-               alt="Liste „Was jetzt tun“ mit Aufgaben, Wirkung und wer sie erledigt">
-          <figcaption>Die Liste „Was jetzt tun“, das Herz von Nextfix.</figcaption>
-        </figure>
-      </div>
-      <div class="faq-list faq-list--page">
-        <details class="qa" open>
-          <summary>Was ist Nextfix?</summary>
-          <div class="qa__a"><p>Ein SEO-Tool, das auf deinem eigenen Rechner läuft. Es prüft deine Website und macht aus den Ergebnissen eine kurze Liste: was du zuerst tust, warum, wie und wer es erledigt. Dazu kommen Ladezeit, Positionen bei Google und Bing, Suchbegriffe und Tipps für einzelne Seiten.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Kostet Nextfix wirklich nichts?</summary>
-          <div class="qa__a"><p>Ja. Der Quellcode ist offen (MIT-Lizenz), es gibt kein Abo und keine bezahlten Schnittstellen. Die Daten kommen von deiner Website, aus der Google Search Console und von Bing; beide Dienste sind kostenlos. Für die Domain-Autorität brauchst du einen kostenlosen Schlüssel von Open PageRank.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Für wen ist Nextfix gedacht?</summary>
-          <div class="qa__a"><p>Für alle, die ihre Website selbst pflegen oder pflegen lassen und kein Budget für SEO-Software haben: Freiberufler, Handwerker, kleine Firmen, Vereine. Fachbegriffe werden erklärt, Aufgaben stehen in ganzen Sätzen.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Ersetzt Nextfix eine Agentur?</summary>
-          <div class="qa__a"><p>Nein. Nextfix sagt dir, was zu tun ist und ob du es selbst im CMS erledigen kannst oder dein Webbetreuer ran muss. Die Arbeit selbst bleibt bei euch. Dafür weißt du genau, was du beauftragst.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Wer steckt dahinter?</summary>
-          <div class="qa__a"><p>Nextfix ist ein privates Open-Source-Projekt von <strong>the-neyro</strong>, entwickelt öffentlich auf <a href="https://github.com/the-neyro/nextfix">GitHub</a>. Kein Unternehmen, keine Werbung, kein Verkauf von Daten. Diese Website stellt das Programm vor und ist zugleich sein Testfall: An ihr wird Nextfix an einer echten Website erprobt. Kontakt: neyro.devs@gmail.com oder ein <a href="https://github.com/the-neyro/nextfix/issues">Issue auf GitHub</a>.</p></div>
-        </details>
-      </div>
+  <section class="fq-gruppe wrap" id="grundsaetzliches" aria-labelledby="g1" data-fq-gruppe>
+    <div class="fq-gruppe__kopf">
+      <h2 id="g1" data-reveal>Grundsätzliches</h2>
+      <p data-reveal style="--i:1">Was Nextfix ist, was es kostet und wer dahintersteckt.</p>
     </div>
+    <article class="qa" id="was-ist-nextfix">
+      <h3 class="qa__q">Was ist Nextfix?</h3>
+      <div class="qa__a"><p class="qa__kurz">Ein kostenloses SEO-Tool, das auf deinem Rechner läuft.</p><p>Es prüft deine Website und macht aus den Ergebnissen eine kurze Liste: was du zuerst tust, warum, wie und wer es erledigt. Dazu kommen Ladezeit, Positionen bei Google und Bing, Suchbegriffe und Tipps für einzelne Seiten.</p></div>
+    </article>
+    <article class="qa" id="kosten">
+      <h3 class="qa__q">Kostet Nextfix wirklich nichts?</h3>
+      <div class="qa__a"><p class="qa__kurz">Ja: 0 €, kein Abo, kein Konto.</p><p>Der Quellcode ist offen (MIT-Lizenz), und es gibt keine bezahlten Schnittstellen. Die Daten kommen von deiner Website, aus der Google Search Console und von Bing; beide Dienste sind kostenlos. Für die Domain-Autorität brauchst du einen kostenlosen Schlüssel von Open PageRank.</p></div>
+    </article>
+    <article class="qa" id="fuer-wen">
+      <h3 class="qa__q">Für wen ist Nextfix gedacht?</h3>
+      <div class="qa__a"><p class="qa__kurz">Für alle ohne Budget für SEO-Software.</p><p>Freiberufler, Handwerker, kleine Firmen, Vereine: wer die eigene Website selbst pflegt oder pflegen lässt. Fachbegriffe werden erklärt, Aufgaben stehen in ganzen Sätzen.</p></div>
+    </article>
+    <article class="qa" id="agentur">
+      <h3 class="qa__q">Ersetzt Nextfix eine Agentur?</h3>
+      <div class="qa__a"><p class="qa__kurz">Nein. Aber du weißt genau, was du beauftragst.</p><p>Nextfix sagt dir, was zu tun ist und ob du es selbst im CMS erledigen kannst oder dein Webbetreuer ran muss. Die Arbeit selbst bleibt bei euch.</p></div>
+    </article>
+    <article class="qa" id="wer">
+      <h3 class="qa__q">Wer steckt dahinter?</h3>
+      <div class="qa__a"><p class="qa__kurz">the-neyro, mit einem privaten Open-Source-Projekt.</p><p>Nextfix wird öffentlich auf <a href="https://github.com/the-neyro/nextfix">GitHub</a> entwickelt. Kein Unternehmen, keine Werbung, kein Verkauf von Daten. Diese Website stellt das Programm vor und ist zugleich sein Testfall: An ihr wird Nextfix an einer echten Website erprobt. Kontakt: neyro.devs@gmail.com oder ein <a href="https://github.com/the-neyro/nextfix/issues">Issue auf GitHub</a>.</p></div>
+    </article>
   </section>
 
-  <section class="section wrap" aria-labelledby="g2">
-    <div class="grid">
-      <div class="faq-side">
-        <h2 id="g2" class="faq-group" data-reveal>Installation und Technik</h2>
-        <figure class="shot" data-reveal>
-          <img src="../assets/img/shot-projekte-schmal-1140.webp"
-               srcset="../assets/img/shot-projekte-schmal-760.webp 760w, ../assets/img/shot-projekte-schmal-1140.webp 1140w"
-               sizes="(max-width: 50em) calc(100vw - 2rem), 31vw" width="1140" height="903" loading="lazy"
-               alt="Formular „Neue Website“ in Nextfix">
-          <figcaption>Nach der Installation läuft alles im Browser.</figcaption>
-        </figure>
-      </div>
-      <div class="faq-list faq-list--page">
-        <details class="qa">
-          <summary>Muss ich programmieren können?</summary>
-          <div class="qa__a"><p>Nein. Zum Installieren fügst du eine Zeile ins Terminal ein, oder dein Webbetreuer macht das. Danach startest du Nextfix auf dem Mac und unter Windows per Doppelklick, unter Linux mit einem Befehl, und bedienst es im Browser. Die <a href="../installation/">Anleitung</a> erklärt jeden Schritt.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Kann ich die Installationszeile bedenkenlos ausführen?</summary>
-          <div class="qa__a"><p>Die Zeile lädt ein Skript von GitHub und führt es aus. Das solltest du bei keinem Programm blind tun, deshalb kannst du es vorher <a href="https://github.com/the-neyro/nextfix/blob/main/scripts/install.sh">komplett lesen</a>. Es braucht keine Admin-Rechte, legt alles im Ordner <code>nextfix</code> ab (nur Chromium landet im Cache von Playwright), richtet nichts ein, das von selbst startet, und schickt nichts über dich irgendwohin. Was es Schritt für Schritt tut, steht auf der Seite <a href="../installation/#schnell">Installation</a>. Der ganze Quellcode ist öffentlich (MIT-Lizenz). Lieber nichts im Terminal ausführen? Dann gib die Anleitung deinem Webbetreuer.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Läuft das auch unter Windows?</summary>
-          <div class="qa__a"><p>Nextfix wird auf dem Mac entwickelt. Unter Mac und Linux laufen alle 313 automatischen Tests durch. Unter Windows funktionieren Installation, Start per Doppelklick und Prüfen; das wird bei jeder Änderung automatisch geprüft. Offiziell unterstützt ist Windows trotzdem noch nicht, weil dort einzelne Tests gelegentlich scheitern. Wenn du es ausprobierst, freut sich das Projekt über eine Rückmeldung auf GitHub.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Kann ich auch fremde Websites prüfen?</summary>
-          <div class="qa__a"><p>Ja, der Website-Check braucht keinen Zugang, nur die Adresse. Der Crawler ruft die Seiten nacheinander ab, nicht parallel, und hält sich standardmäßig an die robots.txt. Positionen gibt es nur für Websites, deren Search Console du verbunden hast.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Was ist MCP, und brauche ich Claude?</summary>
-          <div class="qa__a"><p>Nein, die Oberfläche im Browser reicht. MCP ist eine Schnittstelle, über die Claude Programme bedienen kann. Nextfix bietet dort 51 Werkzeuge an. Wer Claude nutzt, kann dann im Chat sagen: „Prüf meine Website und erklär mir die drei wichtigsten Aufgaben.“</p></div>
-        </details>
-      </div>
+  <section class="fq-gruppe wrap" id="technik" aria-labelledby="g2" data-fq-gruppe>
+    <div class="fq-gruppe__kopf">
+      <h2 id="g2" data-reveal>Installation und Technik</h2>
+      <p data-reveal style="--i:1">Was du zum Installieren brauchst und was danach läuft.</p>
     </div>
+    <article class="qa" id="programmieren">
+      <h3 class="qa__q">Muss ich programmieren können?</h3>
+      <div class="qa__a"><p class="qa__kurz">Nein.</p><p>Zum Installieren fügst du eine Zeile ins Terminal ein, oder dein Webbetreuer macht das. Danach startest du Nextfix auf dem Mac und unter Windows per Doppelklick, unter Linux mit einem Befehl, und bedienst es im Browser. Die <a href="../installation/">Anleitung</a> erklärt jeden Schritt.</p></div>
+    </article>
+    <article class="qa" id="installationszeile">
+      <h3 class="qa__q">Ist die Installationszeile sicher?</h3>
+      <div class="qa__a"><p class="qa__kurz">Lies das Skript vorher, es ist öffentlich.</p><p>Die Zeile lädt ein Skript von GitHub und führt es aus. Das solltest du bei keinem Programm blind tun, deshalb kannst du es vorher <a href="https://github.com/the-neyro/nextfix/blob/main/scripts/install.sh">komplett lesen</a>. Es braucht keine Admin-Rechte, legt alles im Ordner <code>nextfix</code> ab (nur Chromium landet im Cache von Playwright), richtet nichts ein, das von selbst startet, und schickt nichts über dich irgendwohin. Was es Schritt für Schritt tut, steht auf der Seite <a href="../installation/#schnell">Installation</a>. Lieber nichts im Terminal ausführen? Dann gib die Anleitung deinem Webbetreuer.</p></div>
+    </article>
+    <article class="qa" id="windows">
+      <h3 class="qa__q">Läuft das auch unter Windows?</h3>
+      <div class="qa__a"><p class="qa__kurz">Ja, aber noch nicht offiziell unterstützt.</p><p>Nextfix wird auf dem Mac entwickelt. Unter Mac und Linux laufen alle 313 automatischen Tests durch. Unter Windows funktionieren Installation, Start per Doppelklick und Prüfen; das wird bei jeder Änderung automatisch geprüft. Offiziell unterstützt ist Windows trotzdem noch nicht, weil dort einzelne Tests gelegentlich scheitern. Wenn du es ausprobierst, freut sich das Projekt über eine Rückmeldung auf GitHub.</p></div>
+    </article>
+    <article class="qa" id="fremde-websites">
+      <h3 class="qa__q">Kann ich auch fremde Websites prüfen?</h3>
+      <div class="qa__a"><p class="qa__kurz">Ja. Nur Positionen gibt es dafür nicht.</p><p>Der Website-Check braucht keinen Zugang, nur die Adresse. Der Crawler ruft die Seiten nacheinander ab, nicht parallel, und hält sich standardmäßig an die robots.txt. Positionen gibt es nur für Websites, deren Search Console du verbunden hast.</p></div>
+    </article>
+    <article class="qa" id="mcp">
+      <h3 class="qa__q">Was ist MCP, und brauche ich Claude?</h3>
+      <div class="qa__a"><p class="qa__kurz">Nein, die Oberfläche im Browser reicht.</p><p>MCP ist eine Schnittstelle, über die Claude Programme bedienen kann. Nextfix bietet dort 51 Werkzeuge an. Wer Claude nutzt, kann dann im Chat sagen: „Prüf meine Website und erklär mir die drei wichtigsten Aufgaben.“</p></div>
+    </article>
   </section>
 
-  <section class="section wrap" aria-labelledby="g3">
-    <div class="grid">
-      <div class="faq-side">
-        <h2 id="g3" class="faq-group" data-reveal>Daten und Datenschutz</h2>
-        <figure class="shot" data-reveal>
-          <img src="../assets/img/shot-positionen-schmal-1140.webp"
-               srcset="../assets/img/shot-positionen-schmal-760.webp 760w, ../assets/img/shot-positionen-schmal-1140.webp 1140w"
-               sizes="(max-width: 50em) calc(100vw - 2rem), 31vw" width="1140" height="1394" loading="lazy"
-               alt="Kennzahlen und „Fast auf Seite 1“ aus der Search Console, mit Testdaten">
-          <figcaption>Positionen kommen aus der Search Console, hier mit Testdaten.</figcaption>
-        </figure>
-      </div>
-      <div class="faq-list faq-list--page">
-        <details class="qa">
-          <summary>Wohin gehen meine Daten?</summary>
-          <div class="qa__a"><p>Deine Ergebnisse bleiben auf deinem Rechner, in einer einzigen Datei (<code>data/seo.db</code>). Nach außen geht nur, was für eine Abfrage nötig ist: Nextfix ruft deine Website ab, holt für Suchbegriff-Ideen die Vorschläge beim Tippen von Google und, wenn du es einrichtest, Daten von Search Console, Bing und Open PageRank. Kein Konto bei Nextfix, kein Tracking.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Fragt Nextfix Google-Suchergebnisse ab?</summary>
-          <div class="qa__a"><p>Nein. Nextfix liest keine Suchergebnisse aus. Deine Positionen kommen aus der Search Console und von Bing, also aus den Daten, die dir als Website-Betreiber ohnehin zustehen. Für Suchbegriff-Ideen fragt es in kleinem Umfang die Vorschläge beim Tippen ab; das ist keine offizielle Schnittstelle von Google.</p></div>
-        </details>
-      </div>
+  <section class="fq-gruppe wrap" id="daten" aria-labelledby="g3" data-fq-gruppe>
+    <div class="fq-gruppe__kopf">
+      <h2 id="g3" data-reveal>Daten und Datenschutz</h2>
+      <p data-reveal style="--i:1">Was auf deinem Rechner bleibt und was nach außen geht.</p>
     </div>
+    <article class="qa" id="daten-wohin">
+      <h3 class="qa__q">Wohin gehen meine Daten?</h3>
+      <div class="qa__a"><p class="qa__kurz">Nirgendwohin. Sie bleiben in einer Datei auf deinem Rechner.</p><p>Alle Ergebnisse liegen in <code>data/seo.db</code>. Nach außen geht nur, was für eine Abfrage nötig ist: Nextfix ruft deine Website ab, holt für Suchbegriff-Ideen die Vorschläge beim Tippen von Google und, wenn du es einrichtest, Daten von Search Console, Bing und Open PageRank. Kein Konto bei Nextfix, kein Tracking.</p></div>
+    </article>
+    <article class="qa" id="suchergebnisse">
+      <h3 class="qa__q">Fragt Nextfix Google-Suchergebnisse ab?</h3>
+      <div class="qa__a"><p class="qa__kurz">Nein.</p><p>Nextfix liest keine Suchergebnisse aus. Deine Positionen kommen aus der Search Console und von Bing, also aus den Daten, die dir als Website-Betreiber ohnehin zustehen. Für Suchbegriff-Ideen fragt es in kleinem Umfang die Vorschläge beim Tippen ab; das ist keine offizielle Schnittstelle von Google.</p></div>
+    </article>
   </section>
 
-  <section class="section wrap" id="begriffe" aria-labelledby="g0">
-    <div class="grid">
-      <div class="faq-side">
-        <h2 id="g0" class="faq-group" data-reveal>Fachwörter kurz erklärt</h2>
-        <p class="faq-side__text" data-reveal>Die Wörter, die in Nextfix und in den Aufgaben vorkommen, in einem Satz.</p>
-      </div>
-      <dl class="glossar faq-list--page" data-reveal>
-          <div><dt>Seitentitel (Title)</dt><dd>Der Name einer Seite im Browser-Tab und die blaue Überschrift bei Google.</dd></div>
-          <div><dt>Beschreibung (Meta-Description)</dt><dd>Der kurze Text unter dem Titel bei Google. Er entscheidet mit, ob jemand klickt.</dd></div>
-          <div><dt>Index</dt><dd>Die Liste aller Seiten, die Google kennt und zeigen kann. „Aus dem Index nehmen“ heißt: Google soll die Seite nicht zeigen (noindex).</dd></div>
-          <div><dt>Sitemap</dt><dd>Eine Datei mit allen Adressen deiner Website, damit Suchmaschinen sie schneller finden. Meistens erstellt dein CMS sie selbst.</dd></div>
-          <div><dt>404</dt><dd>Die Antwort „Seite nicht gefunden“. Passiert, wenn eine Seite gelöscht wurde, aber noch Links darauf zeigen.</dd></div>
-          <div><dt>Weiterleitung (301)</dt><dd>Eine alte Adresse schickt Besucher automatisch zur neuen. Richtig, wenn eine Seite umzieht.</dd></div>
-          <div><dt>H1</dt><dd>Die Hauptüberschrift einer Seite. Jede Seite sollte genau eine haben.</dd></div>
-          <div><dt>Alternativtext (alt)</dt><dd>Eine kurze Beschreibung eines Bildes für Menschen, die es nicht sehen, und für die Bildersuche.</dd></div>
-          <div><dt>CMS</dt><dd>Das Programm, mit dem du deine Website pflegst, zum Beispiel WordPress, Wix oder Jimdo.</dd></div>
-          <div><dt>Search Console</dt><dd>Ein kostenloser Dienst von Google, der dir zeigt, bei welchen Suchbegriffen deine Seiten erscheinen.</dd></div>
-      </dl>
+  <section class="fq-begriffe wrap" id="begriffe" aria-labelledby="g0" data-fq-gruppe>
+    <div class="fq-gruppe__kopf">
+      <h2 id="g0" data-reveal>Fachwörter kurz erklärt</h2>
+      <p data-reveal style="--i:1">Die Wörter, die in Nextfix und in den Aufgaben vorkommen, in einem Satz.</p>
     </div>
+    <dl class="fq-glossar">
+      <div data-reveal><dt>Seitentitel (Title)</dt><dd>Der Name einer Seite im Browser-Tab und die blaue Überschrift bei Google.</dd></div>
+      <div data-reveal style="--i:1"><dt>Beschreibung (Meta-Description)</dt><dd>Der kurze Text unter dem Titel bei Google. Er entscheidet mit, ob jemand klickt.</dd></div>
+      <div data-reveal><dt>Index</dt><dd>Die Liste aller Seiten, die Google kennt und zeigen kann. „Aus dem Index nehmen“ heißt: Google soll die Seite nicht zeigen (noindex).</dd></div>
+      <div data-reveal style="--i:1"><dt>Sitemap</dt><dd>Eine Datei mit allen Adressen deiner Website, damit Suchmaschinen sie schneller finden. Meistens erstellt dein CMS sie selbst.</dd></div>
+      <div data-reveal><dt>404</dt><dd>Die Antwort „Seite nicht gefunden“. Passiert, wenn eine Seite gelöscht wurde, aber noch Links darauf zeigen.</dd></div>
+      <div data-reveal style="--i:1"><dt>Weiterleitung (301)</dt><dd>Eine alte Adresse schickt Besucher automatisch zur neuen. Richtig, wenn eine Seite umzieht.</dd></div>
+      <div data-reveal><dt>H1</dt><dd>Die Hauptüberschrift einer Seite. Jede Seite sollte genau eine haben.</dd></div>
+      <div data-reveal style="--i:1"><dt>Alternativtext (alt)</dt><dd>Eine kurze Beschreibung eines Bildes für Menschen, die es nicht sehen, und für die Bildersuche.</dd></div>
+      <div data-reveal><dt>CMS</dt><dd>Das Programm, mit dem du deine Website pflegst, zum Beispiel WordPress, Wix oder Jimdo.</dd></div>
+      <div data-reveal style="--i:1"><dt>Search Console</dt><dd>Ein kostenloser Dienst von Google, der dir zeigt, bei welchen Suchbegriffen deine Seiten erscheinen.</dd></div>
+    </dl>
   </section>
 
-  <section class="section wrap" aria-labelledby="g4">
-    <div class="grid">
-      <div class="faq-side">
-        <h2 id="g4" class="faq-group" data-reveal>Ergebnisse verstehen</h2>
-        <figure class="shot" data-reveal>
-          <img src="../assets/img/shot-zustand-schmal-1140.webp"
-               srcset="../assets/img/shot-zustand-schmal-760.webp 760w, ../assets/img/shot-zustand-schmal-1140.webp 1140w"
-               sizes="(max-width: 50em) calc(100vw - 2rem), 31vw" width="1140" height="1772" loading="lazy"
-               alt="Website-Zustand 64 von 100 mit Skala und Teilnoten">
-          <figcaption>Der Website-Zustand mit den Grenzen 50 und 80.</figcaption>
-        </figure>
-      </div>
-      <div class="faq-list faq-list--page">
-        <details class="qa">
-          <summary>Was bedeutet der Website-Zustand?</summary>
-          <div class="qa__a"><p>Eine Zahl von 0 bis 100, die zeigt, wie viele und wie schwere Probleme gefunden wurden. Ab 80 gilt eine Website als gut gepflegt, unter 50 gibt es mehrere grobe Fehler. Ein Fehler auf vielen Seiten wiegt schwerer als einer auf einer einzelnen Seite.</p>
-            <p>Die Zahl sagt nichts darüber, auf welchem Platz du bei Google landest. Sie ist ein Maß für den Pflegezustand, nicht fürs Ranking.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Warum gibt es keine Punkte je Aufgabe?</summary>
-          <div class="qa__a"><p>Weil niemand seriös vorhersagen kann, was eine Behebung bei Google bringt. Eine Angabe wie „+4,2 Punkte“ täuscht Genauigkeit vor. Nextfix sortiert die Aufgaben trotzdem nach ihrem Gewicht und zeigt die Wirkung in drei Stufen: hoch, mittel, gering.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Was heißt „Bewusst so“?</summary>
-          <div class="qa__a"><p>Manches ist Absicht: eine Login-Seite ohne Text, ein Impressum ohne Beschreibung. Markierst du ein Problem, eine Seite oder eine einzelne Fundstelle als „Bewusst so“, zählt es nicht mehr im Zustand und taucht nicht in den Aufgaben auf. Du kannst es jederzeit zurücknehmen.</p></div>
-        </details>
-        <details class="qa">
-          <summary>Was kann Nextfix nicht?</summary>
-          <div class="qa__a"><p>Es zeigt keine Positionen deiner Konkurrenz und keine einzelnen Backlinks, dafür bräuchte es bezahlte Datenbanken. Die Ladezeit misst es im Labor auf deinem Rechner, nicht bei echten Besuchern.</p></div>
-        </details>
-      </div>
+  <section class="fq-gruppe wrap" id="ergebnisse" aria-labelledby="g4" data-fq-gruppe>
+    <div class="fq-gruppe__kopf">
+      <h2 id="g4" data-reveal>Ergebnisse verstehen</h2>
+      <p data-reveal style="--i:1">Wie Nextfix bewertet und wo seine Grenzen liegen.</p>
+    </div>
+    <article class="qa" id="zustand">
+      <h3 class="qa__q">Was bedeutet der Website-Zustand?</h3>
+      <div class="qa__a"><p class="qa__kurz">Wie gepflegt deine Website ist, von 0 bis 100.</p><p>Die Zahl zeigt, wie viele und wie schwere Probleme gefunden wurden. Ab 80 gilt eine Website als gut gepflegt, unter 50 gibt es mehrere grobe Fehler. Ein Fehler auf vielen Seiten wiegt schwerer als einer auf einer einzelnen Seite.</p><p>Über deinen Platz bei Google sagt sie nichts. Sie ist ein Maß für den Pflegezustand, nicht fürs Ranking.</p></div>
+    </article>
+    <article class="qa" id="punkte">
+      <h3 class="qa__q">Warum gibt es keine Punkte je Aufgabe?</h3>
+      <div class="qa__a"><p class="qa__kurz">Weil niemand das seriös vorhersagen kann.</p><p>Eine Angabe wie „+4,2 Punkte“ täuscht Genauigkeit vor. Nextfix sortiert die Aufgaben trotzdem nach ihrem Gewicht und zeigt die Wirkung in drei Stufen: hoch, mittel, gering.</p></div>
+    </article>
+    <article class="qa" id="bewusst-so">
+      <h3 class="qa__q">Was heißt „Bewusst so“?</h3>
+      <div class="qa__a"><p class="qa__kurz">Es ist Absicht und zählt nicht mehr.</p><p>Manches gehört so: eine Login-Seite ohne Text, ein Impressum ohne Beschreibung. Markierst du ein Problem, eine Seite oder eine einzelne Fundstelle als „Bewusst so“, zählt es nicht mehr im Zustand und taucht nicht in den Aufgaben auf. Du kannst es jederzeit zurücknehmen.</p></div>
+    </article>
+    <article class="qa" id="grenzen">
+      <h3 class="qa__q">Was kann Nextfix nicht?</h3>
+      <div class="qa__a"><p class="qa__kurz">Konkurrenz-Positionen und einzelne Backlinks.</p><p>Dafür bräuchte es bezahlte Datenbanken. Die Ladezeit misst Nextfix im Labor auf deinem Rechner, nicht bei echten Besuchern.</p></div>
+    </article>
+  </section>
+
+  <section class="fq-fehlt wrap" id="frage-fehlt" aria-labelledby="g5">
+    <h2 id="g5" data-reveal>Deine Frage ist nicht dabei?</h2>
+    <div class="fq-fehlt__text">
+      <p data-reveal style="--i:1">Stell sie öffentlich auf GitHub, dann hilft die Antwort auch anderen. Lieber privat? Schreib an neyro.devs@gmail.com.</p>
+      <p class="fq-fehlt__knoepfe" data-reveal style="--i:2">
+        <a class="button" href="https://github.com/the-neyro/nextfix/issues/new">Frage auf GitHub stellen</a>
+        <a class="button button--ghost" href="mailto:neyro.devs@gmail.com?subject=Frage%20zu%20Nextfix">E-Mail schreiben</a>
+      </p>
     </div>
   </section>
 </main>
